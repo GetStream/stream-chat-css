@@ -1,0 +1,7 @@
+node_modules
+build
+dist
+/src/styles/vendor/
+/src/styles/MessageCommerce.scss
+/src/styles/MessageLivestream.scss
+/src/styles/MessageTeam.scss

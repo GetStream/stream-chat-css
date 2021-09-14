@@ -1,0 +1,23 @@
+{
+  "name": "stream-chat-css",
+  "version": "0.0.0",
+  "main": "dist/css/index.css",
+  "repository": "git@github.com:GetStream/stream-chat-css.git",
+  "author": "GetStream",
+  "license": "MIT",
+  "private": false,
+  "style": "dist/css/index.css",
+  "scripts": {
+    "build": "rm -rf dist && mkdir -p dist && rollup -c",
+    "lint": "stylelint '**/*.scss'",
+    "start": "yarn build && sass --watch src/index.scss dist/index.css"
+  },
+  "devDependencies": {
+    "rollup": "^2.56.3",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-scss": "^3.0.0",
+    "sass": "^1.39.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-sass-guidelines": "^8.0.0"
+  }
+}
