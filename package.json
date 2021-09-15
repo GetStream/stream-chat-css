@@ -8,14 +8,14 @@
   "private": false,
   "style": "dist/css/index.css",
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && rollup -c",
+    "build": "rm -rf dist && mkdir -p dist && yarn sass && yarn copy-assets && yarn copy-styles",
+    "copy-assets": "echo '\u001b[34mℹ\u001b[0m Copying assets to distributed directory' && cp -R src/assets dist/assets && echo '\u001b[32m✓\u001b[0m Finished copying assets'",
+    "copy-styles": "echo '\u001b[34mℹ\u001b[0m Copying scss files to distributed directory' && cp -R src/styles dist/scss  && echo '\u001b[32m✓\u001b[0m Finished copying styles'",
     "lint": "stylelint '**/*.scss'",
-    "start": "yarn build && sass --watch src/index.scss dist/index.css"
+    "sass": "echo '\u001b[34mℹ\u001b[0m Compiling scss files to css bundle' && sass src/styles/index.scss dist/css/index.css --style compressed && echo '\u001b[32m✓\u001b[0m Finished bundling css'",
+    "start": "yarn build && sass --watch src/styles/index.scss dist/css/index.css"
   },
   "devDependencies": {
-    "rollup": "^2.56.3",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-scss": "^3.0.0",
     "sass": "^1.39.2",
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0"
