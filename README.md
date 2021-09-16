@@ -3,7 +3,7 @@
 > Bundled CSS for Stream Chat SDKs
 
 [![NPM](https://img.shields.io/npm/v/stream-chat-css.svg)](https://www.npmjs.com/package/stream-chat-css)
-[![Build Status](https://travis-ci.org/GetStream/stream-chat-css.svg?branch=master)](https://travis-ci.org/GetStream/stream-chat-css)
+[![Build Status](https://travis-ci.org/GetStream/stream-chat-css.svg?branch=main)](https://travis-ci.org/GetStream/stream-chat-css)
 
 ## Install
 
