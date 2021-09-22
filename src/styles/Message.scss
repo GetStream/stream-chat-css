@@ -864,7 +864,8 @@
     color: var(--overlay-dark);
   }
 
-  > .str-chat__avatar {
+  > .str-chat__avatar,
+  > .str-chat-angular__avatar-host > .str-chat__avatar {
     align-self: flex-end;
     margin-right: 0;
   }
