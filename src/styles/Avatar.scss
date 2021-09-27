@@ -42,10 +42,26 @@
 
 .str-chat__message {
   &--me {
-    > .str-chat__avatar {
+    %order {
       order: 1;
+    }
+
+    %margin {
       margin: 0;
       margin-left: var(--xs-m);
+    }
+
+    > .str-chat__avatar {
+      @extend %order;
+      @extend %margin;
+    }
+
+    > .str-chat-angular__avatar-host {
+      @extend %order;
+
+      > .str-chat__avatar {
+        @extend %margin;
+      }
     }
   }
 }
