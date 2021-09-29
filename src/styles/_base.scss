@@ -17,11 +17,11 @@
 
 .messenger-chat {
   &.str-chat {
-    height: 100vh;
-    font-family: var(--second-font);
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    font-family: var(--second-font);
+    height: 100vh;
     margin: 0;
     flex: 1 0 100%;
 
