@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-release:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Prepare git user
+        run: |
+          git config --global user.name "Dan Carbonell"
+          git config --global user.email "dan1525@gmail.com"
+
+      - name: Build distribution
+        run: yarn build
+
+      - name: Publish release to NPM
+        run: npm version patch
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
