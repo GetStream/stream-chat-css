@@ -1,0 +1,20 @@
+name: Style Lint
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  style-lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run style lint
+        run: yarn lint
