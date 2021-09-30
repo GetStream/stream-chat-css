@@ -25,7 +25,7 @@
     background: var(--white);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 
-    &:before {
+    &::before {
       position: absolute;
       top: calc(50% - 8px);
       left: calc(50% - 6px);
@@ -33,9 +33,9 @@
       display: block;
       width: 12px;
       height: 12px;
-      content: "";
+      content: '';
       border: 2px solid var(--primary-color);
-      border-width: 0px 0 2px 2px;
+      border-width: 0 0 2px 2px;
     }
 
     &-unread-count {
