@@ -125,7 +125,8 @@ $emoji-flag-unicode-range: U+1F1E6-1F1FF;
     height: 100%;
     display: flex;
 
-    .str-chat__main-panel {
+    .str-chat__main-panel,
+    .str-chat-angular__main-panel-inner {
       height: 100%;
       width: 100%;
       min-width: 250px;
