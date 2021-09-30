@@ -14,7 +14,7 @@
     "copy-assets": "echo '\u001b[34mℹ\u001b[0m Copying assets to distributed directory' && cp -R src/assets dist/assets && echo '\u001b[32m✓\u001b[0m Finished copying assets'",
     "copy-styles": "echo '\u001b[34mℹ\u001b[0m Copying scss files to distributed directory' && cp -R src/styles dist/scss  && echo '\u001b[32m✓\u001b[0m Finished copying styles'",
     "lint": "stylelint '**/*.scss' --max-warnings 0",
-    "preversion": "yarn && yarn lint",
+    "preversion": "yarn && yarn lint && yarn build",
     "postversion": "git push && git push --tags && npm publish",
     "start": "yarn build && sass --watch src/styles/index.scss dist/css/index.css"
   },
