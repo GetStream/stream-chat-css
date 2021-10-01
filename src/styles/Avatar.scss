@@ -70,7 +70,8 @@
   &--top,
   &--middle {
     .str-chat__message {
-      > .str-chat__avatar {
+      > .str-chat__avatar,
+      > .str-chat-angular__avatar-host {
         visibility: hidden;
       }
     }
