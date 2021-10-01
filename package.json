@@ -22,5 +22,10 @@
     "sass": "^1.39.2",
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0"
-  }
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ]
 }
