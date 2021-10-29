@@ -920,12 +920,12 @@
       padding: 0 var(--xs-p);
     }
 
-    &:first-of-type {
+    &:first-of-type:not(.str-chat-angular__message-attachment-file-single) {
       border-radius: var(--border-radius) var(--border-radius) 0 0;
       border-bottom: transparent;
     }
 
-    &:last-of-type {
+    &:last-of-type:not(.str-chat-angular__message-attachment-file-single) {
       border-top-color: transparent;
       border-radius: 0 0 var(--border-radius) calc(var(--border-radius-sm) / 2);
 
@@ -938,7 +938,7 @@
     }
   }
 
-  .str-chat__message-attachment-file--item {
+  .str-chat__message-attachment-file--item:not(.str-chat-angular__message-attachment-file-single) {
     border-radius: 0;
   }
 
@@ -951,10 +951,10 @@
     .str-chat__message-attachment--file {
       background: var(--grey-gainsboro);
 
-      &:last-of-type {
+      &:last-of-type:not(.str-chat-angular__message-attachment-file-single) {
         border-radius: 0 0 calc(var(--border-radius-sm) / 2) var(--border-radius);
 
-        &:first-of-type {
+        &:first-of-type:not(.str-chat-angular__message-attachment-file-single) {
           border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
             var(--border-radius);
         }
