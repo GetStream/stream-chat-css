@@ -15,7 +15,7 @@ yarn add stream-chat-css
 
 ## Usage
 
-This repository comes as a dependency of `stream-chat-react` and doesn't require explicit installation if you're using the component library. Add the styles to your app but importing the bundled CSS:
+This repository comes as a dependency of `stream-chat-react` and doesn't require explicit installation if you're using the component library. Add the styles to your app by importing the bundled CSS:
 
 ```tsx
 import 'stream-chat-css/dist/css/index.css';
