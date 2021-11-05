@@ -134,6 +134,10 @@ $emoji-flag-unicode-range: U+1F1E6-1F1FF;
       flex-direction: column;
       flex: 1;
     }
+
+    .rfu-dropzone {
+      width: 100%;
+    }
   }
 
   &.messaging {
