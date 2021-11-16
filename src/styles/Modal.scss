@@ -1,12 +1,11 @@
 .str-chat__modal {
-  background: var(--black);
+  background: var(--modal-overlay-color);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 10000;
-  opacity: 0.89;
   display: none;
   align-items: center;
   justify-content: center;

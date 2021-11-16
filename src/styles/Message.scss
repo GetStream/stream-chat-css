@@ -708,6 +708,11 @@
           position: relative;
           display: none;
         }
+
+        &--options.str-chat-angular__message-simple__actions__action--options--editing {
+          position: relative;
+          display: flex;
+        }
       }
     }
 

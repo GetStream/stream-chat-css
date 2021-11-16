@@ -192,7 +192,8 @@
   }
 }
 
-.rfu-image-previewer {
+.rfu-image-previewer,
+.rfu-image-previewer-angular-host {
   flex: 1 1 100%;
 
   &__image {
