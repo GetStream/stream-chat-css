@@ -84,6 +84,12 @@
     }
   }
 
+  &-has-attachments {
+    .str-chat__send-button {
+      display: block;
+    }
+  }
+
   &-wrapper {
     display: flex;
     flex-wrap: wrap;
