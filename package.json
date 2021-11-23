@@ -14,9 +14,36 @@
     "copy-assets": "echo '\u001b[34mℹ\u001b[0m Copying assets to distributed directory' && cp -R src/assets dist/assets && echo '\u001b[32m✓\u001b[0m Finished copying assets'",
     "copy-styles": "echo '\u001b[34mℹ\u001b[0m Copying scss files to distributed directory' && cp -R src/styles dist/scss  && echo '\u001b[32m✓\u001b[0m Finished copying styles'",
     "lint": "stylelint '**/*.scss' --max-warnings 0",
-    "preversion": "yarn && yarn lint && yarn build",
-    "postversion": "git push && git push --tags && npm publish",
+    "build:ci": "yarn && yarn lint && yarn build",
     "start": "yarn build && sass --watch src/styles/index.scss dist/css/index.css"
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "dryRun": true,
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/github"
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
   },
   "devDependencies": {
     "sass": "^1.39.2",
