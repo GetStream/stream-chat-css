@@ -169,6 +169,13 @@
   color: var(--white);
 }
 
+// Using separate rules for Angular so React SDK integrators don't have problems with "!important"
+// Angular needs "!imporant" to override angular-mentions styles
+.active.mention-active > a /* angular-mentions autocomplete */ {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
 .rta__list {
   border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
 }
