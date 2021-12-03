@@ -2,15 +2,15 @@
 
 > Bundled CSS for Stream Chat SDKs
 
-[![NPM](https://img.shields.io/npm/v/stream-chat-css.svg)](https://www.npmjs.com/package/stream-chat-css)
+[![NPM](https://img.shields.io/npm/v/@stream-io/stream-chat-css.svg)](https://www.npmjs.com/package/@stream-io/stream-chat-css)
 
 ## Install
 
 ```bash
 # with npm
-npm install --save stream-chat-css
+npm install --save @stream-io/stream-chat-css
 # with yarn
-yarn add stream-chat-css
+yarn add @stream-io/stream-chat-css
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ yarn add stream-chat-css
 This repository comes as a dependency of `stream-chat-react` and doesn't require explicit installation if you're using the component library. Add the styles to your app by importing the bundled CSS:
 
 ```tsx
-import 'stream-chat-css/dist/css/index.css';
+import '@stream-io/stream-chat-css/dist/css/index.css';
 ```
 
 ## License
