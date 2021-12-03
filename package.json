@@ -1,5 +1,5 @@
 {
-  "name": "stream-chat-css",
+  "name": "@stream-io/stream-chat-css",
   "version": "1.0.24",
   "main": "dist/css/index.css",
   "description": "Bundled CSS for Stream Chat web SDKs",
