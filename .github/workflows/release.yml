@@ -20,12 +20,12 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Prepare git user
+      - name: Build
         run: |
-          git config --global user.name "Dan Carbonell"
-          git config --global user.email "dan1525@gmail.com"
+          npm run build:ci
 
       - name: Publish release to NPM
-        run: npm version patch
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
+        run: npx semantic-release
