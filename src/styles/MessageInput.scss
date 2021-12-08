@@ -167,6 +167,7 @@
 .rta__entity--selected {
   background-color: var(--primary-color);
   color: var(--white);
+  width: 100%;
 }
 
 .rta__list {
@@ -201,6 +202,13 @@
 .str-chat__slash-command {
   padding: var(--xs-p) var(--sm-p);
   font-size: var(--md-font);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  & br {
+    display: none;
+  }
 
   &-description {
     font-size: var(--sm-font);
