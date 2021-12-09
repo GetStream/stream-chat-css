@@ -94,5 +94,7 @@
     background-image: url('#{$assetsPath}/Poweredby_100px-White_VertText.png');
     background-position: right var(--border-radius) bottom var(--border-radius);
     background-repeat: no-repeat;
+    /* that was the original sizing of the img in React */
+    background-size: 56px;
   }
 }
