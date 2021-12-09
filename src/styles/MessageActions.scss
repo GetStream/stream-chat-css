@@ -89,3 +89,15 @@
 .str-chat__message-actions-options:hover svg {
   fill: var(--primary-color);
 }
+
+.str-chat__message-simple:focus-within .str-chat__message-simple__actions__action--thread {
+  display: flex;
+}
+
+.str-chat__message-simple:focus-within .str-chat__message-simple__actions__action--reactions {
+  display: flex;
+}
+
+.str-chat__message-simple:focus-within .str-chat__message-simple__actions__action--options {
+  display: flex;
+}
