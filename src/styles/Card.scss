@@ -88,3 +88,11 @@
     filter: invert(100%);
   }
 }
+
+.str-chat__message-attachment-card.str-chat__message-attachment-card--giphy {
+  .str-chat__message-attachment-card--content {
+    background-image: url('#{$assetsPath}/Poweredby_100px-White_VertText.png');
+    background-position: right var(--border-radius) bottom var(--border-radius);
+    background-repeat: no-repeat;
+  }
+}
