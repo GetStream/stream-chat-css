@@ -687,6 +687,9 @@
         align-items: center;
         height: 10px;
         cursor: pointer;
+        background-color: transparent;
+        border: none;
+        padding: 0;
 
         svg {
           fill: var(--black);
@@ -707,6 +710,13 @@
         &--options {
           position: relative;
           display: none;
+
+          > button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            padding: 3px 0;
+          }
         }
 
         &--options.str-chat-angular__message-simple__actions__action--options--editing {
@@ -718,6 +728,10 @@
 
     &:hover {
       .str-chat__message-simple__actions__action--thread {
+        display: flex;
+      }
+
+      .str-chat__message-simple__actions__action--reactions {
         display: flex;
       }
 
@@ -815,6 +829,11 @@
     &:hover {
       .str-chat__message-simple__actions__action--options {
         display: flex;
+
+        button {
+          display: flex;
+          align-items: center;
+        }
       }
 
       .str-chat__message-simple__actions__action--reactions {
