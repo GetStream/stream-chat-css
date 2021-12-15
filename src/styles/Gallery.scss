@@ -11,6 +11,9 @@
     background: var(--white);
     margin-bottom: 1px;
     margin-right: 1px;
+    border: none;
+    padding: 0;
+    display: flex;
 
     &:hover {
       cursor: -moz-zoom-in;
@@ -61,10 +64,13 @@
         cursor: -moz-zoom-in;
         cursor: -webkit-zoom-in;
         cursor: zoom-in;
+        cursor: pointer;
+        border: none;
 
         p {
           position: relative;
           z-index: 1;
+          font-size: 16px;
         }
 
         &::after {

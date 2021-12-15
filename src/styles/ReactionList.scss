@@ -37,6 +37,13 @@
       justify-content: center;
       margin: -1px -16px 0 0;
       z-index: 888;
+
+      button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        display: flex;
+      }
     }
 
     .emoji-mart-emoji {

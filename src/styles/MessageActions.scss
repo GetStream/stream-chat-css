@@ -100,4 +100,9 @@
 
 .str-chat__message-simple:focus-within .str-chat__message-simple__actions__action--options {
   display: flex;
+
+  button {
+    display: flex;
+    align-items: center;
+  }
 }

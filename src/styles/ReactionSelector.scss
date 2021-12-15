@@ -93,6 +93,13 @@
   }
 }
 
+button.str-chat__message-reactions-list-item {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+}
+
 .str-chat__reaction-selector {
   z-index: 999;
   height: 60px;

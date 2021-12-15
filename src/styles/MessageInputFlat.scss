@@ -126,6 +126,10 @@
     position: absolute;
     top: calc(100% - 45px);
     left: 25px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background-color: transparent;
 
     svg {
       fill: var(--black);
