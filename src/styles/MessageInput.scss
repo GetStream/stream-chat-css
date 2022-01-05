@@ -56,6 +56,10 @@
   .rfu-file-upload-button {
     right: 46px;
     top: calc(100% - 34px);
+
+    &:focus-within {
+      outline: 5px auto -webkit-focus-ring-color;
+    }
   }
 
   &-footer {
