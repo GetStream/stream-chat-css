@@ -6,6 +6,7 @@
 @import './vendor/emoji-mart.scss'; // copy from '../../node_modules/emoji-mart/css/emoji-mart.css'
 @import './vendor/mml-react.scss'; // copy from '../../node_modules/mml-react/dist/styles/index.css'
 @import './vendor/react-file-utils.scss'; // copy from '../../node_modules/react-file-utils/dist/index.css'
+@import './vendor/react-image-gallery.scss'; // copy from '../../node_modules/react-image-gallery/styles/css/image-gallery.css'
 
 // Components
 @import './ActionsBox.scss';
@@ -38,7 +39,6 @@
 @import './MessageLivestream.scss';
 @import './MessageRepliesCountButton.scss';
 @import './Modal.scss';
-@import './ModalImage.scss';
 @import './ReactionList.scss';
 @import './ReactionSelector.scss';
 @import './SendButton.scss';

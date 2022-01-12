@@ -295,6 +295,10 @@
         display: flex;
         justify-content: space-between;
         padding: 10px 0 5px;
+
+        &-angular {
+          justify-content: end;
+        }
       }
 
       &--bottom,
