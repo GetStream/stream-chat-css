@@ -210,6 +210,12 @@
   }
 }
 
+.rta__entity {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+}
+
 .str-chat__slash-command {
   padding: var(--xs-p) var(--sm-p);
   font-size: var(--md-font);
