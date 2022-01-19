@@ -50,6 +50,8 @@
       cursor: pointer;
       padding-left: 8px;
       width: 100%;
+      border: none;
+      background: transparent;
 
       &:hover {
         font-weight: var(--font-weight-bold);
