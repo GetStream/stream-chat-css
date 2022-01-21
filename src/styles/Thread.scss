@@ -169,6 +169,10 @@
         // box-shadow: none;
         background: var(--white);
         box-shadow: 0 2px 9px 0 var(--border), 0 1px 0 0 var(--border);
+
+        .str-chat__square-button {
+          cursor: pointer;
+        }
       }
 
       &__thread-start {
