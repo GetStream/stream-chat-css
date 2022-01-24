@@ -168,6 +168,13 @@
   font-size: var(--md-font);
 }
 
+.rta__entity {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: transparent;
+}
+
 .rta__entity--selected {
   background-color: var(--primary-color);
   color: var(--white);
