@@ -13,6 +13,8 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: var(--xs-m);
+      width: 100%;
+      position: relative;
 
       &-header {
         font-size: var(--md-font);
@@ -79,6 +81,15 @@
           :nth-child(2) {
             margin-left: var(--xs-m);
           }
+        }
+      }
+
+      .str-chat__message-attachment-card {
+        margin: 0;
+        min-height: unset;
+
+        .str-chat__message-attachment-card--content {
+          display: none;
         }
       }
     }
