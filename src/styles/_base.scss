@@ -143,6 +143,10 @@ $emoji-flag-unicode-range: U+1F1E6-1F1FF;
       display: flex;
       flex-direction: column;
       flex: 1;
+
+      &--hideOnThread {
+        display: none;
+      }
     }
 
     .rfu-dropzone {

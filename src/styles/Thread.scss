@@ -136,7 +136,15 @@
         padding-top: 0;
 
         &.str-chat__thread--full {
+          position: fixed;
+          top: 0;
+          right: 0;
+          height: 100vh;
+          background: var(--white);
+          z-index: 1000;
           margin: 0;
+          width: 100vw;
+          max-width: 100%;
         }
 
         .str-chat__gallery {
@@ -256,6 +264,18 @@
 .str-chat {
   .str-chat__thread {
     background: transparent;
+
+    &--full {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      background: var(--white);
+      z-index: 1000;
+      margin: 0;
+      width: 100vw;
+      max-width: 100%;
+    }
 
     &-header {
       background: var(--white30);
