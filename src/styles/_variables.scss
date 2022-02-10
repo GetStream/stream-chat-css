@@ -1,8 +1,7 @@
 /* fonts */
 /* https://systemfontstack.com/ */
-$system-stack-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                    Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-                    "Helvetica Neue", sans-serif;
+$system-stack-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+  Cantarell, 'Helvetica Neue', sans-serif;
 $main-font: #{$system-stack-font};
 $second-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
