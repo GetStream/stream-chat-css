@@ -370,6 +370,12 @@
       border: 1px solid var(--border);
       margin-left: 0; /* set spacing when unfocused */
 
+      // Fixes emoji display in Chrome https://bugs.chromium.org/p/chromium/issues/detail?id=596223
+      .str-chat__emoji-display-fix {
+        display: inline-block;
+        width: 20px;
+      }
+
       p {
         /* Make sure really long urls and words don't break out.
         ** https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
