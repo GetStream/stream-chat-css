@@ -108,6 +108,10 @@
 
   .str-chat__textarea {
     flex: 1;
+
+    &.str-chat-angular__textarea {
+      position: relative;
+    }
   }
 
   .str-chat__textarea > textarea {
@@ -141,6 +145,13 @@
     cursor: pointer;
     padding: 0;
     background-color: transparent;
+
+    &.str-chat-angular__emojiselect {
+      max-width: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: initial;
+    }
 
     svg {
       fill: var(--black);

@@ -45,7 +45,8 @@
       line-height: 1;
     }
 
-    .emoji-mart-emoji {
+    .emoji-mart-emoji,
+    .str-chat__emoji {
       &:hover {
         transition: transform 0.2s ease-in-out;
         transform: scale(1.2);
