@@ -79,6 +79,12 @@
     transform-origin: 100% 100%;
   }
 
+  &-has-attachments {
+    .str-chat__send-button {
+      display: block;
+    }
+  }
+
   &--send-button {
     background: none;
     border: none;
