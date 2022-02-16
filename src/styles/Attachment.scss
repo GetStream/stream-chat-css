@@ -33,6 +33,11 @@
     padding: 0;
   }
 
+  /** Let giphies stretch their containers */
+  &-attachment--giphy {
+    max-width: unset;
+  }
+
   &--me {
     .str-chat__message-attachment {
       padding-left: 0;
