@@ -117,16 +117,22 @@
     }
   }
 
+  .str-chat-angular__textarea {
+    position: relative;
+
+    + .str-chat__fileupload-wrapper {
+      .rfu-file-upload-button {
+        right: 15px;
+      }
+    }
+  }
+
   .str-chat__emojisearch {
     bottom: 100%;
   }
 
   .str-chat__user-item {
     font-size: var(--md-font);
-  }
-
-  .str-chat-angular__textarea + .rfu-file-upload-button {
-    right: 15px;
   }
 
   .rfu-file-upload-button {
