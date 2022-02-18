@@ -197,6 +197,11 @@
   position: relative;
   cursor: pointer;
 
+  button {
+    border: none;
+    background: transparent;
+  }
+
   svg {
     fill: var(--black);
     opacity: 0.5;
