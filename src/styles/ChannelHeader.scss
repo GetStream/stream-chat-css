@@ -269,6 +269,8 @@
   flex-direction: column;
   justify-content: space-around;
   cursor: pointer;
+  border: none;
+  background: transparent;
 
   &:hover {
     .str-chat__header-hamburger--line {
