@@ -37,6 +37,25 @@
   }
 }
 
+.stream-chat-angular__image-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-stepper {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  &-image {
+    object-fit: cover;
+    max-width: 90%;
+    max-height: 90%;
+  }
+}
+
 .livestream.str-chat,
 .messaging.str-chat,
 .commerce.str-chat,
