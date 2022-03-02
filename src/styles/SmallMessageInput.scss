@@ -43,6 +43,13 @@
     max-width: 20px;
   }
 
+  .str-chat-angular__cooldown {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+  }
+
   .rfu-file-upload-button {
     bottom: 9px;
     right: 26px;
