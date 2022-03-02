@@ -137,6 +137,13 @@
     background: var(--white);
   }
 
+  .str-chat-angular__cooldown {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25px;
+  }
+
   &-emojiselect {
     position: absolute;
     top: calc(100% - 45px);
