@@ -18,7 +18,7 @@ $border-color: #00000014;
 
 $black: #000000;
 $white: #ffffff;
-$grey: #f0f0f0;
+$grey: #7a7a7a;
 $darken-grey: #343434;
 $lighten-black: #808080;
 $lighten-grey: #858585;
@@ -64,7 +64,7 @@ $border-radius: 16px;
   --lighten-grey: #{$lighten-grey};
 
   --light-grey: #ebebeb;
-  --grey: #{$lighten-black};
+  --grey: #{$grey};
   --dark-grey: #{$darken-grey};
 
   --green: #28ca42;
@@ -136,12 +136,10 @@ $border-radius: 16px;
 
   --bg-gradient-end: #f7f7f7;
   --bg-gradient-start: #fcfcfc;
-  --black: #000000;
   --blue-alice: #e9f2ff;
   --border: #00000014; // 14 = 8% opacity; top: x=0, y=-1; bottom: x=0, y=1
   --button-background: #ffffff;
   --button-text: #005fff;
-  --grey: #7a7a7a;
   --grey-gainsboro: #dbdbdb;
   --grey-whisper: #ecebeb;
   --highlight: #fbf4dd;
@@ -151,7 +149,6 @@ $border-radius: 16px;
   --shadow-icon: #00000040; // 40 = 25% opacity; x=0, y=0, radius=4
   --targetedMessageBackground: #fbf4dd; // dark mode = #302D22
   --transparent: transparent;
-  --white: #ffffff;
   --white-smoke: #f2f2f2;
   --white-snow: #fcfcfc;
 
