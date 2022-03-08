@@ -49,6 +49,7 @@
   padding: var(--xs-p);
   font-family: var(--second-font);
   text-align: center;
+  margin-top: var(--xs-m);
 
   &.notification-success {
     background: var(--faded-green);
@@ -60,6 +61,12 @@
     background: var(--faded-red);
     border: 1px solid var(--red);
     color: var(--red);
+  }
+
+  &.notification-info {
+    background: var(--faded-blue);
+    border: 1px solid var(--blue);
+    color: var(--blue);
   }
 }
 
