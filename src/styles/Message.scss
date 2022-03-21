@@ -753,6 +753,7 @@
       flex: initial;
       text-align: left;
       max-width: 460px;
+      word-break: break-all;
 
       &.str-chat__message-simple-text-inner--is-emoji {
         background: transparent;
