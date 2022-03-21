@@ -1196,7 +1196,6 @@
   // fixes the overall overflow/flex issues together with the rule above
   .mml-wrap {
     display: block;
-    max-width: none;
     // the max-width should match that to .str-chat__message-XXXX-text-inner
     max-width: 345px;
 
