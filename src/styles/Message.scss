@@ -550,9 +550,6 @@
     font-weight: var(--font-weight-bold);
   }
 
-  &-url-link {
-  }
-
   &--inner {
     display: flex;
     flex-direction: column;
@@ -766,7 +763,9 @@
         font-weight: var(--font-weight-bold);
         text-decoration: none;
 
-        &:active, &:focus, &:hover {
+        &:active,
+        &:focus,
+        &:hover {
           text-decoration: underline;
         }
       }
