@@ -59,7 +59,7 @@
     > .str-chat-angular__avatar-host {
       @extend %order;
 
-      > .str-chat__avatar {
+      .str-chat__avatar {
         @extend %margin;
       }
     }
