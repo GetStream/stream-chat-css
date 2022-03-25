@@ -6,6 +6,8 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: var(--xxs-m);
+    /** clicking on the quoted message navigates to its original location in the message list*/
+    cursor: pointer;
 
     &-inner {
       display: flex;
