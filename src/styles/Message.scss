@@ -293,6 +293,7 @@
   position: relative;
   margin: calc(var(--xxs-m) / 2) 0;
   width: 100%;
+  transition: background-color 0.5s ease-out;
 
   &--system {
     text-align: center;
@@ -541,6 +542,11 @@
 
   &--with-reactions {
     margin-top: var(--md-m);
+  }
+
+  &--highlighted {
+    transition: background-color 0.1s ease-out;
+    background-color: var(--highlight);
   }
 
   &-link {
