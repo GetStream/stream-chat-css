@@ -3,7 +3,6 @@
   flex: 1 0 300px;
   min-width: 300px;
   max-width: 300px;
-  overflow-y: hidden;
   font-family: var(--second-font);
   overflow: hidden;
   max-height: 100%;
@@ -223,6 +222,11 @@
         }
       }
     }
+  }
+
+  /** Quoted message preview in thread should not be squeezed to less than 100% for better readability */
+  .str-chat__input-flat-quoted .quoted-message-preview-content {
+    max-width: 100%;
   }
 }
 

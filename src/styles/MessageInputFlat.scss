@@ -43,6 +43,8 @@
           display: flex;
           text-align: start;
           align-items: flex-end;
+          word-break: break-all;
+          word-wrap: break-word;
 
           .str-chat__message-attachment {
             margin: 0;
