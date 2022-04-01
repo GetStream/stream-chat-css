@@ -6,6 +6,8 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: var(--xxs-m);
+    /** clicking on the quoted message navigates to its original location in the message list*/
+    cursor: pointer;
 
     &-inner {
       display: flex;
@@ -293,6 +295,7 @@
   position: relative;
   margin: calc(var(--xxs-m) / 2) 0;
   width: 100%;
+  transition: background-color 0.5s ease-out;
 
   &--system {
     text-align: center;
@@ -541,6 +544,11 @@
 
   &--with-reactions {
     margin-top: var(--md-m);
+  }
+
+  &--highlighted {
+    transition: background-color 0.1s ease-out;
+    background-color: var(--highlight);
   }
 
   &-link {
