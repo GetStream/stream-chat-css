@@ -380,12 +380,9 @@
       }
 
       p {
-        /* Make sure really long urls and words don't break out.
-        ** https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
-        overflow-wrap: break-word;
+        /* Make sure really long urls and words don't break out.*/
         word-wrap: break-word;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        word-break: break-word;
 
         /* Adds a hyphen where the word breaks, if supported (No Blink) */
         -ms-hyphens: auto;
@@ -559,13 +556,6 @@
 
   &-mention {
     font-weight: var(--font-weight-bold);
-  }
-
-  &-url-link {
-    max-width: 150px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
   }
 
   &--inner {
@@ -761,6 +751,8 @@
       flex: initial;
       text-align: left;
       max-width: 460px;
+      word-wrap: break-word;
+      word-break: break-word;
 
       &.str-chat__message-simple-text-inner--is-emoji {
         background: transparent;
@@ -778,6 +770,12 @@
         color: var(--primary-color);
         font-weight: var(--font-weight-bold);
         text-decoration: none;
+
+        &:active,
+        &:focus,
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       blockquote {
@@ -1203,7 +1201,6 @@
   // fixes the overall overflow/flex issues together with the rule above
   .mml-wrap {
     display: block;
-    max-width: none;
     // the max-width should match that to .str-chat__message-XXXX-text-inner
     max-width: 345px;
 
