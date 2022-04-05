@@ -2,6 +2,14 @@
   display: block;
   position: relative;
 
+  /*
+  min-width in a flex context: While the default min-width value is 0, for flex items it is auto.
+  This can make block elements take up much more space than desired, resulting in overflow.
+   */
+  .str-chat__message-inner {
+    min-width: 0;
+  }
+
   .quoted-message {
     display: flex;
     align-items: flex-end;
@@ -1010,6 +1018,8 @@
       }
     }
   }
+
+
 }
 
 .livestream.str-chat {
