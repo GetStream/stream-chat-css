@@ -206,7 +206,8 @@
         background: var(--white5);
 
         &-header {
-          background: var(--black80);
+          background: var(--dark-grey);
+
           box-shadow: 0 7px 9px 0 var(--black5), 0 1px 0 0 var(--black5);
           color: var(--white);
         }
@@ -305,6 +306,14 @@
         border-radius: var(--border-radius-sm);
         color: var(--white);
       }
+    }
+  }
+}
+
+.dark.str-chat.messaging {
+  .str-chat__thread-list {
+    .quoted-message-inner {
+      background: var(--dark-grey);
     }
   }
 }

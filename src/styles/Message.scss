@@ -804,6 +804,12 @@
       }
     }
 
+    &--deleted-inner {
+        background: var(--dark-grey);
+        color: var(--white);
+    }
+
+
     &--me {
       .str-chat__message-simple-reply-button {
         display: flex;
@@ -1049,13 +1055,18 @@
 }
 
 .dark.str-chat {
+  .str-chat__message,
   .str-chat__message-simple {
     &-text-inner {
-      background: var(--white-smoke);
+      background: var(--dark-grey);
       color: var(--white);
 
       &--is-emoji {
         background: transparent;
+      }
+
+      .quoted-message-inner {
+        background: var(--dark-grey);
       }
     }
 
@@ -1074,17 +1085,22 @@
       background: transparent;
 
       &--content {
-        background: var(--white-smoke);
+        background: var(--dark-grey);
       }
 
       &--url {
         color: var(--grey-gainsboro);
       }
+
+      &--title {
+        color: var(--primary-color);
+      }
     }
 
     .str-chat__message-attachment--file {
       border-color: transparent;
-      background: var(--white-smoke);
+      background: var(--dark-grey);
+      color: var(--white10);
 
       a,
       span {
@@ -1102,25 +1118,35 @@
       }
     }
 
+    .str-chat__message-simple--deleted-inner,
+    .str-chat__message--deleted-inner {
+      background: var(--dark-grey);;
+      color: var(--white);
+    }
+
     &--me {
-      .str-chat__message-simple {
-        &-text-inner {
-          background: var(--black);
+      .str-chat__message-text-inner {
+        background: var(--black40);
 
-          &--is-emoji {
-            background: transparent;
-          }
+        &--is-emoji {
+          background: transparent;
         }
+      }
 
-        .str-chat__message-attachment-card {
-          &--content {
-            background: var(--black);
-          }
+      .str-chat__message-attachment-card {
+        &--content {
+          background: var(--black40);
         }
+      }
 
-        .str-chat__message-attachment--file {
-          background: var(--overlay);
-        }
+      .str-chat__message-attachment--file {
+        background: var(--black40);
+      }
+
+      .str-chat__message-simple--deleted-inner,
+      .str-chat__message--deleted-inner {
+        background: var(--black40);;
+        color: var(--white);
       }
     }
   }
