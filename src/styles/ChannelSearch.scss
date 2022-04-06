@@ -102,10 +102,20 @@
 }
 
 .dark.str-chat {
-  .str-chat__channel-search {
+  .str-chat__channel-search,
+  .str-chat__channel-search-container.inline {
+    background: var(--dark-grey);
+    color: var(--white);
+
     input {
       background: var(--grey-gainsboro);
-      color: var(--white);
     }
+    .str-chat__channel-search-result {
+      color: var(--white);
+      &:hover {
+        background: var(--white5);
+      }
+    }
+
   }
 }
