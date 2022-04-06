@@ -110,12 +110,13 @@
     input {
       background: var(--grey-gainsboro);
     }
+
     .str-chat__channel-search-result {
       color: var(--white);
+
       &:hover {
         background: var(--white5);
       }
     }
-
   }
 }
