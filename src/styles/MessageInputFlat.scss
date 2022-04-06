@@ -289,6 +289,10 @@
         fill: var(--white);
       }
     }
+
+    &-quoted .quoted-message-preview-content {
+      background: var(--black20);
+    }
   }
 
   &.commerce {
