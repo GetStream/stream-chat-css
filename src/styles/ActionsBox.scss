@@ -41,8 +41,8 @@
 
 .dark.str-chat {
   .str-chat__message-actions-box {
-    background: var(--grey);
-    background-image: linear-gradient(-180deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    background: var(--dark-grey);
+    background-image: linear-gradient(-180deg, var(--dark-grey), var(--black20));
     box-shadow: 0 0 2px 0 var(--border), 0 1px 0 0 var(--border), 0 1px 8px 0 var(--border);
 
     button {
