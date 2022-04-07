@@ -17,6 +17,12 @@
   }
 }
 
+.dark.str-chat {
+  .str-chat__channel-list-messenger {
+    background: var(--dark-grey);
+  }
+}
+
 .str-chat__button {
   background: var(--white);
   box-shadow: 0 1px 1px 0 var(--black10), 0 1px 4px 0 var(--black10);

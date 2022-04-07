@@ -82,6 +82,12 @@
   }
 }
 
+.dark .str-chat__textarea {
+  textarea::placeholder {
+    color: var(--white30);
+  }
+}
+
 .str-chat__textarea {
   height: auto;
   flex: 1;
