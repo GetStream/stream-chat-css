@@ -49,6 +49,10 @@
   font-family: var(--second-font);
   color: var(--black);
 
+  &.dark {
+    color: var(--white);
+  }
+
   &.messaging,
   &.commerce {
     background-color: var(--grey-gainsboro);

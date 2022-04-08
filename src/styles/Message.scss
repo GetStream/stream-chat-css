@@ -2,6 +2,14 @@
   display: block;
   position: relative;
 
+  /*
+  min-width in a flex context: While the default min-width value is 0, for flex items it is auto.
+  This can make block elements take up much more space than desired, resulting in overflow.
+   */
+  .str-chat__message-inner {
+    min-width: 0;
+  }
+
   .quoted-message {
     display: flex;
     align-items: flex-end;
@@ -63,15 +71,13 @@
       &-attachment--img,
       &-attachment-card,
       .str-chat__gallery {
-        border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
-          calc(var(--border-radius-sm) / 2);
+        border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
       }
 
       &.str-chat__message--has-text.str-chat__message--has-attachment {
         .str-chat__message-attachment--img,
         .str-chat__message-attachment-card {
-          border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
-            calc(var(--border-radius-sm) / 2);
+          border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
         }
       }
 
@@ -80,28 +86,24 @@
         .str-chat__message {
           &-attachment--img,
           &-attachment-card {
-            border-radius: var(--border-radius) var(--border-radius)
-              calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
 
         &.str-chat__message--has-text.str-chat__message--has-attachment {
           .str-chat__message-attachment--img,
           .str-chat__message-attachment-card {
-            border-radius: var(--border-radius) var(--border-radius)
-              calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
 
         .str-chat__gallery {
-          border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
-            var(--border-radius);
+          border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
         }
 
         &.str-chat__message--has-text {
           .str-chat__gallery {
-            border-radius: var(--border-radius) var(--border-radius)
-              calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
       }
@@ -115,16 +117,14 @@
       &-attachment--img,
       &-attachment-card,
       .str-chat__gallery {
-        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
-          calc(var(--border-radius-sm) / 2);
+        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
       }
 
       &.str-chat__message--has-text.str-chat__message--has-attachment {
         .str-chat__message-attachment--img,
         .str-chat__message-attachment-card,
         .str-chat__gallery {
-          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
-            calc(var(--border-radius-sm) / 2);
+          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
         }
       }
 
@@ -133,8 +133,7 @@
           &-attachment--img,
           &-attachment-card,
           .str-chat__gallery {
-            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
-              calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
 
@@ -156,16 +155,14 @@
       &-attachment--img,
       &-attachment-card,
       .str-chat__gallery {
-        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
-          calc(var(--border-radius-sm) / 2);
+        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
       }
 
       &.str-chat__message--has-text.str-chat__message--has-attachment {
         .str-chat__message-attachment--img,
         .str-chat__message-attachment-card,
         .str-chat__gallery {
-          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
-            calc(var(--border-radius-sm) / 2);
+          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
         }
       }
 
@@ -174,8 +171,7 @@
           &-attachment--img,
           &-attachment-card,
           .str-chat__gallery {
-            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
-              calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
 
@@ -207,16 +203,14 @@
     .str-chat__message {
       &-text {
         &-inner {
-          border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
-            calc(var(--border-radius-sm) / 2);
+          border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
         }
       }
 
       &--me {
         .str-chat__message-text {
           &-inner {
-            border-radius: var(--border-radius) var(--border-radius)
-              calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
       }
@@ -227,12 +221,10 @@
     .str-chat__message {
       &-text {
         &-inner {
-          border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
-            calc(var(--border-radius-sm) / 2);
+          border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
 
           &--has-attachment {
-            border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius)
-              var(--border-radius) calc(var(--border-radius-sm) / 2);
+            border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
           }
         }
       }
@@ -240,12 +232,10 @@
       &--me {
         .str-chat__message-text {
           &-inner {
-            border-radius: var(--border-radius) var(--border-radius)
-              calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
 
             &--has-attachment {
-              border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
-                calc(var(--border-radius-sm) / 2) var(--border-radius);
+              border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
             }
           }
         }
@@ -258,16 +248,14 @@
     .str-chat__message {
       &-text {
         &-inner {
-          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
-            calc(var(--border-radius-sm) / 2);
+          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
         }
       }
 
       &--me {
         .str-chat__message-text {
           &-inner {
-            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
-              calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
 
             &--has-attachment {
               margin: 0;
@@ -278,8 +266,7 @@
         .str-chat__message-attachment-card {
           margin: 0;
           padding: 0;
-          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
-            calc(var(--border-radius-sm) / 2) var(--border-radius);
+          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
         }
       }
     }
@@ -400,8 +387,7 @@
       }
 
       &--has-attachment {
-        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
-          calc(var(--border-radius-sm) / 2);
+        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
       }
 
       /* if text consists of just one emoji */
@@ -491,8 +477,7 @@
         background: var(--grey-whisper);
         border-color: transparent;
         text-align: right;
-        border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
-          var(--border-radius);
+        border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
         margin-right: 0; /* set spacing when unfocused */
 
         &--focused {
@@ -503,8 +488,7 @@
         }
 
         &--has-attachment {
-          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
-            calc(var(--border-radius-sm) / 2) var(--border-radius);
+          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
         }
 
         &--is-emoji {
@@ -617,7 +601,9 @@
               }
             }
           }
-        } /* __li*/
+        }
+
+        /* __li*/
       }
     }
   }
@@ -655,7 +641,6 @@
   /* error messages */
   &--error,
   &--failed {
-    margin: 0 0 var(--lg-m) var(--xl-m);
     font-size: var(--sm-font);
     padding: var(--xxs-p) 0;
 
@@ -795,6 +780,12 @@
         }
       }
     }
+
+    &--deleted-inner {
+      background: var(--dark-grey);
+      color: var(--white);
+    }
+
 
     &--me {
       .str-chat__message-simple-reply-button {
@@ -964,8 +955,7 @@
       &:first-of-type {
         border-bottom: 1px solid var(--grey-gainsboro);
         border-top: 1px solid var(--grey-gainsboro);
-        border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
-          calc(var(--border-radius-sm) / 2);
+        border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
       }
     }
   }
@@ -976,8 +966,7 @@
 
   &--me {
     .str-chat__message-attachment-card {
-      border-radius: var(--border-radius) var(--border-radius-sm) var(--border-radius-sm)
-        var(--border-radius-sm);
+      border-radius: var(--border-radius) var(--border-radius-sm) var(--border-radius-sm) var(--border-radius-sm);
     }
 
     .str-chat__message-attachment--file {
@@ -987,8 +976,7 @@
         border-radius: 0 0 calc(var(--border-radius-sm) / 2) var(--border-radius);
 
         &:first-of-type:not(.str-chat-angular__message-attachment-file-single) {
-          border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
-            var(--border-radius);
+          border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
         }
       }
     }
@@ -1005,11 +993,12 @@
       .str-chat__message-actions-box {
         right: unset;
         left: 100%;
-        border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
-          calc(var(--border-radius-sm) / 2);
+        border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
       }
     }
   }
+
+
 }
 
 .livestream.str-chat {
@@ -1039,13 +1028,18 @@
 }
 
 .dark.str-chat {
+  .str-chat__message,
   .str-chat__message-simple {
     &-text-inner {
-      background: var(--white-smoke);
+      background: var(--dark-grey);
       color: var(--white);
 
       &--is-emoji {
         background: transparent;
+      }
+
+      .quoted-message-inner {
+        background: var(--dark-grey);
       }
     }
 
@@ -1064,17 +1058,22 @@
       background: transparent;
 
       &--content {
-        background: var(--white-smoke);
+        background: var(--dark-grey);
       }
 
       &--url {
         color: var(--grey-gainsboro);
       }
+
+      &--title {
+        color: var(--primary-color);
+      }
     }
 
     .str-chat__message-attachment--file {
       border-color: transparent;
-      background: var(--white-smoke);
+      background: var(--dark-grey);
+      color: var(--white10);
 
       a,
       span {
@@ -1092,25 +1091,35 @@
       }
     }
 
+    .str-chat__message-simple--deleted-inner,
+    .str-chat__message--deleted-inner {
+      background: var(--dark-grey);
+      color: var(--white);
+    }
+
     &--me {
-      .str-chat__message-simple {
-        &-text-inner {
-          background: var(--black);
+      .str-chat__message-text-inner {
+        background: var(--black40);
 
-          &--is-emoji {
-            background: transparent;
-          }
+        &--is-emoji {
+          background: transparent;
         }
+      }
 
-        .str-chat__message-attachment-card {
-          &--content {
-            background: var(--black);
-          }
+      .str-chat__message-attachment-card {
+        &--content {
+          background: var(--black40);
         }
+      }
 
-        .str-chat__message-attachment--file {
-          background: var(--overlay);
-        }
+      .str-chat__message-attachment--file {
+        background: var(--black40);
+      }
+
+      .str-chat__message-simple--deleted-inner,
+      .str-chat__message--deleted-inner {
+        background: var(--black40);
+        color: var(--white);
       }
     }
   }
@@ -1142,22 +1151,19 @@
       &--reverse {
         right: 100%;
         left: unset;
-        border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
-          var(--border-radius);
+        border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
       }
     }
 
     .str-chat__message-actions-box--mine {
       right: 100%;
       left: unset;
-      border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
-        var(--border-radius);
+      border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
 
       &.str-chat__message-actions-box--reverse {
         left: 100%;
         right: unset;
-        border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
-          calc(var(--border-radius-sm) / 2);
+        border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
       }
     }
   }

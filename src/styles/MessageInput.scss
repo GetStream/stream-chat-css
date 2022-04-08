@@ -82,6 +82,12 @@
   }
 }
 
+.dark .str-chat__textarea {
+  textarea::placeholder {
+    color: var(--white30);
+  }
+}
+
 .str-chat__textarea {
   height: auto;
   flex: 1;
@@ -104,7 +110,7 @@
       box-shadow: 0 0 0 2px var(--primary-color-faded);
     }
 
-    &:placeholder {
+    &::placeholder {
       color: var(--black50);
     }
   }
@@ -117,7 +123,7 @@
   position: absolute;
   background: var(--white95);
   box-shadow: 0 0 1px 0 var(--black30), 0 0 6px 0 var(--black10);
-  z-index: -1;
+  z-index: 10001;
   border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
   margin: 0 var(--xs-m);
   max-height: 360px;
