@@ -61,11 +61,18 @@
     .str-chat__message:first-of-type .str-chat__message-inner {
       margin-left: unset;
       margin-right: unset;
+      width: 100%;
     }
 
-    .str-chat__message-attachment.str-chat__message-attachment--file {
-      border-radius: var(--border-radius-md);
-      border-bottom: 1px solid var(--grey-whisper);
+    .str-chat__message-attachment.str-chat__message-attachment {
+      &--file {
+        border-radius: var(--border-radius-md);
+        border-bottom: 1px solid var(--grey-whisper);
+      }
+
+      &--media {
+        width: 100%;
+      }
     }
 
     .quoted-message {
