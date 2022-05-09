@@ -1,0 +1,17 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__channel-list-font-family: var(--str-chat__font-family);
+  --str-chat__channel-list-border-radius: 0;
+  --str-chat__channel-list-color: var(--str-chat__text-color);
+  --str-chat__channel-list-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__channel-list-box-shadow: none;
+  --str-chat__channel-list-border-block-start: none;
+  --str-chat__channel-list-border-block-end: none;
+  --str-chat__channel-list-border-inline-start: none;
+  --str-chat__channel-list-border-inline-end: 1px solid var(--str-chat__surface-color);
+}
+
+.str-chat-channel-list {
+  @include utils.component-layer-overrides('channel-list');
+}

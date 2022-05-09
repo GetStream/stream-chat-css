@@ -1,0 +1,24 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__avatar-font-family: var(--str-chat__font-family);
+  --str-chat__avatar-border-radius: var(--str-chat__border-radius-circle);
+  --str-chat__avatar-color: var(--str-chat__on-primary-color);
+  --str-chat__avatar-background-color: var(--str-chat__primary-color);
+  --str-chat__avatar-border-block-start: none;
+  --str-chat__avatar-border-block-end: none;
+  --str-chat__avatar-border-inline-start: none;
+  --str-chat__avatar-border-inline-end: none;
+  --str-chat__avatar-box-shadow: none;
+}
+
+.str-chat__avatar {
+  .str-chat__avatar-image {
+    @include utils.component-layer-overrides('avatar');
+  }
+
+  .str-chat__avatar-fallback {
+    @include utils.component-layer-overrides('avatar');
+    text-transform: uppercase;
+  }
+}

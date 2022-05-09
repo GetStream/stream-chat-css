@@ -1,0 +1,126 @@
+.str-chat {
+  // used for elements where sizing is necessary (such as icons, avatar)
+  --str-chat__spacing-px: 1px;
+  // used for margins, padding
+  --str-chat__spacing-0_5: 0.125rem;
+  --str-chat__spacing-1: 0.25rem;
+  --str-chat__spacing-1_5: 0.375rem;
+  --str-chat__spacing-2: 0.5rem;
+  --str-chat__spacing-2_5: 0.625rem;
+  --str-chat__spacing-3: 0.75rem;
+  --str-chat__spacing-3_5: 0.875rem;
+  --str-chat__spacing-4: 1rem;
+  --str-chat__spacing-5: 1.25rem;
+  --str-chat__spacing-6: 1.5rem;
+  --str-chat__spacing-7: 1.75rem;
+  --str-chat__spacing-8: 2rem;
+  --str-chat__spacing-9: 2.25rem;
+  --str-chat__spacing-10: 2.5rem;
+  --str-chat__spacing-11: 2.75rem;
+  --str-chat__spacing-12: 3rem;
+  --str-chat__spacing-14: 3.5rem;
+  --str-chat__spacing-16: 4rem;
+
+  --str-chat__blue900: #00163d;
+  --str-chat__blue800: #002666;
+  --str-chat__blue700: #003999;
+  --str-chat__blue600: #004ccc;
+  --str-chat__blue500: #005fff;
+  --str-chat__blue400: #337eff;
+  --str-chat__blue300: #669fff;
+  --str-chat__blue200: #ccdfff;
+  --str-chat__blue100: #e0f0ff;
+
+  --str-chat__grey950: #000000;
+  --str-chat__grey900: #121416;
+  --str-chat__grey800: #1c1e22;
+  --str-chat__grey700: #272a30;
+  --str-chat__grey600: #4c525c;
+  --str-chat__grey500: #72767e;
+  --str-chat__grey400: #b4b7bb;
+  --str-chat__grey300: #dbdde1;
+  --str-chat__grey200: #e9eaed;
+  --str-chat__grey100: #f7f7f8;
+  --str-chat__grey50: #ffffff;
+
+  --str-chat__red900: #330003;
+  --str-chat__red800: #660006;
+  --str-chat__red700: #990008;
+  --str-chat__red600: #cc000b;
+  --str-chat__red500: #ff000e;
+  --str-chat__red400: #ff3742;
+  --str-chat__red300: #ff666e;
+  --str-chat__red200: #ff999f;
+  --str-chat__red100: #ffe5e7;
+
+  --str-chat__green900: #062d16;
+  --str-chat__green800: #0d592c;
+  --str-chat__green700: #138643;
+  --str-chat__green600: #19b359;
+  --str-chat__green500: #20e070;
+  --str-chat__green400: #4ce68c;
+  --str-chat__green300: #79eca9;
+  --str-chat__green200: #a6f2c6;
+  --str-chat__green100: #e9f1ff;
+
+  --str-chat__yellow900: #332500;
+  --str-chat__yellow800: #664900;
+  --str-chat__yellow700: #996e00;
+  --str-chat__yellow600: #cc9200;
+  --str-chat__yellow500: #ffb700;
+  --str-chat__yellow400: #ffd466;
+  --str-chat__yellow300: #ffe299;
+  --str-chat__yellow200: #fff1cc;
+  --str-chat__yellow100: #fff8e5;
+
+  --str-chat__border-radius-sm: 16px;
+  --str-chat__border-radius-md: 20px;
+  --str-chat__border-radius-circle: 999px;
+
+  // https://systemfontstack.com/
+  --str-chat__font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, Helvetica Neue, sans-serif;
+}
+
+.str-chat,
+.str-chat__theme-light {
+  --str-chat__primary-color: var(--str-chat__blue500);
+  --str-chat__active-primary-color: var(--str-chat__blue600);
+  --str-chat__on-primary-color: var(--str-chat__grey50);
+  --str-chat__background-color: var(--str-chat__grey50);
+  --str-chat__secondary-background-color: var(--str-chat__grey50);
+  --str-chat__primary-surface-color: var(--str-chat__blue100);
+  --str-chat__surface-color: var(--str-chat__grey300);
+  --str-chat__secondary-surface-color: var(--str-chat__grey200);
+  --str-chat__text-color: var(--str-chat__grey950);
+  --str-chat__text-low-emphasis-color: var(--str-chat__grey500);
+  --str-chat__disabled-color: var(--str-chat__grey400);
+  --str-chat__on-disabled-color: var(--str-chat__grey5);
+  --str-chat__danger-color: var(--str-chat__red600);
+  --str-chat__online-indicator-color: var(--str-chat__green500);
+  --str-chat__message-highlight-color: var(--str-chat__yellow100);
+  --str-chat__unread-badge-color: var(--str-chat__red600);
+  --str-chat__on-unread-badge-color: var(--str-chat__grey50);
+  --str-chat__overlay-color: rgba(252, 252, 252, 0.9);
+}
+
+.str-chat__theme-dark {
+  --str-chat__primary-color: var(--str-chat__blue400);
+  --str-chat__active-primary-color: var(--str-chat__blue600);
+  --str-chat__on-primary-color: var(--str-chat__grey50);
+  --str-chat__background-color: var(--str-chat__grey950);
+  --str-chat__secondary-background-color: var(--str-chat__grey900);
+  --str-chat__primary-surface-color: var(--str-chat__blue900);
+  --str-chat__surface-color: var(--str-chat__grey700);
+  --str-chat__secondary-surface-color: var(--str-chat__grey800);
+  --str-chat__text-color: var(--str-chat__grey50);
+  --str-chat__text-low-emphasis-color: var(--str-chat__grey500);
+  --str-chat__disabled-color: var(--str-chat__grey600);
+  --str-chat__on-disabled-color: var(--str-chat__grey50);
+  --str-chat__danger-color: var(--str-chat__red600);
+  --str-chat__online-indicator-color: var(--str-chat__green500);
+  --str-chat__message-highlight-color: var(--str-chat__yellow900);
+  --str-chat__unread-badge-color: var(--str-chat__red600);
+  --str-chat__on-unread-badge-color: var(--str-chat__grey50);
+  --str-chat__overlay-color: rgba(77, 26, 26, 0.9);
+}
