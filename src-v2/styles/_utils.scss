@@ -5,13 +5,16 @@
 }
 
 @mixin component-layer-overrides($component-name) {
-  background-color: var(--str-chat__#{$component-name}-background-color);
-  color: var(--str-chat__#{$component-name}-color);
-  font-family: var(--str-chat__#{$component-name}-font-family);
-  box-shadow: var(--str-chat__#{$component-name}-box-shadow);
-  border-radius: var(--str-chat__#{$component-name}-border-radius);
-  border-block-start: var(--str-chat__#{$component-name}-border-block-start);
-  border-block-end: var(--str-chat__#{$component-name}-border-block-end);
-  border-inline-start: var(--str-chat__#{$component-name}-border-inline-start);
-  border-inline-end: var(--str-chat__#{$component-name}-border-inline-end);
+  // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  & {
+    background-color: var(--str-chat__#{$component-name}-background-color);
+    color: var(--str-chat__#{$component-name}-color);
+    font-family: var(--str-chat__#{$component-name}-font-family);
+    box-shadow: var(--str-chat__#{$component-name}-box-shadow);
+    border-radius: var(--str-chat__#{$component-name}-border-radius);
+    border-block-start: var(--str-chat__#{$component-name}-border-block-start);
+    border-block-end: var(--str-chat__#{$component-name}-border-block-end);
+    border-inline-start: var(--str-chat__#{$component-name}-border-inline-start);
+    border-inline-end: var(--str-chat__#{$component-name}-border-inline-end);
+  }
 }
