@@ -6,6 +6,7 @@
 
 @mixin component-layer-overrides($component-name) {
   // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
   & {
     background-color: var(--str-chat__#{$component-name}-background-color);
     color: var(--str-chat__#{$component-name}-color);

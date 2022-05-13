@@ -38,15 +38,9 @@
 .str-chat-channel-list {
   @include utils.component-layer-overrides('channel-list');
 
-  .str-chat__load-more-button {
-    display: flex;
-    justify-content: center;
-    margin: var(--str-chat__spacing-2) 0;
-
-    .str-chat__load-more-button__button {
-      @include utils.component-layer-overrides('channel-list-load-more');
-      @include utils.cta-button-overrides('channel-list-load-more');
-      width: 80%;
-    }
+  .str-chat__load-more-button__button {
+    @include utils.component-layer-overrides('channel-list-load-more');
+    @include utils.cta-button-overrides('channel-list-load-more');
+    width: 80%;
   }
 }

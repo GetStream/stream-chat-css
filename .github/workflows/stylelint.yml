@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - develop
+      - theming2
 
 jobs:
   style-lint:
