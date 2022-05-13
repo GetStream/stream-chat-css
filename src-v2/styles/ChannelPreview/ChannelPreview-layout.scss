@@ -48,7 +48,7 @@
   }
 }
 
-// PostCSS transformations get into an endless loop if these selecters are nested under .str-chat__channel-preview-loading
+// PostCSS transformations get into an endless loop if these selectors are nested under .str-chat__channel-preview-loading
 .str-chat__loading-channels-username {
   height: calc(var(--str-chat__spacing-px) * 16);
   width: calc(var(--str-chat__spacing-px) * 66);

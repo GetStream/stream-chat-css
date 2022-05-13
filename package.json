@@ -11,12 +11,12 @@
   "scripts": {
     "build": "yarn build-v1 && yarn build-v2",
     "build-v1": "rm -rf dist && mkdir -p dist && yarn bundle-sass && yarn copy-assets && yarn copy-styles",
-    "build-v2": "rm -rf dist-v2 && mkdir -p dist-v2 && yarn transform && yarn compile-to-css",
+    "build-v2": "rm -rf dist-v2 && mkdir -p dist-v2/scss && yarn transform && yarn compile-to-css",
     "transform": "postcss --dir dist-v2/scss --base src-v2/styles src-v2/styles",
     "compile-to-css": "sass dist-v2/scss/index.scss dist-v2/css/index.css --style compressed && sass dist-v2/scss/index.layout.scss dist-v2/css/index.layout.css --style compressed",
     "bundle-sass": "echo '\u001b[34mℹ\u001b[0m Compiling scss files to css bundle' && sass src/styles/index.scss dist/css/index.css --style compressed && echo '\u001b[32m✓\u001b[0m Finished bundling css'",
     "copy-assets": "echo '\u001b[34mℹ\u001b[0m Copying assets to distributed directory' && cp -R src/assets dist/assets && echo '\u001b[32m✓\u001b[0m Finished copying assets'",
-    "copy-styles": "echo '\u001b[34mℹ\u001b[0m Copying scss files to distributed directory' && cp -R src/styles dist/scss && cp -R src-v2/styles dist-v2/scss  && echo '\u001b[32m✓\u001b[0m Finished copying styles'",
+    "copy-styles": "echo '\u001b[34mℹ\u001b[0m Copying scss files to distributed directory' && cp -R src/styles dist/scss && echo '\u001b[32m✓\u001b[0m Finished copying styles'",
     "lint": "stylelint '**/*.scss' --max-warnings 0",
     "build:ci": "yarn && yarn lint && yarn build",
     "start": "yarn build && sass --watch src/styles/index.scss dist/css/index.css"
