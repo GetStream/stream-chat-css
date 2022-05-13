@@ -1,24 +1,60 @@
 @use '../utils';
 
-.str-chat__channel-preview {
-  display: flex;
-  column-gap: var(--str-chat__spacing-2);
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  cursor: pointer;
-  padding: var(--str-chat__spacing-2);
-  text-align: start;
+@mixin channel-preview-layout {
+  // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
+  & {
+    display: flex;
+    column-gap: var(--str-chat__spacing-2);
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: var(--str-chat__spacing-3) var(--str-chat__spacing-2);
+    text-align: start;
+  }
+}
 
-  .str-chat__channel-preview-end {
-    overflow: hidden; // need this for ellipsis text to work
+@mixin channel-preview-end-layout {
+  // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
+  & {
     display: flex;
     flex-direction: column;
     gap: var(--str-chat__spacing-0_5);
+    width: 100%;
+  }
+}
+
+.str-chat__channel-preview {
+  @include channel-preview-layout;
+  cursor: pointer;
+
+  .str-chat__channel-preview-end {
+    @include channel-preview-end-layout;
+    overflow: hidden; // need this for ellipsis text to work
 
     .str-chat__channel-preview-messenger--name,
     .str-chat__channel-preview-messenger--last-message {
       @include utils.ellipsis-text;
     }
   }
+}
+
+.str-chat__channel-preview-loading {
+  @include channel-preview-layout;
+
+  .str-chat__channel-preview-end-loading {
+    @include channel-preview-end-layout;
+  }
+}
+
+// PostCSS transformations get into an endless loop if these selecters are nested under .str-chat__channel-preview-loading
+.str-chat__loading-channels-username {
+  height: calc(var(--str-chat__spacing-px) * 16);
+  width: calc(var(--str-chat__spacing-px) * 66);
+}
+
+.str-chat__loading-channels-status {
+  height: calc(var(--str-chat__spacing-px) * 16);
+  width: 100%;
 }

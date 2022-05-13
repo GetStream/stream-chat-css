@@ -10,8 +10,43 @@
   --str-chat__channel-list-border-block-end: none;
   --str-chat__channel-list-border-inline-start: none;
   --str-chat__channel-list-border-inline-end: 1px solid var(--str-chat__surface-color);
+
+  --str-chat__channel-list-load-more-font-family: var(--str-chat__cta-button-font-family);
+  --str-chat__channel-list-load-more-border-radius: var(--str-chat__cta-button-border-radius);
+  --str-chat__channel-list-load-more-color: var(--str-chat__cta-button-color);
+  --str-chat__channel-list-load-more-background-color: var(--str-chat__cta-button-background-color);
+  --str-chat__channel-list-load-more-box-shadow: var(--str-chat__cta-button-box-shadow);
+  --str-chat__channel-list-load-more-border-block-start: var(
+    --str-chat__cta-button-border-block-start
+  );
+  --str-chat__channel-list-load-more-border-block-end: var(--str-chat__cta-button-border-block-end);
+  --str-chat__channel-list-load-more-border-inline-start: var(
+    --str-chat__cta-button-border-inline-start
+  );
+  --str-chat__channel-list-load-more-border-inline-end: var(
+    --str-chat__cta-button-border-inline-end
+  );
+  --str-chat__channel-list-load-more-pressed-background-color: var(
+    --str-chat__cta-button-pressed-background-color
+  );
+  --str-chat__channel-list-load-more-disabled-background-color: var(
+    --str-chat__cta-button-disabled-background-color
+  );
+  --str-chat__channel-list-load-more-disabled-color: var(--str-chat__cta-button-disabled-color);
 }
 
 .str-chat-channel-list {
   @include utils.component-layer-overrides('channel-list');
+
+  .str-chat__load-more-button {
+    display: flex;
+    justify-content: center;
+    margin: var(--str-chat__spacing-2) 0;
+
+    .str-chat__load-more-button__button {
+      @include utils.component-layer-overrides('channel-list-load-more');
+      @include utils.cta-button-overrides('channel-list-load-more');
+      width: 80%;
+    }
+  }
 }

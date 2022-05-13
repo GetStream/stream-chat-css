@@ -15,6 +15,7 @@
   --str-chat__channel-preview-latest-message-secondary-color: var(
     --str-chat__text-low-emphasis-color
   );
+  --str-chat__channel-preview-loading-state-color: var(--str-chat__disabled-color);
 }
 
 .str-chat__channel-preview {
@@ -37,7 +38,7 @@
   .str-chat__channel-preview-messenger--last-message {
     font-size: 0.875rem;
     line-height: 1rem;
-    color: var(--str-chat__channel-preview-latest-message-inactive-color);
+    color: var(--str-chat__channel-preview-latest-message-secondary-color);
     font-weight: 400;
   }
 
@@ -46,5 +47,49 @@
     .str-chat__channel-preview-messenger--last-message {
       color: var(--str-chat__channel-preview-color);
     }
+  }
+
+  &.str-chat__channel-preview--unread {
+    .str-chat__channel-preview-messenger--last-message {
+      color: var(--str-chat__channel-preview-color);
+      font-weight: 500;
+    }
+  }
+}
+
+.str-chat__channel-preview-loading {
+  animation: pulsate 1s linear 0s infinite alternate;
+
+  &:nth-of-type(2) {
+    animation: pulsate 1s linear 0.3334 infinite alternate;
+  }
+
+  &:last-of-type {
+    animation: pulsate 1s linear 0.6667s infinite alternate;
+  }
+
+  @keyframes pulsate {
+    from {
+      opacity: 0.5;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .str-chat__loading-channels-avatar,
+  .str-chat__loading-channels-username,
+  .str-chat__loading-channels-status {
+    background-image: linear-gradient(
+      -90deg,
+      var(--str-chat__channel-preview-loading-state-color) 0%,
+      var(--str-chat__channel-preview-loading-state-color) 100%
+    );
+  }
+
+  .str-chat__loading-channels-username,
+  .str-chat__loading-channels-status {
+    border-radius: var(--str-chat__border-radius-xs);
   }
 }

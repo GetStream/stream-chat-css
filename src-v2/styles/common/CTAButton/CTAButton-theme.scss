@@ -1,0 +1,22 @@
+@use '../../utils';
+
+.str-chat {
+  --str-chat__cta-button-font-family: var(--str-chat__font-family);
+  --str-chat__cta-button-border-radius: var(--str-chat__border-radius-xs);
+  --str-chat__cta-button-color: var(--str-chat__on-primary-color);
+  --str-chat__cta-button-background-color: var(--str-chat__primary-color);
+  --str-chat__cta-button-border-block-start: none;
+  --str-chat__cta-button-border-block-end: none;
+  --str-chat__cta-button-border-inline-start: none;
+  --str-chat__cta-button-border-inline-end: none;
+  --str-chat__cta-button-box-shadow: none;
+  --str-chat__cta-button-pressed-background-color: var(--str-chat__active-primary-color);
+  --str-chat__cta-button-disabled-background-color: var(--str-chat__disabled-color);
+  --str-chat__cta-button-disabled-color: var(--str-chat__on-disabled-color);
+}
+
+.str-chat__cta-button {
+  @include utils.component-layer-overrides('cta-button');
+  @include utils.cta-button-overrides('cta-button');
+  font-size: 1rem;
+}

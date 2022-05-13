@@ -18,3 +18,14 @@
     border-inline-end: var(--str-chat__#{$component-name}-border-inline-end);
   }
 }
+
+@mixin cta-button-overrides($component-name) {
+  &:active {
+    background-color: var(--str-chat__#{$component-name}-pressed-background-color);
+  }
+
+  &:disabled {
+    background-color: var(--str-chat__#{$component-name}-disabled-background-color);
+    color: var(--str-chat__#{$component-name}-disabled-color);
+  }
+}

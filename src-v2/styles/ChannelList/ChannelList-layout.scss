@@ -1,4 +1,9 @@
 .str-chat-channel-list {
   height: 100%;
   overflow-y: auto;
+
+  // This is displayed only in theme-v1
+  .str-chat__down-main {
+    display: none;
+  }
 }
