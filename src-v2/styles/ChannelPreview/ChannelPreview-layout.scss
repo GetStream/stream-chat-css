@@ -25,13 +25,37 @@
   }
 }
 
+// Unread badge will be bigger than channel name -> this would cause a layout shift when the unread badge appears -> this trick won't let the unread badge to increase the height of the container avoiding the layout shift
+@mixin unread-badge-layout-fix {
+  overflow-y: visible;
+
+  .str-chat__channel-preview-end-first-row {
+    overflow-y: visible;
+    height: var(--channel-name-height);
+  }
+}
+
 .str-chat__channel-preview {
   @include channel-preview-layout;
   cursor: pointer;
 
   .str-chat__channel-preview-end {
     @include channel-preview-end-layout;
-    overflow: hidden; // need this for ellipsis text to work
+    @include unread-badge-layout-fix;
+    overflow-x: hidden; // need this for ellipsis text to work
+
+    .str-chat__channel-preview-end-first-row {
+      display: flex;
+      align-items: center;
+
+      .str-chat__channel-preview-unread-badge {
+        padding: var(--str-chat__spacing-2);
+      }
+
+      .str-chat__channel-preview-messenger--name {
+        width: 100%;
+      }
+    }
 
     .str-chat__channel-preview-messenger--name,
     .str-chat__channel-preview-messenger--last-message {

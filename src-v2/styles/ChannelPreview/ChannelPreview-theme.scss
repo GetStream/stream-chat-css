@@ -16,9 +16,15 @@
     --str-chat__text-low-emphasis-color
   );
   --str-chat__channel-preview-loading-state-color: var(--str-chat__disabled-color);
+  --str-chat__channel-preview-unread-badge-border-radius: var(--str-chat__border-radius-circle);
+  --str-chat__channel-preview-unread-badge-border-block-start: none;
+  --str-chat__channel-preview-unread-badge-border-block-end: none;
+  --str-chat__channel-preview-unread-badge-border-inline-start: none;
+  --str-chat__channel-preview-unread-badge-border-inline-end: none;
 }
 
 .str-chat__channel-preview {
+  --channel-name-height: 1.25rem;
   @include utils.component-layer-overrides('channel-preview');
 
   &--active {
@@ -29,9 +35,22 @@
     background-color: var(--str-chat__channel-preview-hover-background-color);
   }
 
+  .str-chat__channel-preview-unread-badge {
+    font-size: 0.75rem;
+    line-height: 0.44rem;
+    border-radius: var(--str-chat__channel-preview-unread-badge-border-radius);
+    border-block-start: var(--str-chat__channel-preview-unread-badge-border-block-start);
+    border-block-end: var(--str-chat__channel-preview-unread-badge-border-block-end);
+    border-inline-start: var(--str-chat__channel-preview-unread-badge-border-inline-start);
+    border-inline-end: var(--str-chat__channel-preview-unread-badge-border-inline-end);
+    color: var(--str-chat__on-unread-badge-color);
+    background-color: var(--str-chat__unread-badge-color);
+    font-weight: 700;
+  }
+
   .str-chat__channel-preview-messenger--name {
     font-size: 1rem;
-    line-height: 1.25rem;
+    line-height: var(--channel-name-height);
     font-weight: 500;
   }
 
@@ -46,13 +65,6 @@
   &:hover {
     .str-chat__channel-preview-messenger--last-message {
       color: var(--str-chat__channel-preview-color);
-    }
-  }
-
-  &.str-chat__channel-preview--unread {
-    .str-chat__channel-preview-messenger--last-message {
-      color: var(--str-chat__channel-preview-color);
-      font-weight: 500;
     }
   }
 }
