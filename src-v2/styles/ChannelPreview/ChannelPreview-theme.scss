@@ -15,9 +15,16 @@
   --str-chat__channel-preview-latest-message-secondary-color: var(
     --str-chat__text-low-emphasis-color
   );
+  --str-chat__channel-preview-loading-state-color: var(--str-chat__disabled-color);
+  --str-chat__channel-preview-unread-badge-border-radius: var(--str-chat__border-radius-circle);
+  --str-chat__channel-preview-unread-badge-border-block-start: none;
+  --str-chat__channel-preview-unread-badge-border-block-end: none;
+  --str-chat__channel-preview-unread-badge-border-inline-start: none;
+  --str-chat__channel-preview-unread-badge-border-inline-end: none;
 }
 
 .str-chat__channel-preview {
+  --channel-name-height: 1.25rem;
   @include utils.component-layer-overrides('channel-preview');
 
   &--active {
@@ -28,16 +35,29 @@
     background-color: var(--str-chat__channel-preview-hover-background-color);
   }
 
+  .str-chat__channel-preview-unread-badge {
+    font-size: 0.75rem;
+    line-height: 0.44rem;
+    border-radius: var(--str-chat__channel-preview-unread-badge-border-radius);
+    border-block-start: var(--str-chat__channel-preview-unread-badge-border-block-start);
+    border-block-end: var(--str-chat__channel-preview-unread-badge-border-block-end);
+    border-inline-start: var(--str-chat__channel-preview-unread-badge-border-inline-start);
+    border-inline-end: var(--str-chat__channel-preview-unread-badge-border-inline-end);
+    color: var(--str-chat__on-unread-badge-color);
+    background-color: var(--str-chat__unread-badge-color);
+    font-weight: 700;
+  }
+
   .str-chat__channel-preview-messenger--name {
     font-size: 1rem;
-    line-height: 1.25rem;
+    line-height: var(--channel-name-height);
     font-weight: 500;
   }
 
   .str-chat__channel-preview-messenger--last-message {
     font-size: 0.875rem;
     line-height: 1rem;
-    color: var(--str-chat__channel-preview-latest-message-inactive-color);
+    color: var(--str-chat__channel-preview-latest-message-secondary-color);
     font-weight: 400;
   }
 
@@ -46,5 +66,42 @@
     .str-chat__channel-preview-messenger--last-message {
       color: var(--str-chat__channel-preview-color);
     }
+  }
+}
+
+.str-chat__channel-preview-loading {
+  animation: pulsate 1s linear 0s infinite alternate;
+
+  &:nth-of-type(2) {
+    animation: pulsate 1s linear 0.3334 infinite alternate;
+  }
+
+  &:last-of-type {
+    animation: pulsate 1s linear 0.6667s infinite alternate;
+  }
+
+  @keyframes pulsate {
+    from {
+      opacity: 0.5;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .str-chat__loading-channels-avatar,
+  .str-chat__loading-channels-username,
+  .str-chat__loading-channels-status {
+    background-image: linear-gradient(
+      -90deg,
+      var(--str-chat__channel-preview-loading-state-color) 0%,
+      var(--str-chat__channel-preview-loading-state-color) 100%
+    );
+  }
+
+  .str-chat__loading-channels-username,
+  .str-chat__loading-channels-status {
+    border-radius: var(--str-chat__border-radius-xs);
   }
 }

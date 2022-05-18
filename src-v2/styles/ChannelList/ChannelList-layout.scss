@@ -1,4 +1,42 @@
-.str-chat-channel-list {
+.str-chat__channel-list {
   height: 100%;
   overflow-y: auto;
+
+  .str-chat__channel-list-messenger {
+    height: 100%;
+
+    .str-chat__channel-list-messenger__main {
+      height: 100%;
+
+      .str-chat__channel-list-empty {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: var(--str-chat__spacing-4);
+
+        svg {
+          width: calc(var(--str-chat__spacing-px) * 136);
+          height: calc(var(--str-chat__spacing-px) * 136);
+        }
+      }
+
+      // Empty channel list for theme-v1
+      .str-chat__channel-list-empty-v1 {
+        display: none;
+      }
+    }
+  }
+
+  .str-chat__load-more-button {
+    display: flex;
+    justify-content: center;
+    margin: var(--str-chat__spacing-2) 0;
+  }
+
+  // This is displayed only in theme-v1
+  .str-chat__down-main {
+    display: none;
+  }
 }

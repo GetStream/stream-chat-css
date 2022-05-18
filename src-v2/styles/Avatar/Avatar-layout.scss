@@ -3,3 +3,9 @@
     text-align: center;
   }
 }
+
+.str-chat__loading-channels-avatar {
+  flex-shrink: 0;
+  width: calc(var(--str-chat__spacing-px) * 49);
+  height: calc(var(--str-chat__spacing-px) * 49);
+}

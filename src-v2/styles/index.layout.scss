@@ -1,5 +1,7 @@
 @use 'theme-variables';
+@use 'common';
 
+@use 'common/CTAButton/CTAButton-layout.scss';
 @use 'ChannelList/ChannelList-layout';
 @use 'ChannelPreview/ChannelPreview-layout';
 @use 'Avatar/Avatar-layout';

@@ -6,6 +6,7 @@
 
 @mixin component-layer-overrides($component-name) {
   // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
   & {
     background-color: var(--str-chat__#{$component-name}-background-color);
     color: var(--str-chat__#{$component-name}-color);
@@ -16,5 +17,16 @@
     border-block-end: var(--str-chat__#{$component-name}-border-block-end);
     border-inline-start: var(--str-chat__#{$component-name}-border-inline-start);
     border-inline-end: var(--str-chat__#{$component-name}-border-inline-end);
+  }
+}
+
+@mixin cta-button-overrides($component-name) {
+  &:active {
+    background-color: var(--str-chat__#{$component-name}-pressed-background-color);
+  }
+
+  &:disabled {
+    background-color: var(--str-chat__#{$component-name}-disabled-background-color);
+    color: var(--str-chat__#{$component-name}-disabled-color);
   }
 }
