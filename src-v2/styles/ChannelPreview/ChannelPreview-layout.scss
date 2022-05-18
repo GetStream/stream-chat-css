@@ -5,12 +5,16 @@
   /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
   & {
     display: flex;
-    column-gap: var(--str-chat__spacing-2);
     align-items: center;
     justify-content: flex-start;
     width: 100%;
     padding: var(--str-chat__spacing-3) var(--str-chat__spacing-2);
+    margin: 0;
     text-align: start;
+
+    :not(:last-child) {
+      margin-inline-end: var(--str-chat__spacing-2);
+    }
   }
 }
 
@@ -20,8 +24,11 @@
   & {
     display: flex;
     flex-direction: column;
-    gap: var(--str-chat__spacing-0_5);
     width: 100%;
+
+    :not(:last-child) {
+      margin-block-end: var(--str-chat__spacing-0_5);
+    }
   }
 }
 
@@ -70,15 +77,14 @@
   .str-chat__channel-preview-end-loading {
     @include channel-preview-end-layout;
   }
-}
 
-// PostCSS transformations get into an endless loop if these selectors are nested under .str-chat__channel-preview-loading
-.str-chat__loading-channels-username {
-  height: calc(var(--str-chat__spacing-px) * 16);
-  width: calc(var(--str-chat__spacing-px) * 66);
-}
+  .str-chat__loading-channels-username {
+    height: calc(var(--str-chat__spacing-px) * 16);
+    width: calc(var(--str-chat__spacing-px) * 66);
+  }
 
-.str-chat__loading-channels-status {
-  height: calc(var(--str-chat__spacing-px) * 16);
-  width: 100%;
+  .str-chat__loading-channels-status {
+    height: calc(var(--str-chat__spacing-px) * 16);
+    width: 100%;
+  }
 }

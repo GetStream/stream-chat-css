@@ -51,7 +51,6 @@
   },
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
-    "flex-gap-polyfill": "^4.1.0",
     "postcss": "^8.4.13",
     "postcss-cli": "^9.1.0",
     "postcss-dir-pseudo-class": "^6.0.4",
