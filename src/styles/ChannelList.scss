@@ -15,6 +15,11 @@
     padding: var(--xs-p) var(--sm-p);
     border-bottom: 1px solid var(--black10);
   }
+
+  // Empty channel list for theme-v2
+  .str-chat__channel-list-empty {
+    display: none;
+  }
 }
 
 .dark.str-chat {

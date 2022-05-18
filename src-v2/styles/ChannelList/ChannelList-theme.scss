@@ -33,14 +33,25 @@
     --str-chat__cta-button-disabled-background-color
   );
   --str-chat__channel-list-load-more-disabled-color: var(--str-chat__cta-button-disabled-color);
+  --str-chat__channel-list-empty-indicator-color: var(--str-chat__disabled-color);
 }
 
-.str-chat-channel-list {
+.str-chat__channel-list {
   @include utils.component-layer-overrides('channel-list');
 
   .str-chat__load-more-button__button {
     @include utils.component-layer-overrides('channel-list-load-more');
     @include utils.cta-button-overrides('channel-list-load-more');
     width: 80%;
+  }
+
+  .str-chat__channel-list-empty {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+
+    svg path {
+      fill: var(--str-chat__channel-list-empty-indicator-color);
+    }
   }
 }
