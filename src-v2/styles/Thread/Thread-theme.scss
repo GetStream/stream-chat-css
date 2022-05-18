@@ -1,0 +1,54 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__thread-font-family: var(--str-chat__font-family);
+  --str-chat__thread-border-radius: 0;
+  --str-chat__thread-color: var(--str-chat__text-color);
+  --str-chat__thread-background-color: var(--str-chat__background-color);
+  --str-chat__thread-border-block-start: none;
+  --str-chat__thread-border-block-end: none;
+  --str-chat__thread-border-inline-start: 1px solid var(--str-chat__surface-color);
+  --str-chat__thread-border-inline-end: none;
+  --str-chat__thread-box-shadow: none;
+
+  --str-chat__thread-header-font-family: var(--str-chat__font-family);
+  --str-chat__thread-header-border-radius: 0;
+  --str-chat__thread-header-color: var(--str-chat__text-color);
+  --str-chat__thread-header-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__thread-header-border-block-start: none;
+  --str-chat__thread-header-border-block-end: none;
+  --str-chat__thread-header-border-inline-start: none;
+  --str-chat__thread-header-border-inline-end: none;
+  --str-chat__thread-header-box-shadow: none;
+  --str-chat__thread-header-info-color: var(--str-chat__text-low-emphasis-color);
+}
+
+.str-chat__thread-container {
+  @include utils.component-layer-overrides('thread');
+
+  .str-chat__thread-header {
+    @include utils.component-layer-overrides('thread-header');
+
+    .str-chat__thread-header-name {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      font-weight: 500;
+    }
+
+    .str-chat__thread-header-channel-name {
+      font-size: 0.875rem;
+      line-height: 1rem;
+      color: var(--str-chat__thread-header-info-color);
+      font-weight: 400;
+    }
+
+    .str-chat__close-thread-button {
+      background-color: transparent;
+      border: none;
+
+      svg path {
+        fill: var(--str-chat__thread-color);
+      }
+    }
+  }
+}

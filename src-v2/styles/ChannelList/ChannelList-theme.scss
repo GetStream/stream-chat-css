@@ -46,12 +46,6 @@
   }
 
   .str-chat__channel-list-empty {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
-
-    svg path {
-      fill: var(--str-chat__channel-list-empty-indicator-color);
-    }
+    @include utils.empty-theme('channel-list');
   }
 }

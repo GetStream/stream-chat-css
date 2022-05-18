@@ -27,6 +27,11 @@
     color: var(--primary-color);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 
+    .str-chat__jump-to-latest-icon {
+      display: inline-block;
+      height: 24px;
+    }
+
     &-unread-count {
       font-size: 10px;
       left: 50%;

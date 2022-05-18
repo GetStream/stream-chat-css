@@ -1,7 +1,12 @@
 @use 'theme-variables';
 @use 'common';
 
-@use 'common/CTAButton/CTAButton-layout.scss';
+@use 'common/CTAButton/CTAButton-layout';
+@use 'common/CircleFAButton/CircleFAButton-layout';
 @use 'ChannelList/ChannelList-layout';
 @use 'ChannelPreview/ChannelPreview-layout';
 @use 'Avatar/Avatar-layout';
+@use 'Channel/Channel-layout';
+@use 'MessageList/MessageList-layout';
+@use 'ChannelHeader/ChannelHeader-layout';
+@use 'Thread/Thread-layout';
