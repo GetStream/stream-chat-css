@@ -58,9 +58,10 @@
     .str-chat__channel-preview-messenger--name,
     .str-chat__channel-preview-messenger--last-message {
       @include utils.ellipsis-text;
-      & p {
-        margin: 0;
+
+      p {
         @include utils.ellipsis-text;
+        margin: 0;
       }
     }
   }
