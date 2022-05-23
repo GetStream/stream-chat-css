@@ -1,3 +1,5 @@
+@use "../utils";
+
 .str-chat__channel-list {
   height: 100%;
   overflow-y: auto;
@@ -9,11 +11,8 @@
       height: 100%;
 
       .str-chat__channel-list-empty {
+        @include utils.flex-col-center;
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         padding: var(--str-chat__spacing-4);
 
         svg {
@@ -33,6 +32,10 @@
     display: flex;
     justify-content: center;
     margin: var(--str-chat__spacing-2) 0;
+
+    .str-chat__load-more-button__button {
+      @include utils.flex-row-center;
+    }
   }
 
   // This is displayed only in theme-v1
