@@ -32,7 +32,8 @@
 
   .str-chat__channel-preview-end {
     @include channel-preview-end-layout;
-    overflow-x: hidden; // need this for ellipsis text to work
+    overflow-x: clip; // need this for ellipsis text to work
+    overflow-y: visible;
 
     .str-chat__channel-preview-end-first-row {
       display: flex;
@@ -57,6 +58,10 @@
     .str-chat__channel-preview-messenger--name,
     .str-chat__channel-preview-messenger--last-message {
       @include utils.ellipsis-text;
+      & p {
+        margin: 0;
+        @include utils.ellipsis-text;
+      }
     }
   }
 }
