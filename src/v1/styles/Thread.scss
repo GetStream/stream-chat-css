@@ -10,6 +10,13 @@
   flex-direction: column;
   padding-top: 0;
 
+  .str-chat__thread-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   &--full {
     max-width: 100%;
   }
@@ -29,10 +36,11 @@
 
     &-details {
       font-size: var(--md-font);
+      font-weight: bold;
 
-      small {
-        display: block;
+      .str-chat__thread-header-channel-name {
         font-size: var(--sm-font);
+        font-weight: normal;
       }
     }
   }
@@ -184,8 +192,17 @@
         background: var(--white);
         box-shadow: 0 2px 9px 0 var(--border), 0 1px 0 0 var(--border);
 
+        .str-chat__thread-header-details {
+          width: 100%;
+        }
+
         .str-chat__square-button {
           cursor: pointer;
+
+          svg {
+            width: 21px;
+            height: 21px;
+          }
         }
       }
 

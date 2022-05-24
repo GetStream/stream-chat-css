@@ -5,6 +5,7 @@
   flex-direction: column;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
 
   .str-chat__channel-list-messenger {
     height: 100%;
@@ -13,14 +14,7 @@
       height: 100%;
 
       .str-chat__channel-list-empty {
-        @include utils.flex-col-center;
-        height: 100%;
-        padding: var(--str-chat__spacing-4);
-
-        svg {
-          width: calc(var(--str-chat__spacing-px) * 136);
-          height: calc(var(--str-chat__spacing-px) * 136);
-        }
+        @include utils.empty-layout;
       }
 
       // Empty channel list for theme-v1

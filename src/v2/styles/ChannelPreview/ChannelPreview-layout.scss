@@ -26,6 +26,13 @@
   }
 }
 
+// Unread badge will be bigger than channel name -> this would cause a layout shift when the unread badge appears -> this trick won't let the unread badge to increase the height of the container avoiding the layout shift
+@mixin unread-badge-layout-fix {
+  .str-chat__channel-preview-end-first-row {
+    height: var(--str-chat__unread-badge-height);
+  }
+}
+
 .str-chat__channel-preview {
   @include channel-preview-layout;
   cursor: pointer;
