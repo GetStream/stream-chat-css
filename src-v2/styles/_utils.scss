@@ -44,3 +44,117 @@
     color: var(--str-chat__#{$component-name}-disabled-color);
   }
 }
+
+@mixin circle-fab-overrides($component-name) {
+  svg path {
+    fill: var(--str-chat__#{$component-name}-color);
+  }
+
+  &:active {
+    background-color: var(--str-chat__#{$component-name}-pressed-background-color);
+  }
+}
+
+@mixin header-layout {
+  // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
+  & {
+    display: flex;
+    padding: var(--str-chat__spacing-2);
+    column-gap: var(--str-chat__spacing-4);
+    align-items: center;
+  }
+}
+
+@mixin header-text-layout {
+  // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
+  & {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; // for ellipsis text
+    width: 100%;
+    row-gap: var(--str-chat__spacing-1_5);
+  }
+}
+
+@mixin empty-layout {
+  // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
+  & {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--str-chat__spacing-4);
+
+    svg {
+      width: calc(var(--str-chat__spacing-px) * 136);
+      height: calc(var(--str-chat__spacing-px) * 136);
+    }
+  }
+}
+
+@mixin empty-theme($component-name) {
+  // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
+  & {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+
+    svg path {
+      fill: var(--str-chat__#{$component-name}-empty-indicator-color);
+    }
+  }
+}
+
+@mixin message-list-spacing {
+  // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
+  & {
+    padding: 0 var(--str-chat__spacing-2);
+
+    @media only screen and (min-device-width: 768px) {
+      /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
+      & {
+        padding: 0 var(--str-chat__spacing-10);
+      }
+    }
+  }
+}
+
+@mixin loading-item-background($component-name) {
+  // & selector is required for the postcss-logical plugin to properly transform the logical properties
+  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
+  & {
+    background-image: linear-gradient(
+      -90deg,
+      var(--str-chat__#{$component-name}-loading-state-color) 0%,
+      var(--str-chat__#{$component-name}-loading-state-color) 100%
+    );
+  }
+}
+
+@mixin loading-animation {
+  animation: pulsate 1s linear 0s infinite alternate;
+
+  &:nth-of-type(2) {
+    animation: pulsate 1s linear 0.3334 infinite alternate;
+  }
+
+  &:last-of-type {
+    animation: pulsate 1s linear 0.6667s infinite alternate;
+  }
+
+  @keyframes pulsate {
+    from {
+      opacity: 0.5;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}

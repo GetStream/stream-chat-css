@@ -70,34 +70,12 @@
 }
 
 .str-chat__channel-preview-loading {
-  animation: pulsate 1s linear 0s infinite alternate;
-
-  &:nth-of-type(2) {
-    animation: pulsate 1s linear 0.3334s infinite alternate;
-  }
-
-  &:last-of-type {
-    animation: pulsate 1s linear 0.6667s infinite alternate;
-  }
-
-  @keyframes pulsate {
-    from {
-      opacity: 0.5;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
+  @include utils.loading-animation;
 
   .str-chat__loading-channels-avatar,
   .str-chat__loading-channels-username,
   .str-chat__loading-channels-status {
-    background-image: linear-gradient(
-      -90deg,
-      var(--str-chat__channel-preview-loading-state-color) 0%,
-      var(--str-chat__channel-preview-loading-state-color) 100%
-    );
+    @include utils.loading-item-background('channel-preview');
   }
 
   .str-chat__loading-channels-username,
