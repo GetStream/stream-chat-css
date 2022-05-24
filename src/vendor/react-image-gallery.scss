@@ -29,6 +29,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: $ig-blue;
+
       .image-gallery-svg {
         transform: scale(1.1);
       }
@@ -178,6 +179,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
       width: calc(100% - 87px); // 81px + 6px for margin
     }
   }
+
   &.image-gallery-rtl {
     direction: rtl;
   }

@@ -33,7 +33,7 @@
         box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.07);
         z-index: 10;
         visibility: hidden;
-        padding: 0 4px 0;
+        padding: 0 4px;
 
         > span {
           position: relative;
@@ -121,7 +121,7 @@
         font-weight: var(--font-weight-regular);
         border-left: 1px solid $borderColor;
         position: relative;
-        margin: 0 0;
+        margin: 0;
 
         &--image {
           padding-left: 0;
@@ -131,9 +131,6 @@
         p {
           margin: 0;
           white-space: pre-line;
-          &:not(:first-of-type) {
-            margin: 16px 0 0;
-          }
 
           /* These are technically the same, but use both */
           overflow-wrap: break-word;
@@ -147,6 +144,10 @@
           -moz-hyphens: auto;
           -webkit-hyphens: auto;
           hyphens: auto;
+
+          &:not(:first-of-type) {
+            margin: 16px 0 0;
+          }
 
           a {
             color: var(--secondary-color);
@@ -214,11 +215,11 @@
         }
 
         &--middle {
-          margin: 0 0 0;
+          margin: 0;
         }
 
         &--bottom {
-          margin: 0 0 0;
+          margin: 0;
         }
       }
 
@@ -382,6 +383,7 @@
       &--failed {
         .str-chat__message-team-content--text {
           border-color: #d0021b;
+
           p {
             opacity: 0.5;
           }
@@ -396,7 +398,7 @@
 
       .str-chat__message-attachment-card {
         margin: 0;
-        border-radius: 4px 4px 4px 4px;
+        border-radius: 4px;
         background: #fff;
         border: 1px solid rgba(0, 0, 0, 0.08);
 
@@ -414,6 +416,7 @@
         position: static;
         top: initial;
       }
+
       .quoted-message {
         align-items: center;
         padding-left: 5px;
@@ -446,6 +449,7 @@
   .str-chat__message-simple__actions {
     min-width: 30px;
   }
+
   .str-chat__message-team {
     padding: 5px 10px;
 
@@ -490,21 +494,26 @@
     color: rgba(255, 255, 255, 0.5);
     opacity: 1;
   }
+
   .str-chat__message-team {
     $borderColor: rgba(0, 0, 0, 0.4);
     $fontColor: white;
+
     &-author {
       color: $fontColor;
     }
+
     &-meta {
       time {
         color: rgba($fontColor, 0.3);
       }
     }
+
     &-content,
     .str-chat__message-attachment {
       border-color: $borderColor;
       color: $fontColor;
+
       &--top,
       &--single {
         &:not(.str-chat__message-team-content--image) {
@@ -513,6 +522,7 @@
           }
         }
       }
+
       &--image {
         border-color: transparent;
       }
@@ -528,72 +538,89 @@
         background-color: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
       }
+
       .str-chat__message-attachment-file--item {
         border-color: rgba(black, 0.4);
+
         a,
         span {
           color: white;
         }
+
         span {
           opacity: 0.4;
         }
+
         &:hover {
           background: transparent;
         }
       }
+
       .str-chat__message-attachment--file {
         a,
         span {
           color: white;
         }
+
         span {
           opacity: 0.4;
         }
       }
     }
+
     &-content,
     .str-chat__message-attachment {
       .str-chat__message-attachment-card {
         background: transparent;
+
         &--content {
           background: rgba(0, 0, 0, 0.1);
           min-height: 58px;
           margin: 0;
-          padding: 0px 16px;
+          padding: 0 16px;
         }
+
         &--title {
           color: $fontColor;
         }
+
         &--url {
           color: rgba($fontColor, 0.4);
         }
       }
     }
+
     &-actions {
       background: #1b1d20;
 
       border: 1px solid rgba(224, 224, 224, 0.03);
       box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.07);
       border-radius: 12px;
+
       .str-chat__message-actions-box {
         background: #6a6b6d;
       }
+
       > span {
         border-color: rgba(0, 0, 0, 0.04);
+
         svg {
           fill: #fff;
         }
       }
     }
+
     &--error {
       .str-chat__message-team {
         &-content {
           border-color: red;
           border-width: 1px;
+
           p {
             color: rgba(255, 255, 255, 0.5);
             opacity: 1;
           }
+
           &--top,
           &--single {
             &:not(.str-chat__message-team-content--image) {
@@ -606,6 +633,7 @@
         }
       }
     }
+
     &--editing {
       padding: 10px;
       background: rgba(0, 0, 0, 0.1);

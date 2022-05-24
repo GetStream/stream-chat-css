@@ -4,6 +4,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 .rfu-file-previewer {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -11,20 +12,24 @@
   margin: 8px 0;
   position: relative;
 }
+
 .rfu-file-previewer ol {
   position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
 .rfu-file-previewer ol li {
   position: relative;
   padding: 8px 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .rfu-file-previewer ol li:last-child {
   border-color: transparent;
 }
+
 .rfu-file-previewer__file {
   position: relative;
   display: -webkit-box;
@@ -35,9 +40,11 @@
   align-items: center;
   cursor: pointer;
 }
+
 .rfu-file-previewer__file:hover {
   background: #fafafa;
 }
+
 .rfu-file-previewer__file a {
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -49,12 +56,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .rfu-file-previewer__file svg {
   min-width: 25px;
 }
+
 .rfu-file-previewer__file--uploading {
   opacity: 0.4;
 }
+
 .rfu-file-previewer__file--failed a {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -64,15 +74,18 @@
   align-items: center;
   color: #8b9297;
 }
-.rfu-file-previewer__file--failed a:after {
+
+.rfu-file-previewer__file--failed a::after {
   text-decoration: none;
 }
+
 .rfu-file-previewer__image {
   min-width: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
+
 .rfu-file-previewer__loading-indicator {
   position: absolute;
   width: 100%;
@@ -90,13 +103,16 @@
   justify-content: center;
   z-index: 1000;
 }
+
 .rfu-file-previewer__close-button {
   position: relative;
   z-index: 10000;
 }
+
 .rfu-file-previewer__failed {
   background: #ff6363;
 }
+
 .rfu-file-previewer__failed,
 .rfu-file-previewer__retry {
   padding: 3px 6px;
@@ -105,22 +121,28 @@
   border-radius: 4px;
   font-size: 12px;
 }
+
 .rfu-file-previewer__retry {
   text-decoration: none;
   background: #63e5a4;
 }
+
 .rfu-file-upload-button {
   cursor: pointer;
 }
+
 .rfu-file-upload-button svg {
   fill: #a0b2b8;
 }
+
 .rfu-file-upload-button:hover svg {
   fill: #88979c;
 }
+
 .rfu-file-upload-button label {
   cursor: pointer;
 }
+
 .rfu-file-upload-button .rfu-file-input {
   width: 0;
   height: 0;
@@ -129,6 +151,7 @@
   position: absolute;
   z-index: -1;
 }
+
 .rfu-icon-button {
   cursor: pointer;
   position: relative;
@@ -142,15 +165,18 @@
   border: none;
   background: transparent;
 }
+
 .rfu-icon-button svg {
   margin: 4px;
   position: relative;
   z-index: 50;
   fill: #a0b2b8;
 }
+
 .rfu-icon-button:hover svg {
   fill: #88979c;
 }
+
 .rfu-dropzone .rfu-dropzone__notifier {
   position: absolute;
   height: 100%;
@@ -160,14 +186,17 @@
   display: none;
   border-radius: 4px;
 }
+
 .rfu-dropzone--accept .rfu-dropzone__notifier {
   background: rgba(0, 212, 106, 0.83);
   display: block;
 }
+
 .rfu-dropzone--reject .rfu-dropzone__notifier {
   background: rgba(255, 0, 0, 0.83);
   display: block;
 }
+
 .rfu-dropzone__inner {
   width: 100%;
   height: 100%;
@@ -194,20 +223,24 @@
   font-weight: 800;
   font-size: 12px;
 }
+
 .rfu-dropzone--reject .rfu-dropzone__inner {
   display: none;
 }
+
 .rfu-image-previewer {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 8px 0;
 }
+
 .rfu-image-previewer,
 .rfu-image-previewer__image {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
+
 .rfu-image-previewer__image {
   width: 100px;
   height: 100px;
@@ -221,6 +254,7 @@
   -ms-flex-pack: center;
   justify-content: center;
 }
+
 .rfu-image-previewer__image--loaded .rfu-thumbnail__overlay {
   background: -webkit-gradient(
     linear,
@@ -231,28 +265,36 @@
   );
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0, transparent);
 }
+
 .rfu-image-previewer__image .rfu-thumbnail__wrapper {
   position: absolute;
 }
+
 .rfu-image-previewer__image .rfu-loading-indicator {
   position: absolute;
   z-index: 90;
 }
+
 .rfu-image-previewer__retry {
   z-index: 90;
 }
+
 .rfu-image-upload-button {
   cursor: pointer;
 }
+
 .rfu-image-upload-button svg {
   fill: #a0b2b8;
 }
+
 .rfu-image-upload-button:hover svg {
   fill: #88979c;
 }
+
 .rfu-image-upload-button label {
   cursor: pointer;
 }
+
 .rfu-image-upload-button .rfu-image-input {
   width: 0;
   height: 0;
@@ -261,11 +303,13 @@
   position: absolute;
   z-index: -1;
 }
+
 .rfu-loading-indicator {
   margin: 0 auto;
   width: 70px;
   text-align: center;
 }
+
 .rfu-loading-indicator > div {
   width: 18px;
   height: 18px;
@@ -275,10 +319,12 @@
   -webkit-animation: sk-bouncedelay 1.4s ease-in-out infinite both;
   animation: sk-bouncedelay 1.4s ease-in-out infinite both;
 }
+
 .rfu-loading-indicator .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
+
 .rfu-loading-indicator .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
@@ -290,6 +336,7 @@
     -webkit-transform: scale(0);
     transform: scale(0);
   }
+
   40% {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -302,6 +349,7 @@
     -webkit-transform: scale(0);
     transform: scale(0);
   }
+
   40% {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -319,6 +367,7 @@
     transform: rotate(1turn);
   }
 }
+
 .rfu-loading-indicator__spinner {
   width: 20px;
   height: 20px;
@@ -328,6 +377,7 @@
   -webkit-animation: spinner 0.6s linear infinite;
   animation: spinner 0.6s linear infinite;
 }
+
 .rfu-thumbnail__wrapper {
   width: 100px;
   height: 100px;
@@ -335,6 +385,7 @@
   overflow: hidden;
   position: relative;
 }
+
 .rfu-thumbnail__overlay {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.4);
@@ -351,12 +402,14 @@
   justify-content: flex-end;
   padding: 5px;
 }
+
 .rfu-thumbnail__image {
   width: inherit;
   height: inherit;
   -o-object-fit: cover;
   object-fit: cover;
 }
+
 .rfu-thumbnail-placeholder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -373,6 +426,7 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
 .rfu-thumbnail-placeholder:hover {
   background: #f2f2f2;
 }
