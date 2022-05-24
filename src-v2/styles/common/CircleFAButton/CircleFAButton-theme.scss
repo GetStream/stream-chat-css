@@ -1,0 +1,19 @@
+@use '../../utils';
+
+.str-chat {
+  --str-chat__circle-fab-font-family: var(--str-chat__font-family);
+  --str-chat__circle-fab-border-radius: var(--str-chat__border-radius-circle);
+  --str-chat__circle-fab-color: var(--str-chat__primary-color);
+  --str-chat__circle-fab-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__circle-fab-pressed-background-color: var(--str-chat__surface-color);
+  --str-chat__circle-fab-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --str-chat__circle-fab-border-block-start: none;
+  --str-chat__circle-fab-border-block-end: none;
+  --str-chat__circle-fab-border-inline-start: none;
+  --str-chat__circle-fab-border-inline-end: none;
+}
+
+.str-chat__circle-fab {
+  @include utils.component-layer-overrides('circle-fab');
+  @include utils.circle-fab-overrides('circle-fab');
+}

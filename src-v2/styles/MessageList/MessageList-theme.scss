@@ -1,0 +1,55 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__message-list-font-family: var(--str-chat__font-family);
+  --str-chat__message-list-border-radius: 0;
+  --str-chat__message-list-color: var(--str-chat__text-color);
+  --str-chat__message-list-background-color: var(--str-chat__background-color);
+  --str-chat__message-list-box-shadow: none;
+  --str-chat__message-list-border-block-start: none;
+  --str-chat__message-list-border-block-end: none;
+  --str-chat__message-list-border-inline-start: none;
+  --str-chat__message-list-border-inline-end: none;
+  --str-chat__jump-to-latest-message-font-family: var(--str-chat__circle-fab-font-family);
+  --str-chat__jump-to-latest-message-border-radius: var(--str-chat__circle-fab-border-radius);
+  --str-chat__jump-to-latest-message-color: var(--str-chat__circle-fab-color);
+  --str-chat__jump-to-latest-message-background-color: var(--str-chat__circle-fab-background-color);
+  --str-chat__jump-to-latest-message-pressed-background-color: var(
+    --str-chat__circle-fab-pressed-background-color
+  );
+  --str-chat__jump-to-latest-message-box-shadow: var(--str-chat__circle-fab-box-shadow);
+  --str-chat__jump-to-latest-message-border-block-start: var(
+    --str-chat__circle-fab-border-block-start
+  );
+  --str-chat__jump-to-latest-message-border-block-end: var(--str-chat__circle-fab-border-block-end);
+  --str-chat__jump-to-latest-message-border-inline-start: var(
+    --str-chat__circle-fab-border-inline-start
+  );
+  --str-chat__jump-to-latest-message-border-inline-end: var(
+    --str-chat__circle-fab-border-inline-end
+  );
+  --str-chat__jump-to-latest-message-unread-count-background-color: var(
+    --str-chat__jump-to-latest-message-color
+  );
+  --str-chat__jump-to-latest-message-unread-count-color: var(
+    --str-chat__jump-to-latest-message-background-color
+  );
+}
+
+.str-chat__list {
+  @include utils.component-layer-overrides('message-list');
+}
+
+.str-chat__jump-to-latest-message {
+  .str-chat__circle-fab {
+    @include utils.component-layer-overrides('jump-to-latest-message');
+    @include utils.circle-fab-overrides('jump-to-latest-message');
+
+    .str-chat__jump-to-latest-unread-count {
+      background-color: var(--str-chat__jump-to-latest-message-unread-count-background-color);
+      color: var(--str-chat__jump-to-latest-message-unread-count-color);
+      border-radius: var(--str-chat__jump-to-latest-message-border-radius);
+      font-size: 0.625rem;
+    }
+  }
+}

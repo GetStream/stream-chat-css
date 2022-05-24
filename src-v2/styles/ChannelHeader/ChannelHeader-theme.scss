@@ -1,0 +1,31 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__channel-header-font-family: var(--str-chat__font-family);
+  --str-chat__channel-header-border-radius: 0;
+  --str-chat__channel-header-color: 0;
+  --str-chat__channel-header-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__channel-header-border-block-start: none;
+  --str-chat__channel-header-border-block-end: none;
+  --str-chat__channel-header-border-inline-start: none;
+  --str-chat__channel-header-border-inline-end: none;
+  --str-chat__channel-header-box-shadow: none;
+  --str-chat__channel-header-info-color: var(--str-chat__text-low-emphasis-color);
+}
+
+.str-chat__channel-header {
+  @include utils.component-layer-overrides('channel-header');
+
+  .str-chat__channel-header-title {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+  }
+
+  .str-chat__channel-header-info {
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: var(--str-chat__channel-header-info-color);
+    font-weight: 400;
+  }
+}
