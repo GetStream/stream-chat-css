@@ -110,3 +110,22 @@
     align-items: center;
   }
 }
+
+.str-chat__message-moderation-error-actions-box {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--xs-p);
+  padding-bottom: var(--xs-p);
+  gap: var(--xs-p);
+
+  button {
+    border: none;
+    background: none;
+    font-weight: var(--font-weight-semi-bold);
+    color: var(--secondary-button-text);
+
+    &.str-chat__message-moderation-error-actions-box--primary {
+      color: var(--button-text);
+    }
+  }
+}
