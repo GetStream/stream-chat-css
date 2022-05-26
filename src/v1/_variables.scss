@@ -127,7 +127,7 @@ $border-radius: 16px;
   --xxl-m: calc(var(--spacing-unit) * 8); // 64px
 
   /* miscellaneous */
-  --assetsPath: '../assets';
+  --assetsPath: $assetsPath;
 
   /* accent colors */
   --accent_blue: #005fff;
