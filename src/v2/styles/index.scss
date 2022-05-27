@@ -1,10 +1,12 @@
 @use 'index.layout.scss';
 @use 'common/CTAButton/CTAButton-theme';
 @use 'common/CircleFAButton/CircleFAButton-theme';
+@use 'Avatar/Avatar-theme';
+@use 'AttachmentPreviewList/AttachmentPreviewList-theme';
+@use 'Channel/Channel-theme.scss';
+@use 'ChannelHeader/ChannelHeader-theme';
 @use 'ChannelList/ChannelList-theme';
 @use 'ChannelPreview/ChannelPreview-theme';
-@use 'Avatar/Avatar-theme';
+@use 'MessageInput/MessageInput-theme';
 @use 'MessageList/MessageList-theme';
-@use 'ChannelHeader/ChannelHeader-theme';
 @use 'Thread/Thread-theme';
-@use 'Channel/Channel-theme.scss';

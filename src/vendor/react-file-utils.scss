@@ -107,6 +107,8 @@
 .rfu-file-previewer__close-button {
   position: relative;
   z-index: 10000;
+  height: 24px;
+  width: 24px;
 }
 
 .rfu-file-previewer__failed {
@@ -125,6 +127,8 @@
 .rfu-file-previewer__retry {
   text-decoration: none;
   background: #63e5a4;
+  width: 24px;
+  height: 24px;
 }
 
 .rfu-file-upload-button {
@@ -167,7 +171,6 @@
 }
 
 .rfu-icon-button svg {
-  margin: 4px;
   position: relative;
   z-index: 50;
   fill: #a0b2b8;
@@ -277,6 +280,12 @@
 
 .rfu-image-previewer__retry {
   z-index: 90;
+  width: 24px;
+  height: 24px;
+
+  svg path {
+    fill: white;
+  }
 }
 
 .rfu-image-upload-button {

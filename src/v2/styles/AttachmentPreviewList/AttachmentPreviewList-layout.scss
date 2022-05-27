@@ -1,0 +1,100 @@
+@use '../utils';
+
+.str-chat__attachment-preview-list {
+  $preview-height: calc(var(--str-chat__spacing-px) * 72);
+
+  @include utils.flex-row-center;
+  padding: var(--str-chat__spacing-1_5);
+  width: 100%;
+
+  .str-chat__attachment-list-scroll-container {
+    overflow-y: hidden;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: var(--str-chat__spacing-2);
+  }
+
+  @mixin overlay {
+    @include utils.flex-row-center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .str-chat__attachment-preview-image {
+    position: relative;
+    height: $preview-height;
+    width: $preview-height;
+
+    .str-chat__attachment-preview-image-loading {
+      @include overlay;
+    }
+
+    .str-chat__attachment-preview-thumbnail {
+      object-fit: cover;
+      height: $preview-height;
+      width: $preview-height;
+      word-break: break-all;
+      overflow: hidden;
+    }
+  }
+
+  .str-chat__attachment-preview-file {
+    @include utils.flex-row-center;
+    height: $preview-height;
+    width: calc(var(--str-chat__spacing-px) * 200);
+    position: relative;
+    padding: var(--str-chat__spacing-4);
+    column-gap: var(--str-chat__spacing-2);
+
+    .str-chat__attachment-preview-file-end {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      overflow-y: visible;
+      overflow-x: clip;
+
+      .str-chat__attachment-preview-file-name {
+        @include utils.ellipsis-text;
+        max-width: 100%;
+      }
+
+      .str-chat__attachment-preview-file-download {
+        line-height: calc(var(--str-chat__spacing-px) * 16);
+
+        svg {
+          width: calc(var(--str-chat__spacing-px) * 16);
+          height: calc(var(--str-chat__spacing-px) * 16);
+        }
+      }
+    }
+  }
+
+  .str-chat__attachment-preview-delete {
+    position: absolute;
+    top: 0;
+    inset-inline-end: 0;
+    cursor: pointer;
+    z-index: 1;
+
+    svg {
+      width: calc(var(--str-chat__spacing-px) * 24);
+      height: calc(var(--str-chat__spacing-px) * 24);
+    }
+  }
+
+  .str-chat__attachment-preview-error {
+    @include overlay;
+    cursor: pointer;
+  }
+}
+
+.str-chat__attachment-preview-list-angular-host {
+  width: 100%;
+  max-width: 100%;
+}

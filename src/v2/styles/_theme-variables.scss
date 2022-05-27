@@ -1,3 +1,9 @@
+// Since Angular uses dynamic components it's not enough the hide the message input for theme-v1/v2, we have to remove it from the DOM tree
+// Angular component lifecycle requires us to place this on the root level
+:root {
+  --str-chat__theme-version: 2;
+}
+
 .str-chat {
   // used for elements where sizing is necessary (such as icons, avatar)
   --str-chat__spacing-px: 1px;
@@ -74,8 +80,8 @@
   --str-chat__yellow100: #fff8e5;
 
   --str-chat__border-radius-xs: 8px;
-  --str-chat__border-radius-sm: 16px;
-  --str-chat__border-radius-md: 20px;
+  --str-chat__border-radius-sm: 14px;
+  --str-chat__border-radius-md: 18px;
   --str-chat__border-radius-circle: 999px;
 
   // https://systemfontstack.com/
@@ -96,7 +102,7 @@
   --str-chat__text-color: var(--str-chat__grey950);
   --str-chat__text-low-emphasis-color: var(--str-chat__grey500);
   --str-chat__disabled-color: var(--str-chat__grey400);
-  --str-chat__on-disabled-color: var(--str-chat__grey5);
+  --str-chat__on-disabled-color: var(--str-chat__grey50);
   --str-chat__danger-color: var(--str-chat__red600);
   --str-chat__online-indicator-color: var(--str-chat__green500);
   --str-chat__message-highlight-color: var(--str-chat__yellow100);
@@ -123,5 +129,5 @@
   --str-chat__message-highlight-color: var(--str-chat__yellow900);
   --str-chat__unread-badge-color: var(--str-chat__red400);
   --str-chat__on-unread-badge-color: var(--str-chat__grey50);
-  --str-chat__overlay-color: rgba(77, 26, 26, 0.9);
+  --str-chat__overlay-color: rgba(0, 0, 0, 0.85);
 }
