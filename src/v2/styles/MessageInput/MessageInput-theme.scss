@@ -117,4 +117,21 @@
     font-size: 1rem;
     line-height: 1.25rem;
   }
+
+  .str-chat__quoted-message-preview-header {
+    .str-chat__quoted-message-reply-to-message {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      font-weight: 500;
+    }
+
+    .str-chat__quoted-message-remove {
+      background-color: transparent;
+      border: none;
+
+      svg path {
+        fill: var(--str-chat__message-input-tools-color);
+      }
+    }
+  }
 }
