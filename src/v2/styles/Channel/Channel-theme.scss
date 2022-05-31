@@ -62,7 +62,14 @@
     .str-chat__loading-channel-message-input,
     .str-chat__loading-channel-message-send {
       @include utils.loading-item-background('channel');
-      border-radius: var(--str-chat__border-radius-circle);
+    }
+
+    .str-chat__loading-channel-message-input {
+      border-radius: var(--str-chat__message-textarea-border-radius);
+    }
+
+    .str-chat__loading-channel-message-send {
+      border-radius: var(--str-chat__message-send-border-radius);
     }
   }
 }
