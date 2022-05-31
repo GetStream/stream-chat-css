@@ -99,16 +99,19 @@
   --str-chat__primary-surface-color: var(--str-chat__blue100);
   --str-chat__surface-color: var(--str-chat__grey300);
   --str-chat__secondary-surface-color: var(--str-chat__grey200);
+  --str-chat__tertiary-surface-color: var(--str-chat__grey100);
   --str-chat__text-color: var(--str-chat__grey950);
   --str-chat__text-low-emphasis-color: var(--str-chat__grey500);
   --str-chat__disabled-color: var(--str-chat__grey400);
   --str-chat__on-disabled-color: var(--str-chat__grey50);
-  --str-chat__danger-color: var(--str-chat__red600);
+  --str-chat__danger-color: var(--str-chat__red400);
   --str-chat__online-indicator-color: var(--str-chat__green500);
   --str-chat__message-highlight-color: var(--str-chat__yellow100);
   --str-chat__unread-badge-color: var(--str-chat__red400);
   --str-chat__on-unread-badge-color: var(--str-chat__grey50);
   --str-chat__overlay-color: rgba(252, 252, 252, 0.9);
+  --str-chat__secondary-overlay: rgba(0, 0, 0, 0.2);
+  --str-chat__secondary-overlay-text-color: var(--str-chat__grey50);
 }
 
 .str-chat__theme-dark {
@@ -120,6 +123,7 @@
   --str-chat__primary-surface-color: var(--str-chat__blue900);
   --str-chat__surface-color: var(--str-chat__grey700);
   --str-chat__secondary-surface-color: var(--str-chat__grey800);
+  --str-chat__tertiary-surface-color: var(--str-chat__grey900);
   --str-chat__text-color: var(--str-chat__grey50);
   --str-chat__text-low-emphasis-color: var(--str-chat__grey500);
   --str-chat__disabled-color: var(--str-chat__grey600);
@@ -130,4 +134,6 @@
   --str-chat__unread-badge-color: var(--str-chat__red400);
   --str-chat__on-unread-badge-color: var(--str-chat__grey50);
   --str-chat__overlay-color: rgba(0, 0, 0, 0.7);
+  --str-chat__secondary-overlay: rgba(0, 0, 0, 0.2);
+  --str-chat__secondary-overlay-text-color: var(--str-chat__grey50);
 }

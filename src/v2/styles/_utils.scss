@@ -91,10 +91,26 @@
 }
 
 @mixin message-list-spacing {
-  padding: 0 var(--str-chat__spacing-2);
+  $spacing: var(--str-chat__spacing-2);
+  padding: 0 $spacing;
+
+  // Need this trick to be able to apply full-width background color on hover to messages / full-width separator to thread header
+  .str-chat__li,
+  .str-chat__parent-message-li {
+    margin-inline: calc(-1 * #{$spacing});
+    padding-inline: $spacing;
+  }
 
   @media only screen and (min-device-width: 768px) {
-    padding: 0 var(--str-chat__spacing-10);
+    $spacing: var(--str-chat__spacing-10);
+
+    padding: 0 $spacing;
+
+    .str-chat__li,
+    .str-chat__parent-message-li {
+      margin-inline: calc(-1 * #{$spacing});
+      padding-inline: $spacing;
+    }
   }
 }
 
