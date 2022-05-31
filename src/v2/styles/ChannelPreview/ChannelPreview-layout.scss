@@ -1,29 +1,21 @@
 @use '../utils';
 
 @mixin channel-preview-layout {
-  // & selector is required for the postcss-logical plugin to properly transform the logical properties
-  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-  & {
-    display: flex;
-    column-gap: var(--str-chat__spacing-2);
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    padding: var(--str-chat__spacing-3) var(--str-chat__spacing-2);
-    margin: 0;
-    text-align: start;
-  }
+  display: flex;
+  column-gap: var(--str-chat__spacing-2);
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: var(--str-chat__spacing-3) var(--str-chat__spacing-2);
+  margin: 0;
+  text-align: start;
 }
 
 @mixin channel-preview-end-layout {
-  // & selector is required for the postcss-logical plugin to properly transform the logical properties
-  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-  & {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--str-chat__spacing-0_5);
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--str-chat__spacing-0_5);
+  width: 100%;
 }
 
 // Unread badge will be bigger than channel name -> this would cause a layout shift when the unread badge appears -> this trick won't let the unread badge to increase the height of the container avoiding the layout shift
