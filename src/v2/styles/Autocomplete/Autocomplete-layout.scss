@@ -1,0 +1,33 @@
+@use '../utils';
+
+// Class defined by Angular mentions
+// !important necessart to override library defined styles
+.mention-menu {
+  padding: var(--str-chat__spacing-2) 0 !important;
+  margin: 0 !important;
+  min-width: 50%;
+
+  .mention-item {
+    padding: 0 !important;
+  }
+}
+
+.str-chat__slash-command {
+  padding: var(--str-chat__spacing-2_5);
+
+  .str-chat__slash-command-header {
+    .str-chat__slash-command-args {
+      margin-inline-start: var(--str-chat__spacing-2);
+    }
+  }
+}
+
+.str-chat__user-item {
+  @include utils.flex-row-center;
+  padding: var(--str-chat__spacing-2_5);
+  column-gap: var(--str-chat__spacing-2);
+
+  .str-chat__user-item--name {
+    width: 100%;
+  }
+}
