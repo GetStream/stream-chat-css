@@ -142,6 +142,7 @@ $border-radius: 16px;
   --border: #00000014; // 14 = 8% opacity; top: x=0, y=-1; bottom: x=0, y=1
   --button-background: #ffffff;
   --button-text: #005fff;
+  --secondary-button-text: var(--grey);
   --grey-gainsboro: #dbdbdb;
   --grey-whisper: #ecebeb;
   --highlight: #fbf4dd;
@@ -155,4 +156,5 @@ $border-radius: 16px;
   --white-snow: #fcfcfc;
 
   --modal-overlay-color: rgba(0, 0, 0, 0.89);
+  --modal-edit-message-form-width: 47em;
 }
