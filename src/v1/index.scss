@@ -3,17 +3,10 @@
 @import './base.scss';
 
 // External dependencies (copied from libraries to rectify built file path discrepancies)
-<<<<<<<< HEAD:src/v1/styles/index.scss
-@import '../../vendor/emoji-mart.scss'; // copy from '../../node_modules/emoji-mart/css/emoji-mart.css'
-@import '../../vendor/mml-react.scss'; // copy from '../../node_modules/mml-react/dist/styles/index.css'
-@import '../../vendor/react-file-utils.scss'; // copy from '../../node_modules/react-file-utils/dist/index.css'
-@import '../../vendor/react-image-gallery.scss'; // copy from '../../node_modules/react-image-gallery/styles/css/image-gallery.css'
-========
 @import '../vendor/emoji-mart.scss'; // copy from '../../node_modules/emoji-mart/css/emoji-mart.css'
 @import '../vendor/mml-react.scss'; // copy from '../../node_modules/mml-react/dist/styles/index.css'
 @import '../vendor/react-file-utils.scss'; // copy from '../../node_modules/react-file-utils/dist/index.css'
 @import '../vendor/react-image-gallery.scss'; // copy from '../../node_modules/react-image-gallery/styles/css/image-gallery.css'
->>>>>>>> theming2:src/v1/index.scss
 
 // Components
 @import './ActionsBox.scss';
