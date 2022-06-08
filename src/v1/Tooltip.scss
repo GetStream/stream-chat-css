@@ -1,7 +1,4 @@
 .str-chat__tooltip {
-  position: absolute;
-  right: 0;
-  bottom: calc(100% + 10px);
   display: flex;
   background: var(--black);
   border-radius: var(--border-radius-sm);
@@ -24,6 +21,12 @@
     color: var(--primary-color);
     text-decoration: none;
   }
+}
+
+.str-chat__tooltip:not(.str-chat__tooltip-angular) {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
 
   &::after {
     content: '';
