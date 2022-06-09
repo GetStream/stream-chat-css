@@ -208,3 +208,10 @@ $emoji-flag-unicode-range: U+1F1E6-1F1FF;
     }
   }
 }
+
+// Fixes icon sizing problem in Angular SDK
+stream-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -113,6 +113,10 @@
     align-self: center;
     padding: var(--str-chat__spacing-3);
   }
+
+  .str-chat__quoted-message-preview {
+    padding-block: var(--str-chat__spacing-2);
+  }
 }
 
 .str-chat__message-input-angular-host {

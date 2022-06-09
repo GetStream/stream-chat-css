@@ -5,3 +5,10 @@
     box-sizing: border-box;
   }
 }
+
+// Fixes icon sizing problem in Angular SDK
+stream-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

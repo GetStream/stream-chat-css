@@ -1,0 +1,217 @@
+@use '../utils';
+
+.str-chat__message {
+  --message-with-attachments-max-width: calc(var(--str-chat__spacing-px) * 300);
+}
+
+.str-chat__quoted-message-preview {
+  --message-with-attachments-max-width: calc(var(--str-chat__spacing-px) * 100);
+}
+
+.str-chat__message,
+.str-chat__quoted-message-preview {
+  @mixin chat-bubble-spacing {
+    padding: var(--str-chat__spacing-2) var(--str-chat__spacing-4);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Using grid layout so we can use template from theme-v1
+  display: grid;
+  word-break: break-all;
+
+  &.str-chat__message--has-attachment {
+    .str-chat__message-bubble {
+      max-width: var(--message-with-attachments-max-width);
+    }
+  }
+
+  &.str-chat__message--other,
+  &.str-chat__quoted-message-preview {
+    grid-template-areas:
+      'avatar message'
+      '. replies'
+      '. metadata';
+    column-gap: var(--str-chat__spacing-2);
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+  }
+
+  &.str-chat__message--me {
+    grid-template-areas:
+      'message'
+      'replies'
+      'metadata';
+    justify-items: end;
+
+    // > selector added to not hide sender of inline replies
+    > .str-chat__message-sender-avatar {
+      display: none;
+    }
+  }
+
+  &.str-chat__message--deleted {
+    grid-template-areas: 'message';
+  }
+
+  .str-chat__message-sender-avatar {
+    grid-area: avatar;
+    align-self: end;
+  }
+
+  .str-chat__message-inner {
+    grid-area: message;
+    display: grid;
+    grid-template-areas: 'message-bubble options';
+    column-gap: var(--str-chat__spacing-2);
+
+    .str-chat__message-options {
+      grid-area: options;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      column-gap: var(--str-chat__spacing-1);
+
+      .str-chat__message-actions-box-button,
+      .str-chat__message-reply-in-thread-button,
+      .str-chat__message-reactions-button {
+        cursor: pointer;
+      }
+
+      .str-chat__message-actions-box-button {
+        position: relative;
+      }
+    }
+
+    .str-chat__message-bubble {
+      grid-area: message-bubble;
+      position: relative;
+      min-width: 0;
+
+      .str-chat__message-text {
+        @include chat-bubble-spacing;
+      }
+    }
+  }
+
+  &.str-chat__message--me .str-chat__message-inner {
+    grid-template-areas: 'options message-bubble';
+
+    .str-chat__message-options {
+      flex-direction: row;
+    }
+  }
+
+  .str-chat__message-metadata {
+    grid-area: metadata;
+    display: flex;
+    align-items: center;
+    column-gap: var(--str-chat__spacing-1);
+  }
+
+  .str-chat__message-status {
+    @include utils.flex-row-center;
+    column-gap: var(--str-chat__spacing-0_5);
+
+    svg {
+      width: calc(var(--str-chat__spacing-px) * 15);
+      height: calc(var(--str-chat__spacing-px) * 15);
+    }
+  }
+
+  .str-chat__message-replies-count-button-wrapper {
+    grid-area: replies;
+
+    button {
+      cursor: pointer;
+      padding: 0;
+    }
+  }
+
+  .str-chat__message--deleted-inner {
+    @include chat-bubble-spacing;
+  }
+
+  .str-chat__quoted-message-bubble {
+    @include chat-bubble-spacing;
+    display: flex;
+    column-gap: var(--str-chat__spacing-1);
+  }
+
+  .str-chat__message--system {
+    width: 100%;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Fixes emoji display in Chrome on non-retina display (only detected in Angular SDK) https://bugs.chromium.org/p/chromium/issues/detail?id=596223
+  .str-chat__emoji-display-fix {
+    display: inline-block;
+    width: 1.25em;
+  }
+
+  .str-chat__message-error-icon {
+    display: none;
+  }
+
+  &.str-chat__message--error,
+  &.str-chat__message--failed {
+    $icon-size: calc(var(--str-chat__spacing-px) * 18);
+
+    .str-chat__message-error-icon {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      inset-inline-end: calc(-1 * calc(#{$icon-size} / 2));
+
+      svg {
+        width: $icon-size;
+        height: $icon-size;
+      }
+    }
+  }
+}
+
+.str-chat__li {
+  &:hover .str-chat__message-options {
+    visibility: visible;
+  }
+
+  .str-chat__message-options {
+    visibility: hidden;
+  }
+}
+
+.str-chat__li--middle,
+.str-chat__li--top {
+  .str-chat__message {
+    margin-block-end: var(--str-chat__spacing-0_5);
+
+    .str-chat__message-metadata {
+      display: none;
+    }
+
+    // > selector added to not hide sender of inline replies
+    > .str-chat__message-sender-avatar {
+      visibility: hidden;
+    }
+  }
+}
+
+.str-chat__li--bottom,
+.str-chat__li--single {
+  .str-chat__message {
+    margin-block-end: var(--str-chat__spacing-2);
+  }
+}
+
+.str-chat__message {
+  .str-chat__quoted-message-preview {
+    margin-block-end: var(--str-chat__spacing-2);
+  }
+}
