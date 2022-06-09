@@ -179,11 +179,12 @@
 
 .str-chat__li {
   &:hover .str-chat__message-options {
-    visibility: visible;
+    // Changing opacity instead of visibility because of a strange Safari behavior/bug
+    opacity: 1;
   }
 
   .str-chat__message-options {
-    visibility: hidden;
+    opacity: 0;
   }
 }
 
