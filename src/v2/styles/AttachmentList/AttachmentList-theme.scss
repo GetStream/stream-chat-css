@@ -12,7 +12,9 @@
   --str-chat__attachment-list-box-shadow: none;
 
   --str-chat__image-attachment-font-family: var(--str-chat__font-family);
-  --str-chat__image-attachment-border-radius: var(--str-chat__border-radius-md);
+  --str-chat__image-attachment-border-radius: calc(
+    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
+  );
   --str-chat__image-attachment-color: var(--str-chat__text-color);
   --str-chat__image-attachment-background-color: transparent;
   --str-chat__image-attachment-border-block-start: none;
@@ -22,7 +24,9 @@
   --str-chat__image-attachment-box-shadow: none;
 
   --str-chat__image-gallery-attachment-font-family: var(--str-chat__font-family);
-  --str-chat__image-gallery-attachment-border-radius: var(--str-chat__border-radius-md);
+  --str-chat__image-gallery-attachment-border-radius: calc(
+    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
+  );
   --str-chat__image-gallery-attachment-color: var(--str-chat__text-color);
   --str-chat__image-gallery-attachment-background-color: transparent;
   --str-chat__image-gallery-attachment-border-block-start: none;
@@ -47,9 +51,11 @@
   --str-chat__card-attachment-box-shadow: none;
 
   --str-chat__file-attachment-font-family: var(--str-chat__font-family);
-  --str-chat__file-attachment-border-radius: var(--str-chat__border-radius-md);
+  --str-chat__file-attachment-border-radius: calc(
+    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
+  );
   --str-chat__file-attachment-color: var(--str-chat__text-color);
-  --str-chat__file-attachment-active-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__file-attachment-secondary-color: var(--str-chat__text-low-emphasis-color);
   --str-chat__file-attachment-background-color: var(--str-chat__secondary-background-color);
   --str-chat__file-attachment-border-block-start: none;
   --str-chat__file-attachment-border-block-end: none;
@@ -122,6 +128,7 @@
     .str-chat__message-attachment-file--item-name {
       font-size: 1rem;
       line-height: 1.25rem;
+      font-weight: 500;
     }
 
     .str-chat__message-attachment-file--item-size {

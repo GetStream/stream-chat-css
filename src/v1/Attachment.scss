@@ -12,6 +12,12 @@
   }
 }
 
+.str-chat__video-angular {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+}
+
 /* border radius for attachments */
 .str-chat__message .str-chat__player-wrapper .react-player {
   border-radius: var(--border-radius) var(--border-radius) var(--border-radius) 0;

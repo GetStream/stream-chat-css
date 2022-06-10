@@ -15,7 +15,7 @@
   --str-chat__message-border-inline-start: none;
   --str-chat__message-border-inline-end: none;
   --str-chat__message-box-shadow: none;
-  --str-chat__message-active-bacground-color: var(--str-chat__tertiary-surface-color);
+  --str-chat__message-active-bacground-color: transparent;
   --str-chat__message-options-color: var(--str-chat__text-low-emphasis-color);
   --str-chat__message-options-active-color: var(--str-chat__primary-color);
 
@@ -33,7 +33,7 @@
 
   --str-chat__deleted-message-font-family: var(--str-chat__font-family);
   --str-chat__deleted-message-border-radius: var(--str-chat__border-radius-md);
-  --str-chat__deleted-message-color: var(--str-chat__text-color);
+  --str-chat__deleted-message-color: var(--str-chat__text-low-emphasis-color);
   --str-chat__deleted-message-background-color: var(--str-chat__secondary-surface-color);
   --str-chat__deleted-message-border-block-start: none;
   --str-chat__deleted-message-border-block-end: none;
@@ -53,6 +53,7 @@
 }
 
 .str-chat__message {
+  $message-text-font-size: 0.9375rem;
   @include utils.component-layer-overrides('message');
 
   a {
@@ -62,10 +63,12 @@
 
   .str-chat__message-bubble {
     @include utils.component-layer-overrides('message-bubble');
+    font-size: $message-text-font-size;
   }
 
   .str-chat__message--deleted-inner {
     @include utils.component-layer-overrides('deleted-message');
+    font-size: $message-text-font-size;
   }
 
   .str-chat__message--system {
@@ -98,8 +101,8 @@
 
   .str-chat__message-metadata {
     color: var(--str-chat__message-secondary-color);
-    font-size: 0.875rem;
-    line-height: 1.05rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
 
     .str-chat__message-sender-name {
       font-weight: 500;

@@ -1,20 +1,30 @@
 @use '../utils';
 
+.str-chat {
+  // The margin applied to every attachment in the attachment list
+  --str-chat__attachment-margin: var(--str-chat__spacing-0_5);
+}
+
 .str-chat__attachment-list {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  min-width: 0;
 
   .str-chat__message-attachment--card {
-    max-width: var(--message-with-attachments-max-width);
+    max-width: calc(var(--message-with-attachments-max-width) - var(--str-chat__attachment-margin));
   }
 
   .str-chat__message-attachment--image,
-  .str-chat__message-attachment-card--header {
+  .str-chat__message-attachment-card--header,
+  .str-chat__message-attachment--video {
     display: flex;
 
-    img {
-      max-width: var(--message-with-attachments-max-width);
+    img,
+    video {
+      max-width: calc(
+        var(--message-with-attachments-max-width) - 2 * var(--str-chat__attachment-margin)
+      );
       max-height: var(--message-with-attachments-max-width);
       object-fit: cover;
       width: 100%;
@@ -22,13 +32,26 @@
     }
   }
 
+  .str-chat__message-attachment--image {
+    margin: var(--str-chat__attachment-margin);
+  }
+
+  .str-chat__message-attachment--video {
+    margin: var(--str-chat__attachment-margin);
+  }
+
+  .str-chat__message-attachment--giphy {
+    margin: var(--str-chat__attachment-margin);
+  }
+
   .str-chat__gallery {
     display: grid;
     grid-template-columns: 50% 50%;
     overflow: hidden;
-    gap: var(--str-chat__spacing-1);
+    gap: var(--str-chat__spacing-0_5);
     max-width: var(--message-with-attachments-max-width);
     max-height: var(--message-with-attachments-max-width);
+    margin: var(--str-chat__attachment-margin);
 
     &.str-chat__gallery-two-rows {
       grid-template-rows: 50% 50%;
@@ -76,7 +99,7 @@
     @include utils.flex-row-center;
     padding: var(--str-chat__spacing-2);
     column-gap: var(--str-chat__spacing-4);
-    margin: var(--str-chat__spacing-0_5);
+    margin: var(--str-chat__attachment-margin);
 
     .str-chat__message-attachment-file--item-text {
       width: 100%;
@@ -85,6 +108,7 @@
       align-items: start;
       justify-content: center;
       row-gap: var(--str-chat__spacing-0_5);
+      min-width: 0;
 
       .str-chat__message-attachment-file--item-first-row {
         width: 100%;
@@ -92,6 +116,10 @@
         align-items: center;
         justify-content: space-between;
         column-gap: var(--str-chat__spacing-2);
+
+        .str-chat__message-attachment-file--item-name {
+          @include utils.ellipsis-text;
+        }
 
         .str-chat__message-attachment-download-icon {
           svg {
@@ -104,8 +132,14 @@
   }
 
   .str-chat__message-attachment-card {
+    min-width: 0;
+
     .str-chat__message-attachment-card--content {
       padding: var(--str-chat__spacing-2_5);
+
+      .str-chat__message-attachment-card--title {
+        @include utils.ellipsis-text;
+      }
     }
   }
 
@@ -132,9 +166,23 @@
 }
 
 .str-chat__quoted-message-preview {
+  --str-chat__attachment-margin: 0;
+
   .str-chat__message-attachment-card {
     .str-chat__message-attachment-card--content {
       display: none;
     }
   }
+
+  .str-chat__message-attachment-file--item {
+    padding: 0;
+
+    .str-chat__message-attachment-file--item-download {
+      display: none;
+    }
+  }
+}
+
+.str-chat__attachment-list-angular-host {
+  min-width: 0;
 }
