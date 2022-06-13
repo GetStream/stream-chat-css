@@ -52,12 +52,11 @@
     column-gap: var(--str-chat__spacing-2);
 
     .str-chat__attachment-preview-file-end {
+      @include utils.ellipsis-text-parent;
       display: flex;
       flex-direction: column;
       align-items: start;
       justify-content: center;
-      overflow-y: visible;
-      overflow-x: clip;
 
       .str-chat__attachment-preview-file-name {
         @include utils.ellipsis-text;

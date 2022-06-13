@@ -1,7 +1,7 @@
 @use '../utils';
 
 .str-chat__message-input {
-  $send-button-size: calc(var(--str-chat__spacing-px) * 40);
+  $send-button-size: calc(var(--str-chat__spacing-px) * 45);
 
   @include utils.flex-col-center;
   width: 100%;
@@ -36,8 +36,8 @@
 
     .str-chat__file-input-container {
       @include utils.flex-row-center;
-      width: calc(var(--str-chat__spacing-px) * 40);
-      height: calc(var(--str-chat__spacing-px) * 40);
+      width: calc(var(--str-chat__spacing-px) * 45);
+      height: calc(var(--str-chat__spacing-px) * 45);
       cursor: pointer;
 
       .str-chat__file-input {

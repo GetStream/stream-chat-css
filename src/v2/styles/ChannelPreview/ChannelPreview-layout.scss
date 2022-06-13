@@ -31,8 +31,7 @@
 
   .str-chat__channel-preview-end {
     @include channel-preview-end-layout;
-    overflow-x: clip; // need this for ellipsis text to work
-    overflow-y: visible;
+    @include utils.ellipsis-text-parent;
 
     .str-chat__channel-preview-end-first-row {
       display: flex;
