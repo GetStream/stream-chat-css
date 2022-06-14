@@ -2,6 +2,11 @@
 
 .str-chat__message {
   --message-with-attachments-max-width: calc(var(--str-chat__spacing-px) * 300);
+  --message-max-width: calc(var(--str-chat__spacing-px) * 480);
+
+  .str-chat__message-bubble {
+    max-width: var(--message-max-width);
+  }
 }
 
 .str-chat__quoted-message-preview {
@@ -54,6 +59,11 @@
 
   &.str-chat__message--deleted {
     grid-template-areas: 'message';
+  }
+
+  &.str-chat__message--system {
+    grid-template-areas: 'message';
+    grid-template-columns: auto;
   }
 
   .str-chat__message-sender-avatar {
@@ -138,6 +148,8 @@
     @include chat-bubble-spacing;
     display: flex;
     column-gap: var(--str-chat__spacing-1);
+    min-width: 0;
+    max-width: 100%;
   }
 
   .str-chat__message--system {
@@ -157,6 +169,10 @@
 
   .str-chat__message-error-icon {
     display: none;
+  }
+
+  .str-chat__simple-message--error-failed {
+    cursor: pointer;
   }
 
   &.str-chat__message--error,
@@ -214,5 +230,12 @@
 .str-chat__message {
   .str-chat__quoted-message-preview {
     margin-block-end: var(--str-chat__spacing-2);
+  }
+}
+
+.str-chat__quoted-message-preview {
+  .str-chat__quoted-message-bubble {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
