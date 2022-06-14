@@ -92,6 +92,7 @@
 .str-chat,
 .str-chat__theme-light {
   --str-chat__primary-color: var(--str-chat__blue500);
+  --str-chat__primary-color-low-emphasis: var(--str-chat__blue300);
   --str-chat__active-primary-color: var(--str-chat__blue600);
   --str-chat__on-primary-color: var(--str-chat__grey50);
   --str-chat__background-color: var(--str-chat__grey50);
@@ -115,6 +116,7 @@
 
 .str-chat__theme-dark {
   --str-chat__primary-color: var(--str-chat__blue400);
+  --str-chat__primary-color-low-emphasis: var(--str-chat__blue700);
   --str-chat__active-primary-color: var(--str-chat__blue600);
   --str-chat__on-primary-color: var(--str-chat__grey50);
   --str-chat__background-color: var(--str-chat__grey950);
