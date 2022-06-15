@@ -32,6 +32,10 @@
   --str-chat__message-reactions-option-box-shadow: none;
 }
 
+.str-chat__theme-dark {
+  --str-chat__message-reactions-options-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
 .str-chat__reaction-selector {
   .str-chat__message-reactions-options {
     @include utils.component-layer-overrides('message-reactions-options');

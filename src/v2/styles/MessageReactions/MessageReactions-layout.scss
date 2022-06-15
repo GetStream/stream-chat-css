@@ -10,6 +10,7 @@
     column-gap: var(--str-chat__spacing-0_5);
     width: fit-content;
     padding: 0;
+    position: relative;
 
     .str-chat__message-reaction {
       display: flex;
@@ -19,11 +20,21 @@
       padding: var(--str-chat__spacing-1_5);
 
       .str-chat__message-reaction-emoji {
-        width: calc(var(--str-chat__spacing-px) * 13);
+        width: calc(var(--str-chat__spacing-px) * 15);
         height: calc(var(--str-chat__spacing-px) * 13);
         display: flex; // Overriding emoji-mart styles
         align-items: center;
         justify-content: center;
+      }
+
+      .str-chat__tooltip {
+        display: none;
+      }
+
+      &:hover {
+        .str-chat__tooltip {
+          display: flex;
+        }
       }
     }
 

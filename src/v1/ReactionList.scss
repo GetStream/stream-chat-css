@@ -113,7 +113,13 @@
       font-size: var(--sm-font);
     }
 
-    .str-chat__message-reactions-list-item__count-v2 {
+    // Only displayed in theme-v2
+    .str-chat__message-reaction-count {
+      display: none;
+    }
+
+    // Only displayed in theme-v2
+    .str-chat__tooltip {
       display: none;
     }
   }
