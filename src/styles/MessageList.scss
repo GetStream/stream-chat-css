@@ -17,6 +17,12 @@
   @extend %scrollable;
 }
 
+.str-chat__list.str-chat__list--thread {
+  .str-chat__reverse-infinite-scroll {
+    padding-top: 0;
+  }
+}
+
 .str-chat__list {
   @extend %scrollable;
   position: relative;
@@ -41,7 +47,6 @@
 
   &--thread {
     padding: var(--sm-p) 0 0 0;
-    overflow: visible;
   }
 
   &__center {
@@ -107,6 +112,12 @@
 .messaging {
   &.str-chat {
     .str-chat {
+      &__list.str-chat__list--thread {
+        .str-chat__reverse-infinite-scroll {
+          padding-top: 0;
+        }
+      }
+
       &__list {
         padding: 0 var(--xl-p) 0;
         background: var(--white);
@@ -120,8 +131,15 @@
         }
       }
     }
+
     @media screen and (max-width: 960px) {
       .str-chat {
+        &__list.str-chat__list--thread  {
+          .str-chat__reverse-infinite-scroll {
+            padding-top: 0;
+          }
+        }
+
         &__list {
           padding: 0 var(--xs-p) 0;
 
@@ -151,6 +169,12 @@
 .livestream {
   &.str-chat {
     .str-chat {
+      &__list.str-chat__list--thread {
+        .str-chat__reverse-infinite-scroll {
+          padding-top: 0;
+        }
+      }
+
       &__list {
         padding: 0 var(--xs-p);
 
@@ -165,6 +189,12 @@
 .commerce {
   &.str-chat {
     .str-chat {
+      &__list.str-chat__list--thread {
+        .str-chat__reverse-infinite-scroll {
+          padding-top: 0;
+        }
+      }
+
       &__list {
         padding: 0 var(--md-p) 0;
 
