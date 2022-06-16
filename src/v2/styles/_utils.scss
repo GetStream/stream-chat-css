@@ -18,6 +18,11 @@
   text-overflow: ellipsis;
 }
 
+@mixin scrollable {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 @mixin component-layer-overrides($component-name) {
   // & selector is required for the postcss-logical plugin to properly transform the logical properties
   /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
@@ -141,7 +146,7 @@
   animation: pulsate 1s linear 0s infinite alternate;
 
   &:nth-of-type(2) {
-    animation: pulsate 1s linear 0.3334 infinite alternate;
+    animation: pulsate 1s linear 0.3334s infinite alternate;
   }
 
   &:last-of-type {

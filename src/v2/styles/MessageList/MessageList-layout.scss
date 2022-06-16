@@ -9,15 +9,31 @@
   align-items: center;
 
   .str-chat__list {
+    @include utils.scrollable;
     width: 100%;
     height: 100%;
     max-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
 
     .str-chat__message-list-scroll {
       @include utils.message-list-spacing;
     }
+  }
+}
+
+// React SDK does not have .str-chat__main-panel-inner element btw main-panel and list
+.str-chat__main-panel > .str-chat__list {
+  @include utils.scrollable;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+
+  .str-chat__message-list-scroll {
+    @include utils.message-list-spacing;
+  }
+
+  .str-chat__list__center {
+    width: 100%;
+    @include utils.flex-row-center;
   }
 }
 
