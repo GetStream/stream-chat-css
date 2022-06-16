@@ -1,0 +1,41 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__message-reactions-font-family: var(--str-chat__font-family);
+  --str-chat__message-reactions-border-radius: none;
+  --str-chat__message-reactions-color: var(--str-chat__text-color);
+  --str-chat__message-reactions-background-color: transparent;
+  --str-chat__message-reactions-border-block-start: none;
+  --str-chat__message-reactions-border-block-end: none;
+  --str-chat__message-reactions-border-inline-start: none;
+  --str-chat__message-reactions-border-inline-end: none;
+  --str-chat__message-reactions-box-shadow: none;
+
+  --str-chat__message-reaction-font-family: var(--str-chat__font-family);
+  --str-chat__message-reaction-border-radius: var(--str-chat__border-radius-xs);
+  --str-chat__message-reaction-color: var(--str-chat__text-color);
+  --str-chat__message-reaction-background-color: var(--str-chat__secondary-surface-color);
+  --str-chat__message-reaction-border-block-start: none;
+  --str-chat__message-reaction-border-block-end: none;
+  --str-chat__message-reaction-border-inline-start: none;
+  --str-chat__message-reaction-border-inline-end: none;
+  --str-chat__message-reaction-box-shadow: none;
+  --str-chat__own-message-reaction-color: var(--str-chat__text-color);
+  --str-chat__own-message-reaction-background-color: var(--str-chat__primary-surface-color);
+}
+
+.str-chat__message-reactions-container {
+  .str-chat__message-reactions {
+    @include utils.component-layer-overrides('message-reactions');
+
+    .str-chat__message-reaction {
+      @include utils.component-layer-overrides('message-reaction');
+      font-size: 0.75rem;
+
+      &.str-chat__message-reaction-own {
+        color: var(--str-chat__own-message-reaction-color);
+        background-color: var(--str-chat__own-message-reaction-background-color);
+      }
+    }
+  }
+}
