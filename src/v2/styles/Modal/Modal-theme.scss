@@ -1,0 +1,39 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__modal-font-family: var(--str-chat__font-family);
+  --str-chat__modal-border-radius: var(--str-chat__border-radius-sm);
+  --str-chat__modal-color: var(--str-chat__text-color);
+  --str-chat__modal-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__modal-overlay-color: var(--str-chat__secondary-overlay);
+  --str-chat__modal-overlay-backdrop-filter: blur(3px);
+  --str-chat__modal-border-block-start: none;
+  --str-chat__modal-border-block-end: none;
+  --str-chat__modal-border-inline-start: none;
+  --str-chat__modal-border-inline-end: none;
+  --str-chat__modal-box-shadow: none;
+  --str-chat__modal-close-icon-background: var(--str-chat__text-low-emphasis-color);
+  --str-chat__modal-close-icon-color: var(--str-chat__on-disabled-color);
+}
+
+.str-chat__modal {
+  background-color: var(--str-chat__modal-overlay-color);
+  backdrop-filter: var(--str-chat__modal-overlay-backdrop-filter);
+
+  .str-chat__modal__inner {
+    @include utils.component-layer-overrides('modal');
+  }
+
+  .str-chat__modal__close-button {
+    svg {
+      path {
+        fill: var(--str-chat__modal-close-icon-color);
+      }
+
+      rect,
+      circle {
+        fill: var(--str-chat__modal-close-icon-background);
+      }
+    }
+  }
+}
