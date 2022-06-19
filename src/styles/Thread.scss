@@ -178,6 +178,7 @@
       }
 
       &__thread-header {
+        z-index: 1;
         border: none;
         // box-shadow: none;
         background: var(--white);
