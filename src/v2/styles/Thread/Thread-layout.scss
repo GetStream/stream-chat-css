@@ -32,4 +32,9 @@
       }
     }
   }
+
+  //todo: remove once React SDK syncs the markup with the Angular SDK
+  .str-chat__thread-list {
+    @include utils.scrollable;
+  }
 }
