@@ -23,6 +23,12 @@
 
 .str-chat__empty-channel {
   @include utils.empty-layout;
+  position: relative;
+
+  .str-chat__empty-channel-notifications {
+    position: absolute;
+    inset-block-end: var(--str-chat__spacing-2);
+  }
 }
 
 .str-chat__loading-channel {
