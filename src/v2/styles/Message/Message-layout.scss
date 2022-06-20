@@ -219,9 +219,17 @@
 }
 
 .str-chat__li {
-  &:hover .str-chat__message-options {
+  @mixin visible {
     // Changing opacity instead of visibility because of a strange Safari behavior/bug
     opacity: 1;
+  }
+
+  &:hover .str-chat__message-options {
+    @include visible;
+  }
+
+  .str-chat__message-edit-in-progress.str-chat__message-options {
+    @include visible;
   }
 
   .str-chat__message-options {

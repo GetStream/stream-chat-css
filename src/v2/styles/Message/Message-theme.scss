@@ -85,7 +85,7 @@
     .str-chat__message-actions-box-button,
     .str-chat__message-reply-in-thread-button,
     .str-chat__message-reactions-button {
-      svg path {
+      .str-chat__message-action-icon svg path {
         fill: var(--str-chat__message-options-color);
       }
     }
@@ -93,7 +93,7 @@
     .str-chat__message-actions-box-button:hover,
     .str-chat__message-reply-in-thread-button:hover,
     .str-chat__message-reactions-button:hover {
-      svg path {
+      .str-chat__message-action-icon svg path {
         fill: var(--str-chat__message-options-active-color);
       }
     }
