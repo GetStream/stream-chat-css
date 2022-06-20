@@ -1,0 +1,28 @@
+@use '../utils';
+
+.str-chat__list-notifications {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  row-gap: var(--str-chat__spacing-1);
+  position: fixed;
+  width: auto;
+  left: var(--str-chat__spacing-1_5);
+  right: var(--str-chat__spacing-1_5);
+  margin: 0;
+  bottom: var(--str-chat__spacing-2_5);
+  z-index: 2;
+
+  @media only screen and (min-device-width: 768px) {
+    width: 40%;
+    margin: auto;
+  }
+}
+
+// Only displayed in theme-v1
+.str-chat__modal {
+  .str-chat__list-notifications {
+    display: none;
+  }
+}
