@@ -1,0 +1,17 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__virtual-list-font-family: var(--str-chat__font-family);
+  --str-chat__virtual-list-border-radius: 0;
+  --str-chat__virtual-list-color: var(--str-chat__text-color);
+  --str-chat__virtual-list-background-color: var(--str-chat__background-color);
+  --str-chat__virtual-list-box-shadow: none;
+  --str-chat__virtual-list-border-block-start: none;
+  --str-chat__virtual-list-border-block-end: none;
+  --str-chat__virtual-list-border-inline-start: none;
+  --str-chat__virtual-list-border-inline-end: none;
+}
+
+.str-chat__list {
+  @include utils.component-layer-overrides('virtual-list');
+}
