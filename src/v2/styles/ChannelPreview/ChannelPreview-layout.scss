@@ -8,7 +8,7 @@
   width: 100%;
   padding: var(--str-chat__spacing-3) var(--str-chat__spacing-2);
   margin: 0;
-  text-align: flex-start;
+  text-align: start;
 }
 
 @mixin channel-preview-end-layout {
