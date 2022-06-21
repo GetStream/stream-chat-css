@@ -29,13 +29,15 @@
   .str-chat__thread-header {
     @include utils.component-layer-overrides('thread-header');
 
-    .str-chat__thread-header-name {
+    .str-chat__thread-header-name,
+    .str-chat__thread-header-title {
       font-size: 1rem;
       line-height: 1.25rem;
       font-weight: 500;
     }
 
-    .str-chat__thread-header-channel-name {
+    .str-chat__thread-header-channel-name,
+    .str-chat__thread-header-subtitle {
       font-size: 0.875rem;
       line-height: 1rem;
       color: var(--str-chat__thread-header-info-color);
