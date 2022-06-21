@@ -78,7 +78,7 @@
     display: flex;
     flex-direction: column;
     overflow-x: hidden; // for ellipsis text
-    width: 100%;
+    flex: 1;
     row-gap: var(--str-chat__spacing-1_5);
   }
 }
