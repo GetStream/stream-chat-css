@@ -9,13 +9,13 @@
   }
 
   &.str-chat__message-actions-box--mine {
-    inset-block-end: 125%;
-    inset-inline-start: 125%;
+    inset-block-end: 100%;
+    inset-inline-start: 100%;
   }
 
   &:not(.str-chat__message-actions-box--mine) {
-    inset-block-end: 125%;
-    inset-inline-end: 125%;
+    inset-block-end: 100%;
+    inset-inline-end: 100%;
   }
 
   .str-chat__message-actions-list {
