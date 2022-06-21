@@ -81,7 +81,8 @@
   text-align: center;
 }
 
-.str-chat__list-notifications {
+.str-chat__list-notifications,
+.str-chat__jump-to-latest-message {
   padding: 0 var(--xl-p);
   display: flex;
   position: relative;
@@ -114,7 +115,8 @@
             padding-top: 56px;
           }
 
-          &-notifications {
+          &-notifications,
+          .str-chat__jump-to-latest-message {
             padding: 0 var(--xs-p);
           }
         }
