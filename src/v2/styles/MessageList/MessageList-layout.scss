@@ -32,8 +32,8 @@
   }
 
   .str-chat__list__center {
-    width: 100%;
     @include utils.flex-row-center;
+    width: 100%;
   }
 }
 
