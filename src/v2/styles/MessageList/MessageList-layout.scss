@@ -16,6 +16,22 @@
 
     .str-chat__message-list-scroll {
       @include utils.message-list-spacing;
+
+      .str-chat__ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .str-chat__parent-message-li {
+          $spacing: var(--str-chat__spacing-4);
+          padding-block-end: $spacing;
+          margin-block-end: $spacing;
+
+          .str-chat__thread-start {
+            text-align: start;
+          }
+        }
+      }
     }
   }
 }

@@ -2,13 +2,25 @@
 @use 'theme-variables';
 
 @use 'Avatar/Avatar-layout';
+@use 'AttachmentList/AttachmentList-layout';
+@use 'AttachmentPreviewList/AttachmentPreviewList-layout';
+@use 'Autocomplete/Autocomplete-layout';
 @use 'Channel/Channel-layout';
 @use 'ChannelHeader/ChannelHeader-layout';
 @use 'ChannelList/ChannelList-layout';
 @use 'ChannelPreview/ChannelPreview-layout';
 @use 'common/CTAButton/CTAButton-layout';
 @use 'common/CircleFAButton/CircleFAButton-layout';
+@use 'EditMessageForm/EditMessageForm-layout';
+@use 'ImageCarousel/ImageCarousel-layout';
 @use 'LoadingIndicator/LoadingIndicator-layout';
+@use 'Message/Message-layout';
+@use 'MessageActionsBox/MessageActionsBox-layout';
+@use 'MessageInput/MessageInput-layout';
 @use 'MessageList/MessageList-layout';
 @use 'MessageList/VirtualMessageList-layout';
+@use 'MessageReactions/MessageReactions-layout';
+@use 'MessageReactions/MessageReactionsSelector-layout';
+@use 'Modal/Modal-layout';
 @use 'Thread/Thread-layout';
+@use 'Tooltip/Tooltip-layout';

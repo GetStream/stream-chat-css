@@ -71,13 +71,15 @@
       &-attachment--img,
       &-attachment-card,
       .str-chat__gallery {
-        border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+        border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
+          calc(var(--border-radius-sm) / 2);
       }
 
       &.str-chat__message--has-text.str-chat__message--has-attachment {
         .str-chat__message-attachment--img,
         .str-chat__message-attachment-card {
-          border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+          border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
+            calc(var(--border-radius-sm) / 2);
         }
       }
 
@@ -86,24 +88,28 @@
         .str-chat__message {
           &-attachment--img,
           &-attachment-card {
-            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
 
         &.str-chat__message--has-text.str-chat__message--has-attachment {
           .str-chat__message-attachment--img,
           .str-chat__message-attachment-card {
-            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
 
         .str-chat__gallery {
-          border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+          border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
+            var(--border-radius);
         }
 
         &.str-chat__message--has-text {
           .str-chat__gallery {
-            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
       }
@@ -117,14 +123,16 @@
       &-attachment--img,
       &-attachment-card,
       .str-chat__gallery {
-        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
+          calc(var(--border-radius-sm) / 2);
       }
 
       &.str-chat__message--has-text.str-chat__message--has-attachment {
         .str-chat__message-attachment--img,
         .str-chat__message-attachment-card,
         .str-chat__gallery {
-          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
+            calc(var(--border-radius-sm) / 2);
         }
       }
 
@@ -133,7 +141,8 @@
           &-attachment--img,
           &-attachment-card,
           .str-chat__gallery {
-            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
 
@@ -155,14 +164,16 @@
       &-attachment--img,
       &-attachment-card,
       .str-chat__gallery {
-        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
+          calc(var(--border-radius-sm) / 2);
       }
 
       &.str-chat__message--has-text.str-chat__message--has-attachment {
         .str-chat__message-attachment--img,
         .str-chat__message-attachment-card,
         .str-chat__gallery {
-          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
+            calc(var(--border-radius-sm) / 2);
         }
       }
 
@@ -171,7 +182,8 @@
           &-attachment--img,
           &-attachment-card,
           .str-chat__gallery {
-            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
 
@@ -203,14 +215,16 @@
     .str-chat__message {
       &-text {
         &-inner {
-          border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+          border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
+            calc(var(--border-radius-sm) / 2);
         }
       }
 
       &--me {
         .str-chat__message-text {
           &-inner {
-            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
       }
@@ -221,10 +235,12 @@
     .str-chat__message {
       &-text {
         &-inner {
-          border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+          border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
+            calc(var(--border-radius-sm) / 2);
 
           &--has-attachment {
-            border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+            border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius)
+              var(--border-radius) calc(var(--border-radius-sm) / 2);
           }
         }
       }
@@ -232,10 +248,12 @@
       &--me {
         .str-chat__message-text {
           &-inner {
-            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
 
             &--has-attachment {
-              border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
+              border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
+                calc(var(--border-radius-sm) / 2) var(--border-radius);
             }
           }
         }
@@ -248,14 +266,16 @@
     .str-chat__message {
       &-text {
         &-inner {
-          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
+            calc(var(--border-radius-sm) / 2);
         }
       }
 
       &--me {
         .str-chat__message-text {
           &-inner {
-            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
 
             &--has-attachment {
               margin: 0;
@@ -266,7 +286,8 @@
         .str-chat__message-attachment-card {
           margin: 0;
           padding: 0;
-          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
+          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
+            calc(var(--border-radius-sm) / 2) var(--border-radius);
         }
       }
     }
@@ -387,7 +408,8 @@
       }
 
       &--has-attachment {
-        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+        border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
+          calc(var(--border-radius-sm) / 2);
       }
 
       /* if text consists of just one emoji */
@@ -477,7 +499,8 @@
         background: var(--grey-whisper);
         border-color: transparent;
         text-align: right;
-        border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+        border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
+          var(--border-radius);
         margin-right: 0; /* set spacing when unfocused */
 
         &--focused {
@@ -488,7 +511,8 @@
         }
 
         &--has-attachment {
-          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
+          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
+            calc(var(--border-radius-sm) / 2) var(--border-radius);
         }
 
         &--is-emoji {
@@ -786,7 +810,6 @@
       color: var(--white);
     }
 
-
     &--me {
       .str-chat__message-simple-reply-button {
         display: flex;
@@ -887,6 +910,17 @@
     color: var(--overlay-dark);
   }
 
+  &-angular {
+    svg {
+      width: 20px;
+      height: 20px;
+
+      path {
+        fill: var(--primary-color);
+      }
+    }
+  }
+
   > .str-chat__avatar,
   > .str-chat-angular__avatar-host > .str-chat__avatar {
     align-self: flex-end;
@@ -955,7 +989,8 @@
       &:first-of-type {
         border-bottom: 1px solid var(--grey-gainsboro);
         border-top: 1px solid var(--grey-gainsboro);
-        border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+        border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
+          calc(var(--border-radius-sm) / 2);
       }
     }
   }
@@ -966,7 +1001,8 @@
 
   &--me {
     .str-chat__message-attachment-card {
-      border-radius: var(--border-radius) var(--border-radius-sm) var(--border-radius-sm) var(--border-radius-sm);
+      border-radius: var(--border-radius) var(--border-radius-sm) var(--border-radius-sm)
+        var(--border-radius-sm);
     }
 
     .str-chat__message-attachment--file {
@@ -976,7 +1012,8 @@
         border-radius: 0 0 calc(var(--border-radius-sm) / 2) var(--border-radius);
 
         &:first-of-type:not(.str-chat-angular__message-attachment-file-single) {
-          border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+          border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
+            var(--border-radius);
         }
       }
     }
@@ -993,12 +1030,11 @@
       .str-chat__message-actions-box {
         right: unset;
         left: 100%;
-        border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+        border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
+          calc(var(--border-radius-sm) / 2);
       }
     }
   }
-
-
 }
 
 .livestream.str-chat {
@@ -1151,19 +1187,22 @@
       &--reverse {
         right: 100%;
         left: unset;
-        border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+        border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
+          var(--border-radius);
       }
     }
 
     .str-chat__message-actions-box--mine {
       right: 100%;
       left: unset;
-      border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+      border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2)
+        var(--border-radius);
 
       &.str-chat__message-actions-box--reverse {
         left: 100%;
         right: unset;
-        border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+        border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
+          calc(var(--border-radius-sm) / 2);
       }
     }
   }

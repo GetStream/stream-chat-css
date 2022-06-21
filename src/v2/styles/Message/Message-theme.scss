@@ -1,0 +1,197 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__message-font-family: var(--str-chat__font-family);
+  --str-chat__message-border-radius: none;
+  --str-chat__message-color: var(--str-chat__text-color);
+  --str-chat__message-error-message-color: var(--str-chat__danger-color);
+  --str-chat__message-secondary-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__message-link-color: var(--str-chat__primary-color);
+  --str-chat__message-status-color: var(--str-chat__primary-color);
+  --str-chat__message-replies-count-color: var(--str-chat__primary-color);
+  --str-chat__message-background-color: transparent;
+  --str-chat__message-border-block-start: none;
+  --str-chat__message-border-block-end: none;
+  --str-chat__message-border-inline-start: none;
+  --str-chat__message-border-inline-end: none;
+  --str-chat__message-box-shadow: none;
+  --str-chat__message-active-bacground-color: transparent;
+  --str-chat__message-options-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__message-options-active-color: var(--str-chat__primary-color);
+
+  --str-chat__message-bubble-font-family: var(--str-chat__font-family);
+  --str-chat__message-bubble-border-radius: var(--str-chat__border-radius-md);
+  --str-chat__message-bubble-color: var(--str-chat__text-color);
+  --str-chat__message-bubble-background-color: var(--str-chat__secondary-surface-color);
+  --str-chat__own-message-bubble-background-color: var(--str-chat__primary-surface-color);
+  --str-chat__quoted-message-bubble-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__message-bubble-border-block-start: none;
+  --str-chat__message-bubble-border-block-end: none;
+  --str-chat__message-bubble-border-inline-start: none;
+  --str-chat__message-bubble-border-inline-end: none;
+  --str-chat__message-bubble-box-shadow: none;
+
+  --str-chat__deleted-message-font-family: var(--str-chat__font-family);
+  --str-chat__deleted-message-border-radius: var(--str-chat__border-radius-md);
+  --str-chat__deleted-message-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__deleted-message-background-color: var(--str-chat__secondary-surface-color);
+  --str-chat__deleted-message-border-block-start: none;
+  --str-chat__deleted-message-border-block-end: none;
+  --str-chat__deleted-message-border-inline-start: none;
+  --str-chat__deleted-message-border-inline-end: none;
+  --str-chat__deleted-message-box-shadow: none;
+
+  --str-chat__system-message-font-family: var(--str-chat__font-family);
+  --str-chat__system-message-border-radius: 0;
+  --str-chat__system-message-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__system-message-background-color: transparent;
+  --str-chat__system-message-border-block-start: none;
+  --str-chat__system-message-border-block-end: none;
+  --str-chat__system-message-border-inline-start: none;
+  --str-chat__system-message-border-inline-end: none;
+  --str-chat__system-message-box-shadow: none;
+}
+
+.str-chat__message {
+  $message-text-font-size: 0.9375rem;
+  @include utils.component-layer-overrides('message');
+
+  a {
+    text-decoration: none;
+    color: var(--str-chat__message-link-color);
+  }
+
+  .str-chat__message-bubble {
+    @include utils.component-layer-overrides('message-bubble');
+    font-size: $message-text-font-size;
+  }
+
+  .str-chat__message--deleted-inner {
+    @include utils.component-layer-overrides('deleted-message');
+    font-size: $message-text-font-size;
+  }
+
+  .str-chat__message--system {
+    @include utils.component-layer-overrides('system-message');
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  &.str-chat__message--me .str-chat__message-bubble {
+    background-color: var(--str-chat__own-message-bubble-background-color);
+  }
+
+  .str-chat__message-options {
+    .str-chat__message-actions-box-button,
+    .str-chat__message-reply-in-thread-button,
+    .str-chat__message-reactions-button {
+      .str-chat__message-action-icon svg path {
+        fill: var(--str-chat__message-options-color);
+      }
+    }
+
+    .str-chat__message-actions-box-button:hover,
+    .str-chat__message-reply-in-thread-button:hover,
+    .str-chat__message-reactions-button:hover {
+      .str-chat__message-action-icon svg path {
+        fill: var(--str-chat__message-options-active-color);
+      }
+    }
+  }
+
+  .str-chat__message-metadata {
+    color: var(--str-chat__message-secondary-color);
+    font-size: 0.75rem;
+    line-height: 1rem;
+
+    .str-chat__message-sender-name {
+      font-weight: 500;
+    }
+  }
+
+  .str-chat__message-status {
+    color: var(--str-chat__message-status-color);
+    font-size: 0.875rem;
+    line-height: 1.05rem;
+
+    svg {
+      path {
+        fill: var(--str-chat__message-status-color);
+      }
+    }
+  }
+
+  .str-chat__message-replies-count-button-wrapper {
+    button {
+      border: none;
+      background-color: transparent;
+      font-size: 0.875rem;
+      line-height: 1rem;
+      color: var(--str-chat__message-replies-count-color);
+      font-weight: 500;
+    }
+  }
+
+  .str-chat__message--error-message {
+    color: var(--str-chat__message-error-message-color);
+    font-size: 80%;
+  }
+
+  .str-chat__message-error-icon {
+    /* stylelint-disable-next-line selector-max-id */
+    svg #background {
+      fill: var(--str-chat__message-error-message-color);
+    }
+  }
+}
+
+.str-chat__li:hover {
+  background-color: var(--str-chat__message-active-bacground-color);
+}
+
+.str-chat__li--bottom,
+.str-chat__li--single {
+  .str-chat__message--other {
+    .str-chat__message-bubble {
+      border-end-start-radius: 0;
+    }
+  }
+
+  .str-chat__message--me {
+    .str-chat__message-bubble {
+      border-end-end-radius: 0;
+    }
+  }
+}
+
+.str-chat__message-with-thread-link {
+  &.str-chat__message--other {
+    .str-chat__message-bubble {
+      border-end-start-radius: 0;
+    }
+  }
+
+  &.str-chat__message--me {
+    .str-chat__message-bubble {
+      border-end-end-radius: 0;
+    }
+  }
+}
+
+.str-chat__quoted-message-preview {
+  @include utils.component-layer-overrides('message');
+
+  .str-chat__quoted-message-bubble {
+    @include utils.component-layer-overrides('message-bubble');
+    background-color: var(--str-chat__quoted-message-bubble-background-color);
+    border-end-start-radius: 0;
+  }
+}
+
+.str-chat__message-input {
+  .str-chat__quoted-message-preview {
+    .str-chat__quoted-message-bubble {
+      background-color: var(--str-chat__message-bubble-background-color);
+    }
+  }
+}

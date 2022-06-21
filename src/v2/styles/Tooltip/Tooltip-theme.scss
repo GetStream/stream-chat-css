@@ -1,0 +1,27 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__tooltip-font-family: var(--str-chat__font-family);
+  --str-chat__tooltip-border-radius: var(--str-chat__border-radius-xs);
+  --str-chat__tooltip-color: var(--str-chat__text-color);
+  --str-chat__tooltip-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__tooltip-border-block-start: none;
+  --str-chat__tooltip-border-block-end: none;
+  --str-chat__tooltip-border-inline-start: none;
+  --str-chat__tooltip-border-inline-end: none;
+  --str-chat__tooltip-box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
+}
+
+.str-chat__theme-dark {
+  --str-chat__tooltip-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.str-chat__tooltip {
+  @include utils.component-layer-overrides('tooltip');
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+
+  &::after {
+    background-color: var(--str-chat__tooltip-background-color);
+  }
+}

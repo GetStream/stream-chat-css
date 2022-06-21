@@ -1,0 +1,55 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__message-reactions-options-font-family: var(--str-chat__font-family);
+  --str-chat__message-reactions-options-border-radius: var(--str-chat__border-radius-circle);
+  --str-chat__message-reactions-options-color: var(--str-chat__text-color);
+  --str-chat__message-reactions-options-background-color: var(
+    --str-chat__secondary-background-color
+  );
+  --str-chat__message-reactions-options-border-block-start: none;
+  --str-chat__message-reactions-options-border-block-end: none;
+  --str-chat__message-reactions-options-border-inline-start: none;
+  --str-chat__message-reactions-options-border-inline-end: none;
+  --str-chat__message-reactions-options-box-shadow: 0 0 40px rgba(0, 0, 0, 0.18);
+
+  --str-chat__message-reactions-option-font-family: var(--str-chat__font-family);
+  --str-chat__message-reactions-option-border-radius: var(--str-chat__border-radius-md);
+  --str-chat__message-reactions-option-color: var(--str-chat__text-color);
+  --str-chat__message-reactions-option-background-color: var(
+    --str-chat__secondary-background-color
+  );
+  --str-chat__message-reactions-option-hover-background-color: var(
+    --str-chat__primary-surface-color
+  );
+  --str-chat__message-reactions-option-selected-background-color: var(
+    --str-chat__primary-color-low-emphasis
+  );
+  --str-chat__message-reactions-option-border-block-start: none;
+  --str-chat__message-reactions-option-border-block-end: none;
+  --str-chat__message-reactions-option-border-inline-start: none;
+  --str-chat__message-reactions-option-border-inline-end: none;
+  --str-chat__message-reactions-option-box-shadow: none;
+}
+
+.str-chat__theme-dark {
+  --str-chat__message-reactions-options-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.str-chat__reaction-selector {
+  .str-chat__message-reactions-options {
+    @include utils.component-layer-overrides('message-reactions-options');
+
+    .str-chat__message-reactions-option {
+      @include utils.component-layer-overrides('message-reactions-option');
+
+      &:hover {
+        background-color: var(--str-chat__message-reactions-option-hover-background-color);
+      }
+
+      &.str-chat__message-reactions-option-selected {
+        background-color: var(--str-chat__message-reactions-option-selected-background-color);
+      }
+    }
+  }
+}

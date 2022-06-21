@@ -1,0 +1,36 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__edit-message-modal-button-font-family: var(--str-chat__font-family);
+  --str-chat__edit-message-modal-button-border-radius: none;
+  --str-chat__edit-message-modal-send-button-color: var(--str-chat__primary-color);
+  --str-chat__edit-message-modal-cancel-button-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__edit-message-modal-button-background-color: transparent;
+  --str-chat__edit-message-modal-button-border-block-start: none;
+  --str-chat__edit-message-modal-button-border-block-end: none;
+  --str-chat__edit-message-modal-button-border-inline-start: none;
+  --str-chat__edit-message-modal-button-border-inline-end: none;
+  --str-chat__edit-message-modal-button-box-shadow: none;
+}
+
+.str-chat__edit-message-form {
+  .str-chat__edit-message-form-options {
+    .str-chat__edit-message-cancel,
+    .str-chat__edit-message-send {
+      @include utils.component-layer-overrides('edit-message-modal-button');
+      font-size: 0.875rem;
+      line-height: 1rem;
+      font-weight: 500;
+    }
+
+    .str-chat__edit-message-cancel {
+      text-transform: capitalize;
+      color: var(--str-chat__edit-message-modal-cancel-button-color);
+    }
+
+    .str-chat__edit-message-send {
+      text-transform: uppercase;
+      color: var(--str-chat__edit-message-modal-send-button-color);
+    }
+  }
+}

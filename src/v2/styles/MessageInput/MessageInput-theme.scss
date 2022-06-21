@@ -1,0 +1,137 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__message-input-font-family: var(--str-chat__font-family);
+  --str-chat__message-input-border-radius: 0;
+  --str-chat__message-input-color: var(--str-chat__text-color);
+  --str-chat__message-input-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__message-input-border-block-start: none;
+  --str-chat__message-input-border-block-end: none;
+  --str-chat__message-input-border-inline-start: none;
+  --str-chat__message-input-border-inline-end: none;
+  --str-chat__message-input-box-shadow: none;
+
+  --str-chat__message-textarea-font-family: var(--str-chat__font-family);
+  --str-chat__message-textarea-border-radius: var(--str-chat__border-radius-md);
+  --str-chat__message-textarea-color: var(--str-chat__text-color);
+  --str-chat__message-textarea-background-color: transparent;
+  --str-chat__message-textarea-border-block-start: 1px solid var(--str-chat__surface-color);
+  --str-chat__message-textarea-border-block-end: 1px solid var(--str-chat__surface-color);
+  --str-chat__message-textarea-border-inline-start: 1px solid var(--str-chat__surface-color);
+  --str-chat__message-textarea-border-inline-end: 1px solid var(--str-chat__surface-color);
+  --str-chat__message-textarea-box-shadow: none;
+
+  --str-chat__message-send-font-family: var(--str-chat__font-family);
+  --str-chat__message-send-border-radius: var(--str-chat__border-radius-circle);
+  --str-chat__message-send-color: var(--str-chat__primary-color);
+  --str-chat__message-send-background-color: transparent;
+  --str-chat__message-send-border-block-start: 0;
+  --str-chat__message-send-border-block-end: 0;
+  --str-chat__message-send-border-inline-start: 0;
+  --str-chat__message-send-border-inline-end: 0;
+  --str-chat__message-send-box-shadow: none;
+  --str-chat__message-send-disabled-color: var(--str-chat__disabled-color);
+  --str-chat__message-send-disabled-background-color: transparent;
+
+  --str-chat__message-input-tools-font-family: var(--str-chat__font-family);
+  --str-chat__message-input-tools-border-radius: var(--str-chat__border-radius-circle);
+  --str-chat__message-input-tools-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__message-input-tools-background-color: transparent;
+  --str-chat__message-input-tools-border-block-start: 0;
+  --str-chat__message-input-tools-border-block-end: 0;
+  --str-chat__message-input-tools-border-inline-start: 0;
+  --str-chat__message-input-tools-border-inline-end: 0;
+  --str-chat__message-input-tools-box-shadow: none;
+
+  --str-chat__message-input-not-allowed-color: var(--str-chat__disabled-color);
+
+  --str-chat__cooldown-font-family: var(--str-chat__font-family);
+  --str-chat__cooldown-border-radius: var(--str-chat__border-radius-circle);
+  --str-chat__cooldown-color: var(--str-chat__on-disabled-color);
+  --str-chat__cooldown-background-color: var(--str-chat__disabled-color);
+  --str-chat__cooldown-border-block-start: 0;
+  --str-chat__cooldown-border-block-end: 0;
+  --str-chat__cooldown-border-inline-start: 0;
+  --str-chat__cooldown-border-inline-end: 0;
+  --str-chat__cooldown-box-shadow: none;
+}
+
+.str-chat__message-input {
+  @include utils.component-layer-overrides('message-input');
+
+  .str-chat__file-input-container {
+    @include utils.component-layer-overrides('message-input-tools');
+
+    svg path {
+      fill: var(--str-chat__message-input-tools-color);
+    }
+  }
+
+  .str-chat__attachment-preview-image-error {
+    svg path {
+      fill: var(--str-chat__primary-color);
+    }
+  }
+
+  .str-chat__message-textarea-container {
+    @include utils.component-layer-overrides('message-textarea');
+
+    .str-chat__message-textarea {
+      resize: none;
+      border: none;
+      color: var(--str-chat__message-textarea-color);
+      font-family: var(--str-chat__message-textarea-font-family);
+      background-color: transparent;
+      box-shadow: none;
+      outline: none;
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  .str-chat__send-button {
+    @include utils.component-layer-overrides('message-send');
+
+    svg path {
+      fill: var(--str-chat__message-send-color);
+    }
+
+    &:disabled {
+      background-color: var(--str-chat__message-send-disabled-background-color);
+
+      svg path {
+        fill: var(--str-chat__message-send-disabled-color);
+      }
+    }
+  }
+
+  .str-chat__message-input-cooldown {
+    @include utils.component-layer-overrides('cooldown');
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+  }
+
+  .str-chat__message-input-not-allowed {
+    color: var(--str-chat__message-input-not-allowed-color);
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  .str-chat__quoted-message-preview-header {
+    .str-chat__quoted-message-reply-to-message {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      font-weight: 500;
+    }
+
+    .str-chat__quoted-message-remove {
+      background-color: transparent;
+      border: none;
+
+      svg path {
+        fill: var(--str-chat__message-input-tools-color);
+      }
+    }
+  }
+}

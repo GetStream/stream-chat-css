@@ -11,9 +11,19 @@
   justify-content: center;
 }
 
+@mixin ellipsis-text-parent {
+  overflow-y: visible;
+  // Not every browser support clip overflow, so hidden is defined as a fallback
+  overflow-x: hidden;
+  overflow-x: clip;
+  min-width: 0;
+}
+
 @mixin ellipsis-text {
   white-space: nowrap;
   overflow-y: visible;
+  // Not every browser support clip overflow, so hidden is defined as a fallback
+  overflow-x: hidden;
   overflow-x: clip;
   text-overflow: ellipsis;
 }
@@ -23,20 +33,16 @@
   overflow-y: auto;
 }
 
-@mixin component-layer-overrides($component-name) {
-  // & selector is required for the postcss-logical plugin to properly transform the logical properties
-  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-  & {
-    background-color: var(--str-chat__#{$component-name}-background-color);
-    color: var(--str-chat__#{$component-name}-color);
-    font-family: var(--str-chat__#{$component-name}-font-family);
-    box-shadow: var(--str-chat__#{$component-name}-box-shadow);
-    border-radius: var(--str-chat__#{$component-name}-border-radius);
-    border-block-start: var(--str-chat__#{$component-name}-border-block-start);
-    border-block-end: var(--str-chat__#{$component-name}-border-block-end);
-    border-inline-start: var(--str-chat__#{$component-name}-border-inline-start);
-    border-inline-end: var(--str-chat__#{$component-name}-border-inline-end);
-  }
+@mixin component-layer-overrides($component-name, $important: '') {
+  background-color: var(--str-chat__#{$component-name}-background-color) #{$important};
+  color: var(--str-chat__#{$component-name}-color) #{$important};
+  font-family: var(--str-chat__#{$component-name}-font-family) #{$important};
+  box-shadow: var(--str-chat__#{$component-name}-box-shadow) #{$important};
+  border-radius: var(--str-chat__#{$component-name}-border-radius) #{$important};
+  border-block-start: var(--str-chat__#{$component-name}-border-block-start) #{$important};
+  border-block-end: var(--str-chat__#{$component-name}-border-block-end) #{$important};
+  border-inline-start: var(--str-chat__#{$component-name}-border-inline-start) #{$important};
+  border-inline-end: var(--str-chat__#{$component-name}-border-inline-end) #{$important};
 }
 
 @mixin cta-button-overrides($component-name) {
@@ -61,85 +67,80 @@
 }
 
 @mixin header-layout {
-  // & selector is required for the postcss-logical plugin to properly transform the logical properties
-  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-  & {
-    display: flex;
-    padding: var(--str-chat__spacing-2);
-    column-gap: var(--str-chat__spacing-4);
-    align-items: center;
-  }
+  display: flex;
+  padding: var(--str-chat__spacing-2);
+  column-gap: var(--str-chat__spacing-4);
+  align-items: center;
 }
 
 @mixin header-text-layout {
-  // & selector is required for the postcss-logical plugin to properly transform the logical properties
-  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-  & {
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden; // for ellipsis text
-    flex: 1;
-    row-gap: var(--str-chat__spacing-1_5);
-  }
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; // for ellipsis text
+  flex: 1;
+  row-gap: var(--str-chat__spacing-1_5);
 }
 
 @mixin empty-layout {
-  // & selector is required for the postcss-logical plugin to properly transform the logical properties
-  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-  & {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--str-chat__spacing-4);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--str-chat__spacing-4);
 
-    svg {
-      width: calc(var(--str-chat__spacing-px) * 136);
-      height: calc(var(--str-chat__spacing-px) * 136);
-    }
+  svg {
+    width: calc(var(--str-chat__spacing-px) * 136);
+    height: calc(var(--str-chat__spacing-px) * 136);
   }
 }
 
 @mixin empty-theme($component-name) {
-  // & selector is required for the postcss-logical plugin to properly transform the logical properties
-  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-  & {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
 
-    svg path {
-      fill: var(--str-chat__#{$component-name}-empty-indicator-color);
-    }
+  svg path {
+    fill: var(--str-chat__#{$component-name}-empty-indicator-color);
   }
 }
 
 @mixin message-list-spacing {
-  // & selector is required for the postcss-logical plugin to properly transform the logical properties
-  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-  & {
-    padding: 0 var(--str-chat__spacing-2);
+  $spacing: var(--str-chat__spacing-2);
+  padding: 0 $spacing;
 
-    @media only screen and (min-device-width: 768px) {
-      /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-      & {
-        padding: 0 var(--str-chat__spacing-10);
-      }
+  // Need this trick to be able to apply full-width background color on hover to messages / full-width separator to thread header
+  .str-chat__li {
+    margin-inline: calc(-1 * #{$spacing});
+    padding-inline: $spacing;
+  }
+
+  .str-chat__parent-message-li {
+    margin-inline: calc(-1 * #{$spacing});
+  }
+
+  @media only screen and (min-device-width: 768px) {
+    $spacing: min(var(--str-chat__spacing-10), 4%);
+
+    padding: 0 $spacing;
+
+    .str-chat__li {
+      margin-inline: calc(-1 * #{$spacing});
+      padding-inline: $spacing;
+    }
+
+    .str-chat__parent-message-li {
+      margin-inline: calc(-1 * #{$spacing});
     }
   }
 }
 
 @mixin loading-item-background($component-name) {
-  // & selector is required for the postcss-logical plugin to properly transform the logical properties
-  /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-  & {
-    background-image: linear-gradient(
-      -90deg,
-      var(--str-chat__#{$component-name}-loading-state-color) 0%,
-      var(--str-chat__#{$component-name}-loading-state-color) 100%
-    );
-  }
+  background-image: linear-gradient(
+    -90deg,
+    var(--str-chat__#{$component-name}-loading-state-color) 0%,
+    var(--str-chat__#{$component-name}-loading-state-color) 100%
+  );
 }
 
 @mixin loading-animation {

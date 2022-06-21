@@ -1,0 +1,85 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__autocomplete-menu-font-family: var(--str-chat__font-family);
+  --str-chat__autocomplete-menu-border-radius: var(--str-chat__border-radius-xs);
+  --str-chat__autocomplete-menu-color: var(--str-chat__text-color);
+  --str-chat__autocomplete-menu-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__autocomplete-menu-border-block-start: none;
+  --str-chat__autocomplete-menu-border-block-end: none;
+  --str-chat__autocomplete-menu-border-inline-start: none;
+  --str-chat__autocomplete-menu-border-inline-end: none;
+  --str-chat__autocomplete-menu-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  --str-chat__autocomplete-active-background-color: var(--str-chat__surface-color);
+
+  --str-chat__slash-command-font-family: var(--str-chat__font-family);
+  --str-chat__slash-command-border-radius: 0;
+  --str-chat__slash-command-color: var(--str-chat__text-color);
+  --str-chat__slash-command-background-color: transparent;
+  --str-chat__slash-command-border-block-start: none;
+  --str-chat__slash-command-border-block-end: none;
+  --str-chat__slash-command-border-inline-start: none;
+  --str-chat__slash-command-border-inline-end: none;
+  --str-chat__slash-command-box-shadow: none;
+  --str-chat__slash-command-args-color: var(--str-chat__text-low-emphasis-color);
+
+  --str-chat__mention-list-user-item-font-family: var(--str-chat__font-family);
+  --str-chat__mention-list-user-item-border-radius: 0;
+  --str-chat__mention-list-user-item-color: var(--str-chat__text-color);
+  --str-chat__mention-list-user-item-background-color: transparent;
+  --str-chat__mention-list-user-item-border-block-start: none;
+  --str-chat__mention-list-user-item-border-block-end: none;
+  --str-chat__mention-list-user-item-border-inline-start: none;
+  --str-chat__mention-list-user-item-border-inline-end: none;
+  --str-chat__mention-list-user-item-box-shadow: none;
+  --str-chat__mention-list-user-item-args-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__mention-list-user-item-at-sign-color: var(--str-chat__primary-color);
+}
+
+// Class defined by Angular mentions
+// !important necessart to override library defined styles
+.mention-menu {
+  @include utils.component-layer-overrides('autocomplete-menu', '!important');
+
+  .active.mention-active > a {
+    background-color: var(--str-chat__autocomplete-active-background-color) !important;
+  }
+
+  .mention-item {
+    color: var(--str-chat__autocomplete-menu-color) !important;
+    background-color: transparent !important;
+  }
+}
+
+.str-chat__slash-command {
+  @include utils.component-layer-overrides('slash-command');
+
+  .str-chat__slash-command-header {
+    .str-chat__slash-command-name {
+      text-transform: capitalize;
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+    }
+
+    .str-chat__slash-command-args {
+      color: var(--str-chat__slash-command-args-color);
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
+  }
+}
+
+.str-chat__user-item {
+  @include utils.component-layer-overrides('mention-list-user-item');
+
+  .str-chat__user-item--name {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  .str-chat__user-item-at {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    color: var(--str-chat__mention-list-user-item-at-sign-color);
+  }
+}

@@ -38,3 +38,7 @@
     @include utils.scrollable;
   }
 }
+
+.str-chat__parent-message-li {
+  padding: var(--str-chat__spacing-2);
+}
