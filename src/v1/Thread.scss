@@ -198,6 +198,7 @@
 
         .str-chat__square-button {
           cursor: pointer;
+          padding: var(--xxs-p);
 
           svg {
             width: 21px;
