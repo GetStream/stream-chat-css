@@ -77,3 +77,9 @@
     transform: translateX(-50%) translateY(-100%);
   }
 }
+
+.str-chat__thread {
+  .str-chat__main-panel-inner {
+    height: auto;
+  }
+}

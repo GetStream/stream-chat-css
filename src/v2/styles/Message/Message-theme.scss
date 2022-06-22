@@ -17,6 +17,8 @@
   --str-chat__message-box-shadow: none;
   --str-chat__message-active-bacground-color: transparent;
   --str-chat__message-options-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__message-options-hover-background-color: var(--str-chat__tertiary-surface-color);
+  --str-chat__message-options-border-radius: var(--str-chat__border-radius-circle);
   --str-chat__message-options-active-color: var(--str-chat__primary-color);
 
   --str-chat__message-bubble-font-family: var(--str-chat__font-family);
@@ -85,6 +87,8 @@
     .str-chat__message-actions-box-button,
     .str-chat__message-reply-in-thread-button,
     .str-chat__message-reactions-button {
+      border-radius: var(--str-chat__message-options-border-radius);
+
       .str-chat__message-action-icon svg path {
         fill: var(--str-chat__message-options-color);
       }
@@ -93,6 +97,12 @@
     .str-chat__message-actions-box-button:hover,
     .str-chat__message-reply-in-thread-button:hover,
     .str-chat__message-reactions-button:hover {
+      background-color: var(--str-chat__message-options-hover-background-color);
+    }
+
+    .str-chat__message-actions-box-button:active,
+    .str-chat__message-reply-in-thread-button:active,
+    .str-chat__message-reactions-button:active {
       .str-chat__message-action-icon svg path {
         fill: var(--str-chat__message-options-active-color);
       }

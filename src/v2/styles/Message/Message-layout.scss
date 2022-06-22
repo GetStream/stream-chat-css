@@ -87,15 +87,18 @@
       align-items: center;
       justify-content: flex-end;
       flex-direction: row-reverse;
-      column-gap: var(--str-chat__spacing-1);
 
       .str-chat__message-actions-box-button,
       .str-chat__message-reply-in-thread-button,
       .str-chat__message-reactions-button {
+        @include utils.flex-row-center;
         cursor: pointer;
+        width: calc(var(--str-chat__spacing-px) * 34);
+        height: calc(var(--str-chat__spacing-px) * 34);
       }
 
-      .str-chat__message-actions-box-button {
+      .str-chat__message-actions-box-button,
+      .str-chat__message-actions-container {
         position: relative;
       }
     }
