@@ -19,6 +19,7 @@
 @use 'MessageInput/MessageInput-layout';
 @use 'MessageList/MessageList-layout';
 @use 'MessageList/VirtualMessageList-layout';
+@use "MessageNotifications/MessageNotifications-layout";
 @use 'MessageReactions/MessageReactions-layout';
 @use 'MessageReactions/MessageReactionsSelector-layout';
 @use 'Modal/Modal-layout';
