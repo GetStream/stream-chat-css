@@ -46,6 +46,11 @@
       opacity: 0.2;
     }
   }
+
+  .str-chat__typing-indicator__users {
+    margin-left: 8px;
+    color: var(--lighten-grey);
+  }
 }
 
 .dark.str-chat {

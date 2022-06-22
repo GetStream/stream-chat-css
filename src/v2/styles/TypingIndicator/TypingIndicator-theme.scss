@@ -1,0 +1,52 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__typing-indicator-font-family: var(--str-chat__font-family);
+  --str-chat__typing-indicator-border-radius: none;
+  --str-chat__typing-indicator-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__typing-indicator-background-color: var(--str-chat__overlay-color);
+  --str-chat__typing-indicator-border-block-start: none;
+  --str-chat__typing-indicator-border-block-end: none;
+  --str-chat__typing-indicator-border-inline-start: none;
+  --str-chat__typing-indicator-border-inline-end: none;
+  --str-chat__typing-indicator-box-shadow: none;
+  --str-chat__typing-indicator-dot-background-color: var(--str-chat__text-color);
+}
+
+.str-chat__typing-indicator {
+  @include utils.component-layer-overrides('typing-indicator');
+
+  .str-chat__typing-indicator__dots {
+    .str-chat__typing-indicator__dot {
+      border-radius: 999px;
+      animation: dotFlashing 1s infinite alternate;
+      background-color: var(--str-chat__typing-indicator-dot-background-color);
+
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 1s;
+      }
+
+      @keyframes dotFlashing {
+        0% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0.6;
+        }
+
+        100% {
+          opacity: 0.2;
+        }
+      }
+    }
+  }
+}
