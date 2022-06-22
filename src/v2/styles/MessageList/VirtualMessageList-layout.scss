@@ -14,7 +14,7 @@
   // a simple workaround is to make the loading indicator an overlay.
   &__loading {
     display: flex;
-    padding-top: var(--xs-p);
+    padding-top: var(--str-chat__spacing-2);
     justify-content: center;
     width: 100%;
     position: absolute;
