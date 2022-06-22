@@ -19,8 +19,8 @@
     }
 
     .str-chat__close-thread-button {
-      @include utils.flex-row-center;
       $icon-size: calc(var(--str-chat__spacing-px) * 21);
+      @include utils.flex-row-center;
       width: calc(var(--str-chat__spacing-px) * 40);
       height: calc(var(--str-chat__spacing-px) * 40);
       cursor: pointer;
