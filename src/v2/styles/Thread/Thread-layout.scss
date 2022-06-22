@@ -19,6 +19,7 @@
     }
 
     .str-chat__close-thread-button {
+      @include utils.flex-row-center;
       $icon-size: calc(var(--str-chat__spacing-px) * 21);
       width: calc(var(--str-chat__spacing-px) * 40);
       height: calc(var(--str-chat__spacing-px) * 40);
@@ -33,7 +34,7 @@
     }
   }
 
-  //todo: remove once React SDK syncs the markup with the Angular SDK
+  // todo: React SDK specific. Deprecate after merging with MessageList
   .str-chat__thread-list {
     @include utils.scrollable;
   }
