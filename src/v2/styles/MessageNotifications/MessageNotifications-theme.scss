@@ -3,13 +3,13 @@
 .str-chat {
   --str-chat__message-notification-font-family: var(--str-chat__font-family);
   --str-chat__message-notification-background-color: var(--str-chat__primary-color);
-  --str-chat__message-notification-color: var(--str-chat__on-primary-color);
-  --str-chat__message-notification-box-shadow: none;
-  --str-chat__message-notification-border-radius: 50px;
   --str-chat__message-notification-border-block-start: none;
   --str-chat__message-notification-border-block-end: none;
   --str-chat__message-notification-border-inline-start: none;
   --str-chat__message-notification-border-inline-end: none;
+  --str-chat__message-notification-border-radius: 50px;
+  --str-chat__message-notification-box-shadow: none;
+  --str-chat__message-notification-color: var(--str-chat__on-primary-color);
 }
 
 .str-chat__message-notification {
