@@ -1,0 +1,23 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__notification-font-family: var(--str-chat__font-family);
+  --str-chat__notification-border-radius: var(--str-chat__border-radius-sm);
+  --str-chat__notification-color: var(--str-chat__opaque-surface-text-color);
+  --str-chat__notification-background-color: var(--str-chat__opaque-surface-background-color);
+  --str-chat__notification-border-block-start: none;
+  --str-chat__notification-border-block-end: none;
+  --str-chat__notification-border-inline-start: none;
+  --str-chat__notification-border-inline-end: none;
+  --str-chat__notification-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.str-chat__theme-dark {
+  --str-chat__notification-box-shadow: 0 0 8 #000000;
+}
+
+.str-chat__notification {
+  @include utils.component-layer-overrides('notification');
+  font-size: 1rem;
+  line-height: 1.35rem;
+}

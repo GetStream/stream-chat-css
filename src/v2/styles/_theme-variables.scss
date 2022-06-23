@@ -113,6 +113,8 @@
   --str-chat__overlay-color: rgba(252, 252, 252, 0.9);
   --str-chat__secondary-overlay: rgba(0, 0, 0, 0.2);
   --str-chat__secondary-overlay-text-color: var(--str-chat__grey50);
+  --str-chat__opaque-surface-background-color: rgba(0, 0, 0, 0.8);
+  --str-chat__opaque-surface-text-color: var(--str-chat__grey50);
 }
 
 .str-chat__theme-dark {
@@ -138,4 +140,6 @@
   --str-chat__overlay-color: rgba(0, 0, 0, 0.7);
   --str-chat__secondary-overlay: rgba(0, 0, 0, 0.4);
   --str-chat__secondary-overlay-text-color: var(--str-chat__grey50);
+  --str-chat__opaque-surface-background-color: rgba(250, 250, 250, 0.85);
+  --str-chat__opaque-surface-text-color: var(--str-chat__grey900);
 }

@@ -1,0 +1,17 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__notification-list-font-family: var(--str-chat__font-family);
+  --str-chat__notification-list-border-radius: none;
+  --str-chat__notification-list-color: var(--str-chat__notification-list-text-color);
+  --str-chat__notification-list-background-color: transparent;
+  --str-chat__notification-list-border-block-start: none;
+  --str-chat__notification-list-border-block-end: none;
+  --str-chat__notification-list-border-inline-start: none;
+  --str-chat__notification-list-border-inline-end: none;
+  --str-chat__notification-list-box-shadow: none;
+}
+
+.str-chat__list-notification-lists {
+  @include utils.component-layer-overrides('notification-list-list');
+}
