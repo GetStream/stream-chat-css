@@ -9,6 +9,12 @@
   background-image: linear-gradient(-180deg, var(--bg-gradient-start), var(--bg-gradient-end));
   box-shadow: 0 0 2px 0 var(--border), 0 1px 0 0 var(--border), 0 1px 8px 0 var(--border);
   z-index: 999;
+
+  &.str-chat__message-actions-box-angular {
+    position: initial;
+    margin: 8px;
+    border-radius: var(--border-radius);
+  }
 }
 
 .str-chat__message-actions-box--open {
@@ -108,5 +114,20 @@
   button {
     display: flex;
     align-items: center;
+  }
+}
+
+.str-chat__message-edit-in-progress {
+  .ngxp__container {
+    transform: initial !important;
+    will-change: initial !important;
+  }
+}
+
+.str-chat__message-edit-in-progress {
+  .ngxp__container {
+    transform: initial !important;
+    will-change: initial !important;
+    z-index: 2;
   }
 }
