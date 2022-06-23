@@ -1,15 +1,18 @@
 @use '../utils';
 
 .str-chat__tooltip {
-  $size: 10px;
-
-  position: absolute;
-  bottom: calc(100% + calc(#{$size} / 2));
   display: flex;
   padding: var(--str-chat__spacing-2);
+}
+
+.str-chat__tooltip:not(.str-chat__tooltip-angular) {
+  $size: 10px;
+
   min-width: calc(var(--str-chat__spacing-px) * 100px);
   max-width: calc(var(--str-chat__spacing-px) * 150px);
   word-break: break-all;
+  position: absolute;
+  bottom: calc(100% + calc(#{$size} / 2));
 
   &::after {
     content: '';

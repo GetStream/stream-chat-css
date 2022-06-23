@@ -7,6 +7,19 @@
     box-sizing: inherit;
     font-family: var(--second-font);
   }
+
+  // Overriding styles of ngx-popperjs
+  .ngxp__container {
+    z-index: 1;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+
+    .ngxp__arrow {
+      display: none !important;
+    }
+  }
 }
 
 .clearfix {
