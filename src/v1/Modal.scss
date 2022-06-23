@@ -15,7 +15,6 @@
   }
 
   &__inner {
-    max-width: 667px;
     background: var(--white);
     padding: var(--md-p);
     border-radius: var(--border-radius-md);
@@ -48,7 +47,7 @@
   }
 
   .str-chat__edit-message-form {
-    min-width: 300px;
+    width: var(--modal-edit-message-form-width);
   }
 
   .str-chat__input-emojiselect,

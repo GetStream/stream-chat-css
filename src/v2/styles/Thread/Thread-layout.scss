@@ -20,6 +20,7 @@
 
     .str-chat__close-thread-button {
       $icon-size: calc(var(--str-chat__spacing-px) * 21);
+      @include utils.flex-row-center;
       width: calc(var(--str-chat__spacing-px) * 40);
       height: calc(var(--str-chat__spacing-px) * 40);
       cursor: pointer;
@@ -31,6 +32,11 @@
         width: $icon-size;
       }
     }
+  }
+
+  // todo: React SDK specific. Deprecate after merging with MessageList
+  .str-chat__thread-list {
+    @include utils.scrollable;
   }
 }
 

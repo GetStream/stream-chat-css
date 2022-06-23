@@ -1,0 +1,16 @@
+.str-chat__list-notifications {
+  padding: 0 var(--str-chat__spacing-10);
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.str-chat__message-notification {
+  display: block;
+  position: absolute;
+  align-self: center;
+  padding: var(--str-chat__spacing-1) var(--str-chat__spacing-2);
+  bottom: calc(var(--str-chat__spacing-px) * 10);
+  z-index: 101;
+}

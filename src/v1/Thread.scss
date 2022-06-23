@@ -69,7 +69,6 @@
     .str-chat__message:first-of-type .str-chat__message-inner {
       margin-left: unset;
       margin-right: unset;
-      width: 100%;
     }
 
     .str-chat__message-attachment.str-chat__message-attachment {
@@ -187,6 +186,7 @@
       }
 
       &__thread-header {
+        z-index: 1;
         border: none;
         // box-shadow: none;
         background: var(--white);
@@ -198,6 +198,7 @@
 
         .str-chat__square-button {
           cursor: pointer;
+          padding: var(--xxs-p);
 
           svg {
             width: 21px;

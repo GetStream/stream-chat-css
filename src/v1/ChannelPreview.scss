@@ -23,6 +23,7 @@
 
   .str-chat__channel-preview-messenger--right {
     width: 100%;
+    overflow: hidden;
 
     .str-chat__channel-preview-end-first-row {
       display: flex;
