@@ -91,7 +91,7 @@
       @include utils.button-reset;
       border-radius: var(--str-chat__message-options-border-radius);
 
-      .str-chat__message-action-icon svg path {
+      .str-chat__message-action-icon path {
         fill: var(--str-chat__message-options-color);
       }
     }
@@ -105,7 +105,7 @@
     .str-chat__message-actions-box-button:active,
     .str-chat__message-reply-in-thread-button:active,
     .str-chat__message-reactions-button:active {
-      .str-chat__message-action-icon svg path {
+      .str-chat__message-action-icon path {
         fill: var(--str-chat__message-options-active-color);
       }
     }
