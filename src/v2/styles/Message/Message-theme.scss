@@ -87,6 +87,8 @@
     .str-chat__message-actions-box-button,
     .str-chat__message-reply-in-thread-button,
     .str-chat__message-reactions-button {
+      // remove default button styles (React SDK uses button compared to div in Angular SDK)
+      @include utils.button-reset;
       border-radius: var(--str-chat__message-options-border-radius);
 
       .str-chat__message-action-icon svg path {
