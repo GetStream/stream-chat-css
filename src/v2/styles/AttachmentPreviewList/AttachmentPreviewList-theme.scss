@@ -10,8 +10,8 @@
   --str-chat__attachment-preview-list-border-inline-start: none;
   --str-chat__attachment-preview-list-border-inline-end: none;
   --str-chat__attachment-preview-list-box-shadow: none;
-  --str-chat__attachment-preview-close-icon-background: var(--str-chat__text-low-emphasis-color);
-  --str-chat__attachment-preview-close-icon-color: var(--str-chat__on-disabled-color);
+  --str-chat__attachment-preview-close-icon-background: var(--str-chat__secondary-overlay);
+  --str-chat__attachment-preview-close-icon-color: var(--str-chat__secondary-overlay-text-color);
   --str-chat__attachment-preview-retry-icon-color: var(--str-chat__primary-color);
   --str-chat__attachment-preview-download-icon-color: var(--str-chat__text-low-emphasis-color);
   --str-chat__attachment-preview-overlay-color: var(--str-chat__overlay-color);
@@ -68,13 +68,11 @@
 
   .str-chat__attachment-preview-delete {
     svg {
+      background-color: var(--str-chat__attachment-preview-close-icon-background);
+      border-radius: 999px;
+
       path {
         fill: var(--str-chat__attachment-preview-close-icon-color);
-      }
-
-      rect,
-      circle {
-        fill: var(--str-chat__attachment-preview-close-icon-background);
       }
     }
   }

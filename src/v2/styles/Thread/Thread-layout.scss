@@ -13,7 +13,10 @@
       @include utils.header-text-layout;
 
       .str-chat__thread-header-name,
-      .str-chat__thread-header-reply-count {
+      .str-chat__thread-header-reply-count,
+      .str-chat__thread-header-channel-name,
+      .str-chat__thread-header-subtitle,
+      .str-chat__thread-header-title {
         @include utils.ellipsis-text;
       }
     }

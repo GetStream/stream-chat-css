@@ -99,27 +99,37 @@
         align-items: flex-start;
         justify-content: center;
         row-gap: 2px;
+        width: 100%;
+        min-width: 0;
 
         .str-chat__message-attachment-file--item-first-row {
           display: flex;
           align-items: center;
           justify-content: space-between;
           column-gap: 8px;
+          width: 100%;
 
           .str-chat__message-attachment-file--item-name {
             font-weight: var(--font-weight-bold);
             color: var(--black);
 
             white-space: nowrap;
-            overflow: hidden;
+            overflow-y: visible;
+            // Not every browser support clip overflow, so hidden is defined as a fallback
+            overflow-x: hidden;
+            overflow-x: clip;
             text-overflow: ellipsis;
-            width: 100%;
+            min-width: 0;
           }
 
           .str-chat__message-attachment-download-icon {
             svg {
               width: 24px;
               height: 16px;
+
+              path {
+                fill: var(--black);
+              }
             }
           }
         }

@@ -16,11 +16,9 @@
       display: flex;
       justify-content: center;
       align-items: baseline;
-      column-gap: var(--str-chat__spacing-1);
       padding: var(--str-chat__spacing-1_5);
 
       .str-chat__message-reaction-emoji {
-        width: calc(var(--str-chat__spacing-px) * 15);
         height: calc(var(--str-chat__spacing-px) * 13);
         display: flex; // Overriding emoji-mart styles
         align-items: center;
