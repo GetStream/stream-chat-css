@@ -716,13 +716,13 @@
         }
 
         &--thread,
+        &--options,
         &--reactions {
           display: none;
         }
 
         &--options {
           position: relative;
-          display: none;
 
           > button {
             cursor: pointer;
@@ -740,12 +740,17 @@
     }
 
     &:hover {
-      .str-chat__message-simple__actions__action--thread {
+      .str-chat__message-simple__actions__action--thread,
+      .str-chat__message-simple__actions__action--reactions,
+      .str-chat__message-simple__actions__action--options {
         display: flex;
       }
 
-      .str-chat__message-simple__actions__action--reactions {
-        display: flex;
+      .str-chat__message-simple__actions__action--options {
+        button {
+          display: flex;
+          align-items: center;
+        }
       }
     }
 
@@ -845,39 +850,6 @@
 
       .str-chat__message-simple__actions {
         order: -1;
-      }
-    }
-
-    &:hover {
-      .str-chat__message-simple__actions__action--options {
-        display: flex;
-
-        button {
-          display: flex;
-          align-items: center;
-        }
-      }
-
-      .str-chat__message-simple__actions__action--reactions {
-        display: flex;
-      }
-
-      .str-chat__message-simple__actions__action--thread {
-        display: flex;
-      }
-
-      @media screen and (max-width: 960px) {
-        .str-chat__message-simple__actions__action--options {
-          display: none;
-        }
-
-        .str-chat__message-simple__actions__action--reactions {
-          display: none;
-        }
-
-        .str-chat__message-simple__actions__action--thread {
-          display: none;
-        }
       }
     }
   }
@@ -1293,19 +1265,5 @@
         margin-right: -10px;
       }
     }
-  }
-}
-
-.str-chat__message-simple.mobile-press {
-  .str-chat__message-simple__actions__action--options {
-    display: flex;
-  }
-
-  .str-chat__message-simple__actions__action--reactions {
-    display: flex;
-  }
-
-  .str-chat__message-simple__actions__action--thread {
-    display: flex;
   }
 }
