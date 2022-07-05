@@ -87,10 +87,10 @@ const extractVariableInfo = (node: SyntaxNode, componentName: ComponentName): Va
 
   let description;
   if (node.previousSibling?.type === 'comment') {
-    const match = node.previousSibling.text.match(/\*\s*(.+?)\./)!;
+    const match = node.previousSibling.text.match(/\*\s*(.+?)\*\//)!;
     if (match) {
       const [, comment] = match;
-      description = comment;
+      description = comment.trim();
     }
   }
 
