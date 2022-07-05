@@ -8,7 +8,7 @@
   // Overriding styles of ngx-popperjs
   .ngxp__container {
     z-index: 1;
-    margin: 0 !important;
+    margin: -8px !important;
     padding: 0 !important;
     box-shadow: none !important;
     border: none !important;
@@ -20,7 +20,8 @@
 }
 
 // Fixes icon sizing problem in Angular SDK
-stream-icon {
+stream-icon,
+stream-icon-placeholder {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -40,6 +40,7 @@
   position: absolute;
   inset-block-end: var(--str-chat__spacing-4);
   inset-inline-end: var(--str-chat__spacing-2);
+  z-index: 2;
 
   .str-chat__jump-to-latest-unread-count {
     position: absolute;

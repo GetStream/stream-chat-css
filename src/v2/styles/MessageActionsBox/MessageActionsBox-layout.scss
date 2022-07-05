@@ -11,6 +11,7 @@
 
     .str-chat__message-actions-list-item-button {
       padding: var(--str-chat__spacing-2) var(--str-chat__spacing-4);
+      margin: 0;
       cursor: pointer;
       width: 100%;
       text-align: start;
@@ -42,5 +43,6 @@
   .ngxp__container {
     transform: initial !important;
     will-change: initial !important;
+    z-index: initial;
   }
 }

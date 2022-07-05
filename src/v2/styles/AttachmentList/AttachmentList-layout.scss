@@ -12,7 +12,7 @@
   min-width: 0;
 
   .str-chat__message-attachment--card {
-    max-width: calc(var(--message-with-attachments-max-width) - var(--str-chat__attachment-margin));
+    max-width: calc(var(--message-max-width) - var(--str-chat__attachment-margin));
   }
 
   .str-chat__message-attachment--image,
@@ -22,10 +22,8 @@
 
     img,
     video {
-      max-width: calc(
-        var(--message-with-attachments-max-width) - 2 * var(--str-chat__attachment-margin)
-      );
-      max-height: var(--message-with-attachments-max-width);
+      max-width: calc(var(--message-max-width) - 2 * var(--str-chat__attachment-margin));
+      max-height: var(--message-max-width);
       object-fit: cover;
       width: 100%;
       height: 100%;
@@ -34,6 +32,10 @@
 
   .str-chat__message-attachment--image {
     margin: var(--str-chat__attachment-margin);
+
+    img {
+      cursor: zoom-in;
+    }
   }
 
   .str-chat__message-attachment--video {
@@ -49,16 +51,16 @@
     grid-template-columns: 50% 50%;
     overflow: hidden;
     gap: var(--str-chat__spacing-0_5);
-    max-width: var(--message-with-attachments-max-width);
-    max-height: var(--message-with-attachments-max-width);
+    max-width: var(--message-max-width);
+    max-height: var(--message-max-width);
     margin: var(--str-chat__attachment-margin);
 
     &.str-chat__gallery-two-rows {
       grid-template-rows: 50% 50%;
+      aspect-ratio: 1;
     }
 
     .str-chat__gallery-image {
-      cursor: zoom-in;
       padding: 0;
       margin: 0;
 
@@ -66,6 +68,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        cursor: zoom-in;
       }
     }
 
@@ -77,6 +80,7 @@
       background-size: cover;
       background-position: top left;
       background-repeat: no-repeat;
+      margin: 0;
       cursor: zoom-in;
 
       p {
@@ -120,6 +124,7 @@
 
         .str-chat__message-attachment-file--item-name {
           @include utils.ellipsis-text;
+          min-width: 0;
         }
 
         .str-chat__message-attachment-download-icon {
@@ -167,7 +172,8 @@
 }
 
 .str-chat__quoted-message-preview {
-  --str-chat__attachment-margin: 0;
+  /* stylelint-disable-next-line length-zero-no-unit */
+  --str-chat__attachment-margin: 0px;
 
   .str-chat__message-attachment-card {
     .str-chat__message-attachment-card--content {

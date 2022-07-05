@@ -76,6 +76,7 @@
 @mixin header-text-layout {
   display: flex;
   flex-direction: column;
+  overflow-y: hidden; // for Edge
   overflow-x: hidden; // for ellipsis text
   flex: 1;
   row-gap: var(--str-chat__spacing-1_5);

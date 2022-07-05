@@ -22,7 +22,6 @@
       height: calc(var(--str-chat__spacing-px) * 40);
 
       .str-chat__message-reaction-emoji {
-        width: calc(var(--str-chat__spacing-px) * 20);
         height: calc(var(--str-chat__spacing-px) * 20);
         display: flex; // Overriding emoji-mart styles
         align-items: center;
