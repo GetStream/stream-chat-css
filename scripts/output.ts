@@ -7,12 +7,17 @@ export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
     const usedIn = [...v.referencedIn].map(componentLink).join(', ');
     if (includeTheme) {
       return dedent`
-     | \`${v.name}\` | \`${v.value}\` | \`${v.valueDarkMode || ''}\` | ${
-        v.description || ''
-      } | ${usedIn} |`;
+        | \`${v.name}\` \
+        | \`${v.value}\` \
+        | \`${v.valueDarkMode || ''}\` \
+        | ${v.description || ''} \
+        | ${usedIn} |`;
     }
     return dedent`
-     | \`${v.name}\` | \`${v.value}\` | ${v.description || ''} | ${usedIn} |`;
+      | \`${v.name}\` \
+      | \`${v.value}\` \
+      | ${v.description || ''} \
+      | ${usedIn} |`;
   };
 
   const colorMatcher = /color/;
