@@ -26,12 +26,7 @@
   --str-chat__notification-border-inline-end: none;
 
   /* Box shadow applied to the component */
-  --str-chat__notification-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-}
-
-.str-chat__theme-dark {
-  /* Box shadow applied to the component */
-  --str-chat__notification-box-shadow: 0 0 8 #000000;
+  --str-chat__notification-box-shadow: 0 0 8px var(--str-chat__box-shadow-color);
 }
 
 .str-chat__notification {

@@ -26,7 +26,7 @@
   --str-chat__message-actions-box-border-inline-end: none;
 
   /* Box shadow applied to the component */
-  --str-chat__message-actions-box-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  --str-chat__message-actions-box-box-shadow: 0 0 8px var(--str-chat__box-shadow-color);
 
   /* The font used in an item in the message actions box */
   --str-chat__message-actions-box-item-font-family: var(--str-chat__font-family);
@@ -39,6 +39,8 @@
 
   /* The background color of an item in the message actions box */
   --str-chat__message-actions-box-item-background-color: transparent;
+
+  /* The background color of an item in the message actions box when hovered */
   --str-chat__message-actions-box-item-hover-background-color: var(
     --str-chat__secondary-surface-color
   );
@@ -57,11 +59,6 @@
 
   /* Box shadow applied to an item in the message actions box */
   --str-chat__message-actions-box-item-box-shadow: none;
-}
-
-.str-chat__theme-dark {
-  /* Box shadow applied to the component */
-  --str-chat__message-actions-box-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
 .str-chat__message-actions-box {

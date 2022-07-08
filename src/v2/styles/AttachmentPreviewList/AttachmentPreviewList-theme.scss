@@ -27,10 +27,20 @@
 
   /* Box shadow applied to the component */
   --str-chat__attachment-preview-list-box-shadow: none;
-  --str-chat__attachment-preview-close-icon-background: var(--str-chat__secondary-overlay);
+
+  /* Background color of the preview delete icon */
+  --str-chat__attachment-preview-close-icon-background: var(--str-chat__secondary-overlay-color);
+
+  /* Foreground color of the preview delete icon */
   --str-chat__attachment-preview-close-icon-color: var(--str-chat__secondary-overlay-text-color);
+
+  /* Color of the upload retry icon */
   --str-chat__attachment-preview-retry-icon-color: var(--str-chat__primary-color);
+
+  /* Color of the preview download icon */
   --str-chat__attachment-preview-download-icon-color: var(--str-chat__text-low-emphasis-color);
+
+  /* Overlay color applied to attachment previews during upload and if an error occured during upload */
   --str-chat__attachment-preview-overlay-color: var(--str-chat__overlay-color);
 
   /* The font used in the image preview */

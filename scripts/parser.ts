@@ -6,15 +6,22 @@ import Parser, { SyntaxNode } from 'tree-sitter';
 // @ts-ignore
 import CSS from 'tree-sitter-css';
 
+type SDK = 'Angular' | 'React';
 type ComponentName = string;
+export type VariableGroup = {
+  componentName: ComponentName,
+  sdkRestriction?: SDK;
+};
+
 export type VariableInfo = {
   name: string;
   value: string;
   valueDarkMode?: string;
   theme?: string;
   description?: string;
-  definedIn?: ComponentName;
-  referencedIn: Set<string>;
+  definedIn?: VariableGroup;
+  blockComment?: string;
+  referencedIn: Set<ComponentName>;
 };
 
 export const extractVariables = (fromGlob: string, dependencies?: Map<string, VariableInfo>) => {
@@ -37,46 +44,57 @@ export const extractVariables = (fromGlob: string, dependencies?: Map<string, Va
     });
 
     const ast = parser.parse(compilation.css);
-    ast.rootNode.descendantsOfType('declaration').forEach((node) => {
-      const identifier = node.text;
-      if (identifier.startsWith('--')) {
-        const currentVariable = extractVariableInfo(node, componentName);
-        const seenVariable = componentVariables.get(currentVariable.name);
-        if (!seenVariable) {
-          // we see this variable for a very first time, store it in the map
-          componentVariables.set(currentVariable.name, currentVariable);
-        } else {
-          // we see the variable declared again, most likely due to theming override
-          // update the values of the already stored variable accordingly: (dark -> light, light -> dark).
-          if (seenVariable.theme !== 'dark' && currentVariable.theme === 'dark') {
-            seenVariable.valueDarkMode = currentVariable.value;
-          } else if (seenVariable.theme !== 'light' && currentVariable.theme === 'light') {
-            seenVariable.value = currentVariable.value;
-          }
-        }
-
-        if (dependencies) {
-          const value = currentVariable.value;
-          // matches against multiple var() invocations in the same rule
-          // e.g.: padding: var(--xs-p) var(--xl-p);
-          const matches = value.match(/var\(([\w\s,-]+)\)/g);
-          if (matches) {
-            matches.forEach((match) => {
-              // capture the variable name, e.g.: "var(--xl-p)" -> "--xl-p"
-              const [, variable] = match.match(/var\(([\w\s-]+)\)/)!;
-              const dependantVariable = dependencies.get(variable.trim());
-              dependantVariable?.referencedIn.add(componentName);
-            });
-          }
+    ast.rootNode.descendantsOfType('rule_set').forEach((ruleSet) => {
+      const ruleSetComment = extractComment(ruleSet);
+      let sdkRestriction: SDK | undefined = undefined;
+      if (ruleSetComment) {
+        const matches = ruleSetComment.match(/Angular|React/g);
+        if (matches) {
+          sdkRestriction = matches[0] as SDK;
         }
       }
+      const variableGroup = {componentName, sdkRestriction};
+      ruleSet.descendantsOfType('declaration').forEach(node => {
+        const identifier = node.text;
+        if (identifier.startsWith('--str-chat')) {
+          const currentVariable = extractVariableInfo(node, variableGroup);
+          const seenVariable = componentVariables.get(currentVariable.name);
+          if (!seenVariable) {
+            // we see this variable for a very first time, store it in the map
+            componentVariables.set(currentVariable.name, currentVariable);
+          } else {
+            // we see the variable declared again, most likely due to theming override
+            // update the values of the already stored variable accordingly: (dark -> light, light -> dark).
+            if (seenVariable.theme !== 'dark' && currentVariable.theme === 'dark') {
+              seenVariable.valueDarkMode = currentVariable.value;
+            } else if (seenVariable.theme !== 'light' && currentVariable.theme === 'light') {
+              seenVariable.value = currentVariable.value;
+            }
+          }
+
+          if (dependencies) {
+            const value = currentVariable.value;
+            // matches against multiple var() invocations in the same rule
+            // e.g.: padding: var(--xs-p) var(--xl-p);
+            const matches = value.match(/var\(([\w\s,-]+)\)/g);
+            if (matches) {
+              matches.forEach((match) => {
+                // capture the variable name, e.g.: "var(--xl-p)" -> "--xl-p"
+                const [, variable] = match.match(/var\(([\w\s-]+)\)/)!;
+                const dependantVariable = dependencies.get(variable.trim());
+                dependantVariable?.referencedIn.add(componentName);
+              });
+            }
+          }
+        }
+      });
     });
   });
 
   return componentVariables;
 };
 
-const extractVariableInfo = (node: SyntaxNode, componentName: ComponentName): VariableInfo => {
+const extractVariableInfo = (node: SyntaxNode, variableGroup: VariableGroup): VariableInfo => {
   // nodes in format: <name>: <value-1> <value-2> ... ;
   const [name, _, ...declValues] = node.children;
   const value = declValues
@@ -85,14 +103,7 @@ const extractVariableInfo = (node: SyntaxNode, componentName: ComponentName): Va
     .join(' ')
     .trim();
 
-  let description;
-  if (node.previousSibling?.type === 'comment') {
-    const match = node.previousSibling.text.match(/\*\s*(.+?)\*\//)!;
-    if (match) {
-      const [, comment] = match;
-      description = comment.trim();
-    }
-  }
+  const description = extractComment(node);
 
   const theme = detectTheme(node);
   return {
@@ -101,10 +112,22 @@ const extractVariableInfo = (node: SyntaxNode, componentName: ComponentName): Va
     valueDarkMode: theme === 'dark' ? value : undefined,
     theme,
     description,
-    definedIn: componentName,
+    definedIn: variableGroup,
     referencedIn: new Set<ComponentName>(),
   };
 };
+
+const extractComment = (node: SyntaxNode) => {
+  if (node.previousSibling?.type === 'comment') {
+    const match = node.previousSibling.text.match(/\*\s*(.+?)\*\//)!;
+    if (match) {
+      const [, comment] = match;
+      return comment.trim();
+    }
+  } else {
+    return undefined;
+  }
+}
 
 const detectTheme = (node: SyntaxNode) => {
   let theme = undefined;

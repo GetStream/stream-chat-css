@@ -3,6 +3,8 @@
 .str-chat {
   /* The font used in the component */
   --str-chat__message-input-font-family: var(--str-chat__font-family);
+
+  /* The border radius of the component */
   --str-chat__message-input-border-radius: 0;
 
   /* The text/icon color of the component */
@@ -10,6 +12,8 @@
 
   /* The background color of the component */
   --str-chat__message-input-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component */
   --str-chat__message-input-border-block-start: none;
 
   /* Bottom border of the component */

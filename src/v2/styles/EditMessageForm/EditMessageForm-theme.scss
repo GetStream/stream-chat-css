@@ -1,15 +1,34 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__edit-message-modal-button-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__edit-message-modal-button-border-radius: none;
+
+  /* The text color used for the send button */
   --str-chat__edit-message-modal-send-button-color: var(--str-chat__primary-color);
+
+  /* The text color used for the cancel button */
   --str-chat__edit-message-modal-cancel-button-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color of the component */
   --str-chat__edit-message-modal-button-background-color: transparent;
+
+  /* Top border of the component */
   --str-chat__edit-message-modal-button-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__edit-message-modal-button-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__edit-message-modal-button-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__edit-message-modal-button-border-inline-end: none;
+
+  /* Box shadow applied to the component */
   --str-chat__edit-message-modal-button-box-shadow: none;
 }
 

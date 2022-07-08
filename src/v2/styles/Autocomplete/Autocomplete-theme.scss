@@ -9,6 +9,8 @@
 
   /* The text/icon color of the component */
   --str-chat__autocomplete-menu-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
   --str-chat__autocomplete-menu-background-color: var(--str-chat__secondary-background-color);
 
   /* Top border of the component */
@@ -25,6 +27,8 @@
 
   /* Box shadow applied to the component */
   --str-chat__autocomplete-menu-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+
+  /* The background color of a selected autocomplete item */
   --str-chat__autocomplete-active-background-color: var(--str-chat__surface-color);
 
   /* The font used in the slash command item in the autocomplete list */
@@ -50,7 +54,11 @@
 
   /* Right (left in RTL layout) border of the slash command item in the autocomplete list */
   --str-chat__slash-command-border-inline-end: none;
+
+  /* Box shadow of the slash command item in the autocomplete list */
   --str-chat__slash-command-box-shadow: none;
+
+  /* Text color of the arguments of a slash command item in the autocomplete list */
   --str-chat__slash-command-args-color: var(--str-chat__text-low-emphasis-color);
 
   /* The font used in the user mention item in the autocomplete list */
@@ -76,8 +84,11 @@
 
   /* Right (left in RTL layout) border of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-border-inline-end: none;
+
+  /* Box shadow of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-box-shadow: none;
-  --str-chat__mention-list-user-item-args-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The text color of the at sign inside a user mention itome in the autocomplete list */
   --str-chat__mention-list-user-item-at-sign-color: var(--str-chat__primary-color);
 }
 

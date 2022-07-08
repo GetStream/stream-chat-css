@@ -1,5 +1,6 @@
 @use '../utils';
 
+/* Only available in React SDK. */
 .str-chat {
   /* The font used in the component */
   --str-chat__message-notification-font-family: var(--str-chat__font-family);
@@ -12,7 +13,11 @@
 
   /* Bottom border of the component */
   --str-chat__message-notification-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__message-notification-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__message-notification-border-inline-end: none;
 
   /* The border radius used for the borders of the component */

@@ -39,6 +39,12 @@
   /* The color of the loading indicator while initializing the channel list */
   --str-chat__channel-preview-loading-state-color: var(--str-chat__disabled-color);
 
+  /* The background color of the unread badge */
+  --str-chat__channel-preview-unread-badge-background-color: var(--str-chat__unread-badge-color);
+
+  /* The color of the unread badge */
+  --str-chat__channel-preview-unread-badge-color: var(--str-chat__on-unread-badge-color);
+
   /* The border radius used for the borders of the unread badge */
   --str-chat__channel-preview-unread-badge-border-radius: var(--str-chat__border-radius-circle);
 
@@ -69,15 +75,9 @@
   }
 
   .str-chat__channel-preview-unread-badge {
+    @include utils.component-layer-overrides('channel-preview-unread-badge');
     font-size: 0.75rem;
     line-height: 0.44rem;
-    border-radius: var(--str-chat__channel-preview-unread-badge-border-radius);
-    border-block-start: var(--str-chat__channel-preview-unread-badge-border-block-start);
-    border-block-end: var(--str-chat__channel-preview-unread-badge-border-block-end);
-    border-inline-start: var(--str-chat__channel-preview-unread-badge-border-inline-start);
-    border-inline-end: var(--str-chat__channel-preview-unread-badge-border-inline-end);
-    color: var(--str-chat__on-unread-badge-color);
-    background-color: var(--str-chat__unread-badge-color);
     font-weight: 700;
   }
 

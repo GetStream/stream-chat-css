@@ -55,6 +55,8 @@
 
   /* Bottom border of the jump to latest message button */
   --str-chat__jump-to-latest-message-border-block-end: var(--str-chat__circle-fab-border-block-end);
+
+  /* Left (right in RTL layout) border of the jump to latest message button */
   --str-chat__jump-to-latest-message-border-inline-start: var(
     --str-chat__circle-fab-border-inline-start
   );

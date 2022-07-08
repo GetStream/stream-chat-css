@@ -87,7 +87,7 @@
   --str-chat__image-gallery-attachment-box-shadow: none;
 
   /* Overlay applied to image gallery attachments */
-  --str-chat__image-gallery-attachment-overlay: var(--str-chat__secondary-overlay);
+  --str-chat__image-gallery-attachment-overlay: var(--str-chat__secondary-overlay-color);
 
   /* Text colos used on overlay applied to image gallery attachments */
   --str-chat__image-gallery-attachment-overlay-text-color: var(
@@ -102,6 +102,8 @@
 
   /* The text/icon color of card attachments */
   --str-chat__card-attachment-color: var(--str-chat__text-color);
+
+  /* The text color of links inside card attachments */
   --str-chat__card-attachment-link-color: var(--str-chat__primary-color);
 
   /* The background color of card attachments */
@@ -115,7 +117,9 @@
 
   /* Left (right in RTL layout) border of card attachments */
   --str-chat__card-attachment-border-inline-start: none;
-  --str-chat__card-border-inline-end: none;
+
+  /* Right (left in RTL layout) border of card attachments */
+  --str-chat__card-attachment-border-inline-end: none;
 
   /* Box shadow applied to card attachments */
   --str-chat__card-attachment-box-shadow: none;
@@ -130,6 +134,8 @@
 
   /* The text/icon color of file attachments */
   --str-chat__file-attachment-color: var(--str-chat__text-color);
+
+  /* The text/icon color of file attachments for low emphasis texts (for example file size) */
   --str-chat__file-attachment-secondary-color: var(--str-chat__text-low-emphasis-color);
 
   /* The background color of file attachments */
