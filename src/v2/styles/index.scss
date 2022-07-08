@@ -16,10 +16,10 @@
 @use 'MessageInput/MessageInput-theme';
 @use 'MessageList/MessageList-theme';
 @use 'MessageList/VirtualMessageList-theme';
-@use 'MessageNotifications/MessageNotifications-theme.scss';
 @use 'MessageReactions/MessageReactions-theme';
 @use 'MessageReactions/MessageReactionsSelector-theme';
 @use 'Modal/Modal-theme';
+@use 'Notification/MessageNotification-theme';
 @use 'Notification/NotificationList-theme';
 @use 'Notification/Notification-theme';
 @use 'Thread/Thread-theme';

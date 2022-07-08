@@ -17,18 +17,3 @@
   font-size: 0.75rem;
   cursor: pointer;
 }
-
-.messaging.str-chat {
-  .str-chat__list-notifications {
-    background: var(--str-chat__on-primary-color);
-  }
-  @media screen and (max-width: 960px) {
-    .str-chat__list-notifications {
-      padding: 0 var(--str-chat__spacing-2);
-    }
-  }
-
-  &.dark .str-chat__list-notifications {
-    background: var(--str-chat__on-primary-color);
-  }
-}
