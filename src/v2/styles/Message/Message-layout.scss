@@ -180,15 +180,6 @@
     max-width: 100%;
   }
 
-  .str-chat__message--system {
-    width: 100%;
-    text-align: center;
-
-    p {
-      margin: 0;
-    }
-  }
-
   // Fixes emoji display in Chrome on non-retina display (only detected in Angular SDK) https://bugs.chromium.org/p/chromium/issues/detail?id=596223
   .str-chat__emoji-display-fix {
     display: inline-block;
@@ -270,9 +261,35 @@
   }
 }
 
+.str-chat__date-separator {
+  display: flex;
+  padding: var(--str-chat__spacing-8);
+  align-items: center;
+
+  &-line {
+    flex: 1;
+    height: var(--str-chat__spacing-px);
+  }
+
+  > * {
+    &:not(:last-child) {
+      margin-right: var(--str-chat__spacing-4);
+    }
+  }
+}
+
 .str-chat__message {
   .str-chat__quoted-message-preview {
     margin-block-end: var(--str-chat__spacing-2);
+  }
+}
+
+.str-chat__message--system {
+  width: 100%;
+  text-align: center;
+
+  p {
+    margin: 0;
   }
 }
 
