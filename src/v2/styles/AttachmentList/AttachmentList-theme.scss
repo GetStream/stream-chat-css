@@ -12,9 +12,7 @@
   --str-chat__attachment-list-box-shadow: none;
 
   --str-chat__image-attachment-font-family: var(--str-chat__font-family);
-  --str-chat__image-attachment-border-radius: calc(
-    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
-  );
+  --str-chat__image-attachment-border-radius: calc(var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin));
   --str-chat__image-attachment-color: var(--str-chat__text-color);
   --str-chat__image-attachment-background-color: transparent;
   --str-chat__image-attachment-border-block-start: none;
@@ -24,9 +22,7 @@
   --str-chat__image-attachment-box-shadow: none;
 
   --str-chat__image-gallery-attachment-font-family: var(--str-chat__font-family);
-  --str-chat__image-gallery-attachment-border-radius: calc(
-    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
-  );
+  --str-chat__image-gallery-attachment-border-radius: calc(var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin));
   --str-chat__image-gallery-attachment-color: var(--str-chat__text-color);
   --str-chat__image-gallery-attachment-background-color: transparent;
   --str-chat__image-gallery-attachment-border-block-start: none;
@@ -35,9 +31,7 @@
   --str-chat__image-gallery-attachment-border-inline-end: none;
   --str-chat__image-gallery-attachment-box-shadow: none;
   --str-chat__image-gallery-attachment-overlay: var(--str-chat__secondary-overlay);
-  --str-chat__image-gallery-attachment-overlay-text-color: var(
-    --str-chat__secondary-overlay-text-color
-  );
+  --str-chat__image-gallery-attachment-overlay-text-color: var(--str-chat__secondary-overlay-text-color);
 
   --str-chat__card-attachment-font-family: var(--str-chat__font-family);
   --str-chat__card-attachment-border-radius: 0;
@@ -51,7 +45,7 @@
   --str-chat__card-attachment-box-shadow: none;
 
   --str-chat__card-caption-font-family: var(--str-chat__font-family);
-  --str-chat__card-caption-border-radius: 0px 15px 0px 0px;
+  --str-chat__card-caption-border-radius: 0 15px 0 0;
   --str-chat__card-caption-color: var(--str-chat__text-color);
   --str-chat__card-caption-link-color: var(--str-chat__primary-color);
   --str-chat__card-caption-background-color: var(--str-chat__message-bubble-background-color);
@@ -63,9 +57,7 @@
   --str-chat__card-caption-box-shadow: none;
 
   --str-chat__file-attachment-font-family: var(--str-chat__font-family);
-  --str-chat__file-attachment-border-radius: calc(
-    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
-  );
+  --str-chat__file-attachment-border-radius: calc(var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin));
   --str-chat__file-attachment-color: var(--str-chat__text-color);
   --str-chat__file-attachment-secondary-color: var(--str-chat__text-low-emphasis-color);
   --str-chat__file-attachment-background-color: var(--str-chat__secondary-background-color);
@@ -76,9 +68,7 @@
   --str-chat__file-attachment-box-shadow: none;
 
   --str-chat__audio-attachment-widget-font-family: var(--str-chat__font-family);
-  --str-chat__audio-attachment-widget-border-radius: calc(
-          var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
-  );
+  --str-chat__audio-attachment-widget-border-radius: calc(var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin));
   --str-chat__audio-attachment-widget-color: var(--str-chat__text-color);
   --str-chat__audio-attachment-widget-secondary-color: var(--str-chat__text-low-emphasis-color);
   --str-chat__audio-attachment-widget-background-color: var(--str-chat__secondary-background-color);
@@ -125,7 +115,8 @@
 
   .str-chat__message-attachment--image,
   .str-chat__message-attachment-card--header {
-    img, iframe {
+    img,
+    iframe {
       @include utils.component-layer-overrides('image-attachment');
     }
   }
@@ -156,13 +147,13 @@
       }
     }
   }
+
   .str-chat__message-attachment-file--item {
     @include utils.component-layer-overrides('file-attachment');
   }
 
   .str-chat__message-attachment-file--item,
   .str-chat__message-attachment-audio-widget {
-
     .str-chat__message-attachment-file--item-name,
     .str-chat__message-attachment-audio-widget--title {
       font-size: 1rem;
@@ -188,10 +179,10 @@
   }
 
   .str-chat__message-attachment-audio-widget--progress-track {
-    background-color: var(--str-chat__disabled-color) ;
+    background-color: var(--str-chat__disabled-color);
 
     .str-chat__message-attachment-audio-widget--progress-indicator {
-      background-color: var(--str-chat__primary-color) ;
+      background-color: var(--str-chat__primary-color);
     }
   }
 
