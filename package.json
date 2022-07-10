@@ -21,7 +21,7 @@
     "lint": "stylelint '**/*.scss' --max-warnings 0",
     "build:ci": "yarn && yarn lint && yarn build",
     "start": "yarn build-v1 && sass --watch src/v1/index.scss dist/css/index.css",
-    "start-v2": "yarn build-v2 && sass --watch src/v2/styles/index.scss dist/v2/css/index.css && yarn copy-assets && yarn copy-vendor-styles"
+    "start-v2": "yarn build-v2 && yarn copy-assets && yarn copy-vendor-styles && sass --watch src/v2/styles/index.scss dist/v2/css/index.css"
   },
   "release": {
     "branches": [
