@@ -830,6 +830,7 @@
 
       .str-chat__message-simple__actions {
         justify-content: flex-end;
+        flex-direction: row-reverse;
       }
 
       .str-chat__message-attachment--image {
