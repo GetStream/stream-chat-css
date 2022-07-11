@@ -33,6 +33,11 @@
   overflow-y: auto;
 }
 
+@mixin scrollable-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 @mixin component-layer-overrides($component-name, $important: '') {
   background-color: var(--str-chat__#{$component-name}-background-color) #{$important};
   color: var(--str-chat__#{$component-name}-color) #{$important};

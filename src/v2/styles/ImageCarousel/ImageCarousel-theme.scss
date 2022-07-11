@@ -1,10 +1,16 @@
 @use '../utils';
 
 .str-chat {
+  --str-chat__image-carousel-track-background-color: var(--str-chat__background-color);
+
   --str-chat__image-carousel-stepper-color: var(--str-chat__text-color);
 }
 
 .str-chat__image-carousel {
+  .str-chat__image-carousel--track {
+    background-color: var(--str-chat__image-carousel-track-background-color);
+  }
+
   .str-chat__image-carousel-stepper {
     svg path {
       fill: var(--str-chat__image-carousel-stepper-color);

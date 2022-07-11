@@ -1,3 +1,5 @@
+@use '../utils';
+
 .str-chat__image-carousel {
   display: flex;
   justify-content: center;
@@ -14,12 +16,50 @@
     background: transparent;
   }
 
+  .str-chat__image-carousel--aperture {
+    height: 100%;
+
+    .str-chat__image-carousel--track {
+      @include utils.scrollable-x;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 100%;
+      gap: var(--str-chat__spacing-px);
+      height: 100%;
+      /*FireFox*/
+      scrollbar-width: none;
+      /*IE10+*/
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+
+      .str-chat__image-carousel-image {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .str-chat__image-carousel--track::-webkit-scrollbar {
+      /*Chrome, Safari, Edge*/
+      display: none;
+    }
+
+    .str-chat__image-carousel--track-scroll-snap {
+      scroll-snap-type: inline mandatory;
+
+      .str-chat__image-carousel-image {
+        scroll-snap-align: center;
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+  }
+
   .str-chat__image-carousel-image {
     object-fit: cover;
     min-height: 0;
     max-height: 100%;
     min-width: 0;
     max-width: 100%;
+    justify-self: center;
   }
 }
 
@@ -37,5 +77,12 @@
 [dir='rtl'] .str-chat__image-carousel-stepper {
   svg {
     transform: scale(-1, 1);
+  }
+}
+
+// move to .str-chat__image-carousel if Angular SDK starts to use scrollable carousel
+.str-chat__image-carousel--scrollable .str-chat__image-carousel-stepper {
+  @media screen and (max-device-width: 768px) {
+    display: none;
   }
 }
