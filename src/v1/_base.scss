@@ -222,8 +222,14 @@ $emoji-flag-unicode-range: U+1F1E6-1F1FF;
   }
 }
 
+// Only in theme-v2
+.str-chat__empty-channel {
+  display: none;
+}
+
 // Fixes icon sizing problem in Angular SDK
-stream-icon {
+stream-icon,
+stream-icon-placeholder {
   display: flex;
   justify-content: center;
   align-items: center;

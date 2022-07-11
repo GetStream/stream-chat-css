@@ -1,7 +1,6 @@
 @use '../utils';
 
 .str-chat__message {
-  --message-with-attachments-max-width: calc(var(--str-chat__spacing-px) * 300);
   --message-max-width: calc(var(--str-chat__spacing-px) * 480);
 
   .str-chat__message-bubble {
@@ -9,8 +8,20 @@
   }
 }
 
+.str-chat__message.str-chat__message--has-attachment {
+  --message-max-width: calc(var(--str-chat__spacing-px) * 300);
+
+  .str-chat__message-bubble {
+    max-width: var(--message-max-width);
+  }
+}
+
 .str-chat__quoted-message-preview {
-  --message-with-attachments-max-width: calc(var(--str-chat__spacing-px) * 100);
+  --message-max-width: calc(var(--str-chat__spacing-px) * 180);
+
+  .str-chat__quoted-message-bubble {
+    max-width: var(--message-max-width);
+  }
 }
 
 .str-chat__message,
@@ -26,12 +37,6 @@
   // Using grid layout so we can use template from theme-v1
   display: grid;
   word-break: break-all;
-
-  &.str-chat__message--has-attachment {
-    .str-chat__message-bubble {
-      max-width: var(--message-with-attachments-max-width);
-    }
-  }
 
   &.str-chat__message--other,
   &.str-chat__quoted-message-preview {
@@ -177,7 +182,6 @@
     display: flex;
     column-gap: var(--str-chat__spacing-1);
     min-width: 0;
-    max-width: 100%;
   }
 
   // Fixes emoji display in Chrome on non-retina display (only detected in Angular SDK) https://bugs.chromium.org/p/chromium/issues/detail?id=596223
@@ -212,10 +216,11 @@
   }
 }
 
-.str-chat__li {
+.str-chat__message-inner {
   @mixin visible {
     // Changing opacity instead of visibility because of a strange Safari behavior/bug
     opacity: 1;
+    pointer-events: auto;
   }
 
   &:hover .str-chat__message-options {
@@ -228,6 +233,7 @@
 
   .str-chat__message-options {
     opacity: 0;
+    pointer-events: none;
   }
 }
 
@@ -244,13 +250,6 @@
     > .str-chat__message-sender-avatar {
       visibility: hidden;
     }
-  }
-}
-
-.str-chat__li--middle,
-.str-chat__li--bottom {
-  .str-chat__message.str-chat__message--with-reactions {
-    margin-block-start: var(--str-chat__spacing-1);
   }
 }
 
@@ -298,12 +297,13 @@
     flex-direction: column;
     align-items: stretch;
     row-gap: var(--str-chat__spacing-1);
+    flex-basis: min-content;
   }
 }
 
 .str-chat__message-input {
   .str-chat__quoted-message-bubble {
-    max-height: calc(var(--str-chat__spacing-px) * 200);
+    max-height: calc(var(--message-max-width) + calc(var(--str-chat__spacing-px) * 70));
 
     .str-chat__quoted-message-text {
       max-height: 100%;

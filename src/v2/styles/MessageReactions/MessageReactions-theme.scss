@@ -14,14 +14,16 @@
   --str-chat__message-reaction-font-family: var(--str-chat__font-family);
   --str-chat__message-reaction-border-radius: var(--str-chat__border-radius-xs);
   --str-chat__message-reaction-color: var(--str-chat__text-color);
-  --str-chat__message-reaction-background-color: var(--str-chat__secondary-surface-color);
+  --str-chat__message-reaction-background-color: var(--str-chat__tertiary-surface-color);
   --str-chat__message-reaction-border-block-start: none;
   --str-chat__message-reaction-border-block-end: none;
   --str-chat__message-reaction-border-inline-start: none;
   --str-chat__message-reaction-border-inline-end: none;
   --str-chat__message-reaction-box-shadow: none;
   --str-chat__own-message-reaction-color: var(--str-chat__text-color);
-  --str-chat__own-message-reaction-background-color: var(--str-chat__primary-surface-color);
+  --str-chat__own-message-reaction-background-color: var(
+    --str-chat__primary-surface-color-low-emphasis
+  );
 }
 
 .str-chat__message-reactions-container {

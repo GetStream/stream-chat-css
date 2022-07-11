@@ -76,8 +76,8 @@
 
   .str-chat__attachment-preview-delete {
     position: absolute;
-    top: 0;
-    inset-inline-end: 0;
+    top: calc(var(--str-chat__spacing-px) * 2);
+    inset-inline-end: calc(var(--str-chat__spacing-px) * 2);
     cursor: pointer;
     z-index: 1;
 
