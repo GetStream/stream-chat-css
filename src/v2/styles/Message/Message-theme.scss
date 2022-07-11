@@ -183,17 +183,34 @@
   background-color: var(--str-chat__message-active-bacground-color);
 }
 
-.str-chat__li--bottom,
+.str-chat__li--top,
 .str-chat__li--single {
   .str-chat__message--other {
     .str-chat__message-bubble {
-      border-end-start-radius: 0;
+      border-end-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
     }
   }
 
   .str-chat__message--me {
     .str-chat__message-bubble {
-      border-end-end-radius: 0;
+      border-end-end-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+    }
+  }
+}
+
+.str-chat__li--middle,
+.str-chat__li--bottom {
+  .str-chat__message--other {
+    .str-chat__message-bubble {
+      border-start-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+      border-end-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+    }
+  }
+
+  .str-chat__message--me {
+    .str-chat__message-bubble {
+      border-start-end-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+      border-end-end-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
     }
   }
 }
@@ -201,13 +218,13 @@
 .str-chat__message-with-thread-link {
   &.str-chat__message--other {
     .str-chat__message-bubble {
-      border-end-start-radius: 0;
+      border-end-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
     }
   }
 
   &.str-chat__message--me {
     .str-chat__message-bubble {
-      border-end-end-radius: 0;
+      border-end-end-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
     }
   }
 }
@@ -218,7 +235,7 @@
   .str-chat__quoted-message-bubble {
     @include utils.component-layer-overrides('message-bubble');
     background-color: var(--str-chat__quoted-message-bubble-background-color);
-    border-end-start-radius: 0;
+    border-end-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
   }
 }
 
