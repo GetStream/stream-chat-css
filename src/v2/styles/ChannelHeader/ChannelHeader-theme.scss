@@ -1,15 +1,34 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__channel-header-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__channel-header-border-radius: 0;
+
+  /* The text/icon color of the component */
   --str-chat__channel-header-color: 0;
+
+  /* The background color of the component */
   --str-chat__channel-header-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component */
   --str-chat__channel-header-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__channel-header-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__channel-header-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__channel-header-border-inline-end: none;
+
+  /* Box shadow applied to the component */
   --str-chat__channel-header-box-shadow: none;
+
+  /* The text/icon color used to display member information about the channel */
   --str-chat__channel-header-info-color: var(--str-chat__text-low-emphasis-color);
 }
 

@@ -1,19 +1,32 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__tooltip-font-family: var(--str-chat__font-family);
-  --str-chat__tooltip-border-radius: var(--str-chat__border-radius-xs);
-  --str-chat__tooltip-color: var(--str-chat__text-color);
-  --str-chat__tooltip-background-color: var(--str-chat__secondary-background-color);
-  --str-chat__tooltip-border-block-start: none;
-  --str-chat__tooltip-border-block-end: none;
-  --str-chat__tooltip-border-inline-start: none;
-  --str-chat__tooltip-border-inline-end: none;
-  --str-chat__tooltip-box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
-}
 
-.str-chat__theme-dark {
-  --str-chat__tooltip-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  /* The border radius used for the borders of the component */
+  --str-chat__tooltip-border-radius: var(--str-chat__border-radius-xs);
+
+  /* The text/icon color of the component */
+  --str-chat__tooltip-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__tooltip-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component */
+  --str-chat__tooltip-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__tooltip-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__tooltip-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__tooltip-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__tooltip-box-shadow: 0 0 20px var(--str-chat__box-shadow-color);
 }
 
 .str-chat__tooltip {

@@ -1,87 +1,216 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__attachment-list-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__attachment-list-border-radius: 0;
+
+  /* The text/icon color of the component */
   --str-chat__attachment-list-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
   --str-chat__attachment-list-background-color: transparent;
+
+  /* Top border of the component */
   --str-chat__attachment-list-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__attachment-list-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__attachment-list-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__attachment-list-border-inline-end: none;
+
+  /* Box shadow applied to the component */
   --str-chat__attachment-list-box-shadow: none;
 
+  /* The font used in image attachments */
   --str-chat__image-attachment-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of image attachments */
   --str-chat__image-attachment-border-radius: calc(
     var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
   );
+
+  /* The text/icon color of image attachments */
   --str-chat__image-attachment-color: var(--str-chat__text-color);
+
+  /* The background color of image attachments */
   --str-chat__image-attachment-background-color: transparent;
+
+  /* Top border of image attachments */
   --str-chat__image-attachment-border-block-start: none;
+
+  /* Bottom border of image attachments */
   --str-chat__image-attachment-border-block-end: none;
+
+  /* Left (right in RTL layout) border of image attachments */
   --str-chat__image-attachment-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of image attachments */
   --str-chat__image-attachment-border-inline-end: none;
+
+  /* Box shadow applied to image gallery attachments */
   --str-chat__image-attachment-box-shadow: none;
 
+  /* The font used in image gallery attachments */
   --str-chat__image-gallery-attachment-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of image gallery attachments */
   --str-chat__image-gallery-attachment-border-radius: calc(
     var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
   );
+
+  /* The text/icon color of image gallery attachments */
   --str-chat__image-gallery-attachment-color: var(--str-chat__text-color);
+
+  /* The background color of image gallery attachments */
   --str-chat__image-gallery-attachment-background-color: transparent;
+
+  /* Top border of image gallery attachments */
   --str-chat__image-gallery-attachment-border-block-start: none;
+
+  /* Bottom border of image gallery attachments */
   --str-chat__image-gallery-attachment-border-block-end: none;
+
+  /* Left (right in RTL layout) border of image gallery attachments */
   --str-chat__image-gallery-attachment-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of image gallery attachments */
   --str-chat__image-gallery-attachment-border-inline-end: none;
+
+  /* Box shadow applied to image gallery attachments */
   --str-chat__image-gallery-attachment-box-shadow: none;
-  --str-chat__image-gallery-attachment-overlay: var(--str-chat__secondary-overlay);
+
+  /* Overlay applied to image gallery attachments */
+  --str-chat__image-gallery-attachment-overlay: var(--str-chat__secondary-overlay-color);
+
+  /* Text colos used on overlay applied to image gallery attachments */
   --str-chat__image-gallery-attachment-overlay-text-color: var(
     --str-chat__secondary-overlay-text-color
   );
 
+  /* The font used in card attachments */
   --str-chat__card-attachment-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of card attachments */
   --str-chat__card-attachment-border-radius: 0;
+
+  /* The text/icon color of card attachments */
   --str-chat__card-attachment-color: var(--str-chat__text-color);
+
+  /* The text color of links inside card attachments */
   --str-chat__card-attachment-link-color: var(--str-chat__primary-color);
+
+  /* The background color of card attachments */
   --str-chat__card-attachment-background-color: transparent;
+
+  /* Top border of card attachments */
   --str-chat__card-attachment-border-block-start: none;
+
+  /* Bottom border of card attachments */
   --str-chat__card-attachment-border-block-end: none;
+
+  /* Left (right in RTL layout) border of card attachments */
   --str-chat__card-attachment-border-inline-start: none;
-  --str-chat__card-border-inline-end: none;
+
+  /* Right (left in RTL layout) border of card attachments */
+  --str-chat__card-attachment-border-inline-end: none;
+
+  /* Box shadow applied to card attachments */
   --str-chat__card-attachment-box-shadow: none;
 
+  /* The font used in file attachments */
   --str-chat__file-attachment-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of file attachments */
   --str-chat__file-attachment-border-radius: calc(
     var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
   );
+
+  /* The text/icon color of file attachments */
   --str-chat__file-attachment-color: var(--str-chat__text-color);
+
+  /* The text/icon color of file attachments for low emphasis texts (for example file size) */
   --str-chat__file-attachment-secondary-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color of file attachments */
   --str-chat__file-attachment-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of file attachments */
   --str-chat__file-attachment-border-block-start: none;
+
+  /* Bottom border of file attachments */
   --str-chat__file-attachment-border-block-end: none;
+
+  /* Left (right in RTL layout) border of file attachments */
   --str-chat__file-attachment-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of file attachments */
   --str-chat__file-attachment-border-inline-end: none;
+
+  /* Box shadow applied to file attachments */
   --str-chat__file-attachment-box-shadow: none;
 
+  /* The font used in attachment actions */
   --str-chat__attachment-actions-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for attachment actions */
   --str-chat__attachment-actions-border-radius: 0;
+
+  /* The text/icon color of attachment actions */
   --str-chat__attachment-actions-color: var(--str-chat__text-color);
+
+  /* The background color of attachment actions */
   --str-chat__attachment-actions-background-color: transparent;
+
+  /* Top border of attachment actions */
   --str-chat__attachment-actions-border-block-start: none;
+
+  /* Bottom border of attachment actions */
   --str-chat__attachment-actions-border-block-end: none;
+
+  /* Left (right in RTL layout) border of attachment actions */
   --str-chat__attachment-actions-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of attachment actions */
   --str-chat__attachment-actions-border-inline-end: none;
+
+  /* Box shadow applied to attachment actions */
   --str-chat__attachment-actions-box-shadow: none;
 
+  /* The font used in an attachment action */
   --str-chat__attachment-action-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for an attachment action */
   --str-chat__attachment-action-border-radius: 0;
+
+  /* The text/icon color of an attachment action */
   --str-chat__attachment-action-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color of an attachment action */
   --str-chat__attachment-action-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of an attachment action */
   --str-chat__attachment-action-border-block-start: var(--str-chat__surface-color) 1px solid;
+
+  /* Bottom border of an attachment action */
   --str-chat__attachment-action-border-block-end: var(--str-chat__surface-color) 1px solid;
+
+  /* Left (right in RTL layout) border of an attachment action */
   --str-chat__attachment-action-border-inline-start: var(--str-chat__surface-color) 1px solid;
+
+  /* Right (left in RTL layout) border of an attachment action */
   --str-chat__attachment-action-border-inline-end: var(--str-chat__surface-color) 1px solid;
+
+  /* Box shadow applied to an attachment action */
   --str-chat__attachment-action-box-shadow: none;
+
+  /* The text/icon color of an attachment action while in pressed state */
   --str-chat__attachment-action-active-color: var(--str-chat__primary-color);
 }
 

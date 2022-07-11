@@ -1,56 +1,148 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__message-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__message-border-radius: none;
+
+  /* The text/icon color of the component */
   --str-chat__message-color: var(--str-chat__text-color);
+
+  /* The text/icon color used for displaying error messages */
   --str-chat__message-error-message-color: var(--str-chat__danger-color);
+
+  /* The text/icon color used for displaying items with less emphasis */
   --str-chat__message-secondary-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The text color used for displaying links */
   --str-chat__message-link-color: var(--str-chat__primary-color);
+
+  /* The text/icon color used for displaying message status */
   --str-chat__message-status-color: var(--str-chat__primary-color);
+
+  /* The text color used for displaying the number of thread replies of a message */
   --str-chat__message-replies-count-color: var(--str-chat__primary-color);
+
+  /* The background color of the component */
   --str-chat__message-background-color: transparent;
+
+  /* Top border of the component */
   --str-chat__message-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__message-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__message-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__message-border-inline-end: none;
+
+  /* Box shadow applied to the component */
   --str-chat__message-box-shadow: none;
+
+  /* The background of the message component in active state */
   --str-chat__message-active-bacground-color: transparent;
+
+  /* The icon color used for displaying message options */
   --str-chat__message-options-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The icon color used for displaying message options if a message option is clicked */
   --str-chat__message-options-hover-background-color: var(--str-chat__tertiary-surface-color);
+
+  /* The border radius used for displaying message options */
   --str-chat__message-options-border-radius: var(--str-chat__border-radius-circle);
+
+  /* The background color used if a message option is hovered */
   --str-chat__message-options-active-color: var(--str-chat__primary-color);
 
+  /* The font used in the message bubble */
   --str-chat__message-bubble-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the message bubble */
   --str-chat__message-bubble-border-radius: var(--str-chat__border-radius-md);
+
+  /* The text/icon of the message bubble */
   --str-chat__message-bubble-color: var(--str-chat__text-color);
+
+  /* The background of the message bubble */
   --str-chat__message-bubble-background-color: var(--str-chat__secondary-surface-color);
+
+  /* The background of the message bubble, if the message was sent by the user */
   --str-chat__own-message-bubble-background-color: var(--str-chat__primary-surface-color);
+
+  /* The background of the message bubble, if it's a quoted message */
   --str-chat__quoted-message-bubble-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the message bubble */
   --str-chat__message-bubble-border-block-start: none;
+
+  /* Bottom border of the message bubble */
   --str-chat__message-bubble-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the message bubble */
   --str-chat__message-bubble-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the message bubble */
   --str-chat__message-bubble-border-inline-end: none;
+
+  /* Box shadow applied to the message bubble */
   --str-chat__message-bubble-box-shadow: none;
 
+  /* The font used in a deleted message */
   --str-chat__deleted-message-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of a deleted message */
   --str-chat__deleted-message-border-radius: var(--str-chat__border-radius-md);
+
+  /* The text/icon of a deleted message */
   --str-chat__deleted-message-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background of a deleted message */
   --str-chat__deleted-message-background-color: var(--str-chat__secondary-surface-color);
+
+  /* Top border of a deleted message */
   --str-chat__deleted-message-border-block-start: none;
+
+  /* Bottom border of a deleted message */
   --str-chat__deleted-message-border-block-end: none;
+
+  /* Left (right in RTL layout) border of a deleted message */
   --str-chat__deleted-message-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of a deleted message */
   --str-chat__deleted-message-border-inline-end: none;
+
+  /* Box shadow applied to a deleted message */
   --str-chat__deleted-message-box-shadow: none;
 
+  /* The font used in a system message */
   --str-chat__system-message-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of a system message */
   --str-chat__system-message-border-radius: 0;
+
+  /* The text/icon of a system message */
   --str-chat__system-message-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background of a system message */
   --str-chat__system-message-background-color: transparent;
+
+  /* Top border of a system message */
   --str-chat__system-message-border-block-start: none;
+
+  /* Bottom border of a system message */
   --str-chat__system-message-border-block-end: none;
+
+  /* Left (right in RTL layout) border of a system message */
   --str-chat__system-message-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of a system message */
   --str-chat__system-message-border-inline-end: none;
+
+  /* Box shadow applied to a system message */
   --str-chat__system-message-box-shadow: none;
 }
 

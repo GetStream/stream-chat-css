@@ -1,14 +1,32 @@
 @use '../utils';
 
+/* Only available in React SDK. */
 .str-chat {
+  /* The font used in the component */
   --str-chat__virtual-list-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__virtual-list-border-radius: 0;
+
+  /* The text/icon color of the component */
   --str-chat__virtual-list-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
   --str-chat__virtual-list-background-color: var(--str-chat__background-color);
+
+  /* Box shadow applied to the component */
   --str-chat__virtual-list-box-shadow: none;
+
+  /* Top border of the component */
   --str-chat__virtual-list-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__virtual-list-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__virtual-list-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__virtual-list-border-inline-end: none;
 }
 

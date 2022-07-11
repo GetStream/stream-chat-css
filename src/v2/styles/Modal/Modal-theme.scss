@@ -1,18 +1,43 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the content area of the component */
   --str-chat__modal-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the content area of the component of the content area of the component */
   --str-chat__modal-border-radius: var(--str-chat__border-radius-sm);
+
+  /* The text/icon color of the content area of the component */
   --str-chat__modal-color: var(--str-chat__text-color);
+
+  /* The background color of the content area of the component */
   --str-chat__modal-background-color: var(--str-chat__secondary-background-color);
-  --str-chat__modal-overlay-color: var(--str-chat__secondary-overlay);
+
+  /* The overlay color of the component */
+  --str-chat__modal-overlay-color: var(--str-chat__secondary-overlay-color);
+
+  /* The backdrop filter applied to the component */
   --str-chat__modal-overlay-backdrop-filter: blur(3px);
+
+  /* Top border of the content area of the component */
   --str-chat__modal-border-block-start: none;
+
+  /* Bottom border of the content area of the component */
   --str-chat__modal-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the content area of the component */
   --str-chat__modal-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the content area of the component */
   --str-chat__modal-border-inline-end: none;
+
+  /* Box shadow applied to the content area of the component */
   --str-chat__modal-box-shadow: none;
+
+  /* The background color of the close button */
   --str-chat__modal-close-icon-background: var(--str-chat__text-low-emphasis-color);
+
+  /* The icon color of the close button */
   --str-chat__modal-close-icon-color: var(--str-chat__on-disabled-color);
 }
 
