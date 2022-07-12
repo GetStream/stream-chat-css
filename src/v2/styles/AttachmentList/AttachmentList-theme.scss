@@ -93,8 +93,6 @@
   --str-chat__image-gallery-attachment-overlay-text-color: var(
     --str-chat__secondary-overlay-text-color
   );
-  --str-chat__image-gallery-attachment-overlay: var(--str-chat__secondary-overlay);
-  --str-chat__image-gallery-attachment-overlay-text-color: var(--str-chat__secondary-overlay-text-color);
 
   /* The font used in card attachments */
   --str-chat__card-attachment-font-family: var(--str-chat__font-family);
@@ -158,25 +156,61 @@
   /* Box shadow applied to file attachments */
   --str-chat__file-attachment-box-shadow: none;
 
+  /* The font used in audio widget */
   --str-chat__audio-attachment-widget-font-family: var(--str-chat__font-family);
+
+  /* Border radius applied audio widget */
   --str-chat__audio-attachment-widget-border-radius: calc(var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin));
+
+  /* Text color used in audio widget */
   --str-chat__audio-attachment-widget-color: var(--str-chat__text-color);
+
+  /* Border radius applied audio widget */
   --str-chat__audio-attachment-widget-secondary-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The text/icon color for low emphasis texts (for example file size) in audio widget */
   --str-chat__audio-attachment-widget-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of audio widget */
   --str-chat__audio-attachment-widget-border-block-start: none;
+
+  /* Bottom border of audio widget */
   --str-chat__audio-attachment-widget-border-block-end: none;
+
+  /* Left (right in RTL layout) border of audio widget */
   --str-chat__audio-attachment-widget-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of audio widget */
   --str-chat__audio-attachment-widget-border-inline-end: none;
+
+  /* Box shadow applied to audio widget */
   --str-chat__audio-attachment-widget-box-shadow: none;
 
+  /* Border radius applied to the play / pause button of audio widget */
   --str-chat__audio-attachment-controls-button-border-radius: var(--str-chat__border-radius-circle);
+
+  /* Text color applied to audio widget's play / pause button */
   --str-chat__audio-attachment-controls-button-color: var(--str-chat__text-color);
+
+  /* Background color applied to audio widget's play / pause button */
   --str-chat__audio-attachment-controls-button-background-color: var(--str-chat__secondary-background-color);
+
+  /* Background color applied to audio widget's play / pause button when in pressed (active) state */
   --str-chat__audio-attachment-controls-button-pressed-background-color: var(--str-chat__surface-color);
+
+  /* Top border of audio widget's play / pause button */
   --str-chat__audio-attachment-controls-button-border-block-start: none;
+
+  /* Bottom border of audio widget's play / pause button */
   --str-chat__audio-attachment-controls-button-border-block-end: none;
+
+  /* Left (right in RTL layout) border of audio widget's play / pause button */
   --str-chat__audio-attachment-controls-button-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of audio widget's play / pause button */
   --str-chat__audio-attachment-controls-button-border-inline-end: none;
+
+  /* Box shadow applied to audio widget's play / pause button */
   --str-chat__audio-attachment-controls-button-box-shadow: var(--str-chat__circle-fab-box-shadow);
 
   /* The font used in attachment actions */

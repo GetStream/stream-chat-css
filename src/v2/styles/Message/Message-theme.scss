@@ -145,16 +145,37 @@
   /* Box shadow applied to a system message */
   --str-chat__system-message-box-shadow: none;
 
+  /* The font used in a deleted message */
   --str-chat__date-separator-font-family: var(--str-chat__font-family);
+
+  /* Font weight of text in a date separator*/
   --str-chat__date-separator-font-weight: 700;
+
+  /* Text color in a date separator*/
   --str-chat__date-separator-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The line color applied to date separator */
   --str-chat__date-separator-line-color: var(--str-chat__disabled-color);
+
+  /* The border radius used for the borders of a date separator */
   --str-chat__date-separator-border-radius: 0;
+
+  /* The background color of a date separator */
   --str-chat__date-separator-background-color: transparent;
+
+  /* Top border of a date separator */
   --str-chat__date-separator-border-block-start: none;
+
+  /* Bottom border of a date separator */
   --str-chat__date-separator-border-block-end: none;
+
+  /* Left (right in RTL layout) border of a date separator */
   --str-chat__date-separator-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of a date separator */
   --str-chat__date-separator-border-inline-end: none;
+
+  /* Box shadow applied to a date separator */
   --str-chat__date-separator-box-shadow: none;
 }
 
