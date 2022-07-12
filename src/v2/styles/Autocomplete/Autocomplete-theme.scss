@@ -1,38 +1,94 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__autocomplete-menu-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__autocomplete-menu-border-radius: var(--str-chat__border-radius-xs);
+
+  /* The text/icon color of the component */
   --str-chat__autocomplete-menu-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
   --str-chat__autocomplete-menu-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component */
   --str-chat__autocomplete-menu-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__autocomplete-menu-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__autocomplete-menu-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__autocomplete-menu-border-inline-end: none;
+
+  /* Box shadow applied to the component */
   --str-chat__autocomplete-menu-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+
+  /* The background color of a selected autocomplete item */
   --str-chat__autocomplete-active-background-color: var(--str-chat__surface-color);
 
+  /* The font used in the slash command item in the autocomplete list */
   --str-chat__slash-command-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the slash command item in the autocomplete list */
   --str-chat__slash-command-border-radius: 0;
+
+  /* The text/icon color of the slash command item in the autocomplete list */
   --str-chat__slash-command-color: var(--str-chat__text-color);
+
+  /* The background color of the slash command item in the autocomplete list */
   --str-chat__slash-command-background-color: transparent;
+
+  /* Top border of the slash command item in the autocomplete list */
   --str-chat__slash-command-border-block-start: none;
+
+  /* Bottom border of the slash command item in the autocomplete list */
   --str-chat__slash-command-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the slash command item in the autocomplete list */
   --str-chat__slash-command-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the slash command item in the autocomplete list */
   --str-chat__slash-command-border-inline-end: none;
+
+  /* Box shadow of the slash command item in the autocomplete list */
   --str-chat__slash-command-box-shadow: none;
+
+  /* Text color of the arguments of a slash command item in the autocomplete list */
   --str-chat__slash-command-args-color: var(--str-chat__text-low-emphasis-color);
 
+  /* The font used in the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-border-radius: 0;
+
+  /* The text/icon color of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-color: var(--str-chat__text-color);
+
+  /* The background color of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-background-color: transparent;
+
+  /* Top border of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-border-block-start: none;
+
+  /* Bottom border of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-border-inline-end: none;
+
+  /* Box shadow of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-box-shadow: none;
-  --str-chat__mention-list-user-item-args-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The text color of the at sign inside a user mention itome in the autocomplete list */
   --str-chat__mention-list-user-item-at-sign-color: var(--str-chat__primary-color);
 }
 

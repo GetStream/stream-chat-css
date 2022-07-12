@@ -1,17 +1,40 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__channel-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__channel-border-radius: 0;
+
+  /* The text/icon color of the component */
   --str-chat__channel-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
   --str-chat__channel-background-color: var(--str-chat__background-color);
+
+  /* Box shadow applied to the component */
   --str-chat__channel-box-shadow: none;
+
+  /* Top border of the component */
   --str-chat__channel-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__channel-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__channel-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__channel-border-inline-end: none;
+
+  /* The icon color used when no channel is selected */
   --str-chat__channel-empty-indicator-color: var(--str-chat__disabled-color);
+
+  /* The text color used when no channel is selected */
   --str-chat__channel-empty-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The color of the loading indicator */
   --str-chat__channel-loading-state-color: var(--str-chat__disabled-color);
 }
 

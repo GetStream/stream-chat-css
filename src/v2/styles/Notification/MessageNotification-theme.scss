@@ -1,14 +1,32 @@
 @use '../utils';
 
+/* Only available in React SDK. */
 .str-chat {
+  /* The font used in the component */
   --str-chat__message-notification-font-family: var(--str-chat__font-family);
+
+  /* The background color of the component */
   --str-chat__message-notification-background-color: var(--str-chat__primary-color);
+
+  /* Top border of the component */
   --str-chat__message-notification-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__message-notification-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__message-notification-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__message-notification-border-inline-end: none;
+
+  /* The border radius used for the borders of the component */
   --str-chat__message-notification-border-radius: 50px;
+
+  /* Box shadow applied to the component */
   --str-chat__message-notification-box-shadow: none;
+
+  /* The text/icon color of the component */
   --str-chat__message-notification-color: var(--str-chat__on-primary-color);
 }
 
@@ -16,19 +34,4 @@
   @include utils.component-layer-overrides('message-notification');
   font-size: 0.75rem;
   cursor: pointer;
-}
-
-.messaging.str-chat {
-  .str-chat__list-notifications {
-    background: var(--str-chat__on-primary-color);
-  }
-  @media screen and (max-width: 960px) {
-    .str-chat__list-notifications {
-      padding: 0 var(--str-chat__spacing-2);
-    }
-  }
-
-  &.dark .str-chat__list-notifications {
-    background: var(--str-chat__on-primary-color);
-  }
 }

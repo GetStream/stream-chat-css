@@ -9,9 +9,11 @@
   "private": false,
   "style": "dist/css/index.css",
   "scripts": {
-    "build": "yarn build-v1 && yarn build-v2 && yarn copy-vendor-styles",
+    "build": "yarn build-v1 && yarn build-v2 && yarn copy-vendor-styles && yarn generate-docs",
     "build-v1": "rm -rf dist && mkdir -p dist && yarn bundle-sass && yarn copy-assets && yarn copy-styles",
     "build-v2": "rm -rf dist/v2 && mkdir -p dist/v2/scss && yarn copy && yarn compile-to-css",
+    "generate-docs": "ts-node scripts/generate-docs.ts",
+    "replace-docs": "ts-node scripts/replacer.ts",
     "copy": "cp -R src/v2/styles/* dist/v2/scss",
     "compile-to-css": "sass src/v2/styles/index.scss dist/v2/css/index.css --style compressed && sass src/v2/styles/index.layout.scss dist/v2/css/index.layout.css --style compressed",
     "bundle-sass": "echo '\u001b[34mℹ\u001b[0m Compiling scss files to css bundle' && sass src/v1/index.scss dist/css/index.css --style compressed && echo '\u001b[32m✓\u001b[0m Finished bundling css'",
@@ -53,13 +55,26 @@
   },
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
-    "sass": "^1.39.2",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/dedent": "^0.7.0",
+    "@types/glob": "^7.2.0",
+    "@types/node": "^18.0.1",
+    "@types/prettier": "^2.6.3",
+    "dedent": "^0.7.0",
+    "glob": "^8.0.3",
+    "prettier": "^2.7.1",
+    "sass": "^1.53.0",
     "semantic-release": "^18.0.1",
     "stylelint": "^13.13.1",
-    "stylelint-config-sass-guidelines": "^8.0.0"
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "tree-sitter": "^0.20.0",
+    "tree-sitter-css": "^0.19.0",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
   },
   "files": [
     "dist",
+    "docs",
     "package.json",
     "README.md"
   ]

@@ -1,17 +1,40 @@
 @use '../../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__cta-button-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__cta-button-border-radius: var(--str-chat__border-radius-xs);
+
+  /* The text/icon color of the component */
   --str-chat__cta-button-color: var(--str-chat__on-primary-color);
+
+  /* The background color of the component */
   --str-chat__cta-button-background-color: var(--str-chat__primary-color);
+
+  /* Top border of the component */
   --str-chat__cta-button-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__cta-button-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__cta-button-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__cta-button-border-inline-end: none;
+
+  /* Box shadow applied to the component */
   --str-chat__cta-button-box-shadow: none;
+
+  /* The background color of the component in pressed state */
   --str-chat__cta-button-pressed-background-color: var(--str-chat__active-primary-color);
+
+  /* The background color of the component in disabled state */
   --str-chat__cta-button-disabled-background-color: var(--str-chat__disabled-color);
+
+  /* The text/icon color of the component in disabled state */
   --str-chat__cta-button-disabled-color: var(--str-chat__on-disabled-color);
 }
 
