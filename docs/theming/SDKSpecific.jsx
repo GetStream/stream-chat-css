@@ -1,7 +1,10 @@
 import React from 'react';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 const SDKSpecific = ({ children, name = 'angular' }) => (
-  <>{window.location.pathname.includes(`/sdk/${name}`) ? children : null}</>
+  <BrowserOnly>
+    {window.location.pathname.includes(`/sdk/${name}`) ? children : null}
+  </BrowserOnly>
 );
 
 export default SDKSpecific;
