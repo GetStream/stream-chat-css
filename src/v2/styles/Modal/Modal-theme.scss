@@ -49,8 +49,13 @@
     @include utils.component-layer-overrides('modal');
   }
 
-  .str-chat__modal__inner.str-chat-react__modal__inner {
+  // stream-chat-react does not show the modal inner container. It has to be reset to
+  // width of its content in order the modal can be closed when clicked on overlay
+  &.str-chat__modal--open .str-chat__modal__inner.str-chat-react__modal__inner {
     background-color: transparent;
+    width: unset;
+    height: unset;
+    padding: 0;
   }
 
   .str-chat__modal__close-button {
