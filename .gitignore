@@ -107,4 +107,6 @@ dist
 .idea
 .vscode
 
-dist-v2
+# Generated docs
+docs/**/*.mdx
+!docs/theming/introduction.mdx

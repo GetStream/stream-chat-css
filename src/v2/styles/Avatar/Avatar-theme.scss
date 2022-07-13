@@ -1,14 +1,31 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__avatar-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__avatar-border-radius: var(--str-chat__border-radius-circle);
+
+  /* The text/icon color of the component */
   --str-chat__avatar-color: var(--str-chat__on-primary-color);
+
+  /* The background color of the component */
   --str-chat__avatar-background-color: var(--str-chat__primary-color);
+
+  /* Top border of the component */
   --str-chat__avatar-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__avatar-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__avatar-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__avatar-border-inline-end: none;
+
+  /* Box shadow applied to the component */
   --str-chat__avatar-box-shadow: none;
 }
 

@@ -1,14 +1,31 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__notification-list-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__notification-list-border-radius: none;
+
+  /* The text/icon color of the component */
   --str-chat__notification-list-color: var(--str-chat__notification-list-text-color);
+
+  /* The background color of the component */
   --str-chat__notification-list-background-color: transparent;
+
+  /* Top border of the component */
   --str-chat__notification-list-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__notification-list-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__notification-list-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__notification-list-border-inline-end: none;
+
+  /* Box shadow applied to the component */
   --str-chat__notification-list-box-shadow: none;
 }
 

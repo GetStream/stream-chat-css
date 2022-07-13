@@ -1,25 +1,61 @@
 @use '../utils';
 
 .str-chat {
+  /* The font used in the component */
   --str-chat__thread-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the component */
   --str-chat__thread-border-radius: 0;
+
+  /* The text/icon color of the component */
   --str-chat__thread-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
   --str-chat__thread-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component */
   --str-chat__thread-border-block-start: none;
+
+  /* Bottom border of the component */
   --str-chat__thread-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
   --str-chat__thread-border-inline-start: 1px solid var(--str-chat__surface-color);
+
+  /* Right (left in RTL layout) border of the component */
   --str-chat__thread-border-inline-end: none;
+
+  /* Box shadow applied to the component */
   --str-chat__thread-box-shadow: none;
 
+  /* The font used in the thread header */
   --str-chat__thread-header-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the thread header */
   --str-chat__thread-header-border-radius: 0;
+
+  /* The text/icon color of the thread header */
   --str-chat__thread-header-color: var(--str-chat__text-color);
+
+  /* The background color of the thread header */
   --str-chat__thread-header-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the thread header */
   --str-chat__thread-header-border-block-start: none;
+
+  /* Bottom border of the thread header */
   --str-chat__thread-header-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the thread header */
   --str-chat__thread-header-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the thread header */
   --str-chat__thread-header-border-inline-end: none;
+
+  /* Box shadow applied to the thread header */
   --str-chat__thread-header-box-shadow: none;
+
+  /* The text/icon color used to display less emphasized text in the channel header */
   --str-chat__thread-header-info-color: var(--str-chat__text-low-emphasis-color);
 }
 

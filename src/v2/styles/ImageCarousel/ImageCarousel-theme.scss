@@ -1,6 +1,8 @@
 @use '../utils';
 
+/* Only available in Angular SDK. */
 .str-chat {
+  /* The color of the stepper icon. */
   --str-chat__image-carousel-stepper-color: var(--str-chat__text-color);
 }
 
