@@ -34,7 +34,7 @@
 }
 
 @mixin component-layer-overrides($component-name, $important: '') {
-  background-color: var(--str-chat__#{$component-name}-background-color) #{$important};
+  background: var(--str-chat__#{$component-name}-background-color) #{$important};
   color: var(--str-chat__#{$component-name}-color) #{$important};
   font-family: var(--str-chat__#{$component-name}-font-family) #{$important};
   box-shadow: var(--str-chat__#{$component-name}-box-shadow) #{$important};
