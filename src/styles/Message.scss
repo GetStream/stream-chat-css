@@ -440,7 +440,7 @@
 
   /* me */
   &--me {
-    display: flex;
+    display: inline-flex;
     margin: var(--xxs-m) 0;
     justify-content: flex-end;
 
