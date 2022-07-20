@@ -1,7 +1,7 @@
 @use '../utils';
 
 // Class defined by Angular mentions
-// !important necessart to override library defined styles
+// !important necessary to override library defined styles
 .mention-menu {
   padding: var(--str-chat__spacing-2) 0 !important;
   margin: 0 !important;
@@ -9,6 +9,25 @@
 
   .mention-item {
     padding: 0 !important;
+  }
+}
+
+// React SDK's version of Angular SDK's .dropup (mention-list)
+.str-chat__suggestion-list-container {
+  position: absolute;
+  bottom: var(--str-chat__spacing-7);
+  width: 100%;
+  padding: var(--str-chat__spacing-2) 0;
+
+  .str-chat__suggestion-list {
+    max-height: calc(var(--str-chat__spacing-px) * 292);
+
+    display: flex;
+    flex-direction: column;
+
+    list-style: none;
+    padding: unset;
+    margin: unset;
   }
 }
 
