@@ -44,12 +44,24 @@
   }
 
   .str-chat__attachment-preview-file {
-    @include utils.flex-row-center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
     height: $preview-height;
     width: calc(var(--str-chat__spacing-px) * 200);
     position: relative;
-    padding: var(--str-chat__spacing-4);
+    padding: 0 var(--str-chat__spacing-4);
     column-gap: var(--str-chat__spacing-2);
+
+    .str-chat__attachment-preview-file-icon {
+      @include utils.flex-row-center;
+
+      svg {
+        height: calc(var(--str-chat__spacing-px) * 37);
+        width: unset;
+      }
+    }
 
     .str-chat__attachment-preview-file-end {
       @include utils.ellipsis-text-parent;
@@ -64,7 +76,7 @@
       }
 
       .str-chat__attachment-preview-file-download {
-        line-height: calc(var(--str-chat__spacing-px) * 16);
+        line-height: calc(var(--str-chat__spacing-px) * 13);
 
         svg {
           width: calc(var(--str-chat__spacing-px) * 16);
@@ -72,6 +84,12 @@
         }
       }
     }
+  }
+
+  // button version of the same "class"
+  button.str-chat__attachment-preview-delete {
+    display: flex;
+    @include utils.unset-button;
   }
 
   .str-chat__attachment-preview-delete {
@@ -89,6 +107,7 @@
 
   .str-chat__attachment-preview-error {
     @include overlay;
+    @include utils.unset-button(unset);
     cursor: pointer;
   }
 }

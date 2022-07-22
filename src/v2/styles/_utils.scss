@@ -33,6 +33,13 @@
   overflow-y: auto;
 }
 
+@mixin unset-button($outline-radius: var(--str-chat__border-radius-circle)) {
+  padding: unset;
+  background: unset;
+  border: unset;
+  border-radius: $outline-radius;
+}
+
 @mixin component-layer-overrides($component-name, $important: '') {
   background-color: var(--str-chat__#{$component-name}-background-color) #{$important};
   color: var(--str-chat__#{$component-name}-color) #{$important};
