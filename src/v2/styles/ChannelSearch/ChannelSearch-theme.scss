@@ -111,6 +111,7 @@
 .str-chat__channel-search-result-list {
   .str-chat__channel-search-result {
     @include utils.component-layer-overrides('channel-search-result');
+
     .str-chat__channel-search-result--display-name {
       @include utils.channel-preview-display-name-theme;
     }
