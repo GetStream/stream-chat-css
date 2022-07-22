@@ -187,7 +187,7 @@
 
 .str-chat__date-separator {
   @include utils.component-layer-overrides('date-separator');
-  font-size: 14px;
+  font-size: 0.875rem;
 
   &-line {
     background-color: var(--str-chat__date-separator-line-color);
