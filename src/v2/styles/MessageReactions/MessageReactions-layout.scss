@@ -18,6 +18,12 @@
       align-items: baseline;
       padding: var(--str-chat__spacing-1_5);
 
+      button {
+        @include utils.button-reset;
+        @include utils.flex-row-center;
+        padding: 0;
+      }
+
       .str-chat__message-reaction-emoji {
         height: calc(var(--str-chat__spacing-px) * 13);
         display: flex; // Overriding emoji-mart styles
@@ -37,7 +43,8 @@
     }
 
     // Only in theme-v1
-    .str-chat__reaction-list--counter {
+    .str-chat__reaction-list--counter,
+    .str-chat__simple-reactions-list-item--last-number {
       display: none;
     }
   }

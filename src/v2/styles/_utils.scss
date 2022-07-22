@@ -45,6 +45,12 @@
   border-inline-end: var(--str-chat__#{$component-name}-border-inline-end) #{$important};
 }
 
+@mixin button-reset {
+  outline: none;
+  background: none;
+  border: none;
+}
+
 @mixin cta-button-overrides($component-name) {
   &:active {
     background-color: var(--str-chat__#{$component-name}-pressed-background-color);

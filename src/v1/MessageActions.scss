@@ -136,13 +136,7 @@
   }
 }
 
-.str-chat__message-edit-in-progress {
-  .ngxp__container {
-    transform: initial !important;
-    will-change: initial !important;
-  }
-}
-
+// Used by Angular SDK to display edit message modal
 .str-chat__message-edit-in-progress {
   .ngxp__container {
     transform: initial !important;
