@@ -30,6 +30,6 @@
   --str-chat__virtual-list-border-inline-end: none;
 }
 
-.str-chat__list {
+.str-chat__virtual-list {
   @include utils.component-layer-overrides('virtual-list');
 }
