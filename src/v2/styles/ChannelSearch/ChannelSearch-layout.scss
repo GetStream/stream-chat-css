@@ -31,6 +31,11 @@
   }
 }
 
+.str-chat__channel-search-results-header {
+  width: 100%;
+  padding: var(--str-chat__spacing-5) var(--str-chat__spacing-4);
+}
+
 .str-chat__channel-search-result-list {
   .str-chat__channel-search-result {
     @include utils.button-reset;

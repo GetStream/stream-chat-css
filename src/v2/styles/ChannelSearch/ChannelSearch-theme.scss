@@ -79,6 +79,27 @@
 
   /* Background color used for the search result hover / focused state */
   --str-chat__channel-search-result-hover-background-color: var(--str-chat__secondary-surface-color);
+
+  /* The font used in the search results header  */
+  --str-chat__channel-search-results-header-font-family: var(--str-chat__font-family);
+
+  /* The font color used in the search results header  */
+  --str-chat__channel-search-results-header-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color used in the search results header  */
+  --str-chat__channel-search-results-header-background-color: var(--str-chat__background-color);
+
+  /* Top border of the component  */
+  --str-chat__channel-search-results-header-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-results-header-border-block-end: var(--str-chat__surface-color) 1px solid;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-search-results-header-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-search-results-header-border-inline-end: none;
 }
 
 .str-chat__channel-search-input--wrapper {
@@ -106,6 +127,12 @@
   .str-chat__channel-search-input--clear-icon svg path {
     fill: var(--str-chat__text-low-emphasis-color);
   }
+}
+
+.str-chat__channel-search-results-header {
+  @include utils.component-layer-overrides('channel-search-results-header');
+  font-size: 1rem;
+  line-height: 1.25rem;
 }
 
 .str-chat__channel-search-result-list {
