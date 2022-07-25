@@ -55,9 +55,6 @@
   /* The border radius used for displaying message options */
   --str-chat__message-options-border-radius: var(--str-chat__border-radius-circle);
 
-  /* The width/height of the message options buttons */
-  --str-chat__message-options-button-size: 26px;
-
   /* The background color used if a message option is hovered */
   --str-chat__message-options-active-color: var(--str-chat__primary-color);
 
@@ -228,9 +225,6 @@
       // remove default button styles (React SDK uses button compared to div in Angular SDK)
       @include utils.button-reset;
       border-radius: var(--str-chat__message-options-border-radius);
-
-      width: var(--str-chat__message-options-button-size);
-      height: var(--str-chat__message-options-button-size);
 
       .str-chat__message-action-icon path {
         fill: var(--str-chat__message-options-color);
