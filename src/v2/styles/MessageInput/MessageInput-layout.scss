@@ -81,9 +81,9 @@
           }
 
           .str-chat__emoji-picker-button {
+            @include utils.unset-button;
             display: flex;
             cursor: pointer;
-            @include utils.unset-button;
 
             svg {
               width: calc(var(--str-chat__spacing-px) * 24);
