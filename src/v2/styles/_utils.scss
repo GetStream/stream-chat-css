@@ -144,7 +144,7 @@
     }
 
     .str-chat__parent-message-li {
-      margin-inline: calc(-1 * #{$spacing});
+      margin-inline: calc(-1 * #{$spacing} - 2px);
     }
   }
 }
