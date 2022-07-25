@@ -100,6 +100,30 @@
 
   /* Right (left in RTL layout) border of the component */
   --str-chat__channel-search-results-header-border-inline-end: none;
+
+  /* The font used in the empty search results indicator  */
+  --str-chat__channel-search-results-empty-font-family: var(--str-chat__font-family);
+
+  /* The font color used in the empty search results indicator  */
+  --str-chat__channel-search-results-empty-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The icon color used in the empty search results indicator  */
+  --str-chat__channel-search-results-empty-icon-color: var(--str-chat__disabled-color);
+
+  /* The background color used in the empty search results indicator  */
+  --str-chat__channel-search-results-empty-background-color: var(--str-chat__background-color);
+
+  /* Top border of the component  */
+  --str-chat__channel-search-results-empty-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-results-empty-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-search-results-empty-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-search-results-empty-border-inline-end: none;
 }
 
 .str-chat__channel-search-input--wrapper {
@@ -136,6 +160,17 @@
 }
 
 .str-chat__channel-search-result-list {
+  .str-chat__channel-search-container-empty {
+    @include utils.component-layer-overrides('channel-search-results-empty');
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+
+    svg path {
+      fill: var(--str-chat__channel-search-results-empty-icon-color);
+    }
+  }
+
   .str-chat__channel-search-result {
     @include utils.component-layer-overrides('channel-search-result');
 

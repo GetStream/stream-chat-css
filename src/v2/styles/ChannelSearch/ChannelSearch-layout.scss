@@ -37,6 +37,19 @@
 }
 
 .str-chat__channel-search-result-list {
+  .str-chat__channel-search-container-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    svg {
+      height: calc(var(--str-chat__spacing-px) * 90 + var(--str-chat__spacing-20));
+      width: calc(var(--str-chat__spacing-px) * 90);
+      padding: var(--str-chat__spacing-10) 0;
+    }
+  }
+
   .str-chat__channel-search-result {
     @include utils.button-reset;
     display: flex;
