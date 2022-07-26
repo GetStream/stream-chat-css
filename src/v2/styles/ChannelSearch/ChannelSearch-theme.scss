@@ -24,7 +24,7 @@
 
 
   /* The border radius used for the borders of the component */
-  --str-chat__channel-search-input-wrapper-border-radius: 20px;
+  --str-chat__channel-search-input-wrapper-border-radius: var(--str-chat__border-radius-lg);
 
   /* The background color of the component */
   --str-chat__channel-search-input-wrapper-background-color: transparent;
@@ -42,7 +42,7 @@
   --str-chat__channel-search-input-wrapper-border-inline-end: var(--str-chat__surface-color) 1px solid;
 
   /* The border radius used for the borders of the component */
-  --str-chat__channel-search-input-wrapper-active-border-radius: 20px;
+  --str-chat__channel-search-input-wrapper-active-border-radius: var(--str-chat__border-radius-lg);
 
   /* The background color of the component */
   --str-chat__channel-search-input-wrapper-active-background-color: transparent;
