@@ -2,7 +2,7 @@
 
 .str-chat {
   /* The width/height of the message options buttons */
-  --str-chat__message-options-button-size: 26px;
+  --str-chat__message-options-button-size: calc(var(--str-chat__spacing-px) * 26);
 }
 
 .str-chat__message {
