@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__tooltip-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__tooltip-border-radius: var(--str-chat__border-radius-xs);
 
@@ -31,8 +28,7 @@
 
 .str-chat__tooltip {
   @include utils.component-layer-overrides('tooltip');
-  font-size: 0.75rem;
-  line-height: 0.875rem;
+  font: var(--str-chat__caption-text);
 
   &::after {
     background-color: var(--str-chat__tooltip-background-color);

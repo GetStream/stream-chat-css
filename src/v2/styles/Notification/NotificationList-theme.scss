@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__notification-list-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__notification-list-border-radius: none;
 

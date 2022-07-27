@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__channel-header-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__channel-header-border-radius: 0;
 
@@ -36,15 +33,11 @@
   @include utils.component-layer-overrides('channel-header');
 
   .str-chat__channel-header-title {
-    font-size: 1rem;
-    line-height: 1.25rem;
-    font-weight: 500;
+    font: var(--str-chat__subtitle-medium-text);
   }
 
   .str-chat__channel-header-info {
-    font-size: 0.875rem;
-    line-height: 1rem;
+    font: var(--str-chat__body-text);
     color: var(--str-chat__channel-header-info-color);
-    font-weight: 400;
   }
 }

@@ -37,16 +37,12 @@
       display: flex;
       column-gap: var(--str-chat__spacing-1);
       align-items: center;
-      height: var(
-        --channel-name-height,
-        1rem
-      ); // Ensure that unread badge won't push container height causing an unwanted layout shift
 
       .str-chat__channel-preview-unread-badge {
         height: 100%;
         display: flex;
         align-items: center;
-        padding: var(--str-chat__spacing-2);
+        padding: 0 var(--str-chat__spacing-2);
       }
 
       .str-chat__channel-preview-messenger--name {

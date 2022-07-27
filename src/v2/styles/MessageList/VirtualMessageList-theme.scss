@@ -2,9 +2,6 @@
 
 /* Only available in React SDK. */
 .str-chat {
-  /* The font used in the component */
-  --str-chat__virtual-list-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__virtual-list-border-radius: 0;
 

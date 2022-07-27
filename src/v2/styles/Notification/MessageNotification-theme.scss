@@ -2,9 +2,6 @@
 
 /* Only available in React SDK. */
 .str-chat {
-  /* The font used in the component */
-  --str-chat__message-notification-font-family: var(--str-chat__font-family);
-
   /* The background color of the component */
   --str-chat__message-notification-background-color: var(--str-chat__primary-color);
 
@@ -32,6 +29,6 @@
 
 .str-chat__message-notification {
   @include utils.component-layer-overrides('message-notification');
-  font-size: 0.75rem;
+  font: var(--str-chat__caption-text);
   cursor: pointer;
 }

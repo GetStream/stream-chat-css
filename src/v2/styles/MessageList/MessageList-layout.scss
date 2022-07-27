@@ -48,7 +48,7 @@
 
   .str-chat__jump-to-latest-unread-count {
     position: absolute;
-    padding: var(--str-chat__spacing-1) var(--str-chat__spacing-2);
+    padding: var(--str-chat__spacing-0_5) var(--str-chat__spacing-2);
     left: 50%;
     transform: translateX(-50%) translateY(-100%);
   }

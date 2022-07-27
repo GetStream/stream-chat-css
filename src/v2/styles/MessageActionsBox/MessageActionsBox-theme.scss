@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__message-actions-box-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__message-actions-box-border-radius: var(--str-chat__border-radius-sm);
 
@@ -27,9 +24,6 @@
 
   /* Box shadow applied to the component */
   --str-chat__message-actions-box-box-shadow: 0 0 8px var(--str-chat__box-shadow-color);
-
-  /* The font used in an item in the message actions box */
-  --str-chat__message-actions-box-item-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of an item in the message actions box */
   --str-chat__message-actions-box-item-border-radius: 0;
@@ -66,8 +60,7 @@
 
   .str-chat__message-actions-list-item-button {
     @include utils.component-layer-overrides('message-actions-box-item');
-    font-size: 1rem;
-    line-height: 1.25rem;
+    font: var(--str-chat__subtitle-text);
 
     &:hover {
       background-color: var(--str-chat__message-actions-box-item-hover-background-color);

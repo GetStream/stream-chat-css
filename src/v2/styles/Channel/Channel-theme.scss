@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__channel-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__channel-border-radius: 0;
 
