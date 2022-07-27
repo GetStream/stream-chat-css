@@ -71,20 +71,20 @@ export const extractVariables = (fromGlob: string, dependencies?: Map<string, Va
               seenVariable.value = currentVariable.value;
             }
           }
+        }
 
-          if (dependencies) {
-            const value = currentVariable.value;
-            // matches against multiple var() invocations in the same rule
-            // e.g.: padding: var(--xs-p) var(--xl-p);
-            const matches = value.match(/var\(([\w\s,-]+)\)/g);
-            if (matches) {
-              matches.forEach((match) => {
-                // capture the variable name, e.g.: "var(--xl-p)" -> "--xl-p"
-                const [, variable] = match.match(/var\(([\w\s-]+)\)/)!;
-                const dependantVariable = dependencies.get(variable.trim());
-                dependantVariable?.referencedIn.add(componentName);
-              });
-            }
+        if (dependencies) {
+          const value = node.text;
+          // matches against multiple var() invocations in the same rule
+          // e.g.: padding: var(--xs-p) var(--xl-p);
+          const matches = value.match(/var\(([\w\s,-]+)\)/g);
+          if (matches) {
+            matches.forEach((match) => {
+              // capture the variable name, e.g.: "var(--xl-p)" -> "--xl-p"
+              const [, variable] = match.match(/var\(([\w\s-]+)\)/)!;
+              const dependantVariable = dependencies.get(variable.trim());
+              dependantVariable?.referencedIn.add(componentName);
+            });
           }
         }
       });
