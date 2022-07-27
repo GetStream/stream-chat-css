@@ -41,7 +41,10 @@
 
   // Using grid layout so we can use template from theme-v1
   display: grid;
-  word-break: break-all;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
 
   &.str-chat__message--other,
   &.str-chat__quoted-message-preview {
