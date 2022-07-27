@@ -1,5 +1,10 @@
 @use '../utils';
 
+.str-chat {
+  /* The width/height of the message options buttons */
+  --str-chat__message-options-button-size: calc(var(--str-chat__spacing-px) * 26);
+}
+
 .str-chat__message {
   --message-max-width: calc(var(--str-chat__spacing-px) * 480);
 
@@ -98,8 +103,8 @@
       .str-chat__message-reactions-button {
         @include utils.flex-row-center;
         cursor: pointer;
-        width: calc(var(--str-chat__spacing-px) * 34);
-        height: calc(var(--str-chat__spacing-px) * 34);
+        width: var(--str-chat__message-options-button-size);
+        height: var(--str-chat__message-options-button-size);
       }
 
       .str-chat__message-actions-box-button,

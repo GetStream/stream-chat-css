@@ -78,13 +78,16 @@
 
   /* The color used for displaying thread replies and thread separator at the start of a thread */
   --str-chat__thread-head-start-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The color used for the separator below the first message in a thread */
+  --str-chat__thread-head-start-border-block-end-color: var(--str-chat__surface-color);
 }
 
 .str-chat__list {
   @include utils.component-layer-overrides('message-list');
 
   .str-chat__parent-message-li {
-    border-block-end: 1px solid var(--str-chat__thread-head-start-color);
+    border-block-end: 1px solid var(--str-chat__thread-head-start-border-block-end-color);
 
     .str-chat__thread-start {
       color: var(--str-chat__thread-head-start-color);

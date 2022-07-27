@@ -88,8 +88,8 @@
 
   // button version of the same "class"
   button.str-chat__attachment-preview-delete {
-    display: flex;
     @include utils.unset-button;
+    display: flex;
   }
 
   .str-chat__attachment-preview-delete {

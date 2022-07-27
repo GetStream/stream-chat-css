@@ -4,6 +4,12 @@
   justify-content: center;
 }
 
+@mixin flex-top-right {
+  display: flex;
+  align-items: flex-start;
+  justify-content: end;
+}
+
 @mixin flex-col-center {
   display: flex;
   flex-direction: column;
@@ -144,7 +150,7 @@
     }
 
     .str-chat__parent-message-li {
-      margin-inline: calc(-1 * #{$spacing});
+      margin-inline: calc(-1 * #{$spacing} - 2px);
     }
   }
 }

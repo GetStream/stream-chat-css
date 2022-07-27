@@ -5,7 +5,7 @@
   --str-chat__attachment-preview-list-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of the component */
-  --str-chat__attachment-preview-list-border-radius: var(--str-chat__border-radius-md);
+  --str-chat__attachment-preview-list-border-radius: var(--str-chat__border-radius-sm);
 
   /* The text/icon color of the component */
   --str-chat__attachment-preview-list-color: var(--str-chat__text-color);
@@ -100,6 +100,11 @@
 
 .str-chat__attachment-preview-list {
   @include utils.component-layer-overrides('attachment-preview-list');
+
+  .str-chat__attachment-list-scroll-container {
+    // inherit as border-radius on parent does nothing
+    border-radius: inherit;
+  }
 
   .str-chat__attachment-preview-image {
     @include utils.component-layer-overrides('attachment-preview-image');
