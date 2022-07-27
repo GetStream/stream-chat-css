@@ -4,7 +4,7 @@
   @include utils.flex-row-center;
   padding: var(--str-chat__spacing-2_5);
 
-  .str-chat__channel-search-bar--menu-button {
+  .str-chat__channel-search-bar-button {
     @include utils.button-reset;
     padding: var(--str-chat__spacing-2_5);
     cursor: pointer;
@@ -17,12 +17,18 @@
     padding: var(--str-chat__spacing-2_5);
 
     .str-chat__channel-search-input--icon,
-    .str-chat__channel-search-input--clear-icon {
+    .str-chat__channel-search-input--clear-button {
+      display: inline-flex;
       padding: 0 var(--str-chat__spacing-2_5);
     }
 
-    .str-chat__channel-search-input--clear-icon {
+    .str-chat__channel-search-input--clear-button {
+      @include utils.button-reset;
       cursor: pointer;
+
+      &:disabled {
+        cursor: default;
+      }
     }
 
     input {

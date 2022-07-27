@@ -136,7 +136,7 @@
     line-height: 1rem;
   }
 
-  .str-chat__channel-search-input--clear-icon svg path {
+  .str-chat__channel-search-input--clear-button svg path {
     fill: transparent;
   }
 }
@@ -148,7 +148,7 @@
     fill: var(--str-chat__primary-color);
   }
 
-  .str-chat__channel-search-input--clear-icon svg path {
+  .str-chat__channel-search-input--clear-button svg path {
     fill: var(--str-chat__text-low-emphasis-color);
   }
 }
