@@ -52,11 +52,11 @@
 }
 
 .str-chat__emoji-item {
-	@include utils.flex-row-center;
-	padding: var(--str-chat__spacing-2_5);
-	column-gap: var(--str-chat__spacing-2);
- 
-	.str-chat__emoji-item--name {
-	  width: 100%;
-	}
- }
+  @include utils.flex-row-center;
+  padding: var(--str-chat__spacing-2_5);
+  column-gap: var(--str-chat__spacing-2);
+
+  .str-chat__emoji-item--name {
+    width: 100%;
+  }
+}

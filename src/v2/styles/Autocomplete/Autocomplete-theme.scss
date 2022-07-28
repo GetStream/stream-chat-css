@@ -184,13 +184,12 @@
 }
 
 .str-chat__emoji-item {
-	@include utils.component-layer-overrides('mention-list-emoji-item');
- 
-	.str-chat__emoji-item--name {
-	  font-size: 1rem;
-	  line-height: 1.25rem;
-	}
- }
+  @include utils.component-layer-overrides('mention-list-emoji-item');
+
+  .str-chat__emoji-item--name {
+    font: var(--str-chat__subtitle-text);
+  }
+}
 
 // TODO?: rename to autocomplete? or create new file
 .str-chat__suggestion-list-container {
