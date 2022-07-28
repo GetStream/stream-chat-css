@@ -60,7 +60,9 @@
     1px solid;
 
   /* Left (right in RTL layout) border of the component */
-  --str-chat__channel-search-input-wrapper-active-border-inline-start: var(--str-chat__primary-color)
+  --str-chat__channel-search-input-wrapper-active-border-inline-start: var(
+      --str-chat__primary-color
+    )
     1px solid;
 
   /* Right (left in RTL layout) border of the component */
