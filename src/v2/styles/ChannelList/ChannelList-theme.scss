@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__channel-list-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__channel-list-border-radius: 0;
 
@@ -27,9 +24,6 @@
 
   /* Right (left in RTL layout) border of the component */
   --str-chat__channel-list-border-inline-end: 1px solid var(--str-chat__surface-color);
-
-  /* The font used for the load more button */
-  --str-chat__channel-list-load-more-font-family: var(--str-chat__cta-button-font-family);
 
   /* The border radius used for the borders of the load more button */
   --str-chat__channel-list-load-more-border-radius: var(--str-chat__cta-button-border-radius);

@@ -5,8 +5,6 @@
 
   @include utils.flex-col-center;
   width: 100%;
-  height: 100%;
-  max-height: 100%;
   padding: var(--str-chat__spacing-1) var(--str-chat__spacing-2);
 
   .str-chat__quoted-message-preview-header {
@@ -26,10 +24,8 @@
   }
 
   .str-chat__message-input-inner {
+    flex-grow: 1;
     width: 100%;
-    height: 100%;
-    max-height: 100%;
-    min-height: 0;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -45,6 +41,7 @@
       }
 
       .str-chat__file-input-label {
+        @include utils.flex-row-center;
         cursor: pointer;
       }
     }
@@ -73,10 +70,30 @@
         }
 
         .str-chat__message-textarea-emoji-picker {
+          @include utils.flex-row-center;
           width: calc(var(--str-chat__spacing-px) * 27);
           height: calc(var(--str-chat__spacing-px) * 27);
           font-size: calc(var(--str-chat__spacing-px) * 27);
           align-self: end;
+
+          .str-chat__emoji-picker-container {
+            display: flex;
+          }
+
+          .str-chat__emoji-picker-button {
+            @include utils.unset-button;
+            display: flex;
+            cursor: pointer;
+
+            svg {
+              width: calc(var(--str-chat__spacing-px) * 24);
+              height: calc(var(--str-chat__spacing-px) * 24);
+
+              path {
+                fill: var(--str-chat__message-input-tools-color);
+              }
+            }
+          }
         }
       }
     }
@@ -84,6 +101,14 @@
 
   .str-chat__message-textarea-angular-host {
     @include utils.flex-row-center;
+    width: 100%;
+  }
+
+  .str-chat__message-textarea-react-host {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
   }
 

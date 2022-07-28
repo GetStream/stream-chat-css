@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__message-input-font-family: var(--str-chat__font-family);
-
   /* The border radius of the component */
   --str-chat__message-input-border-radius: 0;
 
@@ -28,9 +25,6 @@
   /* Box shadow applied to the component */
   --str-chat__message-input-box-shadow: none;
 
-  /* The font used in the textarea */
-  --str-chat__message-textarea-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the textarea */
   --str-chat__message-textarea-border-radius: var(--str-chat__border-radius-md);
 
@@ -54,9 +48,6 @@
 
   /* Box shadow applied to the textarea */
   --str-chat__message-textarea-box-shadow: none;
-
-  /* The font used in the send button */
-  --str-chat__message-send-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of the send button */
   --str-chat__message-send-border-radius: var(--str-chat__border-radius-circle);
@@ -88,9 +79,6 @@
   /* The background color of the send button in disabled state */
   --str-chat__message-send-disabled-background-color: transparent;
 
-  /* The font used in the tool buttons of the message input (such as attachment upload button) */
-  --str-chat__message-input-tools-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the tool buttons of the message input (such as attachment upload button) */
   --str-chat__message-input-tools-border-radius: var(--str-chat__border-radius-circle);
 
@@ -117,9 +105,6 @@
 
   /* Thex text color of the message that is displayed when the use can't send messages */
   --str-chat__message-input-not-allowed-color: var(--str-chat__disabled-color);
-
-  /* The font used in the cooldown timer */
-  --str-chat__cooldown-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of the cooldown timer */
   --str-chat__cooldown-border-radius: var(--str-chat__border-radius-circle);
@@ -170,12 +155,10 @@
       resize: none;
       border: none;
       color: var(--str-chat__message-textarea-color);
-      font-family: var(--str-chat__message-textarea-font-family);
       background-color: transparent;
       box-shadow: none;
       outline: none;
-      font-size: 1rem;
-      line-height: 1.25rem;
+      font: var(--str-chat__subtitle-text);
     }
   }
 
@@ -197,22 +180,17 @@
 
   .str-chat__message-input-cooldown {
     @include utils.component-layer-overrides('cooldown');
-    font-size: 1rem;
-    line-height: 1.25rem;
-    font-weight: 500;
+    font: var(--str-chat__subtitle-medium-text);
   }
 
   .str-chat__message-input-not-allowed {
     color: var(--str-chat__message-input-not-allowed-color);
-    font-size: 1rem;
-    line-height: 1.25rem;
+    font: var(--str-chat__subtitle-text);
   }
 
   .str-chat__quoted-message-preview-header {
     .str-chat__quoted-message-reply-to-message {
-      font-size: 1rem;
-      line-height: 1.25rem;
-      font-weight: 500;
+      font: var(--str-chat__subtitle-medium-text);
     }
 
     .str-chat__quoted-message-remove {

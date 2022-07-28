@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__message-reactions-options-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__message-reactions-options-border-radius: var(--str-chat__border-radius-circle);
 
@@ -29,9 +26,6 @@
 
   /* Box shadow applied to the component */
   --str-chat__message-reactions-options-box-shadow: 0 0 8px var(--str-chat__box-shadow-color);
-
-  /* The font used in the component */
-  --str-chat__message-reactions-option-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of the component */
   --str-chat__message-reactions-option-border-radius: var(--str-chat__border-radius-md);

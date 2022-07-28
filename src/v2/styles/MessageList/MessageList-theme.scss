@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__message-list-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__message-list-border-radius: 0;
 
@@ -27,9 +24,6 @@
 
   /* Right (left in RTL layout) border of the component */
   --str-chat__message-list-border-inline-end: none;
-
-  /* The font used in the jump to latest message button */
-  --str-chat__jump-to-latest-message-font-family: var(--str-chat__circle-fab-font-family);
 
   /* The border radius used for the borders of the jump to latest message button */
   --str-chat__jump-to-latest-message-border-radius: var(--str-chat__circle-fab-border-radius);
@@ -78,18 +72,20 @@
 
   /* The color used for displaying thread replies and thread separator at the start of a thread */
   --str-chat__thread-head-start-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The color used for the separator below the first message in a thread */
+  --str-chat__thread-head-start-border-block-end-color: var(--str-chat__surface-color);
 }
 
 .str-chat__list {
   @include utils.component-layer-overrides('message-list');
 
   .str-chat__parent-message-li {
-    border-block-end: 1px solid var(--str-chat__thread-head-start-color);
+    border-block-end: 1px solid var(--str-chat__thread-head-start-border-block-end-color);
 
     .str-chat__thread-start {
       color: var(--str-chat__thread-head-start-color);
-      font-size: 1rem;
-      line-height: 1.25rem;
+      font: var(--str-chat__subtitle-text);
     }
   }
 }
@@ -103,7 +99,7 @@
       background-color: var(--str-chat__jump-to-latest-message-unread-count-background-color);
       color: var(--str-chat__jump-to-latest-message-unread-count-color);
       border-radius: var(--str-chat__jump-to-latest-message-border-radius);
-      font-size: 0.625rem;
+      font: var(--str-chat__caption-text);
     }
   }
 }

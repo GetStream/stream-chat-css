@@ -20,7 +20,7 @@ export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
   
   const groups = [
     {name: 'Colors', regexp: /color/, columns: [nameColumn, valueColumn, valueDarkColumn, descriptionColumn, usedInColumn]},
-    {name: 'Fonts', regexp: /__font-family/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
+    {name: 'Fonts', regexp: /(__font|-text)/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
     {name: 'Spacing', regexp: /spacing/, columns: [nameColumn, valueColumn, descriptionColumn]},
     {name: 'Radius', regexp: /__border-radius/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
     {name: 'Others', regexp: /.*/, columns: [nameColumn, valueColumn, descriptionColumn]}

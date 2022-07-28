@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__thread-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__thread-border-radius: 0;
 
@@ -27,9 +24,6 @@
 
   /* Box shadow applied to the component */
   --str-chat__thread-box-shadow: none;
-
-  /* The font used in the thread header */
-  --str-chat__thread-header-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of the thread header */
   --str-chat__thread-header-border-radius: 0;
@@ -67,17 +61,13 @@
 
     .str-chat__thread-header-name,
     .str-chat__thread-header-title {
-      font-size: 1rem;
-      line-height: 1.25rem;
-      font-weight: 500;
+      font: var(--str-chat__subtitle-medium-text);
     }
 
     .str-chat__thread-header-channel-name,
     .str-chat__thread-header-subtitle {
-      font-size: 0.875rem;
-      line-height: 1rem;
+      font: var(--str-chat__body-text);
       color: var(--str-chat__thread-header-info-color);
-      font-weight: 400;
     }
 
     .str-chat__close-thread-button {

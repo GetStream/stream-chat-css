@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__autocomplete-menu-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__autocomplete-menu-border-radius: var(--str-chat__border-radius-xs);
 
@@ -31,8 +28,34 @@
   /* The background color of a selected autocomplete item */
   --str-chat__autocomplete-active-background-color: var(--str-chat__surface-color);
 
-  /* The font used in the slash command item in the autocomplete list */
-  --str-chat__slash-command-font-family: var(--str-chat__font-family);
+  /* The border radius used for the borders of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-radius: var(--str-chat__border-radius-xs);
+
+  /* The text/icon color of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-color: var(--str-chat__text-color);
+
+  /* The background color of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-background-color: var(
+    --str-chat__secondary-background-color
+  );
+
+  /* Top border of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-block-start: none;
+
+  /* Bottom border of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-inline-end: none;
+
+  /* Box shadow applied to the component (ReactSDK) */
+  --str-chat__suggestion-list-container-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+
+  /* The background color of a selected autocomplete item (ReactSDK) */
+  --str-chat__suggestion-list-item--selected-background-color: var(--str-chat__surface-color);
 
   /* The border radius used for the borders of the slash command item in the autocomplete list */
   --str-chat__slash-command-border-radius: 0;
@@ -60,9 +83,6 @@
 
   /* Text color of the arguments of a slash command item in the autocomplete list */
   --str-chat__slash-command-args-color: var(--str-chat__text-low-emphasis-color);
-
-  /* The font used in the user mention item in the autocomplete list */
-  --str-chat__mention-list-user-item-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of the user mention item in the autocomplete list */
   --str-chat__mention-list-user-item-border-radius: 0;
@@ -93,7 +113,7 @@
 }
 
 // Class defined by Angular mentions
-// !important necessart to override library defined styles
+// !important necessary to override library defined styles
 .mention-menu {
   @include utils.component-layer-overrides('autocomplete-menu', '!important');
 
@@ -113,14 +133,12 @@
   .str-chat__slash-command-header {
     .str-chat__slash-command-name {
       text-transform: capitalize;
-      font-size: 1.25rem;
-      line-height: 1.5rem;
+      font: var(--str-chat__subtitle2-text);
     }
 
     .str-chat__slash-command-args {
       color: var(--str-chat__slash-command-args-color);
-      font-size: 1rem;
-      line-height: 1.25rem;
+      font: var(--str-chat__subtitle-text);
     }
   }
 }
@@ -129,13 +147,26 @@
   @include utils.component-layer-overrides('mention-list-user-item');
 
   .str-chat__user-item--name {
-    font-size: 1rem;
-    line-height: 1.25rem;
+    font: var(--str-chat__subtitle-text);
   }
 
   .str-chat__user-item-at {
-    font-size: 1.25rem;
-    line-height: 1.25rem;
+    font: var(--str-chat__subtitle2-text);
     color: var(--str-chat__mention-list-user-item-at-sign-color);
+  }
+}
+
+// TODO?: rename to autocomplete? or create new file
+.str-chat__suggestion-list-container {
+  @include utils.component-layer-overrides('suggestion-list-container');
+
+  .str-chat__suggestion-list {
+    .str-chat__suggestion-list-item > a {
+      text-decoration: none;
+    }
+
+    .str-chat__suggestion-item--selected {
+      background-color: var(--str-chat__suggestion-list-item--selected-background-color);
+    }
   }
 }

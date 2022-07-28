@@ -1,4 +1,7 @@
 @use 'index.layout.scss';
+
+@use 'vendor/emoji-mart.scss';
+
 @use 'common/CTAButton/CTAButton-theme';
 @use 'common/CircleFAButton/CircleFAButton-theme';
 @use 'Avatar/Avatar-theme';
@@ -12,6 +15,7 @@
 @use 'ChannelSearch/ChannelSearch-theme';
 @use 'EditMessageForm/EditMessageForm-theme';
 @use 'ImageCarousel/ImageCarousel-theme';
+@use 'LoadingIndicator/LoadingIndicator-theme';
 @use 'Message/Message-theme';
 @use 'MessageActionsBox/MessageActionsBox-theme';
 @use 'MessageInput/MessageInput-theme';

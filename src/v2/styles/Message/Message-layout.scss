@@ -1,5 +1,10 @@
 @use '../utils';
 
+.str-chat {
+  /* The width/height of the message options buttons */
+  --str-chat__message-options-button-size: calc(var(--str-chat__spacing-px) * 26);
+}
+
 .str-chat__message {
   --message-max-width: calc(var(--str-chat__spacing-px) * 480);
 
@@ -36,7 +41,10 @@
 
   // Using grid layout so we can use template from theme-v1
   display: grid;
-  word-break: break-all;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
 
   &.str-chat__message--other,
   &.str-chat__quoted-message-preview {
@@ -98,8 +106,8 @@
       .str-chat__message-reactions-button {
         @include utils.flex-row-center;
         cursor: pointer;
-        width: calc(var(--str-chat__spacing-px) * 34);
-        height: calc(var(--str-chat__spacing-px) * 34);
+        width: var(--str-chat__message-options-button-size);
+        height: var(--str-chat__message-options-button-size);
       }
 
       .str-chat__message-actions-box-button,

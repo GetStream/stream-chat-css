@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the content area of the component */
-  --str-chat__modal-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the content area of the component of the content area of the component */
   --str-chat__modal-border-radius: var(--str-chat__border-radius-sm);
 
@@ -49,10 +46,6 @@
     @include utils.component-layer-overrides('modal');
   }
 
-  .str-chat__modal__inner.str-chat-react__modal__inner {
-    background-color: transparent;
-  }
-
   .str-chat__modal__close-button {
     @include utils.button-reset;
 
@@ -66,5 +59,17 @@
         fill: var(--str-chat__modal-close-icon-background);
       }
     }
+  }
+}
+
+// stream-chat-react image gallery does not show the modal inner container. It has to be reset to
+// width of its content in order the modal can be closed when clicked on overlay
+.str-chat__message-attachment--image,
+.str-chat__message-attachment--gallery {
+  .str-chat__modal--open .str-chat__modal__inner.str-chat-react__modal__inner {
+    background-color: transparent;
+    width: unset;
+    height: unset;
+    padding: 0;
   }
 }

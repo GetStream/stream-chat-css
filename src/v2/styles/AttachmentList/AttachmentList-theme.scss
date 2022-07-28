@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__attachment-list-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__attachment-list-border-radius: 0;
 
@@ -27,9 +24,6 @@
 
   /* Box shadow applied to the component */
   --str-chat__attachment-list-box-shadow: none;
-
-  /* The font used in image attachments */
-  --str-chat__image-attachment-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of image attachments */
   --str-chat__image-attachment-border-radius: calc(
@@ -56,9 +50,6 @@
 
   /* Box shadow applied to image gallery attachments */
   --str-chat__image-attachment-box-shadow: none;
-
-  /* The font used in image gallery attachments */
-  --str-chat__image-gallery-attachment-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of image gallery attachments */
   --str-chat__image-gallery-attachment-border-radius: calc(
@@ -94,9 +85,6 @@
     --str-chat__secondary-overlay-text-color
   );
 
-  /* The font used in card attachments */
-  --str-chat__card-attachment-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of card attachments */
   --str-chat__card-attachment-border-radius: 0;
 
@@ -123,9 +111,6 @@
 
   /* Box shadow applied to card attachments */
   --str-chat__card-attachment-box-shadow: none;
-
-  /* The font used in file attachments */
-  --str-chat__file-attachment-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of file attachments */
   --str-chat__file-attachment-border-radius: calc(
@@ -156,11 +141,10 @@
   /* Box shadow applied to file attachments */
   --str-chat__file-attachment-box-shadow: none;
 
-  /* The font used in audio widget */
-  --str-chat__audio-attachment-widget-font-family: var(--str-chat__font-family);
-
   /* Border radius applied audio widget */
-  --str-chat__audio-attachment-widget-border-radius: calc(var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin));
+  --str-chat__audio-attachment-widget-border-radius: calc(
+    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
+  );
 
   /* Text color used in audio widget */
   --str-chat__audio-attachment-widget-color: var(--str-chat__text-color);
@@ -193,10 +177,14 @@
   --str-chat__audio-attachment-controls-button-color: var(--str-chat__text-color);
 
   /* Background color applied to audio widget's play / pause button */
-  --str-chat__audio-attachment-controls-button-background-color: var(--str-chat__secondary-background-color);
+  --str-chat__audio-attachment-controls-button-background-color: var(
+    --str-chat__secondary-background-color
+  );
 
   /* Background color applied to audio widget's play / pause button when in pressed (active) state */
-  --str-chat__audio-attachment-controls-button-pressed-background-color: var(--str-chat__surface-color);
+  --str-chat__audio-attachment-controls-button-pressed-background-color: var(
+    --str-chat__surface-color
+  );
 
   /* Top border of audio widget's play / pause button */
   --str-chat__audio-attachment-controls-button-border-block-start: none;
@@ -212,9 +200,6 @@
 
   /* Box shadow applied to audio widget's play / pause button */
   --str-chat__audio-attachment-controls-button-box-shadow: var(--str-chat__circle-fab-box-shadow);
-
-  /* The font used in attachment actions */
-  --str-chat__attachment-actions-font-family: var(--str-chat__font-family);
 
   /* The border radius used for attachment actions */
   --str-chat__attachment-actions-border-radius: 0;
@@ -239,9 +224,6 @@
 
   /* Box shadow applied to attachment actions */
   --str-chat__attachment-actions-box-shadow: none;
-
-  /* The font used in an attachment action */
-  --str-chat__attachment-action-font-family: var(--str-chat__font-family);
 
   /* The border radius used for an attachment action */
   --str-chat__attachment-action-border-radius: 0;
@@ -300,8 +282,7 @@
       color: var(--str-chat__image-gallery-attachment-overlay-text-color);
       display: flex;
       border: none;
-      font-size: 1.8rem;
-      line-height: 1.8rem;
+      font: var(--str-chat__headline2-text);
 
       &::after {
         background-color: var(--str-chat__image-gallery-attachment-overlay);
@@ -317,15 +298,12 @@
   .str-chat__message-attachment-audio-widget {
     .str-chat__message-attachment-file--item-name,
     .str-chat__message-attachment-audio-widget--title {
-      font-size: 1rem;
-      line-height: 1.25rem;
-      font-weight: 500;
+      font: var(--str-chat__subtitle-medium-text);
     }
 
     .str-chat__message-attachment-file--item-size {
       color: var(--str-chat__file-attachment-secondary-color);
-      font-size: 0.875rem;
-      line-height: 1rem;
+      font: var(--str-chat__body-text);
     }
 
     .str-chat__message-attachment-download-icon {
@@ -354,15 +332,14 @@
 
   .str-chat__message-attachment--card {
     @include utils.component-layer-overrides('card-attachment');
-    font-size: 0.875rem;
-    line-height: 1rem;
+    font: var(--str-chat__body-text);
 
     .str-chat__message-attachment-card--source-link {
-      font-weight: 500;
+      font: var(--str-chat__body-medium-text);
     }
 
     .str-chat__message-attachment-card--title {
-      font-weight: 500;
+      font: var(--str-chat__body-medium-text);
     }
   }
 
@@ -384,9 +361,7 @@
 
       .str-chat__message-attachment-audio-widget--title {
         color: var(--str-chat__text-color);
-        font-weight: 500;
-        font-size: 0.875rem;
-        line-height: 1rem;
+        font: var(--str-chat__body-medium-text);
       }
     }
   }
@@ -396,9 +371,7 @@
 
     .str-chat__message-attachment-actions-button {
       @include utils.component-layer-overrides('attachment-action');
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 1.25rem;
+      font: var(--str-chat__subtitle-medium-text);
       border-collapse: collapse;
 
       &:active {
