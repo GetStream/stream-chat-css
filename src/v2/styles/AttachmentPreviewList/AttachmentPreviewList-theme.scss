@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__attachment-preview-list-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__attachment-preview-list-border-radius: var(--str-chat__border-radius-sm);
 
@@ -43,9 +40,6 @@
   /* Overlay color applied to attachment previews during upload and if an error occured during upload */
   --str-chat__attachment-preview-overlay-color: var(--str-chat__overlay-color);
 
-  /* The font used in the image preview */
-  --str-chat__attachment-preview-image-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the image preview */
   --str-chat__attachment-preview-image-border-radius: var(--str-chat__border-radius-sm);
 
@@ -69,9 +63,6 @@
 
   /* Box shadow applied to the image preview */
   --str-chat__attachment-preview-image-box-shadow: none;
-
-  /* The font used in the file preview */
-  --str-chat__attachment-preview-file-font-family: var(--str-chat__font-family);
 
   /* The border radius used for the borders of the file preview */
   --str-chat__attachment-preview-file-border-radius: var(--str-chat__border-radius-md);
@@ -120,9 +111,7 @@
     @include utils.component-layer-overrides('attachment-preview-file');
 
     .str-chat__attachment-preview-file-name {
-      font-size: 1rem;
-      line-height: 1.25rem;
-      font-weight: 500;
+      font: var(--str-chat__subtitle-medium-text);
     }
 
     .str-chat__attachment-preview-file-download {

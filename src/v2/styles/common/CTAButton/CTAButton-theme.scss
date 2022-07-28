@@ -1,9 +1,6 @@
 @use '../../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__cta-button-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__cta-button-border-radius: var(--str-chat__border-radius-xs);
 
@@ -41,5 +38,5 @@
 .str-chat__cta-button {
   @include utils.component-layer-overrides('cta-button');
   @include utils.cta-button-overrides('cta-button');
-  font-size: 1rem;
+  font: var(--str-chat__subtitle-text);
 }

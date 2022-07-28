@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__channel-preview-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__channel-preview-border-radius: 0;
 
@@ -62,7 +59,6 @@
 }
 
 .str-chat__channel-preview {
-  --channel-name-height: 1.25rem;
   @include utils.component-layer-overrides('channel-preview');
 
   &--active,
@@ -74,24 +70,18 @@
     background-color: var(--str-chat__channel-preview-hover-background-color);
   }
 
-  .str-chat__channel-preview-unread-badge {
-    @include utils.component-layer-overrides('channel-preview-unread-badge');
-    font-size: 0.75rem;
-    line-height: 0.44rem;
-    font-weight: 700;
-  }
+  .str-chat__channel-preview-end-first-row {
+    font: var(--str-chat__subtitle-medium-text);
 
-  .str-chat__channel-preview-messenger--name {
-    font-size: 1rem;
-    line-height: var(--channel-name-height);
-    font-weight: 500;
+    .str-chat__channel-preview-unread-badge {
+      @include utils.component-layer-overrides('channel-preview-unread-badge');
+      font-size: 80%;
+    }
   }
 
   .str-chat__channel-preview-messenger--last-message {
-    font-size: 0.875rem;
-    line-height: 1rem;
+    font: var(--str-chat__body-text);
     color: var(--str-chat__channel-preview-latest-message-secondary-color);
-    font-weight: 400;
   }
 
   &--active,

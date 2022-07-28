@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__edit-message-modal-button-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__edit-message-modal-button-border-radius: none;
 
@@ -37,9 +34,7 @@
     .str-chat__edit-message-cancel,
     .str-chat__edit-message-send {
       @include utils.component-layer-overrides('edit-message-modal-button');
-      font-size: 0.875rem;
-      line-height: 1rem;
-      font-weight: 500;
+      font: var(--str-chat__body-medium-text);
     }
 
     .str-chat__edit-message-cancel {

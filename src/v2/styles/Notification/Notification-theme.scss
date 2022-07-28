@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__notification-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__notification-border-radius: var(--str-chat__border-radius-sm);
 
@@ -31,6 +28,5 @@
 
 .str-chat__notification {
   @include utils.component-layer-overrides('notification');
-  font-size: 1rem;
-  line-height: 1.35rem;
+  font: var(--str-chat__subtitle-text);
 }

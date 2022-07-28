@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the component */
-  --str-chat__message-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the component */
   --str-chat__message-border-radius: none;
 
@@ -58,9 +55,6 @@
   /* The background color used if a message option is hovered */
   --str-chat__message-options-active-color: var(--str-chat__primary-color);
 
-  /* The font used in the message bubble */
-  --str-chat__message-bubble-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the message bubble */
   --str-chat__message-bubble-border-radius: var(--str-chat__border-radius-md);
 
@@ -91,9 +85,6 @@
   /* Box shadow applied to the message bubble */
   --str-chat__message-bubble-box-shadow: none;
 
-  /* The font used in a deleted message */
-  --str-chat__deleted-message-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of a deleted message */
   --str-chat__deleted-message-border-radius: var(--str-chat__border-radius-md);
 
@@ -118,9 +109,6 @@
   /* Box shadow applied to a deleted message */
   --str-chat__deleted-message-box-shadow: none;
 
-  /* The font used in a system message */
-  --str-chat__system-message-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of a system message */
   --str-chat__system-message-border-radius: 0;
 
@@ -144,12 +132,6 @@
 
   /* Box shadow applied to a system message */
   --str-chat__system-message-box-shadow: none;
-
-  /* The font used in a deleted message */
-  --str-chat__date-separator-font-family: var(--str-chat__font-family);
-
-  /* Font weight of text in a date separator*/
-  --str-chat__date-separator-font-weight: 700;
 
   /* Text color in a date separator*/
   --str-chat__date-separator-color: var(--str-chat__text-low-emphasis-color);
@@ -181,13 +163,12 @@
 
 .str-chat__message--system {
   @include utils.component-layer-overrides('system-message');
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font: var(--str-chat__caption-text);
 }
 
 .str-chat__date-separator {
   @include utils.component-layer-overrides('date-separator');
-  font-size: 14px;
+  font: var(--str-chat__body-text);
 
   &-line {
     background-color: var(--str-chat__date-separator-line-color);
@@ -196,7 +177,6 @@
 }
 
 .str-chat__message {
-  $message-text-font-size: 0.9375rem;
   @include utils.component-layer-overrides('message');
 
   a {
@@ -206,12 +186,12 @@
 
   .str-chat__message-bubble {
     @include utils.component-layer-overrides('message-bubble');
-    font-size: $message-text-font-size;
+    font: var(--str-chat__body2-text);
   }
 
   .str-chat__message--deleted-inner {
     @include utils.component-layer-overrides('deleted-message');
-    font-size: $message-text-font-size;
+    font: var(--str-chat__body2-text);
   }
 
   &.str-chat__message--me .str-chat__message-bubble {
@@ -248,18 +228,16 @@
 
   .str-chat__message-metadata {
     color: var(--str-chat__message-secondary-color);
-    font-size: 0.75rem;
-    line-height: 1rem;
+    font: var(--str-chat__caption-text);
 
     .str-chat__message-sender-name {
-      font-weight: 500;
+      font: var(--str-chat__caption-medium-text);
     }
   }
 
   .str-chat__message-status {
     color: var(--str-chat__message-status-color);
-    font-size: 0.875rem;
-    line-height: 1.05rem;
+    font: var(--str-chat__body-text);
 
     svg {
       path {
@@ -272,16 +250,14 @@
     button {
       border: none;
       background-color: transparent;
-      font-size: 0.875rem;
-      line-height: 1rem;
+      font: var(--str-chat__body-medium-text);
       color: var(--str-chat__message-replies-count-color);
-      font-weight: 500;
     }
   }
 
   .str-chat__message--error-message {
     color: var(--str-chat__message-error-message-color);
-    font-size: 80%;
+    font: var(--str-chat__caption-text);
   }
 
   .str-chat__message-error-icon {

@@ -1,9 +1,6 @@
 @use '../utils';
 
 .str-chat {
-  /* The font used in the content area of the component */
-  --str-chat__modal-font-family: var(--str-chat__font-family);
-
   /* The border radius used for the borders of the content area of the component of the content area of the component */
   --str-chat__modal-border-radius: var(--str-chat__border-radius-sm);
 
@@ -64,7 +61,6 @@
     }
   }
 }
-
 
 // stream-chat-react image gallery does not show the modal inner container. It has to be reset to
 // width of its content in order the modal can be closed when clicked on overlay
