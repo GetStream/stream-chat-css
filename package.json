@@ -27,16 +27,20 @@
   },
   "release": {
     "branches": [
-      "main"
+      "main",
+      {
+        "name": "theming2",
+        "prerelease": true
+      }
     ],
-    "dryRun": false,
+    "dryRun": true,
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       [
         "@semantic-release/npm",
         {
-          "npmPublish": true
+          "npmPublish": false
         }
       ],
       [
