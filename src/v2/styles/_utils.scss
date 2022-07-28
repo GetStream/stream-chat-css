@@ -184,7 +184,5 @@
 }
 
 @mixin channel-preview-display-name-theme {
-  font-size: 1rem;
-  line-height: var(--channel-name-height);
-  font-weight: 500;
+  font: var(--str-chat__subtitle-medium-text);
 }
