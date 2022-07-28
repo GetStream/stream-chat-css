@@ -1,4 +1,6 @@
 .str-chat__channel-search {
+  --channel-search-input-height: 30px;
+
   padding: var(--md-p) var(--md-p) 0;
   display: flex;
   align-items: center;
@@ -10,7 +12,7 @@
     background: var(--grey-whisper);
     border: 1px solid transparent;
     outline: none;
-    height: 30px;
+    height: var(--channel-search-input-height);
     border-radius: var(--border-radius);
     color: var(--black);
     font-size: var(--md-font);
@@ -67,8 +69,8 @@
   &-container.popup {
     border-radius: var(--border-radius-md);
     background: var(--white-smoke);
-    left: 300px;
-    top: 20px;
+    left: 0;
+    top: calc(var(--channel-search-input-height) + 40px);
     box-shadow: 0 7px 9px 0 var(--border), 0 1px 0 0 var(--border);
     border: 1px solid var(--border);
 

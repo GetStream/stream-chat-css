@@ -71,23 +71,25 @@
   }
 
   .str-chat__channel-preview-end-first-row {
-    font: var(--str-chat__subtitle-medium-text);
+    @include utils.channel-preview-display-name-theme;
 
-    .str-chat__channel-preview-unread-badge {
-      @include utils.component-layer-overrides('channel-preview-unread-badge');
-      font-size: 80%;
+    .str-chat__channel-preview-messenger--name {
+      .str-chat__channel-preview-unread-badge {
+        @include utils.component-layer-overrides('channel-preview-unread-badge');
+        font-size: 80%;
+      }
     }
-  }
 
-  .str-chat__channel-preview-messenger--last-message {
-    font: var(--str-chat__body-text);
-    color: var(--str-chat__channel-preview-latest-message-secondary-color);
-  }
-
-  &--active,
-  &:hover {
     .str-chat__channel-preview-messenger--last-message {
-      color: var(--str-chat__channel-preview-color);
+      font: var(--str-chat__body-text);
+      color: var(--str-chat__channel-preview-latest-message-secondary-color);
+    }
+
+    &--active,
+    &:hover {
+      .str-chat__channel-preview-messenger--last-message {
+        color: var(--str-chat__channel-preview-color);
+      }
     }
   }
 }

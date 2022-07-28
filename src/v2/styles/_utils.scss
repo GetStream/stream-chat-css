@@ -182,3 +182,7 @@
     }
   }
 }
+
+@mixin channel-preview-display-name-theme {
+  font: var(--str-chat__subtitle-medium-text);
+}
