@@ -49,6 +49,12 @@
       cursor: zoom-in;
     }
   }
+  .str-chat__message-attachment--card {
+
+    img {
+      cursor: default;
+    }
+  }
 
   .str-chat__message-attachment--video {
     margin: var(--str-chat__attachment-margin);
