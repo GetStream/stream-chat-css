@@ -7,7 +7,7 @@
 @mixin flex-top-right {
   display: flex;
   align-items: flex-start;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 @mixin flex-col-center {
