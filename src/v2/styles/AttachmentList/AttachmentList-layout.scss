@@ -165,13 +165,13 @@
     }
 
     .str-chat__message-attachment-audio-widget--progress-track {
-      width: 120px;
+      width: calc(var(--str-chat__spacing-px) * 120);
     }
 
     .str-chat__message-attachment-audio-widget--text-second-row {
       display: flex;
       align-items: center;
-      grid-column-gap: 20px;
+      grid-column-gap: calc(var(--str-chat__spacing-px) * 20);
       padding-top: var(--str-chat__spacing-2_5);
 
       .str-chat__message-attachment-file--item-size {
@@ -182,13 +182,14 @@
 
   .str-chat__message-attachment-audio-widget--progress-track {
     position: relative;
-    height: 2px;
+    height: calc(var(--str-chat__spacing-px) * 5);
     flex: 1;
+    cursor: pointer;
 
     .str-chat__message-attachment-audio-widget--progress-indicator {
       position: absolute;
       inset-inline-start: 0;
-      height: 2px;
+      height: inherit;
     }
   }
 

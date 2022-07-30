@@ -319,9 +319,11 @@
 
   .str-chat__message-attachment-audio-widget--progress-track {
     background-color: var(--str-chat__disabled-color);
+    border-radius: calc(var(--str-chat__spacing-px) * 5);
 
     .str-chat__message-attachment-audio-widget--progress-indicator {
       background-color: var(--str-chat__primary-color);
+      border-radius: inherit;
     }
   }
 
@@ -357,7 +359,8 @@
 
     .str-chat__message-attachment-card-audio-widget {
       background-color: var(--str-chat__audio-attachment-widget-background-color);
-      border-radius: 0 0 14px 14px;
+      border-radius: 0 0 calc(var(--str-chat__spacing-px) * 14)
+        calc(var(--str-chat__spacing-px) * 14);
 
       .str-chat__message-attachment-audio-widget--title {
         color: var(--str-chat__text-color);
