@@ -76,8 +76,12 @@
           font-size: calc(var(--str-chat__spacing-px) * 27);
           align-self: end;
 
-          .str-chat__emoji-picker-container {
-            display: flex;
+          .str-chat__message-textarea-emoji-picker-container {
+            z-index: 5;
+
+            .str-chat__emoji-picker-container {
+              display: flex;
+            }
           }
 
           .str-chat__emoji-picker-button {
