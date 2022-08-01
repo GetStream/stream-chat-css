@@ -122,7 +122,9 @@
             min-width: 0;
           }
 
-          .str-chat__message-attachment-download-icon {
+          .str-chat__message-attachment-file--item-download {
+            display: flex;
+
             svg {
               width: 24px;
               height: 16px;
