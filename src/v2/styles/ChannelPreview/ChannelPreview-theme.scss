@@ -73,11 +73,9 @@
   .str-chat__channel-preview-end-first-row {
     @include utils.channel-preview-display-name-theme;
 
-    .str-chat__channel-preview-messenger--name {
-      .str-chat__channel-preview-unread-badge {
-        @include utils.component-layer-overrides('channel-preview-unread-badge');
-        font-size: 80%;
-      }
+    .str-chat__channel-preview-unread-badge {
+      @include utils.component-layer-overrides('channel-preview-unread-badge');
+      font-size: 80%;
     }
 
     .str-chat__channel-preview-messenger--last-message {
