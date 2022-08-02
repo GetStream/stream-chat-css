@@ -154,6 +154,11 @@
     column-gap: var(--str-chat__spacing-0_5);
     position: relative;
 
+	 .str-chat__message-status-tooltip-container {
+		display: flex;
+		justify-content: center;
+	 }
+
     svg {
       width: calc(var(--str-chat__spacing-px) * 15);
       height: calc(var(--str-chat__spacing-px) * 15);
