@@ -16,6 +16,9 @@
   /* The text color used for displaying links */
   --str-chat__message-link-color: var(--str-chat__primary-color);
 
+  /* The text color used for displaying mentions */
+  --str-chat__message-mention-color: var(--str-chat__primary-color);
+
   /* The text/icon color used for displaying message status */
   --str-chat__message-status-color: var(--str-chat__primary-color);
 
@@ -182,6 +185,11 @@
   a {
     text-decoration: none;
     color: var(--str-chat__message-link-color);
+  }
+
+  .str-chat__message-mention {
+    color: var(--str-chat__message-mention-color);
+    font: var(--str-chat__body2-medium-text);
   }
 
   .str-chat__message-bubble {
