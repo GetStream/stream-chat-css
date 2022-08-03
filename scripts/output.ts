@@ -2,16 +2,16 @@ import dedent from 'dedent';
 import prettier from 'prettier';
 import type { VariableGroup, VariableInfo } from './parser';
 
-export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
-  type Column = {name: string, key: keyof VariableInfo | 'usedIn', type: 'code' | 'text'};
-  type Group = {name: string, regexp: RegExp, columns: Column[]};
+type Column = {name: string, key: keyof VariableInfo | 'usedIn', type: 'code' | 'text'};
+type Group = {name: string, regexp: RegExp, columns: Column[], definedIn?: Function};
 
-  const row = (v: VariableInfo, group: Group) => {
-    const usedIn = [...v.referencedIn].map(componentLink).join(', ');
-    const info = {...v, usedIn};
-    return dedent`${group.columns.map(c => `| ${c.type === 'code' ? '\`' : ''}${info[c.key] || ''}${c.type === 'code' ? '\`' : ''}`).join('')}|`;
-  };
+const row = (v: VariableInfo, group: Group) => {
+  const usedIn = [...v.referencedIn].map(componentThemeLink).join(', ');
+  const info = {...v, usedIn};
+  return dedent`${group.columns.map(c => `| ${c.type === 'code' ? '\`' : ''}${info[c.key] || ''}${c.type === 'code' ? '\`' : ''}`).join('')}|`;
+};
 
+export const getGlobalVariablesOutput = (data: Map<string, VariableInfo>) => {
   const nameColumn: Column = {name: 'Name', key: 'name', type: 'code'};
   const valueColumn: Column = {name: 'Value', key: 'value', type: 'code'};
   const valueDarkColumn: Column = {name: 'Value (dark mode)', key: 'valueDarkMode', type: 'code'};
@@ -20,7 +20,7 @@ export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
   
   const groups = [
     {name: 'Colors', regexp: /color/, columns: [nameColumn, valueColumn, valueDarkColumn, descriptionColumn, usedInColumn]},
-    {name: 'Fonts', regexp: /(__font|-text)/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
+    {name: 'Typography', regexp: /(__font|-text)/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
     {name: 'Spacing', regexp: /spacing/, columns: [nameColumn, valueColumn, descriptionColumn]},
     {name: 'Radius', regexp: /__border-radius/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
     {name: 'Others', regexp: /.*/, columns: [nameColumn, valueColumn, descriptionColumn]}
@@ -28,11 +28,12 @@ export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
 
   const variablesByGroups: Map<Group, string[]> = new Map();
 
-  groups.forEach(g => variablesByGroups.set(g, []));
-
   data.forEach((variable) => {
     for (const group of groups) {
       if (group.regexp.test(variable.name)) {
+        if (!variablesByGroups.get(group)) {
+          variablesByGroups.set(group, []);
+        }
         variablesByGroups.get(group)!.push(row(variable, group));
         break;
       }
@@ -41,42 +42,63 @@ export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
 
   let output = '';
   groups.forEach(group => {
-    const header = group.columns.map(c => `| ${c.name}`).join('') + `| \n` + group.columns.map(() => '|-').join('') + `|`;
-    output += dedent`
-      ## ${group.name}
-      ${header}
-      ${variablesByGroups.get(group)!.join('\n')}\n\n`;
+    if (variablesByGroups.get(group)) {
+      const header = group.columns.map(c => `| ${c.name}`).join('') + `| \n` + group.columns.map(() => '|-').join('') + `|`;
+      output += dedent`
+        ### ${group.name}
+        ${header}
+        ${variablesByGroups.get(group)!.join('\n')}\n\n`;
+    }
   });
 
   return format(output);
 };
 
 export const getComponentVariablesOutput = (data: Map<string, VariableInfo>) => {
-  const row = (v: VariableInfo) => {
-    return `| \`${v.name}\` | \`${v.value}\` | ${v.description || ''} |`;
-  };
+  const nameColumn: Column = {name: 'Name', key: 'name', type: 'code'};
+  const valueColumn: Column = {name: 'Value', key: 'value', type: 'code'};
+  const descriptionColumn: Column = {name: 'Description', key: 'description', type: 'text'};
 
-  const componentsGroups: Map<VariableGroup, string[]> = new Map();
+  const subgroupDefinitions = [
+    {name: 'Theme variables', regexp: /color|border|box-shadow|overlay|background/, columns: [nameColumn, valueColumn, descriptionColumn], definedIn: componentThemeLink},
+    {name: 'Layout variables', regexp: /.*/, columns: [nameColumn, valueColumn, descriptionColumn], definedIn: componentLayoutLink},
+  ];
+
+  const componentsGroups: Map<VariableGroup, Map<Group, string[]>> = new Map();
   data.forEach((v) => {
-    const componentGroup = v.definedIn;
-    if (componentGroup) {
-      if (!componentsGroups.get(componentGroup)) {
-        componentsGroups.set(componentGroup, []);
+    const variableGroup = v.definedIn;
+    if (variableGroup) {
+      let existingVariableGroup = Array.from(componentsGroups.keys()).find(g => g.componentName === variableGroup.componentName);
+      if (!existingVariableGroup) {
+        componentsGroups.set(variableGroup, new Map());
+        existingVariableGroup = variableGroup;
       }
-      componentsGroups.get(componentGroup)?.push(row(v));
+      const componentGroup = componentsGroups.get(existingVariableGroup)!;
+      const subgroup = subgroupDefinitions.find(subgroup => subgroup.regexp.test(v.name));
+      if (subgroup) {
+        if (!componentGroup.get(subgroup)) {
+          componentGroup.set(subgroup, []);
+        }
+        componentGroup.get(subgroup)?.push(row(v, subgroup));
+      }
     }
   });
 
   let output = '';
-  Array.from(componentsGroups.entries()).forEach(([variableGroup, rows]) => {
+  Array.from(componentsGroups.entries()).forEach(([variableGroup, variablesBySubgroups]) => {
     output += dedent`
-      ## ${variableGroup.componentName}${variableGroup.sdkRestriction ? ` - Only available in ${variableGroup.sdkRestriction} SDK` : ''}
-      
-      | Name | Value | Description |
-      |------|-------|-------------|
-      ${rows.join('\n')}
-      
-      Defined in: ${componentLink(variableGroup.componentName)}\n\n`;
+      ## ${variableGroup.componentName}${variableGroup.sdkRestriction ? ` - Only available in ${variableGroup.sdkRestriction} SDK` : ''}\n`;
+    
+      subgroupDefinitions.forEach(group => {
+      if (variablesBySubgroups.get(group)) {
+        const header = group.columns.map(c => `| ${c.name}`).join('') + `| \n` + group.columns.map(() => '|-').join('') + `|`;
+        output += dedent`
+          ### ${group.name}
+          ${header}
+          ${variablesBySubgroups.get(group)!.join('\n')}\n
+          Defined in: ${group.definedIn(variableGroup.componentName)}\n\n`;
+      }
+    });
   });
 
   return format(output);
@@ -96,9 +118,17 @@ export const getPaletteVariablesOutput = (data: Map<string, VariableInfo>) => {
   return format(output);
 };
 
-const componentLink = (componentName: string) => {
+const componentThemeLink = (componentName: string) => {
   const pathInRepo = 'https://github.com/GetStream/stream-chat-css/blob/main/src/v2/styles/';
   return `[${componentName}](${pathInRepo}#COMP#/#COMP#-theme.scss)`.replaceAll(
+    '#COMP#',
+    componentName,
+  );
+};
+
+const componentLayoutLink = (componentName: string) => {
+  const pathInRepo = 'https://github.com/GetStream/stream-chat-css/blob/main/src/v2/styles/';
+  return `[${componentName}](${pathInRepo}#COMP#/#COMP#-layout.scss)`.replaceAll(
     '#COMP#',
     componentName,
   );

@@ -86,25 +86,20 @@ Our theming system has various customization options allowing for both smaller a
 
 CSS variables are the easiest way to customize the theme. The variables are organized into two layers:
 
-- theme
+- global
 - component
 
-#### Theme variables
+#### Global variables
 
-You can use theme layer variables to apply changes to the whole chat UI (as opposed to changing the design of individual components). These variables can be grouped into four categories:
+You can use global variables to apply changes to the whole chat UI (as opposed to changing the design of individual components).
 
-- Colors
-- Fonts
-- Border radiuses
-- Spacing (makes the chat UI more spacious/compact)
-
-The [full list of theme variables](./theme-variables.mdx) can be found in our theme variables guide.
+The [full list of global variables](./global-variables.mdx) can be found in our global variables guide.
 
 Here is the default chat UI:
 
 <img src={ChatUiScreenshot} width='500' />
 
-Here is how you can customize theme variables:
+Here is how you can customize global variables:
 
 <SDKSpecific name="angular">
 
@@ -329,6 +324,8 @@ The result will be a minimalistic UI without
 - fonts
 - borders
 - shadows
+
+Please note that if you're only using the layout rules, you can only use the layout CSS variables.
 
 ## Dark and light themes
 
