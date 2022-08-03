@@ -3,7 +3,7 @@ import { extractVariables } from './parser';
 import { getComponentVariablesOutput, getPaletteVariablesOutput, getThemeVariablesOutput } from './output';
 
 const themeVariables = extractVariables('./src/v2/styles/_theme-variables.scss');
-const componentVariables = extractVariables('./src/v2/**/*-theme.scss', themeVariables);
+const componentVariables = extractVariables('./src/v2/**/*-@(theme|layout).scss', themeVariables);
 const paletteVariables = extractVariables('./src/v2/styles/_palette-variables.scss');
 
 const themeVariablesOutput = getThemeVariablesOutput(themeVariables);
