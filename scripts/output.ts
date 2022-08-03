@@ -11,7 +11,7 @@ const row = (v: VariableInfo, group: Group) => {
   return dedent`${group.columns.map(c => `| ${c.type === 'code' ? '\`' : ''}${info[c.key] || ''}${c.type === 'code' ? '\`' : ''}`).join('')}|`;
 };
 
-export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
+export const getGlobalVariablesOutput = (data: Map<string, VariableInfo>) => {
   const nameColumn: Column = {name: 'Name', key: 'name', type: 'code'};
   const valueColumn: Column = {name: 'Value', key: 'value', type: 'code'};
   const valueDarkColumn: Column = {name: 'Value (dark mode)', key: 'valueDarkMode', type: 'code'};
@@ -20,7 +20,7 @@ export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
   
   const groups = [
     {name: 'Colors', regexp: /color/, columns: [nameColumn, valueColumn, valueDarkColumn, descriptionColumn, usedInColumn]},
-    {name: 'Fonts', regexp: /(__font|-text)/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
+    {name: 'Typography', regexp: /(__font|-text)/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
     {name: 'Spacing', regexp: /spacing/, columns: [nameColumn, valueColumn, descriptionColumn]},
     {name: 'Radius', regexp: /__border-radius/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
     {name: 'Others', regexp: /.*/, columns: [nameColumn, valueColumn, descriptionColumn]}
@@ -28,11 +28,12 @@ export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
 
   const variablesByGroups: Map<Group, string[]> = new Map();
 
-  groups.forEach(g => variablesByGroups.set(g, []));
-
   data.forEach((variable) => {
     for (const group of groups) {
       if (group.regexp.test(variable.name)) {
+        if (!variablesByGroups.get(group)) {
+          variablesByGroups.set(group, []);
+        }
         variablesByGroups.get(group)!.push(row(variable, group));
         break;
       }
@@ -41,11 +42,13 @@ export const getThemeVariablesOutput = (data: Map<string, VariableInfo>) => {
 
   let output = '';
   groups.forEach(group => {
-    const header = group.columns.map(c => `| ${c.name}`).join('') + `| \n` + group.columns.map(() => '|-').join('') + `|`;
-    output += dedent`
-      ## ${group.name}
-      ${header}
-      ${variablesByGroups.get(group)!.join('\n')}\n\n`;
+    if (variablesByGroups.get(group)) {
+      const header = group.columns.map(c => `| ${c.name}`).join('') + `| \n` + group.columns.map(() => '|-').join('') + `|`;
+      output += dedent`
+        ### ${group.name}
+        ${header}
+        ${variablesByGroups.get(group)!.join('\n')}\n\n`;
+    }
   });
 
   return format(output);
