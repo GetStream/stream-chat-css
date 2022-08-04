@@ -1,8 +1,11 @@
 @use '../utils';
 
 .str-chat {
-  // The margin applied to every attachment in the attachment list
+  /* The margin applied to every attachment in the attachment list */
   --str-chat__attachment-margin: var(--str-chat__spacing-0_5);
+
+  /* The height of scraped URL images (displayed when a user sends a link in a message) */
+  --str-chat__link-image-height: calc(var(--str-chat__spacing-px) * 175);
 }
 
 .str-chat__attachment-list {
@@ -27,8 +30,7 @@
     }
   }
 
-  .str-chat__message-attachment--image,
-  .str-chat__message-attachment-card--header,
+  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card),
   .str-chat__message-attachment--video {
     display: flex;
 
@@ -39,6 +41,14 @@
       object-fit: cover;
       width: 100%;
       height: 100%;
+    }
+  }
+
+  .str-chat__message-attachment-card--header {
+    img {
+      height: var(--str-chat__link-image-height);
+      width: 100%;
+      object-fit: cover;
     }
   }
 
