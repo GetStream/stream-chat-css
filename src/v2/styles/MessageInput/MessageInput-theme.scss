@@ -25,6 +25,15 @@
   /* Box shadow applied to the component */
   --str-chat__message-input-box-shadow: none;
 
+  /* The text/icon color of the dropzone container */
+  --str-chat__dropzone-container-color: var(--str-chat__text-color);
+
+  /* The background color of the dropzone container */
+  --str-chat__dropzone-container-background-color: transparent;
+
+  /* The backdrop filter applied to the dropzone container */
+  --str-chat__dropzone-container-backdrop-filter: blur(3px);
+
   /* The border radius used for the borders of the textarea */
   --str-chat__message-textarea-border-radius: var(--str-chat__border-radius-md);
 
@@ -160,6 +169,14 @@
       outline: none;
       font: var(--str-chat__subtitle-text);
     }
+
+	 .str-chat__dropzone-container {
+		background-color: var(--str-chat__dropzone-container-background-color);
+		color: var(--str-chat__dropzone-container-color);
+		backdrop-filter: var(--str-chat__dropzone-container-backdrop-filter);
+		font: var(--str-chat__subtitle-text);
+		border-radius: inherit;
+	 }
   }
 
   .str-chat__send-button {
