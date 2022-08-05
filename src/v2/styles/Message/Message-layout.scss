@@ -154,10 +154,10 @@
     column-gap: var(--str-chat__spacing-0_5);
     position: relative;
 
-	 .str-chat__message-status-tooltip-container {
-		display: flex;
-		justify-content: center;
-	 }
+    .str-chat__message-status-tooltip-container {
+      display: flex;
+      justify-content: center;
+    }
 
     svg {
       width: calc(var(--str-chat__spacing-px) * 15);
@@ -228,15 +228,17 @@
   }
 }
 
-.str-chat__message-inner {
-  .str-chat__message-options {
-    display: none;
-  }
-
+.str-chat__li {
   &:hover {
     .str-chat__message-options {
       display: flex;
     }
+  }
+}
+
+.str-chat__message-inner {
+  .str-chat__message-options {
+    display: none;
   }
 
   .str-chat__message-edit-in-progress.str-chat__message-options {
