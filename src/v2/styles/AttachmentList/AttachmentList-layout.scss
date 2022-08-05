@@ -281,6 +281,10 @@
   /* stylelint-disable-next-line length-zero-no-unit */
   --str-chat__attachment-margin: 0px;
 
+  & * {
+    cursor: pointer !important;
+  }
+
   .str-chat__message-attachment-card {
     .str-chat__message-attachment-card--source-link,
     .str-chat__message-attachment-card--content {
