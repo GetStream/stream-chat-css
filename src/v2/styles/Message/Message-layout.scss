@@ -3,29 +3,30 @@
 .str-chat {
   /* The width/height of the message options buttons */
   --str-chat__message-options-button-size: calc(var(--str-chat__spacing-px) * 26);
+
+  /* The maximum allowed width of the message component */
+  --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 480);
 }
 
 .str-chat__message {
-  --message-max-width: calc(var(--str-chat__spacing-px) * 480);
-
   .str-chat__message-bubble {
-    max-width: var(--message-max-width);
+    max-width: var(--str-chat__message-max-width);
   }
 }
 
 .str-chat__message.str-chat__message--has-attachment {
-  --message-max-width: calc(var(--str-chat__spacing-px) * 300);
+  --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 300);
 
   .str-chat__message-bubble {
-    max-width: var(--message-max-width);
+    max-width: var(--str-chat__message-max-width);
   }
 }
 
 .str-chat__quoted-message-preview {
-  --message-max-width: calc(var(--str-chat__spacing-px) * 180);
+  --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 180);
 
   .str-chat__quoted-message-bubble {
-    max-width: var(--message-max-width);
+    max-width: var(--str-chat__message-max-width);
   }
 }
 
@@ -311,7 +312,7 @@
 
 .str-chat__message-input {
   .str-chat__quoted-message-bubble {
-    max-height: calc(var(--message-max-width) + calc(var(--str-chat__spacing-px) * 70));
+    max-height: calc(var(--str-chat__message-max-width) + calc(var(--str-chat__spacing-px) * 70));
 
     .str-chat__quoted-message-text {
       max-height: 100%;
