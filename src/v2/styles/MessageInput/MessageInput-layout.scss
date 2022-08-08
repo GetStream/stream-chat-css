@@ -7,6 +7,8 @@
   width: 100%;
   padding: var(--str-chat__spacing-1) var(--str-chat__spacing-2);
 
+  position: relative;
+
   .str-chat__quoted-message-preview-header {
     @include utils.flex-row-center;
     width: 100%;
@@ -20,6 +22,19 @@
       width: calc(var(--str-chat__spacing-px) * 40);
       height: calc(var(--str-chat__spacing-px) * 40);
       cursor: pointer;
+    }
+  }
+
+  .str-chat__dropzone-container {
+    @include utils.flex-row-center;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+
+    p {
+      margin: unset;
     }
   }
 
@@ -51,15 +66,6 @@
       width: 100%;
       min-width: 0;
       max-height: 100%;
-		position: relative;
-
-		.str-chat__dropzone-container {
-			@include utils.flex-row-center;
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			z-index: 1;
-		}
 
       .str-chat__message-textarea-with-emoji-picker {
         width: 100%;
