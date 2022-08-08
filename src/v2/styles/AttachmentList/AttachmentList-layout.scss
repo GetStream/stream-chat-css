@@ -281,7 +281,7 @@
   /* stylelint-disable-next-line length-zero-no-unit */
   --str-chat__attachment-margin: 0px;
 
-  & * {
+  * {
     cursor: pointer !important;
   }
 
@@ -292,11 +292,15 @@
     }
   }
 
-  .str-chat__message-attachment-file--item {
-    padding: 0;
+  .str-chat__message-attachment-file--item-download {
+    display: none;
+  }
+}
 
-    .str-chat__message-attachment-file--item-download {
-      display: none;
+.str-chat__message {
+  .str-chat__quoted-message-preview {
+    .str-chat__message-attachment-file--item {
+      padding: 0;
     }
   }
 }
