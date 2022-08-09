@@ -15,7 +15,7 @@
 
   /* The maximum allowed width of quoted messages inside the message input component */
   --str-chat__quoted-message-inside-message-input-max-width: calc(
-    var(--str-chat__spacing-px) * 480
+    var(--str-chat__spacing-px) * 200
   );
 
   /* The maximum allowed height of quoted messages inside the message input component */
@@ -211,6 +211,7 @@
     display: flex;
     column-gap: var(--str-chat__spacing-1);
     min-width: 0;
+    width: 100%;
   }
 
   // Fixes emoji display in Chrome on non-retina display (only detected in Angular SDK) https://bugs.chromium.org/p/chromium/issues/detail?id=596223
