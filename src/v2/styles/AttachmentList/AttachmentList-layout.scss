@@ -181,13 +181,14 @@
     }
 
     .str-chat__message-attachment-audio-widget--progress-track {
-      width: calc(var(--str-chat__spacing-px) * 120);
+      max-width: calc(var(--str-chat__spacing-px) * 120);
     }
 
     .str-chat__message-attachment-audio-widget--text-second-row {
       display: flex;
       align-items: center;
-      grid-column-gap: calc(var(--str-chat__spacing-px) * 20);
+      width: 100%;
+      grid-column-gap: var(--str-chat__spacing-5);
       padding-top: var(--str-chat__spacing-2_5);
 
       .str-chat__message-attachment-file--item-size {
@@ -248,7 +249,7 @@
         .str-chat__message-attachment-card-audio-widget--first-row {
           display: flex;
           align-items: center;
-          column-gap: calc(var(--str-chat__spacing-px) * 14);
+          column-gap: var(--str-chat__spacing-3_5);
         }
       }
     }
