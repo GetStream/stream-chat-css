@@ -18,9 +18,10 @@
     var(--str-chat__spacing-px) * 200
   );
 
-  /* The maximum allowed height of quoted messages inside the message input component */
+  /* The maximum allowed height of quoted messages inside the message input component, the default image sizing requires it to be bigger than the message width, otherwise images can overflow */
   --str-chat__quoted-message-inside-message-input-max-height: calc(
-    var(--str-chat__spacing-px) * 250
+    var(--str-chat__quoted-message-inside-message-input-max-width) +
+      calc(var(--str-chat__spacing-px) * 50)
   );
 }
 
