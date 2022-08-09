@@ -6,6 +6,22 @@
 
   /* The maximum allowed width of the message component */
   --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 480);
+
+  /* The maximum allowed width of the message component, if it has attachments */
+  --str-chat__message-with-attachment-max-width: calc(var(--str-chat__spacing-px) * 300);
+
+  /* The maximum allowed width of quoted messages inside the message component */
+  --str-chat__quoted-message-max-width: calc(var(--str-chat__spacing-px) * 180);
+
+  /* The maximum allowed width of quoted messages inside the message input component */
+  --str-chat__quoted-message-inside-message-input-max-width: calc(
+    var(--str-chat__spacing-px) * 480
+  );
+
+  /* The maximum allowed height of quoted messages inside the message input component */
+  --str-chat__quoted-message-inside-message-input-max-height: calc(
+    var(--str-chat__spacing-px) * 250
+  );
 }
 
 .str-chat__message {
@@ -15,7 +31,7 @@
 }
 
 .str-chat__message.str-chat__message--has-attachment {
-  --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 300);
+  --str-chat__message-max-width: var(--str-chat__message-with-attachment-max-width);
 
   .str-chat__message-bubble {
     max-width: var(--str-chat__message-max-width);
@@ -23,7 +39,7 @@
 }
 
 .str-chat__quoted-message-preview {
-  --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 180);
+  --str-chat__message-max-width: var(--str-chat__quoted-message-max-width);
 
   .str-chat__quoted-message-bubble {
     max-width: var(--str-chat__message-max-width);
@@ -328,17 +344,21 @@
 }
 
 .str-chat__message-input {
-  .str-chat__quoted-message-bubble {
-    max-height: calc(var(--str-chat__message-max-width) + calc(var(--str-chat__spacing-px) * 70));
+  .str-chat__quoted-message-preview {
+    --str-chat__message-max-width: var(--str-chat__quoted-message-inside-message-input-max-width);
 
-    .str-chat__quoted-message-text {
-      max-height: 100%;
-      min-height: 0;
+    .str-chat__quoted-message-bubble {
+      max-height: var(--str-chat__quoted-message-inside-message-input-max-height);
 
-      p {
+      .str-chat__quoted-message-text {
         max-height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
+        min-height: 0;
+
+        p {
+          max-height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
       }
     }
   }
