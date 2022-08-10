@@ -46,7 +46,7 @@
 
   .str-chat__message-attachment-card--header {
     img {
-      height: var(--str-chat__link-image-height);
+      max-height: var(--str-chat__link-image-height);
       width: 100%;
       object-fit: cover;
     }
