@@ -72,6 +72,13 @@
 
   .str-chat__message-attachment--giphy {
     margin: var(--str-chat__attachment-margin);
+
+    .str-chat__message-attachment-card--header {
+      img {
+        max-height: 100%;
+        height: unset;
+      }
+    }
   }
 
   .str-chat__gallery {
