@@ -4,19 +4,26 @@
   /* The margin applied to every attachment in the attachment list */
   --str-chat__attachment-margin: var(--str-chat__spacing-0_5);
 
-  /* The height of scraped URL images (displayed when a user sends a link in a message) */
-  --str-chat__link-image-height: calc(var(--str-chat__spacing-px) * 175);
+  /* The maximum allowed width of attachments */
+  --str-chat__attachment-max-width: unset;
+
+  /* The height of scraped media and GIFs, the default value is optimized for 1.91:1 aspect ratio */
+  --str-chat__scraped-media-height: unset;
 }
 
 .str-chat__attachment-list {
+  --str-chat__attachment-max-width: calc(
+    var(--str-chat__message-max-width) - calc(2 * var(--str-chat__attachment-margin))
+  );
+
+  --str-chat__scraped-media-height: calc(var(--str-chat__attachment-max-width) * calc(1 / 1.91));
+
   display: flex;
   flex-direction: column;
   align-items: stretch;
   min-width: 0;
 
   .str-chat__message-attachment--card {
-    max-width: calc(var(--str-chat__message-max-width) - var(--str-chat__attachment-margin));
-
     .str-chat__message-attachment-card--header {
       position: relative;
     }
@@ -40,76 +47,51 @@
     overflow: hidden;
   }
 
+  // Scraped images
   .str-chat__message-attachment-card--header {
-    height: var(--str-chat__link-image-height);
+    height: var(--str-chat__scraped-media-height);
 
     img {
       object-fit: contain;
       max-height: 100%;
       max-width: 100%;
-    }
-  }
-
-  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card) {
-    img {
-      max-width: calc(var(--str-chat__message-max-width) - 2 * var(--str-chat__attachment-margin));
-      max-height: var(--str-chat__message-max-width);
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  // Video file sizing for React, based on theme-v1
-  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
-    width: calc(var(--str-chat__message-max-width) - 2 * var(--str-chat__attachment-margin));
-
-    .str-chat__player-wrapper {
-      width: 100%;
-      position: relative;
-      padding-top: 56.25%;
-
-      .react-player {
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-    }
-
-    .str-chat__video-angular {
-      width: 100%;
-      max-width: calc(var(--str-chat__message-max-width) - 2 * var(--str-chat__attachment-margin));
-      height: calc(var(--str-chat__message-max-width) - 2 * var(--str-chat__attachment-margin));
-    }
-  }
-
-  .str-chat__message-attachment--image {
-    margin: var(--str-chat__attachment-margin);
-
-    img {
-      cursor: zoom-in;
-    }
-  }
-
-  .str-chat__message-attachment--card {
-    img {
       cursor: default;
     }
   }
 
-  .str-chat__message-attachment--video {
-    margin: var(--str-chat__attachment-margin);
+  // Images uploaded from files
+  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card) {
+    img {
+      max-width: var(--str-chat__attachment-max-width);
+      max-height: var(--str-chat__attachment-max-width);
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      cursor: zoom-in;
+    }
   }
 
-  .str-chat__message-attachment--giphy {
-    margin: var(--str-chat__attachment-margin);
+  // Video files: uploaded from files and scraped
+  .str-chat__message-attachment--video {
+    max-width: var(--str-chat__attachment-max-width);
+    display: flex;
 
-    .str-chat__message-attachment-card--header {
-      img {
-        max-height: 100%;
-        height: unset;
+    .str-chat__player-wrapper {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      min-width: 0;
+
+      .react-player,
+      .str-chat__video-angular {
+        height: 100%;
+        width: 100%;
       }
     }
+  }
+
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card),
+  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card) {
+    margin: var(--str-chat__attachment-margin);
   }
 
   .str-chat__gallery {
@@ -117,8 +99,8 @@
     grid-template-columns: 50% 50%;
     overflow: hidden;
     gap: var(--str-chat__spacing-0_5);
-    max-width: var(--str-chat__message-max-width);
-    max-height: var(--str-chat__message-max-width);
+    max-width: var(--str-chat__attachment-max-width);
+    max-height: var(--str-chat__attachment-max-width);
     margin: var(--str-chat__attachment-margin);
 
     &.str-chat__gallery-two-rows {
@@ -262,6 +244,7 @@
 
   .str-chat__message-attachment-card {
     min-width: 0;
+    max-width: var(--str-chat__attachment-max-width);
     margin: var(--str-chat__attachment-margin);
 
     .str-chat__message-attachment-card--content {

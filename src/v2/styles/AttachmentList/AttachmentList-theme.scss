@@ -386,3 +386,10 @@
     }
   }
 }
+
+.str-chat__message-attachment-card.str-chat__message-attachment-card--audio {
+  .str-chat__message-attachment-card--header {
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+  }
+}
