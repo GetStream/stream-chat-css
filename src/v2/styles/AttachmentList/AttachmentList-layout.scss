@@ -30,12 +30,28 @@
     }
   }
 
-  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card),
-  .str-chat__message-attachment--video {
+  .str-chat__message-attachment--image,
+  .str-chat__message-attachment--video,
+  .str-chat__message-attachment-card--header {
+    width: auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 
-    img,
-    video {
+  .str-chat__message-attachment-card--header {
+    height: var(--str-chat__link-image-height);
+
+    img {
+      object-fit: contain;
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card) {
+    img {
       max-width: calc(var(--str-chat__message-max-width) - 2 * var(--str-chat__attachment-margin));
       max-height: var(--str-chat__message-max-width);
       object-fit: cover;
@@ -44,11 +60,26 @@
     }
   }
 
-  .str-chat__message-attachment-card--header {
-    img {
-      height: var(--str-chat__link-image-height);
+  // Video file sizing for React, based on theme-v1
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
+    width: calc(var(--str-chat__message-max-width) - 2 * var(--str-chat__attachment-margin));
+
+    .str-chat__player-wrapper {
       width: 100%;
-      object-fit: cover;
+      position: relative;
+      padding-top: 56.25%;
+
+      .react-player {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .str-chat__video-angular {
+      width: 100%;
+      max-width: calc(var(--str-chat__message-max-width) - 2 * var(--str-chat__attachment-margin));
+      height: calc(var(--str-chat__message-max-width) - 2 * var(--str-chat__attachment-margin));
     }
   }
 
