@@ -71,5 +71,11 @@
     width: unset;
     height: unset;
     padding: 0;
+
+    img {
+      max-width: unset;
+      max-height: calc(100vh - 80px);
+      cursor: default;
+    }
   }
 }
