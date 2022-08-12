@@ -2,20 +2,21 @@
   max-width: 450px;
 }
 
+.str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
+  width: 300px;
+}
+
 .str-chat__player-wrapper {
   position: relative;
   padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
-  .react-player {
+  .react-player,
+  .str-chat__video-angular {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
   }
-}
-
-.str-chat__video-angular {
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
 }
 
 /* border radius for attachments */
