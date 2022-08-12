@@ -43,6 +43,8 @@
   --str-chat__message-max-width: var(--str-chat__quoted-message-max-width);
 
   .str-chat__quoted-message-bubble {
+    // Turn off pointer events so they don't interfere with jump to message
+    pointer-events: none;
     max-width: var(--str-chat__message-max-width);
   }
 }
