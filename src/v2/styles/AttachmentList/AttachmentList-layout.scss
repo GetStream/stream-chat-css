@@ -7,8 +7,8 @@
   /* The maximum allowed width of attachments */
   --str-chat__attachment-max-width: unset;
 
-  /* The height of scraped media and GIFs, the default value is optimized for 1.91:1 aspect ratio */
-  --str-chat__scraped-media-height: unset;
+  /* The height of scraped images and GIFs, the default value is optimized for 1.91:1 aspect ratio */
+  --str-chat__scraped-image-height: unset;
 }
 
 .str-chat__attachment-list {
@@ -16,7 +16,7 @@
     var(--str-chat__message-max-width) - calc(2 * var(--str-chat__attachment-margin))
   );
 
-  --str-chat__scraped-media-height: calc(var(--str-chat__attachment-max-width) * calc(1 / 1.91));
+  --str-chat__scraped-image-height: calc(var(--str-chat__attachment-max-width) * calc(1 / 1.91));
 
   display: flex;
   flex-direction: column;
@@ -49,13 +49,22 @@
 
   // Scraped images
   .str-chat__message-attachment-card--header {
-    height: var(--str-chat__scraped-media-height);
+    height: var(--str-chat__scraped-image-height);
 
     img {
       object-fit: contain;
       max-height: 100%;
       max-width: 100%;
       cursor: default;
+    }
+  }
+
+  .str-chat__message-attachment-card--audio {
+    .str-chat__message-attachment-card--header {
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 
