@@ -33,4 +33,12 @@
       word-wrap: break-word;
     }
   }
+
+  .str-chat__message {
+    margin-block-end: 0 !important;
+  }
+
+  .str-chat__virtual-list-message-wrapper {
+    padding-block-end: var(--str-chat__spacing-2);
+  }
 }

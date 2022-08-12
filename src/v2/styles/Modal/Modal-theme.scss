@@ -64,6 +64,7 @@
 
 // stream-chat-react image gallery does not show the modal inner container. It has to be reset to
 // width of its content in order the modal can be closed when clicked on overlay
+.str-chat__message-attachment--card,
 .str-chat__message-attachment--image,
 .str-chat__message-attachment--gallery {
   .str-chat__modal--open .str-chat__modal__inner.str-chat-react__modal__inner {

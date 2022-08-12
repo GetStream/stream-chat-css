@@ -64,6 +64,13 @@
     }
   }
 
+  // image enlargement available in React SDK only
+  .str-chat__message-attachment-card-react--header {
+    img {
+      cursor: zoom-in;
+    }
+  }
+
   .str-chat__message-attachment-card--giphy {
     .str-chat__message-attachment-card--header {
       height: var(--str-chat__gif-height);
@@ -73,6 +80,13 @@
         max-height: 100%;
         max-width: 100%;
         cursor: default;
+      }
+    }
+
+    // image enlargement available in React SDK only
+    .str-chat__message-attachment-card-react--header {
+      img {
+        cursor: zoom-in;
       }
     }
   }
