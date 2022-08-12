@@ -7,8 +7,11 @@
   /* The maximum allowed width of attachments */
   --str-chat__attachment-max-width: unset;
 
-  /* The height of scraped images and GIFs, the default value is optimized for 1.91:1 aspect ratio */
+  /* The height of scraped images, the default value is optimized for 1.91:1 aspect ratio */
   --str-chat__scraped-image-height: unset;
+
+  /* The height of GIFs */
+  --str-chat__gif-height: calc(var(--str-chat__spacing-px) * 200);
 }
 
 .str-chat__attachment-list {
@@ -63,6 +66,8 @@
 
   .str-chat__message-attachment-card--giphy {
     .str-chat__message-attachment-card--header {
+      height: var(--str-chat__gif-height);
+
       img {
         object-fit: contain;
         max-height: 100%;
@@ -113,12 +118,11 @@
     overflow: hidden;
     gap: var(--str-chat__spacing-0_5);
     max-width: var(--str-chat__attachment-max-width);
-    max-height: var(--str-chat__attachment-max-width);
+    height: var(--str-chat__attachment-max-width);
     margin: var(--str-chat__attachment-margin);
 
     &.str-chat__gallery-two-rows {
       grid-template-rows: 50% 50%;
-      aspect-ratio: 1;
     }
 
     .str-chat__gallery-image {
