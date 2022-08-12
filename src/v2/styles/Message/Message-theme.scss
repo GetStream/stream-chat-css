@@ -28,6 +28,9 @@
   /* The background color of the component */
   --str-chat__message-background-color: transparent;
 
+  /* The background color of a jumped-to message */
+  --str-chat__message-highlighted-background-color: var(--str-chat__message-highlight-color);
+
   /* Top border of the component */
   --str-chat__message-border-block-start: none;
 
@@ -274,6 +277,11 @@
       fill: var(--str-chat__message-error-message-color);
     }
   }
+}
+
+.str-chat__message--highlighted {
+  transition: background-color 0.1s ease-out;
+  background-color: var(--str-chat__message-highlighted-background-color);
 }
 
 .str-chat__li:hover {
