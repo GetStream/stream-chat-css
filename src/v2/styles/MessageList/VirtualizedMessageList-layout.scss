@@ -10,6 +10,10 @@
   width: 100%;
   height: 100%;
 
+  .str-chat__message-list-scroll > div {
+    @include utils.message-list-spacing;
+  }
+
   // conditionally showing the header displaces items when prepending.
   // a simple workaround is to make the loading indicator an overlay.
   &__loading {
