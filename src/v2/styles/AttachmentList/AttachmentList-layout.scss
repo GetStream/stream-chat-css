@@ -52,18 +52,21 @@
     height: var(--str-chat__scraped-image-height);
 
     img {
-      object-fit: contain;
+      object-fit: cover;
       max-height: 100%;
       max-width: 100%;
+      width: 100%;
       cursor: default;
     }
   }
 
-  .str-chat__message-attachment-card--audio {
+  .str-chat__message-attachment-card--giphy {
     .str-chat__message-attachment-card--header {
       img {
-        width: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        max-height: 100%;
+        max-width: 100%;
+        cursor: default;
       }
     }
   }
