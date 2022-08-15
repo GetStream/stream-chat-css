@@ -146,6 +146,10 @@
 
       .str-chat__message-text {
         @include chat-bubble-spacing;
+
+        p {
+          white-space: pre-line;
+        }
       }
     }
   }
