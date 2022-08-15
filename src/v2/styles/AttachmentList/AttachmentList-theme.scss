@@ -282,6 +282,11 @@
     }
   }
 
+  .str-chat__message-attachment--svg-image {
+    background-image: repeating-conic-gradient(#d4d5d7 0% 25%, #f4f4f4 0% 50%);
+    background-size: 24px 24px;
+  }
+
   .str-chat__message-attachment-file--item {
     @include utils.component-layer-overrides('file-attachment');
   }
