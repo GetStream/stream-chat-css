@@ -111,16 +111,6 @@
     }
   }
 
-  .str-chat__message-attachment--svg-image {
-    $padding: var(--str-chat__spacing-6);
-    padding: $padding;
-
-    img {
-      max-width: calc(var(--str-chat__attachment-max-width) - #{padding});
-      max-height: calc(var(--str-chat__attachment-max-width) - #{padding});
-    }
-  }
-
   // Video files: uploaded from files and scraped
   .str-chat__message-attachment--video:not(.str-chat__message-attachment--card),
   .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
@@ -203,6 +193,18 @@
         height: 100%;
         z-index: 0;
       }
+    }
+  }
+
+  .str-chat__gallery .str-chat__message-attachment--svg-image,
+  .str-chat__message-attachment--image.str-chat__message-attachment--svg-image {
+    $padding: var(--str-chat__spacing-6);
+    padding: $padding;
+
+    img {
+      object-fit: contain;
+      max-width: calc(var(--str-chat__attachment-max-width) - #{$padding});
+      max-height: calc(var(--str-chat__attachment-max-width) - #{$padding});
     }
   }
 
