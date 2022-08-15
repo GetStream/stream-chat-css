@@ -6,6 +6,7 @@
   .str-chat__message-reactions {
     list-style: none;
     display: flex;
+    margin-block-start: var(--str-chat__spacing-0_5);
     margin-block-end: var(--str-chat__spacing-0_5);
     column-gap: var(--str-chat__spacing-0_5);
     width: fit-content;
