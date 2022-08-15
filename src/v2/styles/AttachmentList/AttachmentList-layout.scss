@@ -10,8 +10,14 @@
   /* The height of scraped images, the default value is optimized for 1.91:1 aspect ratio */
   --str-chat__scraped-image-height: unset;
 
+  /* The height of scraped videos, the default value is optimized for 16:9 aspect ratio */
+  --str-chat__scraped-video-height: unset;
+
   /* The height of GIFs */
   --str-chat__gif-height: calc(var(--str-chat__spacing-px) * 200);
+
+  /* The height of videos */
+  --str-chat__video-height: calc(var(--str-chat__spacing-px) * 300);
 }
 
 .str-chat__attachment-list {
@@ -20,6 +26,8 @@
   );
 
   --str-chat__scraped-image-height: calc(var(--str-chat__attachment-max-width) * calc(1 / 1.91));
+
+  --str-chat__scraped-video-height: calc(var(--str-chat__attachment-max-width) * calc(9 / 16));
 
   display: flex;
   flex-direction: column;
@@ -104,12 +112,13 @@
   }
 
   // Video files: uploaded from files and scraped
-  .str-chat__message-attachment--video {
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card),
+  .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
     max-width: var(--str-chat__attachment-max-width);
     display: flex;
 
     .str-chat__player-wrapper {
-      aspect-ratio: 16 / 9;
+      height: 100%;
       width: 100%;
       min-width: 0;
 
@@ -119,6 +128,14 @@
         width: 100%;
       }
     }
+  }
+
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
+    height: var(--str-chat__video-height);
+  }
+
+  .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
+    height: var(--str-chat__scraped-video-height);
   }
 
   .str-chat__message-attachment--video:not(.str-chat__message-attachment--card),
