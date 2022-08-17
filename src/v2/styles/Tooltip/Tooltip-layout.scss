@@ -3,28 +3,7 @@
 .str-chat__tooltip {
   display: flex;
   padding: var(--str-chat__spacing-2);
-}
-
-.str-chat__tooltip:not(.str-chat__tooltip-angular) {
-  $size: 10px;
-
-  min-width: calc(var(--str-chat__spacing-px) * 100px);
-  max-width: calc(var(--str-chat__spacing-px) * 150px);
-  word-break: break-all;
-  position: absolute;
-  bottom: calc(100% + calc(0.8 * #{$size}));
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: calc(-1 * calc(#{$size} / 2));
-    inset-inline-start: calc(50% - calc(#{$size} / 2));
-    width: $size;
-    height: $size;
-    transform: rotate(45deg);
-  }
-}
-
-.str-chat__tooltip-angular {
+  z-index: 1;
   word-break: normal;
+  max-width: calc(var(--str-chat__spacing-px) * 150);
 }
