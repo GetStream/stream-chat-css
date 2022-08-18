@@ -53,6 +53,15 @@
 
   /* Box shadow applied to an item in the message actions box */
   --str-chat__message-actions-box-item-box-shadow: none;
+
+  /* Background color of the overlay below the message actions box modal (React SDK only) */
+  --str-chat__message-actions-box-modal-overlay-background-color: transparent;
+
+  /* Backdrop filter of the overlay below the message actions box modal (React SDK only) */
+  --str-chat__message-actions-box-modal-overlay-backdrop-filter: none;
+
+  /* Background color of the modal content wrapper around the message actions box modal (React SDK only) */
+  --str-chat__message-actions-box-modal-inner-container-background-color: transparent;
 }
 
 .str-chat__message-actions-box {
@@ -65,5 +74,14 @@
     &:hover {
       background-color: var(--str-chat__message-actions-box-item-hover-background-color);
     }
+  }
+}
+
+.str-chat__modal.str-chat__message-actions-box--modal-overlay {
+  background: var(--str-chat__message-actions-box-modal-overlay-background-color);
+  backdrop-filter: var(--str-chat__message-actions-box-modal-overlay-backdrop-filter);
+
+  .str-chat-react__modal__inner {
+    background: var(--str-chat__message-actions-box-modal-inner-container-background-color);
   }
 }
