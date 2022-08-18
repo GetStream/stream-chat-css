@@ -37,9 +37,8 @@
     }
   }
 
-  // todo: React SDK specific. Deprecate after merging with MessageList
   .str-chat__thread-list {
-    @include utils.scrollable;
+    height: auto;
   }
 }
 

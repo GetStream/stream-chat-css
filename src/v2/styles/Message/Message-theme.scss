@@ -16,6 +16,9 @@
   /* The text color used for displaying links */
   --str-chat__message-link-color: var(--str-chat__primary-color);
 
+  /* The text color used for displaying mentions */
+  --str-chat__message-mention-color: var(--str-chat__primary-color);
+
   /* The text/icon color used for displaying message status */
   --str-chat__message-status-color: var(--str-chat__primary-color);
 
@@ -24,6 +27,9 @@
 
   /* The background color of the component */
   --str-chat__message-background-color: transparent;
+
+  /* The background color of a jumped-to message */
+  --str-chat__message-highlighted-background-color: var(--str-chat__message-highlight-color);
 
   /* Top border of the component */
   --str-chat__message-border-block-start: none;
@@ -184,6 +190,11 @@
     color: var(--str-chat__message-link-color);
   }
 
+  .str-chat__message-mention {
+    color: var(--str-chat__message-mention-color);
+    font: var(--str-chat__body2-medium-text);
+  }
+
   .str-chat__message-bubble {
     @include utils.component-layer-overrides('message-bubble');
     font: var(--str-chat__body2-text);
@@ -266,6 +277,11 @@
       fill: var(--str-chat__message-error-message-color);
     }
   }
+}
+
+.str-chat__message--highlighted {
+  transition: background-color 0.1s ease-out;
+  background-color: var(--str-chat__message-highlighted-background-color);
 }
 
 .str-chat__li:hover {

@@ -7,6 +7,8 @@
   width: 100%;
   padding: var(--str-chat__spacing-1) var(--str-chat__spacing-2);
 
+  position: relative;
+
   .str-chat__quoted-message-preview-header {
     @include utils.flex-row-center;
     width: 100%;
@@ -20,6 +22,19 @@
       width: calc(var(--str-chat__spacing-px) * 40);
       height: calc(var(--str-chat__spacing-px) * 40);
       cursor: pointer;
+    }
+  }
+
+  .str-chat__dropzone-container {
+    @include utils.flex-row-center;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+
+    p {
+      margin: unset;
     }
   }
 
@@ -76,8 +91,12 @@
           font-size: calc(var(--str-chat__spacing-px) * 27);
           align-self: end;
 
-          .str-chat__emoji-picker-container {
-            display: flex;
+          .str-chat__message-textarea-emoji-picker-container {
+            z-index: 5;
+
+            .str-chat__emoji-picker-container {
+              display: flex;
+            }
           }
 
           .str-chat__emoji-picker-button {
@@ -146,6 +165,18 @@
 
 .str-chat__message-input-angular-host {
   max-height: 50%;
+}
+
+.str-chat-angular__message-input {
+  height: 100%;
+  max-height: 100%;
+}
+
+.str-chat-angular__message-input-inner {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  flex-grow: initial;
 }
 
 [dir='rtl'] .str-chat__send-button {

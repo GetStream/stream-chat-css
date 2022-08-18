@@ -1,5 +1,9 @@
 @use '../utils';
 
+.str-chat__typing-indicator-react-host {
+  position: static !important;
+}
+
 .str-chat__typing-indicator {
   padding: var(--str-chat__spacing-1_5);
   display: flex;

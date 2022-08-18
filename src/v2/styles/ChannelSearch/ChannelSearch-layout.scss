@@ -17,6 +17,7 @@
     align-items: center;
     flex: 1;
     padding: var(--str-chat__spacing-2_5);
+    min-width: 0;
 
     .str-chat__channel-search-input--icon,
     .str-chat__channel-search-input--clear-button {
@@ -35,6 +36,7 @@
 
     input {
       flex: 1;
+      min-width: 0;
     }
   }
 }
@@ -67,4 +69,3 @@
     padding: var(--str-chat__spacing-3) var(--str-chat__spacing-2);
   }
 }
-

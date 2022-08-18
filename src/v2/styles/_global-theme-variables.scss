@@ -33,6 +33,9 @@
   /* The font used for body texts */
   --str-chat__body2-text: 0.9375rem/1rem var(--str-chat__font-family);
 
+  /* The font used for body texts with emphasize */
+  --str-chat__body2-medium-text: 500 0.9375rem/1rem var(--str-chat__font-family);
+
   /* The font used for subtitle texts */
   --str-chat__subtitle-text: 1rem/1.25rem var(--str-chat__font-family);
 
@@ -56,6 +59,9 @@
 .str-chat__theme-light {
   /* Used for emphasis, brands can inject their main color using this variable */
   --str-chat__primary-color: var(--str-chat__blue500);
+
+  /* Used for emphasised overlays - color of --str-chat__primary-color with alpha channel */
+  --str-chat__primary-overlay-color: rgba(0, 95, 255, 0.6);
 
   /* Used for emphasis, brands can inject their main color using this variable, it has less emphasis than primary color */
   --str-chat__primary-color-low-emphasis: var(--str-chat__blue300);
@@ -132,6 +138,7 @@
 
 .str-chat__theme-dark {
   --str-chat__primary-color: var(--str-chat__blue400);
+  --str-chat__primary-overlay-color: rgba(51, 126, 255, 0.6);
   --str-chat__primary-color-low-emphasis: var(--str-chat__blue700);
   --str-chat__active-primary-color: var(--str-chat__blue600);
   --str-chat__on-primary-color: var(--str-chat__grey50);

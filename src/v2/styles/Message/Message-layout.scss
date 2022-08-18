@@ -6,6 +6,23 @@
 
   /* The maximum allowed width of the message component */
   --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 480);
+
+  /* The maximum allowed width of the message component, if it has attachments */
+  --str-chat__message-with-attachment-max-width: calc(var(--str-chat__spacing-px) * 300);
+
+  /* The maximum allowed width of quoted messages inside the message component */
+  --str-chat__quoted-message-max-width: calc(var(--str-chat__spacing-px) * 180);
+
+  /* The maximum allowed width of quoted messages inside the message input component */
+  --str-chat__quoted-message-inside-message-input-max-width: calc(
+    var(--str-chat__spacing-px) * 200
+  );
+
+  /* The maximum allowed height of quoted messages inside the message input component */
+  --str-chat__quoted-message-inside-message-input-max-height: calc(
+    var(--str-chat__quoted-message-inside-message-input-max-width) +
+      calc(var(--str-chat__spacing-px) * 50)
+  );
 }
 
 .str-chat__message {
@@ -15,7 +32,7 @@
 }
 
 .str-chat__message.str-chat__message--has-attachment {
-  --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 300);
+  --str-chat__message-max-width: var(--str-chat__message-with-attachment-max-width);
 
   .str-chat__message-bubble {
     max-width: var(--str-chat__message-max-width);
@@ -23,9 +40,11 @@
 }
 
 .str-chat__quoted-message-preview {
-  --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 180);
+  --str-chat__message-max-width: var(--str-chat__quoted-message-max-width);
 
   .str-chat__quoted-message-bubble {
+    // Turn off pointer events so they don't interfere with jump to message
+    pointer-events: none;
     max-width: var(--str-chat__message-max-width);
   }
 }
@@ -97,8 +116,7 @@
 
     .str-chat__message-options {
       grid-area: options;
-      display: flex;
-      align-items: center;
+      align-items: start;
       justify-content: flex-end;
       flex-direction: row-reverse;
 
@@ -128,6 +146,10 @@
 
       .str-chat__message-text {
         @include chat-bubble-spacing;
+
+        p {
+          white-space: pre-line;
+        }
       }
     }
   }
@@ -155,6 +177,11 @@
     @include utils.flex-row-center;
     column-gap: var(--str-chat__spacing-0_5);
     position: relative;
+
+    .str-chat__message-status-tooltip-container {
+      display: flex;
+      justify-content: center;
+    }
 
     svg {
       width: calc(var(--str-chat__spacing-px) * 15);
@@ -191,6 +218,7 @@
     display: flex;
     column-gap: var(--str-chat__spacing-1);
     min-width: 0;
+    width: 100%;
   }
 
   // Fixes emoji display in Chrome on non-retina display (only detected in Angular SDK) https://bugs.chromium.org/p/chromium/issues/detail?id=596223
@@ -225,24 +253,37 @@
   }
 }
 
-.str-chat__message-inner {
-  @mixin visible {
-    // Changing opacity instead of visibility because of a strange Safari behavior/bug
-    opacity: 1;
-    pointer-events: auto;
+.str-chat__li {
+  &:hover {
+    .str-chat__message-options {
+      display: flex;
+    }
   }
+}
 
-  &:hover .str-chat__message-options {
-    @include visible;
+.str-chat__message-inner {
+  .str-chat__message-options {
+    display: none;
   }
 
   .str-chat__message-edit-in-progress.str-chat__message-options {
-    @include visible;
+    display: flex;
   }
+}
 
-  .str-chat__message-options {
-    opacity: 0;
-    pointer-events: none;
+.str-chat__message--other .str-chat__message-inner {
+  margin-inline-end: calc(var(--str-chat__message-options-button-size) * 3);
+
+  &:hover {
+    margin-inline-end: 0;
+  }
+}
+
+.str-chat__message--me .str-chat__message-inner {
+  margin-inline-start: calc(var(--str-chat__message-options-button-size) * 3);
+
+  &:hover {
+    margin-inline-start: 0;
   }
 }
 
@@ -311,17 +352,21 @@
 }
 
 .str-chat__message-input {
-  .str-chat__quoted-message-bubble {
-    max-height: calc(var(--str-chat__message-max-width) + calc(var(--str-chat__spacing-px) * 70));
+  .str-chat__quoted-message-preview {
+    --str-chat__message-max-width: var(--str-chat__quoted-message-inside-message-input-max-width);
 
-    .str-chat__quoted-message-text {
-      max-height: 100%;
-      min-height: 0;
+    .str-chat__quoted-message-bubble {
+      max-height: var(--str-chat__quoted-message-inside-message-input-max-height);
 
-      p {
+      .str-chat__quoted-message-text {
         max-height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
+        min-height: 0;
+
+        p {
+          max-height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
       }
     }
   }

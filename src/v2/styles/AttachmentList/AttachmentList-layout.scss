@@ -1,19 +1,40 @@
 @use '../utils';
 
 .str-chat {
-  // The margin applied to every attachment in the attachment list
+  /* The margin applied to every attachment in the attachment list */
   --str-chat__attachment-margin: var(--str-chat__spacing-0_5);
+
+  /* The maximum allowed width of attachments */
+  --str-chat__attachment-max-width: unset;
+
+  /* The height of scraped images, the default value is optimized for 1.91:1 aspect ratio */
+  --str-chat__scraped-image-height: unset;
+
+  /* The height of scraped videos, the default value is optimized for 16:9 aspect ratio */
+  --str-chat__scraped-video-height: unset;
+
+  /* The height of GIFs */
+  --str-chat__gif-height: calc(var(--str-chat__spacing-px) * 200);
+
+  /* The height of videos */
+  --str-chat__video-height: calc(var(--str-chat__spacing-px) * 300);
 }
 
 .str-chat__attachment-list {
+  --str-chat__attachment-max-width: calc(
+    var(--str-chat__message-max-width) - calc(2 * var(--str-chat__attachment-margin))
+  );
+
+  --str-chat__scraped-image-height: calc(var(--str-chat__attachment-max-width) * calc(1 / 1.91));
+
+  --str-chat__scraped-video-height: calc(var(--str-chat__attachment-max-width) * calc(9 / 16));
+
   display: flex;
   flex-direction: column;
   align-items: stretch;
   min-width: 0;
 
   .str-chat__message-attachment--card {
-    max-width: calc(var(--str-chat__message-max-width) - var(--str-chat__attachment-margin));
-
     .str-chat__message-attachment-card--header {
       position: relative;
     }
@@ -28,33 +49,97 @@
   }
 
   .str-chat__message-attachment--image,
-  .str-chat__message-attachment-card--header,
-  .str-chat__message-attachment--video {
+  .str-chat__message-attachment--video,
+  .str-chat__message-attachment-card--header {
+    width: auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 
-    img,
-    video {
-      max-width: calc(var(--str-chat__message-max-width) - 2 * var(--str-chat__attachment-margin));
-      max-height: var(--str-chat__message-max-width);
+  // Scraped images
+  .str-chat__message-attachment-card--header {
+    height: var(--str-chat__scraped-image-height);
+
+    img {
       object-fit: cover;
+      max-height: 100%;
+      max-width: 100%;
       width: 100%;
       height: 100%;
+      cursor: default;
     }
   }
 
-  .str-chat__message-attachment--image {
-    margin: var(--str-chat__attachment-margin);
-
+  // image enlargement available in React SDK only
+  .str-chat__message-attachment-card-react--header {
     img {
       cursor: zoom-in;
     }
   }
 
-  .str-chat__message-attachment--video {
-    margin: var(--str-chat__attachment-margin);
+  .str-chat__message-attachment-card--giphy {
+    .str-chat__message-attachment-card--header {
+      height: var(--str-chat__gif-height);
+
+      img {
+        object-fit: contain;
+        max-height: 100%;
+        max-width: 100%;
+        cursor: default;
+      }
+    }
+
+    // image enlargement available in React SDK only
+    .str-chat__message-attachment-card-react--header {
+      img {
+        cursor: zoom-in;
+      }
+    }
   }
 
-  .str-chat__message-attachment--giphy {
+  // Images uploaded from files
+  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card) {
+    img {
+      max-width: var(--str-chat__attachment-max-width);
+      max-height: var(--str-chat__attachment-max-width);
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      cursor: zoom-in;
+    }
+  }
+
+  // Video files: uploaded from files and scraped
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card),
+  .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
+    max-width: var(--str-chat__attachment-max-width);
+    display: flex;
+
+    .str-chat__player-wrapper {
+      height: 100%;
+      width: 100%;
+      min-width: 0;
+
+      .react-player,
+      .str-chat__video-angular {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
+    height: var(--str-chat__video-height);
+  }
+
+  .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
+    height: var(--str-chat__scraped-video-height);
+  }
+
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card),
+  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card) {
     margin: var(--str-chat__attachment-margin);
   }
 
@@ -63,13 +148,12 @@
     grid-template-columns: 50% 50%;
     overflow: hidden;
     gap: var(--str-chat__spacing-0_5);
-    max-width: var(--str-chat__message-max-width);
-    max-height: var(--str-chat__message-max-width);
+    max-width: var(--str-chat__attachment-max-width);
+    height: var(--str-chat__attachment-max-width);
     margin: var(--str-chat__attachment-margin);
 
     &.str-chat__gallery-two-rows {
       grid-template-rows: 50% 50%;
-      aspect-ratio: 1;
     }
 
     .str-chat__gallery-image {
@@ -109,6 +193,18 @@
         height: 100%;
         z-index: 0;
       }
+    }
+  }
+
+  .str-chat__gallery .str-chat__message-attachment--svg-image,
+  .str-chat__message-attachment--image.str-chat__message-attachment--svg-image {
+    $padding: var(--str-chat__spacing-6);
+    padding: $padding;
+
+    img {
+      object-fit: contain;
+      max-width: calc(var(--str-chat__attachment-max-width) - #{$padding});
+      max-height: calc(var(--str-chat__attachment-max-width) - #{$padding});
     }
   }
 
@@ -165,13 +261,14 @@
     }
 
     .str-chat__message-attachment-audio-widget--progress-track {
-      width: 120px;
+      max-width: calc(var(--str-chat__spacing-px) * 120);
     }
 
     .str-chat__message-attachment-audio-widget--text-second-row {
       display: flex;
       align-items: center;
-      grid-column-gap: 20px;
+      width: 100%;
+      grid-column-gap: var(--str-chat__spacing-5);
       padding-top: var(--str-chat__spacing-2_5);
 
       .str-chat__message-attachment-file--item-size {
@@ -182,13 +279,14 @@
 
   .str-chat__message-attachment-audio-widget--progress-track {
     position: relative;
-    height: 2px;
+    height: calc(var(--str-chat__spacing-px) * 5);
     flex: 1;
+    cursor: pointer;
 
     .str-chat__message-attachment-audio-widget--progress-indicator {
       position: absolute;
       inset-inline-start: 0;
-      height: 2px;
+      height: inherit;
     }
   }
 
@@ -206,6 +304,7 @@
 
   .str-chat__message-attachment-card {
     min-width: 0;
+    max-width: var(--str-chat__attachment-max-width);
     margin: var(--str-chat__attachment-margin);
 
     .str-chat__message-attachment-card--content {
@@ -231,7 +330,7 @@
         .str-chat__message-attachment-card-audio-widget--first-row {
           display: flex;
           align-items: center;
-          column-gap: calc(var(--str-chat__spacing-px) * 14);
+          column-gap: var(--str-chat__spacing-3_5);
         }
       }
     }
@@ -264,6 +363,10 @@
   /* stylelint-disable-next-line length-zero-no-unit */
   --str-chat__attachment-margin: 0px;
 
+  * {
+    cursor: pointer !important;
+  }
+
   .str-chat__message-attachment-card {
     .str-chat__message-attachment-card--source-link,
     .str-chat__message-attachment-card--content {
@@ -271,11 +374,15 @@
     }
   }
 
-  .str-chat__message-attachment-file--item {
-    padding: 0;
+  .str-chat__message-attachment-file--item-download {
+    display: none;
+  }
+}
 
-    .str-chat__message-attachment-file--item-download {
-      display: none;
+.str-chat__message {
+  .str-chat__quoted-message-preview {
+    .str-chat__message-attachment-file--item {
+      padding: 0;
     }
   }
 }

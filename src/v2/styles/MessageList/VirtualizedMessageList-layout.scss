@@ -10,6 +10,10 @@
   width: 100%;
   height: 100%;
 
+  .str-chat__message-list-scroll > div {
+    @include utils.message-list-spacing;
+  }
+
   // conditionally showing the header displaces items when prepending.
   // a simple workaround is to make the loading indicator an overlay.
   &__loading {
@@ -28,5 +32,13 @@
       overflow: hidden;
       word-wrap: break-word;
     }
+  }
+
+  .str-chat__message {
+    margin-block-end: 0 !important;
+  }
+
+  .str-chat__virtual-list-message-wrapper {
+    padding-block-end: var(--str-chat__spacing-0_5);
   }
 }
