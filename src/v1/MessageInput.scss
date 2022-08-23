@@ -242,6 +242,7 @@
 .str-chat__user-item {
   padding: var(--xs-p) var(--sm-p);
   display: flex;
+  align-items: center;
 
   &--highlight {
     font-weight: var(--font-weight-bold);
