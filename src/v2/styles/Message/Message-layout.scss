@@ -119,6 +119,7 @@
       align-items: start;
       justify-content: flex-end;
       flex-direction: row-reverse;
+      width: calc(3 * var(--str-chat__message-options-button-size));
 
       .str-chat__message-actions-box-button,
       .str-chat__message-reply-in-thread-button,
