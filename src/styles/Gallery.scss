@@ -37,6 +37,12 @@
   }
 }
 
+.stream-chat-angular__image-modal-host {
+  .str-chat__modal__inner {
+    max-width: 80%;
+  }
+}
+
 .stream-chat-angular__image-modal {
   display: flex;
   justify-content: center;
