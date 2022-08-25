@@ -7,8 +7,8 @@ const globalLayoutVariables = extractVariables('./src/v2/styles/_global-layout-v
 const componentVariables = extractVariables('./src/v2/**/*-@(theme|layout).scss', globalThemeVariables);
 const paletteVariables = extractVariables('./src/v2/styles/_palette-variables.scss');
 
-const globalThemeVariablesOutput = getGlobalVariablesOutput(globalThemeVariables);
-const globalLayoutVariablesOutput = getGlobalVariablesOutput(globalLayoutVariables);
+const globalThemeVariablesOutput = getGlobalVariablesOutput(globalThemeVariables, 'theme');
+const globalLayoutVariablesOutput = getGlobalVariablesOutput(globalLayoutVariables, 'layout');
 const componentVariablesOutput = getComponentVariablesOutput(componentVariables);
 const paletteVariablesOutput = getPaletteVariablesOutput(paletteVariables);
 

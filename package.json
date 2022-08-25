@@ -9,7 +9,8 @@
   "private": false,
   "style": "dist/css/index.css",
   "scripts": {
-    "build": "yarn build-v1 && yarn build-v2 && yarn copy-vendor-styles && yarn generate-docs",
+    "prepublishOnly": "yarn generate-docs",
+    "build": "yarn build-v1 && yarn build-v2 && yarn copy-vendor-styles",
     "build-v1": "rm -rf dist && mkdir -p dist && yarn bundle-sass && yarn copy-assets && yarn copy-styles",
     "build-v2": "rm -rf dist/v2 && mkdir -p dist/v2/scss && yarn copy && yarn compile-to-css",
     "generate-docs": "ts-node scripts/generate-docs.ts",
