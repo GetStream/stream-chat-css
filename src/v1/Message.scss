@@ -462,7 +462,7 @@
 
   /* me */
   &--me {
-    display: flex;
+    display: inline-flex;
     margin: var(--xxs-m) 0;
     justify-content: flex-end;
 
@@ -684,6 +684,11 @@
 
   .str-chat__message-attachment-file--item:hover {
     background: transparent;
+  }
+
+  // Disable pointer events so that clicking inside quoted message text or attachments doesn't interfere with jump to message
+  .quoted-message-inner {
+    pointer-events: none;
   }
 }
 
