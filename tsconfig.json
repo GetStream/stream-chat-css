@@ -1,7 +1,8 @@
 {
   "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./scripts"
+    "baseUrl": "./scripts",
+    "resolveJsonModule": true
   },
   "include": ["./scripts"]
 }

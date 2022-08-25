@@ -1,6 +1,7 @@
 import dedent from 'dedent';
 import prettier from 'prettier';
 import type { VariableGroup, VariableInfo } from './parser';
+import * as packagejson from '../package.json'
 
 type Column = {name: string, key: keyof VariableInfo | 'usedIn', type: 'code' | 'text'};
 type Group = {name: string, regexp: RegExp, columns: Column[], definedIn?: Function};
@@ -11,7 +12,7 @@ const row = (v: VariableInfo, group: Group) => {
   return dedent`${group.columns.map(c => `| ${c.type === 'code' ? '\`' : ''}${info[c.key] || ''}${c.type === 'code' ? '\`' : ''}`).join('')}|`;
 };
 
-export const getGlobalVariablesOutput = (data: Map<string, VariableInfo>) => {
+export const getGlobalVariablesOutput = (data: Map<string, VariableInfo>, type: 'theme' | 'layout') => {
   const nameColumn: Column = {name: 'Name', key: 'name', type: 'code'};
   const valueColumn: Column = {name: 'Value', key: 'value', type: 'code'};
   const valueDarkColumn: Column = {name: 'Value (dark mode)', key: 'valueDarkMode', type: 'code'};
@@ -50,6 +51,8 @@ export const getGlobalVariablesOutput = (data: Map<string, VariableInfo>) => {
         ${variablesByGroups.get(group)!.join('\n')}\n\n`;
     }
   });
+
+  output += `All global ${type} variables are defined in: [https://github.com/GetStream/stream-chat-css/tree/v${packagejson.version}/src/v2/styles/_global-${type}-variables.scss](https://github.com/GetStream/stream-chat-css/tree/v${packagejson.version}/src/v2/styles/_global-${type}-variables.scss)\n\n`
 
   return format(output);
 };
@@ -119,7 +122,7 @@ export const getPaletteVariablesOutput = (data: Map<string, VariableInfo>) => {
 };
 
 const componentThemeLink = (componentName: string) => {
-  const pathInRepo = 'https://github.com/GetStream/stream-chat-css/blob/main/src/v2/styles/';
+  const pathInRepo = `https://github.com/GetStream/stream-chat-css/tree/v${packagejson.version}/src/v2/styles/`;
   return `[${componentName}](${pathInRepo}#COMP#/#COMP#-theme.scss)`.replaceAll(
     '#COMP#',
     componentName,
@@ -127,7 +130,7 @@ const componentThemeLink = (componentName: string) => {
 };
 
 const componentLayoutLink = (componentName: string) => {
-  const pathInRepo = 'https://github.com/GetStream/stream-chat-css/blob/main/src/v2/styles/';
+  const pathInRepo = `https://github.com/GetStream/stream-chat-css/tree/v${packagejson.version}/src/v2/styles/`;
   return `[${componentName}](${pathInRepo}#COMP#/#COMP#-layout.scss)`.replaceAll(
     '#COMP#',
     componentName,
