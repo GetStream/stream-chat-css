@@ -19,6 +19,19 @@
   }
 }
 
+.str-chat__message-attachment-dynamic-size {
+  max-height: 300px;
+
+  .str-chat__player-wrapper {
+    padding-top: 0;
+    position: static;
+
+    .str-chat__video-angular {
+      position: static;
+    }
+  }
+}
+
 /* border radius for attachments */
 .str-chat__message .str-chat__player-wrapper .react-player {
   border-radius: var(--border-radius) var(--border-radius) var(--border-radius) 0;

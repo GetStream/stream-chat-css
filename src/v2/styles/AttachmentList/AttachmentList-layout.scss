@@ -16,7 +16,7 @@
   /* The height of GIFs */
   --str-chat__gif-height: calc(var(--str-chat__spacing-px) * 200);
 
-  /* The height of videos */
+  /* The height of videos. In Angular SDK this is the maximum height, the video can be smaller based on the aspect ratio */
   --str-chat__video-height: calc(var(--str-chat__spacing-px) * 300);
 }
 
@@ -130,8 +130,12 @@
     }
   }
 
-  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card):not(.str-chat__message-attachment-dynamic-size) {
     height: var(--str-chat__video-height);
+  }
+
+  .str-chat__message-attachment--video.str-chat__message-attachment-dynamic-size:not(.str-chat__message-attachment--card) {
+    max-height: var(--str-chat__video-height);
   }
 
   .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
