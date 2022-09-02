@@ -149,6 +149,7 @@
     overflow: hidden;
     gap: var(--str-chat__spacing-0_5);
     max-width: var(--str-chat__attachment-max-width);
+    width: fit-content;
     height: var(--str-chat__attachment-max-width);
     margin: var(--str-chat__attachment-margin);
 
