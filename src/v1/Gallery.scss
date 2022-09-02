@@ -1,3 +1,5 @@
+$image-size: 150px;
+
 .str-chat__gallery {
   display: inline-flex;
   flex-wrap: wrap;
@@ -6,8 +8,8 @@
 
   &-image {
     /* flex: 1; x */
-    width: 150px;
-    height: 150px;
+    width: $image-size;
+    height: $image-size;
     background: var(--white);
     margin-bottom: 1px;
     margin-right: 1px;
@@ -23,7 +25,9 @@
 
     img {
       width: inherit;
+      // CDN resize requires max-height/height and max-width to be set on this element
       height: inherit;
+      max-width: $image-size;
       object-fit: cover;
     }
   }
@@ -46,14 +50,16 @@
       margin: 4px 0;
 
       &-image {
-        width: 150px;
-        height: 150px;
+        width: $image-size;
+        height: $image-size;
       }
 
       &-placeholder {
         position: relative;
-        width: 150px;
-        height: 150px;
+        width: $image-size;
+        // CDN resize requires max-height/height and max-width to be set on this element
+        max-width: $image-size;
+        height: $image-size;
         color: var(--white);
         display: flex;
         align-items: center;

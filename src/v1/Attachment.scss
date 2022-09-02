@@ -2,8 +2,10 @@
   max-width: 450px;
 }
 
+$video-width: 300px;
+
 .str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
-  width: 300px;
+  width: $video-width;
 }
 
 .str-chat__player-wrapper {
@@ -20,7 +22,9 @@
 }
 
 .str-chat__message-attachment-dynamic-size {
-  max-height: 300px;
+  $max-height: 300px;
+
+  max-height: $max-height;
 
   .str-chat__player-wrapper {
     padding-top: 0;
@@ -28,6 +32,9 @@
 
     .str-chat__video-angular {
       position: static;
+      // CDN resize requires to have max-height/height and max-width set on this element
+      max-height: $max-height;
+      max-width: $video-width;
     }
   }
 }
@@ -189,7 +196,6 @@
       height: inherit;
       width: auto;
       max-height: inherit;
-      max-width: 100%;
       display: block;
       object-fit: cover;
       overflow: hidden;
@@ -214,6 +220,30 @@
 
   &-card {
     min-height: 60px;
+  }
+}
+
+.str-chat__message-attachment:not(.str-chat__message-attachment-dynamic-size) {
+  .str-chat__message-attachment--image {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.str-chat__message-attachment-dynamic-size {
+  &.str-chat__message-attachment--svg-image {
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &.str-chat__message-attachment--image {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
 }
 

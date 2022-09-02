@@ -4,7 +4,7 @@
   /* The margin applied to every attachment in the attachment list */
   --str-chat__attachment-margin: var(--str-chat__spacing-0_5);
 
-  /* The maximum allowed width of attachments */
+  /* The maximum allowed width and height of attachments, in case of gallery images this is the maximum size of the whole gallery (not just for a single image inside the gallery). In case of Angular, there are some [constraints](https://getstream.io/chat/docs/sdk/angular/components/AttachmentListComponent/#maximum-size) for the acceptable values you can provide for this variable. */
   --str-chat__attachment-max-width: unset;
 
   /* The height of scraped images, the default value is optimized for 1.91:1 aspect ratio */
@@ -16,14 +16,16 @@
   /* The height of GIFs */
   --str-chat__gif-height: calc(var(--str-chat__spacing-px) * 200);
 
-  /* The height of videos. In Angular SDK this is the maximum height, the video can be smaller based on the aspect ratio */
-  --str-chat__video-height: calc(var(--str-chat__spacing-px) * 300);
+  /* The height of videos, the default value is the mase as `--str-chat__attachment-max-width`. In Angular SDK this is the maximum height, the video can be smaller based on the aspect ratio */
+  --str-chat__video-height: unset;
 }
 
 .str-chat__attachment-list {
   --str-chat__attachment-max-width: calc(
     var(--str-chat__message-max-width) - calc(2 * var(--str-chat__attachment-margin))
   );
+
+  --str-chat__video-height: var(--str-chat__attachment-max-width);
 
   --str-chat__scraped-image-height: calc(var(--str-chat__attachment-max-width) * calc(1 / 1.91));
 
@@ -102,6 +104,7 @@
   // Images uploaded from files
   .str-chat__message-attachment--image:not(.str-chat__message-attachment--card) {
     img {
+      // CDN resize requires max-width and height/max-height to be present on this element
       max-width: var(--str-chat__attachment-max-width);
       max-height: var(--str-chat__attachment-max-width);
       object-fit: cover;
@@ -126,6 +129,8 @@
       .str-chat__video-angular {
         height: 100%;
         width: 100%;
+        // CDN resize requires max-width to be present on this element
+        max-width: var(--str-chat__attachment-max-width);
       }
     }
   }
@@ -136,6 +141,11 @@
 
   .str-chat__message-attachment--video.str-chat__message-attachment-dynamic-size:not(.str-chat__message-attachment--card) {
     max-height: var(--str-chat__video-height);
+
+    .str-chat__video-angular {
+      // CDN resize requires max-height to be present on this element
+      max-height: var(--str-chat__video-height);
+    }
   }
 
   .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
@@ -147,56 +157,66 @@
     margin: var(--str-chat__attachment-margin);
   }
 
-  .str-chat__gallery {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    overflow: hidden;
-    gap: var(--str-chat__spacing-0_5);
-    max-width: var(--str-chat__attachment-max-width);
-    width: fit-content;
-    height: var(--str-chat__attachment-max-width);
+  .str-chat__message-attachment--gallery {
+    $max-width: var(--str-chat__attachment-max-width);
     margin: var(--str-chat__attachment-margin);
 
-    &.str-chat__gallery-two-rows {
-      grid-template-rows: 50% 50%;
-    }
+    .str-chat__gallery {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      overflow: hidden;
+      // Safari needs this
+      width: fit-content;
+      gap: var(--str-chat__spacing-0_5);
+      max-width: $max-width;
+      // CDN resize requires height/max-height to be present on the img element, this rule ensures that
+      height: var(--str-chat__attachment-max-width);
 
-    .str-chat__gallery-image {
-      padding: 0;
-      margin: 0;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        cursor: zoom-in;
+      &.str-chat__gallery-two-rows {
+        grid-template-rows: 50% 50%;
       }
-    }
 
-    .str-chat__gallery-placeholder {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-size: cover;
-      background-position: top left;
-      background-repeat: no-repeat;
-      margin: 0;
-      cursor: zoom-in;
+      .str-chat__gallery-image {
+        padding: 0;
+        margin: 0;
 
-      p {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          cursor: zoom-in;
+          // CDN resize requires max-width to be present on this element
+          max-width: $max-width;
+        }
+      }
+
+      .str-chat__gallery-placeholder {
         position: relative;
-        z-index: 1;
-      }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: top left;
+        background-repeat: no-repeat;
+        margin: 0;
+        cursor: zoom-in;
+        // CDN resize requires max-width to be present on this element
+        max-width: $max-width;
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
+        p {
+          position: relative;
+          z-index: 1;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        }
       }
     }
   }
@@ -208,6 +228,7 @@
 
     img {
       object-fit: contain;
+      // CDN resize requires max-width and height/max-height to be present on this element
       max-width: calc(var(--str-chat__attachment-max-width) - #{$padding});
       max-height: calc(var(--str-chat__attachment-max-width) - #{$padding});
     }
