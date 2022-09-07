@@ -47,6 +47,7 @@
   column-gap: var(--str-chat__spacing-2);
 
   .str-chat__user-item--name {
+    @include utils.ellipsis-text;
     width: 100%;
   }
 }
@@ -57,6 +58,7 @@
   column-gap: var(--str-chat__spacing-2);
 
   .str-chat__emoji-item--name {
+    @include utils.ellipsis-text;
     width: 100%;
   }
 }
