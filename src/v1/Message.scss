@@ -531,7 +531,8 @@
       &-attachment {
         &--img {
           width: 100%;
-          max-width: 480px;
+          // CDN resize requires max-width to be set on this element
+          max-width: inherit;
           display: block;
           height: inherit;
           object-fit: cover;
