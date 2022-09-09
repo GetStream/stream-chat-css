@@ -1,0 +1,35 @@
+@use '../../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__circle-fab-border-radius: var(--str-chat__border-radius-circle);
+
+  /* The text/icon color of the component */
+  --str-chat__circle-fab-color: var(--str-chat__primary-color);
+
+  /* The background color of the component */
+  --str-chat__circle-fab-background-color: var(--str-chat__secondary-background-color);
+
+  /* The background color of the component in pressed state */
+  --str-chat__circle-fab-pressed-background-color: var(--str-chat__surface-color);
+
+  /* Box shadow applied to the component */
+  --str-chat__circle-fab-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+
+  /* Top border of the component */
+  --str-chat__circle-fab-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__circle-fab-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__circle-fab-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__circle-fab-border-inline-end: none;
+}
+
+.str-chat__circle-fab {
+  @include utils.component-layer-overrides('circle-fab');
+  @include utils.circle-fab-overrides('circle-fab');
+}

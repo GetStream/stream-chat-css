@@ -1,0 +1,14 @@
+.str-chat__circle-fab {
+  width: calc(var(--str-chat__spacing-px) * 42);
+  height: calc(var(--str-chat__spacing-px) * 42);
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .str-chat__circle-fab-icon {
+    display: inline-block;
+    height: calc(var(--str-chat__spacing-px) * 24);
+  }
+}

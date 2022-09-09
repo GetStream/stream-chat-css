@@ -1,0 +1,83 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__message-reactions-options-border-radius: var(--str-chat__border-radius-circle);
+
+  /* The text/icon color of the component */
+  --str-chat__message-reactions-options-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__message-reactions-options-background-color: var(
+    --str-chat__secondary-background-color
+  );
+
+  /* Top border of the component */
+  --str-chat__message-reactions-options-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__message-reactions-options-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__message-reactions-options-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__message-reactions-options-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__message-reactions-options-box-shadow: 0 0 8px var(--str-chat__box-shadow-color);
+
+  /* The border radius used for the borders of the component */
+  --str-chat__message-reactions-option-border-radius: var(--str-chat__border-radius-md);
+
+  /* The text/icon color of the component */
+  --str-chat__message-reactions-option-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__message-reactions-option-background-color: var(
+    --str-chat__secondary-background-color
+  );
+
+  /* The background color of the component when hovered */
+  --str-chat__message-reactions-option-hover-background-color: var(
+    --str-chat__primary-surface-color
+  );
+
+  /* The background color of the component when selected */
+  --str-chat__message-reactions-option-selected-background-color: var(
+    --str-chat__primary-color-low-emphasis
+  );
+
+  /* Top border of the component */
+  --str-chat__message-reactions-option-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__message-reactions-option-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__message-reactions-option-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__message-reactions-option-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__message-reactions-option-box-shadow: none;
+}
+
+.str-chat__reaction-selector {
+  .str-chat__message-reactions-options {
+    @include utils.component-layer-overrides('message-reactions-options');
+
+    .str-chat__message-reactions-option {
+      @include utils.component-layer-overrides('message-reactions-option');
+
+      &:hover {
+        background-color: var(--str-chat__message-reactions-option-hover-background-color);
+      }
+
+      &.str-chat__message-reactions-option-selected {
+        background-color: var(--str-chat__message-reactions-option-selected-background-color);
+      }
+    }
+  }
+}

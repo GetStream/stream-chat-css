@@ -1,0 +1,400 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__attachment-list-border-radius: 0;
+
+  /* The text/icon color of the component */
+  --str-chat__attachment-list-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__attachment-list-background-color: transparent;
+
+  /* Top border of the component */
+  --str-chat__attachment-list-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__attachment-list-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__attachment-list-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__attachment-list-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__attachment-list-box-shadow: none;
+
+  /* The border radius used for the borders of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
+  --str-chat__image-attachment-border-radius: calc(
+    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
+  );
+
+  /* The text/icon color of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
+  --str-chat__image-attachment-color: var(--str-chat__text-color);
+
+  /* The background color of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
+  --str-chat__image-attachment-background-color: var(--str-chat__text-low-emphasis-color);
+
+  /* Top border of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
+  --str-chat__image-attachment-border-block-start: none;
+
+  /* Bottom border of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
+  --str-chat__image-attachment-border-block-end: none;
+
+  /* Left (right in RTL layout) border of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
+  --str-chat__image-attachment-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
+  --str-chat__image-attachment-border-inline-end: none;
+
+  /* Box shadow applied to image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
+  --str-chat__image-attachment-box-shadow: none;
+
+  /* The border radius used for the borders of image gallery attachments */
+  --str-chat__image-gallery-attachment-border-radius: calc(
+    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
+  );
+
+  /* The text/icon color of image gallery attachments */
+  --str-chat__image-gallery-attachment-color: var(--str-chat__text-color);
+
+  /* The background color of image gallery attachments */
+  --str-chat__image-gallery-attachment-background-color: transparent;
+
+  /* Top border of image gallery attachments */
+  --str-chat__image-gallery-attachment-border-block-start: none;
+
+  /* Bottom border of image gallery attachments */
+  --str-chat__image-gallery-attachment-border-block-end: none;
+
+  /* Left (right in RTL layout) border of image gallery attachments */
+  --str-chat__image-gallery-attachment-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of image gallery attachments */
+  --str-chat__image-gallery-attachment-border-inline-end: none;
+
+  /* Box shadow applied to image gallery attachments */
+  --str-chat__image-gallery-attachment-box-shadow: none;
+
+  /* Overlay color applied to image gallery attachments */
+  --str-chat__image-gallery-attachment-overlay: var(--str-chat__secondary-overlay-color);
+
+  /* Text colors used on overlay applied to image gallery attachments */
+  --str-chat__image-gallery-attachment-overlay-text-color: var(
+    --str-chat__secondary-overlay-text-color
+  );
+
+  /* The border radius used for the borders of card attachments */
+  --str-chat__card-attachment-border-radius: 0;
+
+  /* The text/icon color of card attachments */
+  --str-chat__card-attachment-color: var(--str-chat__text-color);
+
+  /* The text color of links inside card attachments */
+  --str-chat__card-attachment-link-color: var(--str-chat__primary-color);
+
+  /* The background color of card attachments */
+  --str-chat__card-attachment-background-color: transparent;
+
+  /* Top border of card attachments */
+  --str-chat__card-attachment-border-block-start: none;
+
+  /* Bottom border of card attachments */
+  --str-chat__card-attachment-border-block-end: none;
+
+  /* Left (right in RTL layout) border of card attachments */
+  --str-chat__card-attachment-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of card attachments */
+  --str-chat__card-attachment-border-inline-end: none;
+
+  /* Box shadow applied to card attachments */
+  --str-chat__card-attachment-box-shadow: none;
+
+  /* The border radius used for the borders of file attachments */
+  --str-chat__file-attachment-border-radius: calc(
+    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
+  );
+
+  /* The text/icon color of file attachments */
+  --str-chat__file-attachment-color: var(--str-chat__text-color);
+
+  /* The text/icon color of file attachments for low emphasis texts (for example file size) */
+  --str-chat__file-attachment-secondary-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color of file attachments */
+  --str-chat__file-attachment-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of file attachments */
+  --str-chat__file-attachment-border-block-start: none;
+
+  /* Bottom border of file attachments */
+  --str-chat__file-attachment-border-block-end: none;
+
+  /* Left (right in RTL layout) border of file attachments */
+  --str-chat__file-attachment-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of file attachments */
+  --str-chat__file-attachment-border-inline-end: none;
+
+  /* Box shadow applied to file attachments */
+  --str-chat__file-attachment-box-shadow: none;
+
+  /* Border radius applied audio widget */
+  --str-chat__audio-attachment-widget-border-radius: calc(
+    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
+  );
+
+  /* Text color used in audio widget */
+  --str-chat__audio-attachment-widget-color: var(--str-chat__text-color);
+
+  /* Border radius applied audio widget */
+  --str-chat__audio-attachment-widget-secondary-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The text/icon color for low emphasis texts (for example file size) in audio widget */
+  --str-chat__audio-attachment-widget-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of audio widget */
+  --str-chat__audio-attachment-widget-border-block-start: none;
+
+  /* Bottom border of audio widget */
+  --str-chat__audio-attachment-widget-border-block-end: none;
+
+  /* Left (right in RTL layout) border of audio widget */
+  --str-chat__audio-attachment-widget-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of audio widget */
+  --str-chat__audio-attachment-widget-border-inline-end: none;
+
+  /* Box shadow applied to audio widget */
+  --str-chat__audio-attachment-widget-box-shadow: none;
+
+  /* Border radius applied to the play / pause button of audio widget */
+  --str-chat__audio-attachment-controls-button-border-radius: var(--str-chat__border-radius-circle);
+
+  /* Text color applied to audio widget's play / pause button */
+  --str-chat__audio-attachment-controls-button-color: var(--str-chat__text-color);
+
+  /* Background color applied to audio widget's play / pause button */
+  --str-chat__audio-attachment-controls-button-background-color: var(
+    --str-chat__secondary-background-color
+  );
+
+  /* Background color applied to audio widget's play / pause button when in pressed (active) state */
+  --str-chat__audio-attachment-controls-button-pressed-background-color: var(
+    --str-chat__surface-color
+  );
+
+  /* Top border of audio widget's play / pause button */
+  --str-chat__audio-attachment-controls-button-border-block-start: none;
+
+  /* Bottom border of audio widget's play / pause button */
+  --str-chat__audio-attachment-controls-button-border-block-end: none;
+
+  /* Left (right in RTL layout) border of audio widget's play / pause button */
+  --str-chat__audio-attachment-controls-button-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of audio widget's play / pause button */
+  --str-chat__audio-attachment-controls-button-border-inline-end: none;
+
+  /* Box shadow applied to audio widget's play / pause button */
+  --str-chat__audio-attachment-controls-button-box-shadow: var(--str-chat__circle-fab-box-shadow);
+
+  /* The border radius used for attachment actions */
+  --str-chat__attachment-actions-border-radius: 0;
+
+  /* The text/icon color of attachment actions */
+  --str-chat__attachment-actions-color: var(--str-chat__text-color);
+
+  /* The background color of attachment actions */
+  --str-chat__attachment-actions-background-color: transparent;
+
+  /* Top border of attachment actions */
+  --str-chat__attachment-actions-border-block-start: none;
+
+  /* Bottom border of attachment actions */
+  --str-chat__attachment-actions-border-block-end: none;
+
+  /* Left (right in RTL layout) border of attachment actions */
+  --str-chat__attachment-actions-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of attachment actions */
+  --str-chat__attachment-actions-border-inline-end: none;
+
+  /* Box shadow applied to attachment actions */
+  --str-chat__attachment-actions-box-shadow: none;
+
+  /* The border radius used for an attachment action */
+  --str-chat__attachment-action-border-radius: 0;
+
+  /* The text/icon color of an attachment action */
+  --str-chat__attachment-action-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color of an attachment action */
+  --str-chat__attachment-action-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of an attachment action */
+  --str-chat__attachment-action-border-block-start: var(--str-chat__surface-color) 1px solid;
+
+  /* Bottom border of an attachment action */
+  --str-chat__attachment-action-border-block-end: var(--str-chat__surface-color) 1px solid;
+
+  /* Left (right in RTL layout) border of an attachment action */
+  --str-chat__attachment-action-border-inline-start: var(--str-chat__surface-color) 1px solid;
+
+  /* Right (left in RTL layout) border of an attachment action */
+  --str-chat__attachment-action-border-inline-end: var(--str-chat__surface-color) 1px solid;
+
+  /* Box shadow applied to an attachment action */
+  --str-chat__attachment-action-box-shadow: none;
+
+  /* The text/icon color of an attachment action while in pressed state */
+  --str-chat__attachment-action-active-color: var(--str-chat__primary-color);
+}
+
+.str-chat__attachment-list {
+  @include utils.component-layer-overrides('attachment-list');
+
+  .str-chat__message-attachment--image,
+  .str-chat__message-attachment-card--header,
+  .str-chat__message-attachment--video {
+    @include utils.component-layer-overrides('image-attachment');
+  }
+
+  .str-chat__gallery {
+    @include utils.component-layer-overrides('image-gallery-attachment');
+
+    .str-chat__gallery-image {
+      background-color: transparent;
+      border: 0;
+    }
+
+    .str-chat__gallery-placeholder {
+      color: var(--str-chat__image-gallery-attachment-overlay-text-color);
+      display: flex;
+      border: none;
+      font: var(--str-chat__headline2-text);
+
+      &::after {
+        background-color: var(--str-chat__image-gallery-attachment-overlay);
+      }
+    }
+  }
+
+  .str-chat__message-attachment--svg-image {
+    background-image: repeating-conic-gradient(#d4d5d7 0% 25%, #f4f4f4 0% 50%);
+    background-size: 24px 24px;
+  }
+
+  .str-chat__message-attachment-file--item {
+    @include utils.component-layer-overrides('file-attachment');
+  }
+
+  .str-chat__message-attachment-file--item,
+  .str-chat__message-attachment-audio-widget {
+    .str-chat__message-attachment-file--item-name,
+    .str-chat__message-attachment-audio-widget--title {
+      font: var(--str-chat__subtitle-medium-text);
+    }
+
+    .str-chat__message-attachment-file--item-size {
+      color: var(--str-chat__file-attachment-secondary-color);
+      font: var(--str-chat__body-text);
+    }
+
+    .str-chat__message-attachment-download-icon {
+      svg path {
+        fill: var(--str-chat__file-attachment-color);
+      }
+    }
+  }
+
+  .str-chat__message-attachment-audio-widget {
+    @include utils.component-layer-overrides('audio-attachment-widget');
+  }
+
+  .str-chat__message-attachment-audio-widget--progress-track {
+    background-color: var(--str-chat__disabled-color);
+    border-radius: calc(var(--str-chat__spacing-px) * 5);
+
+    .str-chat__message-attachment-audio-widget--progress-indicator {
+      background-color: var(--str-chat__primary-color);
+      border-radius: inherit;
+    }
+  }
+
+  .str-chat__message-attachment-audio-widget--play-button {
+    @include utils.component-layer-overrides('audio-attachment-controls-button');
+    @include utils.circle-fab-overrides('audio-attachment-controls-button');
+  }
+
+  .str-chat__message-attachment--card {
+    @include utils.component-layer-overrides('card-attachment');
+    font: var(--str-chat__body-text);
+
+    .str-chat__message-attachment-card--source-link {
+      font: var(--str-chat__body-medium-text);
+    }
+
+    .str-chat__message-attachment-card--title {
+      font: var(--str-chat__body-medium-text);
+    }
+  }
+
+  .str-chat__message-attachment-card--audio {
+    img {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .str-chat__message-attachment-card--header {
+      .str-chat__message-attachment-card--source-link {
+        background-color: var(--str-chat__audio-attachment-widget-background-color);
+      }
+    }
+
+    .str-chat__message-attachment-card-audio-widget {
+      background-color: var(--str-chat__audio-attachment-widget-background-color);
+      border-radius: 0 0 calc(var(--str-chat__spacing-px) * 14)
+        calc(var(--str-chat__spacing-px) * 14);
+
+      .str-chat__message-attachment-audio-widget--title {
+        color: var(--str-chat__text-color);
+        font: var(--str-chat__body-medium-text);
+      }
+    }
+  }
+
+  .str-chat__message-attachment-actions {
+    @include utils.component-layer-overrides('attachment-actions');
+
+    .str-chat__message-attachment-actions-button {
+      @include utils.component-layer-overrides('attachment-action');
+      font: var(--str-chat__subtitle-medium-text);
+      border-collapse: collapse;
+
+      &:active {
+        color: var(--str-chat__attachment-action-active-color);
+      }
+
+      &:not(:last-of-type) {
+        border-inline-end: none;
+      }
+    }
+  }
+
+  .str-chat__message-attachment-with-actions.str-chat__message-attachment--giphy {
+    .str-chat__message-attachment-card--header {
+      border-end-start-radius: 0;
+      border-end-end-radius: 0;
+    }
+  }
+}
+
+.str-chat__message-attachment-card.str-chat__message-attachment-card--audio {
+  .str-chat__message-attachment-card--header {
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+  }
+}

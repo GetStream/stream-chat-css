@@ -1,0 +1,69 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__message-actions-box-border-radius: var(--str-chat__border-radius-sm);
+
+  /* The text/icon color of the component */
+  --str-chat__message-actions-box-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__message-actions-box-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component */
+  --str-chat__message-actions-box-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__message-actions-box-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__message-actions-box-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__message-actions-box-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__message-actions-box-box-shadow: 0 0 8px var(--str-chat__box-shadow-color);
+
+  /* The border radius used for the borders of an item in the message actions box */
+  --str-chat__message-actions-box-item-border-radius: 0;
+
+  /* The text/icon color of an item in the message actions box */
+  --str-chat__message-actions-box-item-color: var(--str-chat__text-color);
+
+  /* The background color of an item in the message actions box */
+  --str-chat__message-actions-box-item-background-color: transparent;
+
+  /* The background color of an item in the message actions box when hovered */
+  --str-chat__message-actions-box-item-hover-background-color: var(
+    --str-chat__secondary-surface-color
+  );
+
+  /* Top border of an item in the message actions box */
+  --str-chat__message-actions-box-item-border-block-start: none;
+
+  /* Bottom border of an item in the message actions box */
+  --str-chat__message-actions-box-item-border-block-end: none;
+
+  /* Left (right in RTL layout) border of an item in the message actions box */
+  --str-chat__message-actions-box-item-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of an item in the message actions box */
+  --str-chat__message-actions-box-item-border-inline-end: none;
+
+  /* Box shadow applied to an item in the message actions box */
+  --str-chat__message-actions-box-item-box-shadow: none;
+}
+
+.str-chat__message-actions-box {
+  @include utils.component-layer-overrides('message-actions-box');
+
+  .str-chat__message-actions-list-item-button {
+    @include utils.component-layer-overrides('message-actions-box-item');
+    font: var(--str-chat__subtitle-text);
+
+    &:hover {
+      background-color: var(--str-chat__message-actions-box-item-hover-background-color);
+    }
+  }
+}

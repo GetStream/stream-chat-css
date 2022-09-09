@@ -1,0 +1,87 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__channel-list-border-radius: 0;
+
+  /* The text/icon color of the component */
+  --str-chat__channel-list-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__channel-list-background-color: var(--str-chat__secondary-background-color);
+
+  /* Box shadow applied to the component */
+  --str-chat__channel-list-box-shadow: none;
+
+  /* Top border of the component */
+  --str-chat__channel-list-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-list-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-list-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-list-border-inline-end: 1px solid var(--str-chat__surface-color);
+
+  /* The border radius used for the borders of the load more button */
+  --str-chat__channel-list-load-more-border-radius: var(--str-chat__cta-button-border-radius);
+
+  /* The text/icon color of the load more button */
+  --str-chat__channel-list-load-more-color: var(--str-chat__cta-button-color);
+
+  /* The background color of the load more button */
+  --str-chat__channel-list-load-more-background-color: var(--str-chat__cta-button-background-color);
+
+  /* Box shadow applied to the load more button */
+  --str-chat__channel-list-load-more-box-shadow: var(--str-chat__cta-button-box-shadow);
+
+  /* Top border of the load more button */
+  --str-chat__channel-list-load-more-border-block-start: var(
+    --str-chat__cta-button-border-block-start
+  );
+
+  /* Bottom border of the load more button */
+  --str-chat__channel-list-load-more-border-block-end: var(--str-chat__cta-button-border-block-end);
+
+  /* Left (right in RTL layout) border of the load more button */
+  --str-chat__channel-list-load-more-border-inline-start: var(
+    --str-chat__cta-button-border-inline-start
+  );
+
+  /* Right (left in RTL layout) border of the load more button */
+  --str-chat__channel-list-load-more-border-inline-end: var(
+    --str-chat__cta-button-border-inline-end
+  );
+
+  /* The background color of the load more button in pressed state */
+  --str-chat__channel-list-load-more-pressed-background-color: var(
+    --str-chat__cta-button-pressed-background-color
+  );
+
+  /* The background color of the load more button in disabled state */
+  --str-chat__channel-list-load-more-disabled-background-color: var(
+    --str-chat__cta-button-disabled-background-color
+  );
+
+  /* The text/icon color of the load more button in disabled state */
+  --str-chat__channel-list-load-more-disabled-color: var(--str-chat__cta-button-disabled-color);
+
+  /* The icon color for the empty list state */
+  --str-chat__channel-list-empty-indicator-color: var(--str-chat__disabled-color);
+}
+
+.str-chat__channel-list {
+  @include utils.component-layer-overrides('channel-list');
+
+  .str-chat__load-more-button__button {
+    @include utils.component-layer-overrides('channel-list-load-more');
+    @include utils.cta-button-overrides('channel-list-load-more');
+    width: 80%;
+  }
+
+  .str-chat__channel-list-empty {
+    @include utils.empty-theme('channel-list');
+  }
+}

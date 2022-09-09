@@ -1,0 +1,75 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__message-reactions-border-radius: none;
+
+  /* The text/icon color of the component */
+  --str-chat__message-reactions-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__message-reactions-background-color: transparent;
+
+  /* Top border of the component */
+  --str-chat__message-reactions-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__message-reactions-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__message-reactions-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__message-reactions-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__message-reactions-box-shadow: none;
+
+  /* The border radius used for the borders of a message reaction */
+  --str-chat__message-reaction-border-radius: var(--str-chat__border-radius-xs);
+
+  /* The text/icon color of a message reaction */
+  --str-chat__message-reaction-color: var(--str-chat__text-color);
+
+  /* The background color of a message reaction */
+  --str-chat__message-reaction-background-color: var(--str-chat__tertiary-surface-color);
+
+  /* Top border of a message reaction */
+  --str-chat__message-reaction-border-block-start: none;
+
+  /* Bottom border of a message reaction */
+  --str-chat__message-reaction-border-block-end: none;
+
+  /* Left (right in RTL layout) border of a message reaction */
+  --str-chat__message-reaction-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of a message reaction */
+  --str-chat__message-reaction-border-inline-end: none;
+
+  /* Box shadow applied to a message reaction */
+  --str-chat__message-reaction-box-shadow: none;
+
+  /* The text/icon color of a message reaction, if the user reacted with that reaction */
+  --str-chat__own-message-reaction-color: var(--str-chat__text-color);
+
+  /* The background color of a message reaction, if the user reacted with that reaction */
+  --str-chat__own-message-reaction-background-color: var(
+    --str-chat__primary-surface-color-low-emphasis
+  );
+}
+
+.str-chat__message-reactions-container {
+  .str-chat__message-reactions {
+    @include utils.component-layer-overrides('message-reactions');
+
+    .str-chat__message-reaction {
+      @include utils.component-layer-overrides('message-reaction');
+      font: var(--str-chat__caption-text);
+
+      &.str-chat__message-reaction-own {
+        color: var(--str-chat__own-message-reaction-color);
+        background-color: var(--str-chat__own-message-reaction-background-color);
+      }
+    }
+  }
+}

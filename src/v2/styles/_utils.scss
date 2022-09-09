@@ -1,0 +1,188 @@
+@mixin flex-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-top-right {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin ellipsis-text-parent {
+  overflow-y: visible;
+  // Not every browser support clip overflow, so hidden is defined as a fallback
+  overflow-x: hidden;
+  overflow-x: clip;
+  min-width: 0;
+}
+
+@mixin ellipsis-text {
+  white-space: nowrap;
+  overflow-y: visible;
+  // Not every browser support clip overflow, so hidden is defined as a fallback
+  overflow-x: hidden;
+  overflow-x: clip;
+  text-overflow: ellipsis;
+}
+
+@mixin scrollable {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@mixin unset-button($outline-radius: var(--str-chat__border-radius-circle)) {
+  padding: unset;
+  background: unset;
+  border: unset;
+  border-radius: $outline-radius;
+}
+
+@mixin component-layer-overrides($component-name, $important: '') {
+  background: var(--str-chat__#{$component-name}-background-color) #{$important};
+  color: var(--str-chat__#{$component-name}-color) #{$important};
+  box-shadow: var(--str-chat__#{$component-name}-box-shadow) #{$important};
+  border-radius: var(--str-chat__#{$component-name}-border-radius) #{$important};
+  border-block-start: var(--str-chat__#{$component-name}-border-block-start) #{$important};
+  border-block-end: var(--str-chat__#{$component-name}-border-block-end) #{$important};
+  border-inline-start: var(--str-chat__#{$component-name}-border-inline-start) #{$important};
+  border-inline-end: var(--str-chat__#{$component-name}-border-inline-end) #{$important};
+}
+
+@mixin button-reset {
+  outline: none;
+  background: none;
+  border: none;
+}
+
+@mixin cta-button-overrides($component-name) {
+  &:active {
+    background-color: var(--str-chat__#{$component-name}-pressed-background-color);
+  }
+
+  &:disabled {
+    background-color: var(--str-chat__#{$component-name}-disabled-background-color);
+    color: var(--str-chat__#{$component-name}-disabled-color);
+  }
+}
+
+@mixin circle-fab-overrides($component-name) {
+  svg path {
+    fill: var(--str-chat__#{$component-name}-color);
+  }
+
+  &:active {
+    background-color: var(--str-chat__#{$component-name}-pressed-background-color);
+  }
+}
+
+@mixin header-layout {
+  display: flex;
+  padding: var(--str-chat__spacing-2);
+  column-gap: var(--str-chat__spacing-4);
+  align-items: center;
+}
+
+@mixin header-text-layout {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden; // for Edge
+  overflow-x: hidden; // for ellipsis text
+  flex: 1;
+  row-gap: var(--str-chat__spacing-1_5);
+}
+
+@mixin empty-layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--str-chat__spacing-4);
+
+  svg {
+    width: calc(var(--str-chat__spacing-px) * 136);
+    height: calc(var(--str-chat__spacing-px) * 136);
+  }
+}
+
+@mixin empty-theme($component-name) {
+  font: var(--str-chat__headline-text);
+  text-align: center;
+
+  svg path {
+    fill: var(--str-chat__#{$component-name}-empty-indicator-color);
+  }
+}
+
+@mixin message-list-spacing {
+  $spacing: var(--str-chat__spacing-2);
+  padding: 0 $spacing;
+
+  // Need this trick to be able to apply full-width background color on hover to messages / full-width separator to thread header
+  .str-chat__li {
+    margin-inline: calc(-1 * #{$spacing});
+    padding-inline: $spacing;
+  }
+
+  .str-chat__parent-message-li {
+    margin-inline: calc(-1 * #{$spacing});
+  }
+
+  @media only screen and (min-device-width: 768px) {
+    $spacing: min(var(--str-chat__spacing-10), 4%);
+
+    padding: 0 $spacing;
+
+    .str-chat__li {
+      margin-inline: calc(-1 * #{$spacing});
+      padding-inline: $spacing;
+    }
+
+    .str-chat__parent-message-li {
+      margin-inline: calc(-1 * #{$spacing} - 2px);
+    }
+  }
+}
+
+@mixin loading-item-background($component-name) {
+  background-image: linear-gradient(
+    -90deg,
+    var(--str-chat__#{$component-name}-loading-state-color) 0%,
+    var(--str-chat__#{$component-name}-loading-state-color) 100%
+  );
+}
+
+@mixin loading-animation {
+  animation: pulsate 1s linear 0s infinite alternate;
+
+  &:nth-of-type(2) {
+    animation: pulsate 1s linear 0.3334s infinite alternate;
+  }
+
+  &:last-of-type {
+    animation: pulsate 1s linear 0.6667s infinite alternate;
+  }
+
+  @keyframes pulsate {
+    from {
+      opacity: 0.5;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin channel-preview-display-name-theme {
+  font: var(--str-chat__subtitle-medium-text);
+}

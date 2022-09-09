@@ -1,0 +1,190 @@
+@use '../utils';
+
+/* Only available in React SDK. */
+.str-chat {
+  /* The text/icon color of the component */
+  --str-chat__channel-search-input-color: var(--str-chat__text-color);
+
+  /* The text/icon color of the component */
+  --str-chat__channel-search-input-placeholder-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The text/icon color of the component */
+  --str-chat__channel-search-input-icon-color: var(--str-chat__text-low-emphasis-color);
+
+  /* Top border of the component */
+  --str-chat__channel-search-input-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-input-border-block-end: none;
+
+  /* Left (right in RTL layout) borhe component */
+  --str-chat__channel-search-input-border-inline-start: none;
+
+  /* Right (left in RTL layout) borhe component */
+  --str-chat__channel-search-input-border-inline-end: none;
+
+  /* The border radius used for the borders of the component */
+  --str-chat__channel-search-input-wrapper-border-radius: var(--str-chat__border-radius-lg);
+
+  /* The background color of the component */
+  --str-chat__channel-search-input-wrapper-background-color: transparent;
+
+  /* Top border of the component */
+  --str-chat__channel-search-input-wrapper-border-block-start: var(--str-chat__surface-color) 1px
+    solid;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-input-wrapper-border-block-end: var(--str-chat__surface-color) 1px
+    solid;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-search-input-wrapper-border-inline-start: var(--str-chat__surface-color) 1px
+    solid;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-search-input-wrapper-border-inline-end: var(--str-chat__surface-color) 1px
+    solid;
+
+  /* The border radius used for the borders of the component */
+  --str-chat__channel-search-input-wrapper-active-border-radius: var(--str-chat__border-radius-lg);
+
+  /* The background color of the component */
+  --str-chat__channel-search-input-wrapper-active-background-color: transparent;
+
+  /* Top border of the component */
+  --str-chat__channel-search-input-wrapper-active-border-block-start: var(--str-chat__primary-color)
+    1px solid;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-input-wrapper-active-border-block-end: var(--str-chat__primary-color)
+    1px solid;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-search-input-wrapper-active-border-inline-start: var(
+      --str-chat__primary-color
+    )
+    1px solid;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-search-input-wrapper-active-border-inline-end: var(--str-chat__primary-color)
+    1px solid;
+
+  /* The background applied to channel search result */
+  --str-chat__channel-search-result-background-color: transparent;
+
+  /* Top border of the component */
+  --str-chat__channel-search-result-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-result-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-search-result-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-search-result-border-inline-end: none;
+
+  /* Background color used for the search result hover / focused state */
+  --str-chat__channel-search-result-hover-background-color: var(
+    --str-chat__secondary-surface-color
+  );
+
+  /* The font color used in the search results header  */
+  --str-chat__channel-search-results-header-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color used in the search results header  */
+  --str-chat__channel-search-results-header-background-color: var(--str-chat__background-color);
+
+  /* Top border of the component  */
+  --str-chat__channel-search-results-header-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-results-header-border-block-end: var(--str-chat__surface-color) 1px
+    solid;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-search-results-header-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-search-results-header-border-inline-end: none;
+
+  /* The font color used in the empty search results indicator  */
+  --str-chat__channel-search-results-empty-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The icon color used in the empty search results indicator  */
+  --str-chat__channel-search-results-empty-icon-color: var(--str-chat__disabled-color);
+
+  /* The background color used in the empty search results indicator  */
+  --str-chat__channel-search-results-empty-background-color: var(--str-chat__background-color);
+
+  /* Top border of the component  */
+  --str-chat__channel-search-results-empty-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-results-empty-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-search-results-empty-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-search-results-empty-border-inline-end: none;
+}
+
+.str-chat__channel-search-input--wrapper {
+  @include utils.component-layer-overrides('channel-search-input-wrapper');
+
+  input {
+    @include utils.component-layer-overrides('channel-search-input');
+    outline: none;
+    font: var(--str-chat__subtitle-text);
+  }
+
+  .str-chat__channel-search-input--clear-button svg path {
+    fill: transparent;
+  }
+}
+
+.str-chat__channel-search-input--wrapper-active {
+  @include utils.component-layer-overrides('channel-search-input-wrapper-active');
+
+  .str-chat__channel-search-input--icon svg path {
+    fill: var(--str-chat__primary-color);
+  }
+
+  .str-chat__channel-search-input--clear-button svg path {
+    fill: var(--str-chat__text-low-emphasis-color);
+  }
+}
+
+.str-chat__channel-search-results-header {
+  @include utils.component-layer-overrides('channel-search-results-header');
+  font: var(--str-chat__subtitle-text);
+}
+
+.str-chat__channel-search-result-list {
+  .str-chat__channel-search-container-empty {
+    @include utils.component-layer-overrides('channel-search-results-empty');
+    font: var(--str-chat__subtitle2-medium-text);
+
+    svg path {
+      fill: var(--str-chat__channel-search-results-empty-icon-color);
+    }
+  }
+
+  .str-chat__channel-search-result {
+    @include utils.component-layer-overrides('channel-search-result');
+
+    .str-chat__channel-search-result--display-name {
+      @include utils.channel-preview-display-name-theme;
+    }
+  }
+
+  .str-chat__channel-preview-messenger--active {
+    background-color: var(--str-chat__channel-preview-active-background-color);
+  }
+
+  .str-chat__channel-search-result:hover,
+  .str-chat__channel-search-result--focused {
+    background-color: var(--str-chat__channel-search-result-hover-background-color);
+  }
+}

@@ -1,0 +1,207 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__autocomplete-menu-border-radius: var(--str-chat__border-radius-xs);
+
+  /* The text/icon color of the component */
+  --str-chat__autocomplete-menu-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__autocomplete-menu-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component */
+  --str-chat__autocomplete-menu-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__autocomplete-menu-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__autocomplete-menu-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__autocomplete-menu-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__autocomplete-menu-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+
+  /* The background color of a selected autocomplete item */
+  --str-chat__autocomplete-active-background-color: var(--str-chat__surface-color);
+
+  /* The border radius used for the borders of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-radius: var(--str-chat__border-radius-xs);
+
+  /* The text/icon color of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-color: var(--str-chat__text-color);
+
+  /* The background color of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-background-color: var(
+    --str-chat__secondary-background-color
+  );
+
+  /* Top border of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-block-start: none;
+
+  /* Bottom border of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component (ReactSDK) */
+  --str-chat__suggestion-list-container-border-inline-end: none;
+
+  /* Box shadow applied to the component (ReactSDK) */
+  --str-chat__suggestion-list-container-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+
+  /* The background color of a selected autocomplete item (ReactSDK) */
+  --str-chat__suggestion-list-item--selected-background-color: var(--str-chat__surface-color);
+
+  /* The border radius used for the borders of the slash command item in the autocomplete list */
+  --str-chat__slash-command-border-radius: 0;
+
+  /* The text/icon color of the slash command item in the autocomplete list */
+  --str-chat__slash-command-color: var(--str-chat__text-color);
+
+  /* The background color of the slash command item in the autocomplete list */
+  --str-chat__slash-command-background-color: transparent;
+
+  /* Top border of the slash command item in the autocomplete list */
+  --str-chat__slash-command-border-block-start: none;
+
+  /* Bottom border of the slash command item in the autocomplete list */
+  --str-chat__slash-command-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the slash command item in the autocomplete list */
+  --str-chat__slash-command-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the slash command item in the autocomplete list */
+  --str-chat__slash-command-border-inline-end: none;
+
+  /* Box shadow of the slash command item in the autocomplete list */
+  --str-chat__slash-command-box-shadow: none;
+
+  /* Text color of the arguments of a slash command item in the autocomplete list */
+  --str-chat__slash-command-args-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The border radius used for the borders of the user mention item in the autocomplete list */
+  --str-chat__mention-list-user-item-border-radius: 0;
+
+  /* The text/icon color of the user mention item in the autocomplete list */
+  --str-chat__mention-list-user-item-color: var(--str-chat__text-color);
+
+  /* The background color of the user mention item in the autocomplete list */
+  --str-chat__mention-list-user-item-background-color: transparent;
+
+  /* Top border of the user mention item in the autocomplete list */
+  --str-chat__mention-list-user-item-border-block-start: none;
+
+  /* Bottom border of the user mention item in the autocomplete list */
+  --str-chat__mention-list-user-item-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the user mention item in the autocomplete list */
+  --str-chat__mention-list-user-item-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the user mention item in the autocomplete list */
+  --str-chat__mention-list-user-item-border-inline-end: none;
+
+  /* Box shadow of the user mention item in the autocomplete list */
+  --str-chat__mention-list-user-item-box-shadow: none;
+
+  /* The text color of the at sign inside a user mention itome in the autocomplete list */
+  --str-chat__mention-list-user-item-at-sign-color: var(--str-chat__primary-color);
+
+  /* The font used in the emoji suggestion item in the autocomplete list */
+  --str-chat__mention-list-emoji-item-font-family: var(--str-chat__font-family);
+
+  /* The border radius used for the borders of the emoji suggestion item in the autocomplete list */
+  --str-chat__mention-list-emoji-item-border-radius: 0;
+
+  /* The text/icon color of the emoji suggestion item in the autocomplete list */
+  --str-chat__mention-list-emoji-item-color: var(--str-chat__text-color);
+
+  /* The background color of the emoji suggestion item in the autocomplete list */
+  --str-chat__mention-list-emoji-item-background-color: transparent;
+
+  /* Top border of the emoji suggestion item in the autocomplete list */
+  --str-chat__mention-list-emoji-item-border-block-start: none;
+
+  /* Bottom border of the emoji suggestion item in the autocomplete list */
+  --str-chat__mention-list-emoji-item-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the emoji suggestion item in the autocomplete list */
+  --str-chat__mention-list-emoji-item-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the emoji suggestion item in the autocomplete list */
+  --str-chat__mention-list-emoji-item-border-inline-end: none;
+
+  /* Box shadow of the emoji suggestion item in the autocomplete list */
+  --str-chat__mention-list-emoji-item-box-shadow: none;
+}
+
+// Class defined by Angular mentions
+// !important necessary to override library defined styles
+.mention-menu {
+  @include utils.component-layer-overrides('autocomplete-menu', '!important');
+
+  .active.mention-active > a {
+    background-color: var(--str-chat__autocomplete-active-background-color) !important;
+  }
+
+  .mention-item {
+    color: var(--str-chat__autocomplete-menu-color) !important;
+    background-color: transparent !important;
+  }
+}
+
+.str-chat__slash-command {
+  @include utils.component-layer-overrides('slash-command');
+
+  .str-chat__slash-command-header {
+    .str-chat__slash-command-name {
+      text-transform: capitalize;
+      font: var(--str-chat__subtitle2-text);
+    }
+
+    .str-chat__slash-command-args {
+      color: var(--str-chat__slash-command-args-color);
+      font: var(--str-chat__subtitle-text);
+    }
+  }
+}
+
+.str-chat__user-item {
+  @include utils.component-layer-overrides('mention-list-user-item');
+
+  .str-chat__user-item--name {
+    font: var(--str-chat__subtitle-text);
+  }
+
+  .str-chat__user-item-at {
+    font: var(--str-chat__subtitle2-text);
+    color: var(--str-chat__mention-list-user-item-at-sign-color);
+  }
+}
+
+.str-chat__emoji-item {
+  @include utils.component-layer-overrides('mention-list-emoji-item');
+
+  .str-chat__emoji-item--name {
+    font: var(--str-chat__subtitle-text);
+  }
+}
+
+// TODO?: rename to autocomplete? or create new file
+.str-chat__suggestion-list-container {
+  @include utils.component-layer-overrides('suggestion-list-container');
+
+  .str-chat__suggestion-list {
+    .str-chat__suggestion-list-item > a {
+      text-decoration: none;
+    }
+
+    .str-chat__suggestion-item--selected {
+      background-color: var(--str-chat__suggestion-list-item--selected-background-color);
+    }
+  }
+}

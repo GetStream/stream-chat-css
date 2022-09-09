@@ -1,0 +1,353 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__message-border-radius: none;
+
+  /* The text/icon color of the component */
+  --str-chat__message-color: var(--str-chat__text-color);
+
+  /* The text/icon color used for displaying error messages */
+  --str-chat__message-error-message-color: var(--str-chat__danger-color);
+
+  /* The text/icon color used for displaying items with less emphasis */
+  --str-chat__message-secondary-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The text color used for displaying links */
+  --str-chat__message-link-color: var(--str-chat__primary-color);
+
+  /* The text color used for displaying mentions */
+  --str-chat__message-mention-color: var(--str-chat__primary-color);
+
+  /* The text/icon color used for displaying message status */
+  --str-chat__message-status-color: var(--str-chat__primary-color);
+
+  /* The text color used for displaying the number of thread replies of a message */
+  --str-chat__message-replies-count-color: var(--str-chat__primary-color);
+
+  /* The background color of the component */
+  --str-chat__message-background-color: transparent;
+
+  /* The background color of a jumped-to message */
+  --str-chat__message-highlighted-background-color: var(--str-chat__message-highlight-color);
+
+  /* Top border of the component */
+  --str-chat__message-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__message-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__message-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__message-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__message-box-shadow: none;
+
+  /* The background of the message component in active state */
+  --str-chat__message-active-bacground-color: transparent;
+
+  /* The icon color used for displaying message options */
+  --str-chat__message-options-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The icon color used for displaying message options if a message option is clicked */
+  --str-chat__message-options-hover-background-color: var(--str-chat__tertiary-surface-color);
+
+  /* The border radius used for displaying message options */
+  --str-chat__message-options-border-radius: var(--str-chat__border-radius-circle);
+
+  /* The background color used if a message option is hovered */
+  --str-chat__message-options-active-color: var(--str-chat__primary-color);
+
+  /* The border radius used for the borders of the message bubble */
+  --str-chat__message-bubble-border-radius: var(--str-chat__border-radius-md);
+
+  /* The text/icon of the message bubble */
+  --str-chat__message-bubble-color: var(--str-chat__text-color);
+
+  /* The background of the message bubble */
+  --str-chat__message-bubble-background-color: var(--str-chat__secondary-surface-color);
+
+  /* The background of the message bubble, if the message was sent by the user */
+  --str-chat__own-message-bubble-background-color: var(--str-chat__primary-surface-color);
+
+  /* The background of the message bubble, if it's a quoted message */
+  --str-chat__quoted-message-bubble-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the message bubble */
+  --str-chat__message-bubble-border-block-start: none;
+
+  /* Bottom border of the message bubble */
+  --str-chat__message-bubble-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the message bubble */
+  --str-chat__message-bubble-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the message bubble */
+  --str-chat__message-bubble-border-inline-end: none;
+
+  /* Box shadow applied to the message bubble */
+  --str-chat__message-bubble-box-shadow: none;
+
+  /* The border radius used for the borders of a deleted message */
+  --str-chat__deleted-message-border-radius: var(--str-chat__border-radius-md);
+
+  /* The text/icon of a deleted message */
+  --str-chat__deleted-message-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background of a deleted message */
+  --str-chat__deleted-message-background-color: var(--str-chat__secondary-surface-color);
+
+  /* Top border of a deleted message */
+  --str-chat__deleted-message-border-block-start: none;
+
+  /* Bottom border of a deleted message */
+  --str-chat__deleted-message-border-block-end: none;
+
+  /* Left (right in RTL layout) border of a deleted message */
+  --str-chat__deleted-message-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of a deleted message */
+  --str-chat__deleted-message-border-inline-end: none;
+
+  /* Box shadow applied to a deleted message */
+  --str-chat__deleted-message-box-shadow: none;
+
+  /* The border radius used for the borders of a system message */
+  --str-chat__system-message-border-radius: 0;
+
+  /* The text/icon of a system message */
+  --str-chat__system-message-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background of a system message */
+  --str-chat__system-message-background-color: transparent;
+
+  /* Top border of a system message */
+  --str-chat__system-message-border-block-start: none;
+
+  /* Bottom border of a system message */
+  --str-chat__system-message-border-block-end: none;
+
+  /* Left (right in RTL layout) border of a system message */
+  --str-chat__system-message-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of a system message */
+  --str-chat__system-message-border-inline-end: none;
+
+  /* Box shadow applied to a system message */
+  --str-chat__system-message-box-shadow: none;
+
+  /* Text color in a date separator*/
+  --str-chat__date-separator-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The line color applied to date separator */
+  --str-chat__date-separator-line-color: var(--str-chat__disabled-color);
+
+  /* The border radius used for the borders of a date separator */
+  --str-chat__date-separator-border-radius: 0;
+
+  /* The background color of a date separator */
+  --str-chat__date-separator-background-color: transparent;
+
+  /* Top border of a date separator */
+  --str-chat__date-separator-border-block-start: none;
+
+  /* Bottom border of a date separator */
+  --str-chat__date-separator-border-block-end: none;
+
+  /* Left (right in RTL layout) border of a date separator */
+  --str-chat__date-separator-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of a date separator */
+  --str-chat__date-separator-border-inline-end: none;
+
+  /* Box shadow applied to a date separator */
+  --str-chat__date-separator-box-shadow: none;
+}
+
+.str-chat__message--system {
+  @include utils.component-layer-overrides('system-message');
+  font: var(--str-chat__caption-text);
+}
+
+.str-chat__date-separator {
+  @include utils.component-layer-overrides('date-separator');
+  font: var(--str-chat__body-text);
+
+  &-line {
+    background-color: var(--str-chat__date-separator-line-color);
+    border: none;
+  }
+}
+
+.str-chat__message {
+  @include utils.component-layer-overrides('message');
+
+  a {
+    text-decoration: none;
+    color: var(--str-chat__message-link-color);
+  }
+
+  .str-chat__message-mention {
+    color: var(--str-chat__message-mention-color);
+    font: var(--str-chat__body2-medium-text);
+  }
+
+  .str-chat__message-bubble {
+    @include utils.component-layer-overrides('message-bubble');
+    font: var(--str-chat__body2-text);
+  }
+
+  .str-chat__message--deleted-inner {
+    @include utils.component-layer-overrides('deleted-message');
+    font: var(--str-chat__body2-text);
+  }
+
+  &.str-chat__message--me .str-chat__message-bubble {
+    background-color: var(--str-chat__own-message-bubble-background-color);
+  }
+
+  .str-chat__message-options {
+    .str-chat__message-actions-box-button,
+    .str-chat__message-reply-in-thread-button,
+    .str-chat__message-reactions-button {
+      // remove default button styles (React SDK uses button compared to div in Angular SDK)
+      @include utils.button-reset;
+      border-radius: var(--str-chat__message-options-border-radius);
+
+      .str-chat__message-action-icon path {
+        fill: var(--str-chat__message-options-color);
+      }
+    }
+
+    .str-chat__message-actions-box-button:hover,
+    .str-chat__message-reply-in-thread-button:hover,
+    .str-chat__message-reactions-button:hover {
+      background-color: var(--str-chat__message-options-hover-background-color);
+    }
+
+    .str-chat__message-actions-box-button:active,
+    .str-chat__message-reply-in-thread-button:active,
+    .str-chat__message-reactions-button:active {
+      .str-chat__message-action-icon path {
+        fill: var(--str-chat__message-options-active-color);
+      }
+    }
+  }
+
+  .str-chat__message-metadata {
+    color: var(--str-chat__message-secondary-color);
+    font: var(--str-chat__caption-text);
+
+    .str-chat__message-sender-name {
+      font: var(--str-chat__caption-medium-text);
+    }
+  }
+
+  .str-chat__message-status {
+    color: var(--str-chat__message-status-color);
+    font: var(--str-chat__body-text);
+
+    svg {
+      path {
+        fill: var(--str-chat__message-status-color);
+      }
+    }
+  }
+
+  .str-chat__message-replies-count-button-wrapper {
+    button {
+      border: none;
+      background-color: transparent;
+      font: var(--str-chat__body-medium-text);
+      color: var(--str-chat__message-replies-count-color);
+    }
+  }
+
+  .str-chat__message--error-message {
+    color: var(--str-chat__message-error-message-color);
+    font: var(--str-chat__caption-text);
+  }
+
+  .str-chat__message-error-icon {
+    /* stylelint-disable-next-line selector-max-id */
+    svg #background {
+      fill: var(--str-chat__message-error-message-color);
+    }
+  }
+}
+
+.str-chat__message--highlighted {
+  transition: background-color 0.1s ease-out;
+  background-color: var(--str-chat__message-highlighted-background-color);
+}
+
+.str-chat__li:hover {
+  background-color: var(--str-chat__message-active-bacground-color);
+}
+
+.str-chat__li--top,
+.str-chat__li--single {
+  .str-chat__message--other {
+    .str-chat__message-bubble {
+      border-end-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+    }
+  }
+
+  .str-chat__message--me {
+    .str-chat__message-bubble {
+      border-end-end-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+    }
+  }
+}
+
+.str-chat__li--middle,
+.str-chat__li--bottom {
+  .str-chat__message--other {
+    .str-chat__message-bubble {
+      border-start-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+      border-end-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+    }
+  }
+
+  .str-chat__message--me {
+    .str-chat__message-bubble {
+      border-start-end-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+      border-end-end-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+    }
+  }
+}
+
+.str-chat__message-with-thread-link {
+  &.str-chat__message--other {
+    .str-chat__message-bubble {
+      border-end-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+    }
+  }
+
+  &.str-chat__message--me {
+    .str-chat__message-bubble {
+      border-end-end-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+    }
+  }
+}
+
+.str-chat__quoted-message-preview {
+  @include utils.component-layer-overrides('message');
+
+  .str-chat__quoted-message-bubble {
+    @include utils.component-layer-overrides('message-bubble');
+    background-color: var(--str-chat__quoted-message-bubble-background-color);
+    border-end-start-radius: calc(var(--str-chat__message-bubble-border-radius) / 6);
+  }
+}
+
+.str-chat__message-input {
+  .str-chat__quoted-message-preview {
+    .str-chat__quoted-message-bubble {
+      background-color: var(--str-chat__message-bubble-background-color);
+    }
+  }
+}
