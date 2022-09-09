@@ -1,0 +1,12 @@
+.str-chat__loading-indicator {
+  svg {
+    linearGradient {
+      stop:last-child {
+        stop-color: var(
+          --str-chat__loading-indicator-color,
+          var(--str-chat__primary-color, #006cff)
+        );
+      }
+    }
+  }
+}

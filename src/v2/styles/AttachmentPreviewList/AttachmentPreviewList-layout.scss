@@ -1,0 +1,118 @@
+@use '../utils';
+
+.str-chat__attachment-preview-list {
+  $preview-height: calc(var(--str-chat__spacing-px) * 72);
+
+  @include utils.flex-row-center;
+  padding: var(--str-chat__spacing-1_5);
+  width: 100%;
+
+  .str-chat__attachment-list-scroll-container {
+    overflow-y: hidden;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: var(--str-chat__spacing-2);
+  }
+
+  @mixin overlay {
+    @include utils.flex-row-center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .str-chat__attachment-preview-image {
+    position: relative;
+    height: $preview-height;
+    width: $preview-height;
+
+    .str-chat__attachment-preview-image-loading {
+      @include overlay;
+    }
+
+    .str-chat__attachment-preview-thumbnail {
+      object-fit: cover;
+      height: $preview-height;
+      width: $preview-height;
+      word-break: break-all;
+      overflow: hidden;
+    }
+  }
+
+  .str-chat__attachment-preview-file {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: $preview-height;
+    width: calc(var(--str-chat__spacing-px) * 200);
+    position: relative;
+    padding: 0 var(--str-chat__spacing-4);
+    column-gap: var(--str-chat__spacing-2);
+
+    .str-chat__attachment-preview-file-icon {
+      @include utils.flex-row-center;
+
+      svg {
+        height: calc(var(--str-chat__spacing-px) * 37);
+        width: unset;
+      }
+    }
+
+    .str-chat__attachment-preview-file-end {
+      @include utils.ellipsis-text-parent;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .str-chat__attachment-preview-file-name {
+        @include utils.ellipsis-text;
+        max-width: 100%;
+      }
+
+      .str-chat__attachment-preview-file-download {
+        line-height: calc(var(--str-chat__spacing-px) * 13);
+
+        svg {
+          width: calc(var(--str-chat__spacing-px) * 16);
+          height: calc(var(--str-chat__spacing-px) * 16);
+        }
+      }
+    }
+  }
+
+  // button version of the same "class"
+  button.str-chat__attachment-preview-delete {
+    @include utils.unset-button;
+    display: flex;
+  }
+
+  .str-chat__attachment-preview-delete {
+    position: absolute;
+    top: calc(var(--str-chat__spacing-px) * 2);
+    inset-inline-end: calc(var(--str-chat__spacing-px) * 2);
+    cursor: pointer;
+    z-index: 1;
+
+    svg {
+      width: calc(var(--str-chat__spacing-px) * 24);
+      height: calc(var(--str-chat__spacing-px) * 24);
+    }
+  }
+
+  .str-chat__attachment-preview-error {
+    @include overlay;
+    @include utils.unset-button(unset);
+    cursor: pointer;
+  }
+}
+
+.str-chat__attachment-preview-list-angular-host {
+  width: 100%;
+  max-width: 100%;
+}

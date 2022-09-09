@@ -1,0 +1,82 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the content area of the component of the content area of the component */
+  --str-chat__modal-border-radius: var(--str-chat__border-radius-sm);
+
+  /* The text/icon color of the content area of the component */
+  --str-chat__modal-color: var(--str-chat__text-color);
+
+  /* The background color of the content area of the component */
+  --str-chat__modal-background-color: var(--str-chat__secondary-background-color);
+
+  /* The overlay color of the component */
+  --str-chat__modal-overlay-color: var(--str-chat__secondary-overlay-color);
+
+  /* The backdrop filter applied to the component */
+  --str-chat__modal-overlay-backdrop-filter: blur(3px);
+
+  /* Top border of the content area of the component */
+  --str-chat__modal-border-block-start: none;
+
+  /* Bottom border of the content area of the component */
+  --str-chat__modal-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the content area of the component */
+  --str-chat__modal-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the content area of the component */
+  --str-chat__modal-border-inline-end: none;
+
+  /* Box shadow applied to the content area of the component */
+  --str-chat__modal-box-shadow: none;
+
+  /* The background color of the close button */
+  --str-chat__modal-close-icon-background: var(--str-chat__text-low-emphasis-color);
+
+  /* The icon color of the close button */
+  --str-chat__modal-close-icon-color: var(--str-chat__on-disabled-color);
+}
+
+.str-chat__modal {
+  background-color: var(--str-chat__modal-overlay-color);
+  backdrop-filter: var(--str-chat__modal-overlay-backdrop-filter);
+
+  .str-chat__modal__inner {
+    @include utils.component-layer-overrides('modal');
+  }
+
+  .str-chat__modal__close-button {
+    @include utils.button-reset;
+
+    svg {
+      path {
+        fill: var(--str-chat__modal-close-icon-color);
+      }
+
+      rect,
+      circle {
+        fill: var(--str-chat__modal-close-icon-background);
+      }
+    }
+  }
+}
+
+// stream-chat-react image gallery does not show the modal inner container. It has to be reset to
+// width of its content in order the modal can be closed when clicked on overlay
+.str-chat__message-attachment--card,
+.str-chat__message-attachment--image,
+.str-chat__message-attachment--gallery {
+  .str-chat__modal--open .str-chat__modal__inner.str-chat-react__modal__inner {
+    background-color: transparent;
+    width: unset;
+    height: unset;
+    padding: 0;
+
+    img {
+      max-width: unset;
+      max-height: calc(100vh - 80px);
+      cursor: default;
+    }
+  }
+}

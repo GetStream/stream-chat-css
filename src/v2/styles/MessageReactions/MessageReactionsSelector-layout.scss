@@ -1,0 +1,52 @@
+@use '../utils';
+
+.str-chat__message-reaction-selector {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  inset-block-end: 100%;
+
+  .str-chat__message-reactions-options {
+    list-style: none;
+    display: flex;
+    margin-block-end: var(--str-chat__spacing-0_5);
+    width: fit-content;
+    column-gap: var(--str-chat__spacing-1);
+    padding: var(--str-chat__spacing-2);
+
+    .str-chat__message-reactions-option {
+      @include utils.flex-row-center;
+      cursor: pointer;
+      width: calc(var(--str-chat__spacing-px) * 40);
+      height: calc(var(--str-chat__spacing-px) * 40);
+
+      .str-chat__message-reaction-emoji {
+        height: calc(var(--str-chat__spacing-px) * 20);
+        display: flex !important; // Overriding emoji-mart styles
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    // Only in theme-v1
+    .str-chat__message-reactions-last-user {
+      display: none;
+    }
+
+    .str-chat__message-reactions-list-item__count {
+      display: none;
+    }
+  }
+}
+
+.str-chat__message--me {
+  .str-chat__message-reaction-selector {
+    inset-inline-end: 0;
+  }
+}
+
+.str-chat__message--other {
+  .str-chat__message-reaction-selector {
+    inset-inline-start: 0;
+  }
+}

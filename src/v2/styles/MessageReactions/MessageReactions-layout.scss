@@ -1,0 +1,55 @@
+@use '../utils';
+
+.str-chat__message-reactions-container {
+  display: flex;
+
+  .str-chat__message-reactions {
+    list-style: none;
+    display: flex;
+    margin-block-start: var(--str-chat__spacing-0_5);
+    margin-block-end: var(--str-chat__spacing-0_5);
+    column-gap: var(--str-chat__spacing-0_5);
+    width: fit-content;
+    padding: 0;
+    position: relative;
+
+    .str-chat__message-reaction {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: var(--str-chat__spacing-1_5);
+      position: relative;
+
+      button {
+        @include utils.button-reset;
+        @include utils.flex-row-center;
+        padding: 0;
+      }
+
+      .str-chat__message-reaction-emoji {
+        height: calc(var(--str-chat__spacing-px) * 13);
+        display: flex !important; // Overriding emoji-mart styles
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    // Only in theme-v1
+    .str-chat__reaction-list--counter,
+    .str-chat__simple-reactions-list-item--last-number {
+      display: none;
+    }
+  }
+}
+
+.str-chat__message--me {
+  .str-chat__message-reactions-container {
+    justify-content: flex-end;
+  }
+}
+
+.str-chat__message--other {
+  .str-chat__message-reactions-container {
+    justify-content: flex-start;
+  }
+}

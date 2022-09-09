@@ -1,0 +1,27 @@
+@use '../utils';
+
+.str-chat__typing-indicator-react-host {
+  position: static !important;
+}
+
+.str-chat__typing-indicator {
+  padding: var(--str-chat__spacing-1_5);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: var(--str-chat__spacing-1);
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+
+  .str-chat__typing-indicator__dots {
+    @include utils.flex-row-center;
+    column-gap: var(--str-chat__spacing-0_5);
+
+    .str-chat__typing-indicator__dot {
+      width: calc(var(--str-chat__spacing-px) * 4);
+      height: calc(var(--str-chat__spacing-px) * 4);
+    }
+  }
+}

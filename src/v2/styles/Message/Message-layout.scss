@@ -1,0 +1,362 @@
+@use '../utils';
+
+.str-chat {
+  /* The width/height of the message options buttons */
+  --str-chat__message-options-button-size: calc(var(--str-chat__spacing-px) * 26);
+
+  /* The maximum allowed width of the message component */
+  --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 480);
+
+  /* The maximum allowed width of the message component, if it has attachments */
+  --str-chat__message-with-attachment-max-width: calc(var(--str-chat__spacing-px) * 300);
+
+  /* The maximum allowed width of quoted messages inside the message component */
+  --str-chat__quoted-message-max-width: calc(var(--str-chat__spacing-px) * 180);
+
+  /* The maximum allowed width of quoted messages inside the message input component */
+  --str-chat__quoted-message-inside-message-input-max-width: calc(
+    var(--str-chat__spacing-px) * 200
+  );
+
+  /* The maximum allowed height of quoted messages inside the message input component */
+  --str-chat__quoted-message-inside-message-input-max-height: calc(
+    var(--str-chat__quoted-message-inside-message-input-max-width) +
+      calc(var(--str-chat__spacing-px) * 50)
+  );
+}
+
+.str-chat__message {
+  .str-chat__message-bubble {
+    max-width: var(--str-chat__message-max-width);
+  }
+}
+
+.str-chat__message.str-chat__message--has-attachment {
+  --str-chat__message-max-width: var(--str-chat__message-with-attachment-max-width);
+
+  .str-chat__message-bubble {
+    max-width: var(--str-chat__message-max-width);
+  }
+}
+
+.str-chat__quoted-message-preview {
+  --str-chat__message-max-width: var(--str-chat__quoted-message-max-width);
+
+  .str-chat__quoted-message-bubble {
+    // Turn off pointer events so they don't interfere with jump to message
+    pointer-events: none;
+    max-width: var(--str-chat__message-max-width);
+  }
+}
+
+.str-chat__message,
+.str-chat__quoted-message-preview {
+  @mixin chat-bubble-spacing {
+    padding: var(--str-chat__spacing-2) var(--str-chat__spacing-4);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Using grid layout so we can use template from theme-v1
+  display: grid;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+
+  &.str-chat__message--other,
+  &.str-chat__quoted-message-preview {
+    grid-template-areas:
+      'avatar message'
+      '. replies'
+      '. metadata';
+    column-gap: var(--str-chat__spacing-2);
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+  }
+
+  &.str-chat__message--me {
+    grid-template-areas:
+      'message'
+      'replies'
+      'metadata';
+    justify-items: end;
+
+    // > selector added to not hide sender of inline replies
+    > .str-chat__message-sender-avatar {
+      display: none;
+    }
+  }
+
+  &.str-chat__message--deleted {
+    grid-template-areas: 'message';
+  }
+
+  &.str-chat__message--system {
+    grid-template-areas: 'message';
+    grid-template-columns: auto;
+  }
+
+  .str-chat__message-sender-avatar {
+    grid-area: avatar;
+    align-self: end;
+  }
+
+  .str-chat__message-inner {
+    grid-area: message;
+    display: grid;
+    grid-template-areas:
+      'reactions reactions'
+      'message-bubble options';
+    grid-template-columns: auto 1fr;
+    column-gap: var(--str-chat__spacing-2);
+    position: relative;
+
+    .str-chat__message-options {
+      grid-area: options;
+      align-items: start;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+      width: calc(3 * var(--str-chat__message-options-button-size));
+
+      .str-chat__message-actions-box-button,
+      .str-chat__message-reply-in-thread-button,
+      .str-chat__message-reactions-button {
+        @include utils.flex-row-center;
+        cursor: pointer;
+        width: var(--str-chat__message-options-button-size);
+        height: var(--str-chat__message-options-button-size);
+      }
+
+      .str-chat__message-actions-box-button,
+      .str-chat__message-actions-container {
+        position: relative;
+      }
+    }
+
+    .str-chat__message-reactions-host {
+      grid-area: reactions;
+    }
+
+    .str-chat__message-bubble {
+      grid-area: message-bubble;
+      position: relative;
+      min-width: 0;
+
+      .str-chat__message-text {
+        @include chat-bubble-spacing;
+
+        p {
+          white-space: pre-line;
+        }
+      }
+    }
+  }
+
+  &.str-chat__message--me .str-chat__message-inner {
+    grid-template-areas:
+      'reactions reactions'
+      'options message-bubble';
+    grid-template-columns: 1fr auto;
+
+    .str-chat__message-options {
+      flex-direction: row;
+    }
+  }
+
+  .str-chat__message-metadata {
+    grid-area: metadata;
+    display: flex;
+    align-items: center;
+    column-gap: var(--str-chat__spacing-1);
+    margin-block-start: var(--str-chat__spacing-0_5);
+  }
+
+  .str-chat__message-status {
+    @include utils.flex-row-center;
+    column-gap: var(--str-chat__spacing-0_5);
+    position: relative;
+
+    svg {
+      width: calc(var(--str-chat__spacing-px) * 15);
+      height: calc(var(--str-chat__spacing-px) * 15);
+    }
+  }
+
+  .str-chat__message-replies-count-button-wrapper {
+    grid-area: replies;
+
+    button {
+      cursor: pointer;
+      padding: 0;
+    }
+  }
+
+  .str-chat__message--deleted-inner {
+    @include chat-bubble-spacing;
+  }
+
+  .str-chat__quoted-message-bubble {
+    @include chat-bubble-spacing;
+    display: flex;
+    column-gap: var(--str-chat__spacing-1);
+    min-width: 0;
+    width: 100%;
+  }
+
+  // Fixes emoji display in Chrome on non-retina display (only detected in Angular SDK) https://bugs.chromium.org/p/chromium/issues/detail?id=596223
+  .str-chat__emoji-display-fix {
+    display: inline-block;
+    width: 1.25em;
+  }
+
+  .str-chat__message-error-icon {
+    display: none;
+  }
+
+  .str-chat__simple-message--error-failed {
+    cursor: pointer;
+  }
+
+  &.str-chat__message--error,
+  &.str-chat__message--failed {
+    $icon-size: calc(var(--str-chat__spacing-px) * 18);
+
+    .str-chat__message-error-icon {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      inset-inline-end: calc(-1 * calc(#{$icon-size} / 2));
+
+      svg {
+        width: $icon-size;
+        height: $icon-size;
+      }
+    }
+  }
+}
+
+.str-chat__li {
+  &:hover {
+    .str-chat__message-options {
+      display: flex;
+    }
+  }
+}
+
+.str-chat__message-inner {
+  .str-chat__message-options {
+    display: none;
+  }
+
+  .str-chat__message-edit-in-progress.str-chat__message-options {
+    display: flex;
+  }
+}
+
+.str-chat__message--other .str-chat__message-inner {
+  margin-inline-end: calc(var(--str-chat__message-options-button-size) * 3);
+}
+
+.str-chat__li:hover {
+  .str-chat__message--other .str-chat__message-inner {
+    margin-inline-end: 0;
+  }
+}
+
+.str-chat__message--me .str-chat__message-inner {
+  margin-inline-start: calc(var(--str-chat__message-options-button-size) * 3);
+}
+
+.str-chat__li:hover {
+  .str-chat__message--me .str-chat__message-inner {
+    margin-inline-start: 0;
+  }
+}
+
+.str-chat__li--middle,
+.str-chat__li--top {
+  .str-chat__message {
+    margin-block-end: var(--str-chat__spacing-0_5);
+
+    .str-chat__message-metadata {
+      display: none;
+    }
+
+    // > selector added to not hide sender of inline replies
+    > .str-chat__message-sender-avatar {
+      visibility: hidden;
+    }
+  }
+}
+
+.str-chat__li--bottom,
+.str-chat__li--single {
+  .str-chat__message {
+    margin-block-end: var(--str-chat__spacing-2);
+  }
+}
+
+.str-chat__date-separator {
+  display: flex;
+  padding: var(--str-chat__spacing-8);
+  align-items: center;
+
+  &-line {
+    flex: 1;
+    height: var(--str-chat__spacing-px);
+  }
+
+  > * {
+    &:not(:last-child) {
+      margin-right: var(--str-chat__spacing-4);
+    }
+  }
+}
+
+.str-chat__message {
+  .str-chat__quoted-message-preview {
+    margin-block-end: var(--str-chat__spacing-2);
+  }
+}
+
+.str-chat__message--system {
+  width: 100%;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+.str-chat__quoted-message-preview {
+  .str-chat__quoted-message-bubble {
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: var(--str-chat__spacing-1);
+    flex-basis: min-content;
+  }
+}
+
+.str-chat__message-input {
+  .str-chat__quoted-message-preview {
+    --str-chat__message-max-width: var(--str-chat__quoted-message-inside-message-input-max-width);
+
+    .str-chat__quoted-message-bubble {
+      max-height: var(--str-chat__quoted-message-inside-message-input-max-height);
+
+      .str-chat__quoted-message-text {
+        max-height: 100%;
+        min-height: 0;
+
+        p {
+          max-height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+      }
+    }
+  }
+}

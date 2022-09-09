@@ -1,0 +1,11 @@
+@use '../utils';
+
+.str-chat__list-notifications {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  row-gap: var(--str-chat__spacing-1);
+  margin: var(--str-chat__spacing-1_5);
+  width: auto;
+}

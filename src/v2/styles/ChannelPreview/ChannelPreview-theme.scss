@@ -1,0 +1,108 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__channel-preview-border-radius: 0;
+
+  /* The text/icon color of the component */
+  --str-chat__channel-preview-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__channel-preview-background-color: transparent;
+
+  /* Top border of the component */
+  --str-chat__channel-preview-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-preview-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-preview-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-preview-border-inline-end: none;
+
+  /* Background color used for selected channel preview components */
+  --str-chat__channel-preview-active-background-color: var(--str-chat__surface-color);
+
+  /* Background color used for the hover state */
+  --str-chat__channel-preview-hover-background-color: var(--str-chat__secondary-surface-color);
+
+  /* Text color of the latest message when preview is not hovered or selected */
+  --str-chat__channel-preview-latest-message-secondary-color: var(
+    --str-chat__text-low-emphasis-color
+  );
+
+  /* The color of the loading indicator while initializing the channel list */
+  --str-chat__channel-preview-loading-state-color: var(--str-chat__disabled-color);
+
+  /* The background color of the unread badge */
+  --str-chat__channel-preview-unread-badge-background-color: var(--str-chat__unread-badge-color);
+
+  /* The color of the unread badge */
+  --str-chat__channel-preview-unread-badge-color: var(--str-chat__on-unread-badge-color);
+
+  /* The border radius used for the borders of the unread badge */
+  --str-chat__channel-preview-unread-badge-border-radius: var(--str-chat__border-radius-circle);
+
+  /* Top border of the unread badge */
+  --str-chat__channel-preview-unread-badge-border-block-start: none;
+
+  /* Bottom border of the unread badge */
+  --str-chat__channel-preview-unread-badge-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the unread badge */
+  --str-chat__channel-preview-unread-badge-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the unread badge */
+  --str-chat__channel-preview-unread-badge-border-inline-end: none;
+}
+
+.str-chat__channel-preview {
+  @include utils.component-layer-overrides('channel-preview');
+
+  &--active,
+  &-messenger--active {
+    background-color: var(--str-chat__channel-preview-active-background-color);
+  }
+
+  &:hover {
+    background-color: var(--str-chat__channel-preview-hover-background-color);
+  }
+
+  .str-chat__channel-preview-end-first-row {
+    @include utils.channel-preview-display-name-theme;
+
+    .str-chat__channel-preview-unread-badge {
+      @include utils.component-layer-overrides('channel-preview-unread-badge');
+      font-size: 80%;
+    }
+
+    .str-chat__channel-preview-messenger--last-message {
+      font: var(--str-chat__body-text);
+      color: var(--str-chat__channel-preview-latest-message-secondary-color);
+    }
+
+    &--active,
+    &:hover {
+      .str-chat__channel-preview-messenger--last-message {
+        color: var(--str-chat__channel-preview-color);
+      }
+    }
+  }
+}
+
+.str-chat__channel-preview-loading {
+  @include utils.loading-animation;
+
+  .str-chat__loading-channels-avatar,
+  .str-chat__loading-channels-username,
+  .str-chat__loading-channels-status {
+    @include utils.loading-item-background('channel-preview');
+  }
+
+  .str-chat__loading-channels-username,
+  .str-chat__loading-channels-status {
+    border-radius: var(--str-chat__border-radius-xs);
+  }
+}

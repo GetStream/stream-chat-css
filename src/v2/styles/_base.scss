@@ -1,0 +1,29 @@
+.str-chat {
+  box-sizing: border-box;
+
+  * {
+    font-family: var(--str-chat__font-family);
+    box-sizing: border-box;
+  }
+
+  // Overriding styles of ngx-popperjs
+  .ngxp__container {
+    z-index: 1;
+    margin: -8px !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+
+    .ngxp__arrow {
+      display: none !important;
+    }
+  }
+}
+
+// Fixes icon sizing problem in Angular SDK
+stream-icon,
+stream-icon-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

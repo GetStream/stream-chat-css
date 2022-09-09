@@ -1,0 +1,418 @@
+@use '../utils';
+
+.str-chat {
+  /* The margin applied to every attachment in the attachment list */
+  --str-chat__attachment-margin: var(--str-chat__spacing-0_5);
+
+  /* The maximum allowed width and height of attachments, in case of gallery images this is the maximum size of the whole gallery (not just for a single image inside the gallery). In case of Angular, there are some [constraints](https://getstream.io/chat/docs/sdk/angular/components/AttachmentListComponent/#maximum-size) for the acceptable values you can provide for this variable. */
+  --str-chat__attachment-max-width: unset;
+
+  /* The height of scraped images, the default value is optimized for 1.91:1 aspect ratio */
+  --str-chat__scraped-image-height: unset;
+
+  /* The height of scraped videos, the default value is optimized for 16:9 aspect ratio */
+  --str-chat__scraped-video-height: unset;
+
+  /* The height of GIFs */
+  --str-chat__gif-height: calc(var(--str-chat__spacing-px) * 200);
+
+  /* The height of videos, the default value is the mase as `--str-chat__attachment-max-width`. In Angular SDK this is the maximum height, the video can be smaller based on the aspect ratio */
+  --str-chat__video-height: unset;
+}
+
+.str-chat__attachment-list {
+  --str-chat__attachment-max-width: calc(
+    var(--str-chat__message-max-width) - calc(2 * var(--str-chat__attachment-margin))
+  );
+
+  --str-chat__video-height: var(--str-chat__attachment-max-width);
+
+  --str-chat__scraped-image-height: calc(var(--str-chat__attachment-max-width) * calc(1 / 1.91));
+
+  --str-chat__scraped-video-height: calc(var(--str-chat__attachment-max-width) * calc(9 / 16));
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+
+  .str-chat__message-attachment--card {
+    .str-chat__message-attachment-card--header {
+      position: relative;
+    }
+
+    .str-chat__message-attachment-card--source-link {
+      padding-bottom: var(--str-chat__spacing-2);
+    }
+
+    .str-chat__message-attachment-card--text {
+      @include utils.ellipsis-text();
+    }
+  }
+
+  .str-chat__message-attachment--image,
+  .str-chat__message-attachment--video,
+  .str-chat__message-attachment-card--header {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  // Scraped images
+  .str-chat__message-attachment-card--header {
+    height: var(--str-chat__scraped-image-height);
+
+    img {
+      object-fit: cover;
+      max-height: 100%;
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      cursor: default;
+    }
+  }
+
+  // image enlargement available in React SDK only
+  .str-chat__message-attachment-card-react--header {
+    img {
+      cursor: zoom-in;
+    }
+  }
+
+  .str-chat__message-attachment-card--giphy {
+    .str-chat__message-attachment-card--header {
+      height: var(--str-chat__gif-height);
+
+      img {
+        object-fit: contain;
+        max-height: 100%;
+        max-width: 100%;
+        cursor: default;
+      }
+    }
+
+    // image enlargement available in React SDK only
+    .str-chat__message-attachment-card-react--header {
+      img {
+        cursor: zoom-in;
+      }
+    }
+  }
+
+  // Images uploaded from files
+  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card) {
+    img {
+      // CDN resize requires max-width and height/max-height to be present on this element
+      max-width: var(--str-chat__attachment-max-width);
+      max-height: var(--str-chat__attachment-max-width);
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      cursor: zoom-in;
+    }
+  }
+
+  // Video files: uploaded from files and scraped
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card),
+  .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
+    max-width: var(--str-chat__attachment-max-width);
+    display: flex;
+
+    .str-chat__player-wrapper {
+      height: 100%;
+      width: 100%;
+      min-width: 0;
+
+      .react-player,
+      .str-chat__video-angular {
+        height: 100%;
+        width: 100%;
+        // CDN resize requires max-width to be present on this element
+        max-width: var(--str-chat__attachment-max-width);
+      }
+    }
+  }
+
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card):not(.str-chat__message-attachment-dynamic-size) {
+    height: var(--str-chat__video-height);
+  }
+
+  .str-chat__message-attachment--video.str-chat__message-attachment-dynamic-size:not(.str-chat__message-attachment--card) {
+    max-height: var(--str-chat__video-height);
+
+    .str-chat__video-angular {
+      // CDN resize requires max-height to be present on this element
+      max-height: var(--str-chat__video-height);
+    }
+  }
+
+  .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
+    height: var(--str-chat__scraped-video-height);
+  }
+
+  .str-chat__message-attachment--video:not(.str-chat__message-attachment--card),
+  .str-chat__message-attachment--image:not(.str-chat__message-attachment--card) {
+    margin: var(--str-chat__attachment-margin);
+  }
+
+  .str-chat__message-attachment--gallery {
+    $max-width: var(--str-chat__attachment-max-width);
+    margin: var(--str-chat__attachment-margin);
+
+    .str-chat__gallery {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      overflow: hidden;
+      // Safari needs this
+      width: fit-content;
+      gap: var(--str-chat__spacing-0_5);
+      max-width: $max-width;
+      // CDN resize requires height/max-height to be present on the img element, this rule ensures that
+      height: var(--str-chat__attachment-max-width);
+
+      &.str-chat__gallery-two-rows {
+        grid-template-rows: 50% 50%;
+      }
+
+      .str-chat__gallery-image {
+        padding: 0;
+        margin: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          cursor: zoom-in;
+          // CDN resize requires max-width to be present on this element
+          max-width: $max-width;
+        }
+      }
+
+      .str-chat__gallery-placeholder {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: top left;
+        background-repeat: no-repeat;
+        margin: 0;
+        cursor: zoom-in;
+        // CDN resize requires max-width to be present on this element
+        max-width: $max-width;
+
+        p {
+          position: relative;
+          z-index: 1;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        }
+      }
+    }
+  }
+
+  .str-chat__gallery .str-chat__message-attachment--svg-image,
+  .str-chat__message-attachment--image.str-chat__message-attachment--svg-image {
+    $padding: var(--str-chat__spacing-6);
+    padding: $padding;
+
+    img {
+      object-fit: contain;
+      // CDN resize requires max-width and height/max-height to be present on this element
+      max-width: calc(var(--str-chat__attachment-max-width) - #{$padding});
+      max-height: calc(var(--str-chat__attachment-max-width) - #{$padding});
+    }
+  }
+
+  .str-chat__message-attachment-file--item,
+  .str-chat__message-attachment-audio-widget {
+    @include utils.flex-row-center;
+    padding: var(--str-chat__spacing-2);
+    column-gap: var(--str-chat__spacing-4);
+    margin: var(--str-chat__attachment-margin);
+
+    .str-chat__message-attachment-file--item-text,
+    .str-chat__message-attachment-audio-widget--text {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      row-gap: var(--str-chat__spacing-0_5);
+      min-width: 0;
+
+      .str-chat__message-attachment-file--item-first-row,
+      .str-chat__message-attachment-audio-widget--text-first-row {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: var(--str-chat__spacing-2);
+
+        .str-chat__message-attachment-file--item-name,
+        .str-chat__message-attachment-audio-widget--title {
+          @include utils.ellipsis-text;
+          min-width: 0;
+        }
+
+        .str-chat__message-attachment-download-icon {
+          svg {
+            width: calc(var(--str-chat__spacing-px) * 24);
+            height: calc(var(--str-chat__spacing-px) * 16);
+          }
+        }
+      }
+    }
+  }
+
+  .str-chat__message-attachment-file--item {
+    .str-chat__file-icon {
+      width: calc(var(--str-chat__spacing-px) * 34);
+    }
+  }
+
+  .str-chat__message-attachment-audio-widget {
+    .str-chat__message-attachment-audio-widget--play-controls {
+      @include utils.flex-row-center();
+    }
+
+    .str-chat__message-attachment-audio-widget--progress-track {
+      max-width: calc(var(--str-chat__spacing-px) * 120);
+    }
+
+    .str-chat__message-attachment-audio-widget--text-second-row {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      grid-column-gap: var(--str-chat__spacing-5);
+      padding-top: var(--str-chat__spacing-2_5);
+
+      .str-chat__message-attachment-file--item-size {
+        line-height: calc(var(--str-chat__spacing-px) * 14);
+      }
+    }
+  }
+
+  .str-chat__message-attachment-audio-widget--progress-track {
+    position: relative;
+    height: calc(var(--str-chat__spacing-px) * 5);
+    flex: 1;
+    cursor: pointer;
+
+    .str-chat__message-attachment-audio-widget--progress-indicator {
+      position: absolute;
+      inset-inline-start: 0;
+      height: inherit;
+    }
+  }
+
+  .str-chat__message-attachment-audio-widget--play-button {
+    @include utils.flex-row-center();
+    height: calc(var(--str-chat__spacing-px) * 36);
+    width: calc(var(--str-chat__spacing-px) * 36);
+    cursor: pointer;
+    z-index: 1;
+
+    svg {
+      width: var(--str-chat__spacing-3);
+    }
+  }
+
+  .str-chat__message-attachment-card {
+    min-width: 0;
+    max-width: var(--str-chat__attachment-max-width);
+    margin: var(--str-chat__attachment-margin);
+
+    .str-chat__message-attachment-card--content {
+      padding: var(--str-chat__spacing-2_5);
+
+      .str-chat__message-attachment-card--title {
+        @include utils.ellipsis-text;
+      }
+    }
+  }
+
+  .str-chat__message-attachment-card--audio {
+    .str-chat__message-attachment-card--content {
+      padding: 0;
+
+      .str-chat__message-attachment-card-audio-widget {
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--str-chat__spacing-2_5);
+        width: 100%;
+        padding: var(--str-chat__spacing-2);
+
+        .str-chat__message-attachment-card-audio-widget--first-row {
+          display: flex;
+          align-items: center;
+          column-gap: var(--str-chat__spacing-3_5);
+        }
+      }
+    }
+  }
+
+  .str-chat__message-attachment-actions {
+    .str-chat__message-attachment-actions-form {
+      display: flex;
+      justify-content: stretch;
+
+      .str-chat__message-attachment-actions-button {
+        cursor: pointer;
+        width: 100%;
+        padding: var(--str-chat__spacing-3) var(--str-chat__spacing-4);
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .str-chat__message-attachment-with-actions.str-chat__message-attachment--giphy {
+    .str-chat__message-attachment-card {
+      .str-chat__message-attachment-card--content {
+        display: none;
+      }
+    }
+  }
+}
+
+.str-chat__quoted-message-preview {
+  /* stylelint-disable-next-line length-zero-no-unit */
+  --str-chat__attachment-margin: 0px;
+
+  * {
+    cursor: pointer !important;
+  }
+
+  .str-chat__message-attachment-card {
+    .str-chat__message-attachment-card--source-link,
+    .str-chat__message-attachment-card--content {
+      display: none;
+    }
+  }
+
+  .str-chat__message-attachment-file--item-download {
+    display: none;
+  }
+}
+
+.str-chat__message {
+  .str-chat__quoted-message-preview {
+    .str-chat__message-attachment-file--item {
+      padding: 0;
+    }
+  }
+}
+
+.str-chat__attachment-list-angular-host {
+  min-width: 0;
+}

@@ -1,0 +1,221 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius of the component */
+  --str-chat__message-input-border-radius: 0;
+
+  /* The text/icon color of the component */
+  --str-chat__message-input-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__message-input-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component */
+  --str-chat__message-input-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__message-input-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__message-input-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__message-input-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__message-input-box-shadow: none;
+
+  /* The text/icon color of the dropzone container */
+  --str-chat__dropzone-container-color: var(--str-chat__on-primary-color);
+
+  /* The background color of the dropzone container */
+  --str-chat__dropzone-container-background-color: var(--str-chat__primary-overlay-color);
+
+  /* The backdrop filter applied to the dropzone container */
+  --str-chat__dropzone-container-backdrop-filter: blur(3px);
+
+  /* The border radius used for the borders of the textarea */
+  --str-chat__message-textarea-border-radius: var(--str-chat__border-radius-md);
+
+  /* The text/icon color of the textarea */
+  --str-chat__message-textarea-color: var(--str-chat__text-color);
+
+  /* The background color of the textarea */
+  --str-chat__message-textarea-background-color: transparent;
+
+  /* Top border of the textarea */
+  --str-chat__message-textarea-border-block-start: 1px solid var(--str-chat__surface-color);
+
+  /* Bottom border of the textarea */
+  --str-chat__message-textarea-border-block-end: 1px solid var(--str-chat__surface-color);
+
+  /* Left (right in RTL layout) border of the textarea */
+  --str-chat__message-textarea-border-inline-start: 1px solid var(--str-chat__surface-color);
+
+  /* Right (left in RTL layout) border of the textarea */
+  --str-chat__message-textarea-border-inline-end: 1px solid var(--str-chat__surface-color);
+
+  /* Box shadow applied to the textarea */
+  --str-chat__message-textarea-box-shadow: none;
+
+  /* The border radius used for the borders of the send button */
+  --str-chat__message-send-border-radius: var(--str-chat__border-radius-circle);
+
+  /* The text/icon color of the send button */
+  --str-chat__message-send-color: var(--str-chat__primary-color);
+
+  /* The background color of the send button */
+  --str-chat__message-send-background-color: transparent;
+
+  /* Top border of the send button */
+  --str-chat__message-send-border-block-start: 0;
+
+  /* Bottom border of the send button */
+  --str-chat__message-send-border-block-end: 0;
+
+  /* Left (right in RTL layout) border of the send button */
+  --str-chat__message-send-border-inline-start: 0;
+
+  /* Right (left in RTL layout) border of the send button */
+  --str-chat__message-send-border-inline-end: 0;
+
+  /* Box shadow applied to the send button */
+  --str-chat__message-send-box-shadow: none;
+
+  /* The color of the send button in disabled state */
+  --str-chat__message-send-disabled-color: var(--str-chat__disabled-color);
+
+  /* The background color of the send button in disabled state */
+  --str-chat__message-send-disabled-background-color: transparent;
+
+  /* The border radius used for the borders of the tool buttons of the message input (such as attachment upload button) */
+  --str-chat__message-input-tools-border-radius: var(--str-chat__border-radius-circle);
+
+  /* The text/icon color of the tool buttons of the message input (such as attachment upload button) */
+  --str-chat__message-input-tools-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color of the tool buttons of the message input (such as attachment upload button) */
+  --str-chat__message-input-tools-background-color: transparent;
+
+  /* Top border of the tool buttons of the message input (such as attachment upload button) */
+  --str-chat__message-input-tools-border-block-start: 0;
+
+  /* Bottom border of the tool buttons of the message input (such as attachment upload button) */
+  --str-chat__message-input-tools-border-block-end: 0;
+
+  /* Left (right in RTL layout) border of the tool buttons of the message input (such as attachment upload button) */
+  --str-chat__message-input-tools-border-inline-start: 0;
+
+  /* Right (left in RTL layout) border of the tool buttons of the message input (such as attachment upload button) */
+  --str-chat__message-input-tools-border-inline-end: 0;
+
+  /* Box shadow applied to the tool buttons of the message input (such as attachment upload button) */
+  --str-chat__message-input-tools-box-shadow: none;
+
+  /* Thex text color of the message that is displayed when the use can't send messages */
+  --str-chat__message-input-not-allowed-color: var(--str-chat__disabled-color);
+
+  /* The border radius used for the borders of the cooldown timer */
+  --str-chat__cooldown-border-radius: var(--str-chat__border-radius-circle);
+
+  /* The text/icon color of the cooldown timer */
+  --str-chat__cooldown-color: var(--str-chat__on-disabled-color);
+
+  /* The background color of the cooldown timer */
+  --str-chat__cooldown-background-color: var(--str-chat__disabled-color);
+
+  /* Top border of the cooldown timer */
+  --str-chat__cooldown-border-block-start: 0;
+
+  /* Bottom border of the cooldown timer */
+  --str-chat__cooldown-border-block-end: 0;
+
+  /* Left (right in RTL layout) border of the cooldown timer */
+  --str-chat__cooldown-border-inline-start: 0;
+
+  /* Right (left in RTL layout) border of the cooldown timer */
+  --str-chat__cooldown-border-inline-end: 0;
+
+  /* Box shadow applied to the cooldown timer */
+  --str-chat__cooldown-box-shadow: none;
+}
+
+.str-chat__message-input {
+  @include utils.component-layer-overrides('message-input');
+
+  .str-chat__dropzone-container {
+    background-color: var(--str-chat__dropzone-container-background-color);
+    color: var(--str-chat__dropzone-container-color);
+    backdrop-filter: var(--str-chat__dropzone-container-backdrop-filter);
+    font: var(--str-chat__subtitle-text);
+  }
+
+  .str-chat__file-input-container {
+    @include utils.component-layer-overrides('message-input-tools');
+
+    svg path {
+      fill: var(--str-chat__message-input-tools-color);
+    }
+  }
+
+  .str-chat__attachment-preview-image-error {
+    svg path {
+      fill: var(--str-chat__primary-color);
+    }
+  }
+
+  .str-chat__message-textarea-container {
+    @include utils.component-layer-overrides('message-textarea');
+
+    .str-chat__message-textarea {
+      resize: none;
+      border: none;
+      color: var(--str-chat__message-textarea-color);
+      background-color: transparent;
+      box-shadow: none;
+      outline: none;
+      font: var(--str-chat__subtitle-text);
+    }
+  }
+
+  .str-chat__send-button {
+    @include utils.component-layer-overrides('message-send');
+
+    svg path {
+      fill: var(--str-chat__message-send-color);
+    }
+
+    &:disabled {
+      background-color: var(--str-chat__message-send-disabled-background-color);
+
+      svg path {
+        fill: var(--str-chat__message-send-disabled-color);
+      }
+    }
+  }
+
+  .str-chat__message-input-cooldown {
+    @include utils.component-layer-overrides('cooldown');
+    font: var(--str-chat__subtitle-medium-text);
+  }
+
+  .str-chat__message-input-not-allowed {
+    color: var(--str-chat__message-input-not-allowed-color);
+    font: var(--str-chat__subtitle-text);
+  }
+
+  .str-chat__quoted-message-preview-header {
+    .str-chat__quoted-message-reply-to-message {
+      font: var(--str-chat__subtitle-medium-text);
+    }
+
+    .str-chat__quoted-message-remove {
+      background-color: transparent;
+      border: none;
+
+      svg path {
+        fill: var(--str-chat__message-input-tools-color);
+      }
+    }
+  }
+}

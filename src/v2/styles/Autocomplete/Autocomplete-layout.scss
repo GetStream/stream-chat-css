@@ -1,0 +1,64 @@
+@use '../utils';
+
+// Class defined by Angular mentions
+// !important necessary to override library defined styles
+.mention-menu {
+  padding: var(--str-chat__spacing-2) 0 !important;
+  margin: 0 !important;
+  min-width: 50%;
+
+  .mention-item {
+    padding: 0 !important;
+  }
+}
+
+// React SDK's version of Angular SDK's .dropup (mention-list)
+.str-chat__suggestion-list-container {
+  position: absolute;
+  bottom: var(--str-chat__spacing-7);
+  width: 100%;
+  padding: var(--str-chat__spacing-2) 0;
+
+  .str-chat__suggestion-list {
+    max-height: calc(var(--str-chat__spacing-px) * 320);
+
+    display: flex;
+    flex-direction: column;
+
+    list-style: none;
+    padding: unset;
+    margin: unset;
+  }
+}
+
+.str-chat__slash-command {
+  padding: var(--str-chat__spacing-2_5);
+
+  .str-chat__slash-command-header {
+    .str-chat__slash-command-args {
+      margin-inline-start: var(--str-chat__spacing-2);
+    }
+  }
+}
+
+.str-chat__user-item {
+  @include utils.flex-row-center;
+  padding: var(--str-chat__spacing-2_5);
+  column-gap: var(--str-chat__spacing-2);
+
+  .str-chat__user-item--name {
+    @include utils.ellipsis-text;
+    width: 100%;
+  }
+}
+
+.str-chat__emoji-item {
+  @include utils.flex-row-center;
+  padding: var(--str-chat__spacing-2_5);
+  column-gap: var(--str-chat__spacing-2);
+
+  .str-chat__emoji-item--name {
+    @include utils.ellipsis-text;
+    width: 100%;
+  }
+}

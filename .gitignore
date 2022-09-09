@@ -106,3 +106,12 @@ dist
 # IDEs
 .idea
 .vscode
+
+# Generated docs
+docs/**/*.mdx
+!docs/theming/introduction.mdx
+
+# Mac
+.DS_Store
+
+.sass-cache

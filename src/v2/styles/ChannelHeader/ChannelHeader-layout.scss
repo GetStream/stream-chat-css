@@ -1,0 +1,23 @@
+@use '../utils';
+
+.str-chat__channel-header {
+  @include utils.header-layout;
+
+  // Only visible in theme-v1
+  .str-chat__header-hamburger {
+    display: none;
+  }
+
+  .str-chat__channel-header-end {
+    @include utils.header-text-layout;
+
+    p {
+      margin: 0;
+    }
+
+    .str-chat__channel-header-title,
+    .str-chat__channel-header-info {
+      @include utils.ellipsis-text;
+    }
+  }
+}

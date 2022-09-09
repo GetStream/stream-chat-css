@@ -1,0 +1,82 @@
+@use '../utils';
+
+@mixin channel-preview-layout {
+  display: flex;
+  column-gap: var(--str-chat__spacing-2);
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: var(--str-chat__spacing-3) var(--str-chat__spacing-2);
+  margin: 0;
+  text-align: start;
+}
+
+@mixin channel-preview-end-layout {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--str-chat__spacing-0_5);
+  width: 100%;
+}
+
+// Unread badge will be bigger than channel name -> this would cause a layout shift when the unread badge appears -> this trick won't let the unread badge to increase the height of the container avoiding the layout shift
+@mixin unread-badge-layout-fix {
+  .str-chat__channel-preview-end-first-row {
+    height: var(--str-chat__unread-badge-height);
+  }
+}
+
+.str-chat__channel-preview {
+  @include channel-preview-layout;
+  cursor: pointer;
+
+  .str-chat__channel-preview-end {
+    @include channel-preview-end-layout;
+    @include utils.ellipsis-text-parent;
+
+    .str-chat__channel-preview-end-first-row {
+      display: flex;
+      column-gap: var(--str-chat__spacing-1);
+      align-items: center;
+
+      .str-chat__channel-preview-unread-badge {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 var(--str-chat__spacing-2);
+      }
+
+      .str-chat__channel-preview-messenger--name {
+        width: 100%;
+      }
+    }
+
+    .str-chat__channel-preview-messenger--name,
+    .str-chat__channel-preview-messenger--last-message {
+      @include utils.ellipsis-text;
+      min-width: 0;
+
+      p {
+        @include utils.ellipsis-text;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.str-chat__channel-preview-loading {
+  @include channel-preview-layout;
+
+  .str-chat__channel-preview-end-loading {
+    @include channel-preview-end-layout;
+  }
+
+  .str-chat__loading-channels-username {
+    height: calc(var(--str-chat__spacing-px) * 16);
+    width: calc(var(--str-chat__spacing-px) * 66);
+  }
+
+  .str-chat__loading-channels-status {
+    height: calc(var(--str-chat__spacing-px) * 16);
+    width: 100%;
+  }
+}

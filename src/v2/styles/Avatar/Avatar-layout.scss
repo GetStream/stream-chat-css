@@ -1,0 +1,13 @@
+.str-chat__avatar {
+  .str-chat__avatar-fallback {
+    text-align: center;
+    height: inherit;
+    width: inherit;
+  }
+}
+
+.str-chat__loading-channels-avatar {
+  flex-shrink: 0;
+  width: calc(var(--str-chat__spacing-px) * 49);
+  height: calc(var(--str-chat__spacing-px) * 49);
+}

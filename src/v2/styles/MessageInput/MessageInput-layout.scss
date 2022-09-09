@@ -1,0 +1,186 @@
+@use '../utils';
+
+.str-chat__message-input {
+  $send-button-size: calc(var(--str-chat__spacing-px) * 45);
+
+  @include utils.flex-col-center;
+  width: 100%;
+  padding: var(--str-chat__spacing-1) var(--str-chat__spacing-2);
+
+  position: relative;
+
+  .str-chat__quoted-message-preview-header {
+    @include utils.flex-row-center;
+    width: 100%;
+
+    .str-chat__quoted-message-reply-to-message {
+      width: 100%;
+      text-align: center;
+    }
+
+    .str-chat__quoted-message-remove {
+      width: calc(var(--str-chat__spacing-px) * 40);
+      height: calc(var(--str-chat__spacing-px) * 40);
+      cursor: pointer;
+    }
+  }
+
+  .str-chat__dropzone-container {
+    @include utils.flex-row-center;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+
+    p {
+      margin: unset;
+    }
+  }
+
+  .str-chat__message-input-inner {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    .str-chat__file-input-container {
+      @include utils.flex-row-center;
+      width: calc(var(--str-chat__spacing-px) * 45);
+      height: calc(var(--str-chat__spacing-px) * 45);
+      cursor: pointer;
+
+      .str-chat__file-input {
+        display: none;
+      }
+
+      .str-chat__file-input-label {
+        @include utils.flex-row-center;
+        cursor: pointer;
+      }
+    }
+
+    .str-chat__message-textarea-container {
+      @include utils.flex-col-center;
+      width: 100%;
+      min-width: 0;
+      max-height: 100%;
+
+      .str-chat__message-textarea-with-emoji-picker {
+        width: 100%;
+        min-height: 0;
+        max-height: 100%;
+        display: flex;
+        padding: var(--str-chat__spacing-2) var(--str-chat__spacing-4);
+        column-gap: var(--str-chat__spacing-2);
+
+        .str-chat__message-textarea {
+          width: 100%;
+          display: flex;
+          max-height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+          padding: 0;
+        }
+
+        .str-chat__message-textarea-emoji-picker {
+          @include utils.flex-row-center;
+          width: calc(var(--str-chat__spacing-px) * 27);
+          height: calc(var(--str-chat__spacing-px) * 27);
+          font-size: calc(var(--str-chat__spacing-px) * 27);
+          align-self: end;
+
+          .str-chat__message-textarea-emoji-picker-container {
+            z-index: 5;
+
+            .str-chat__emoji-picker-container {
+              display: flex;
+            }
+          }
+
+          .str-chat__emoji-picker-button {
+            @include utils.unset-button;
+            display: flex;
+            cursor: pointer;
+
+            svg {
+              width: calc(var(--str-chat__spacing-px) * 24);
+              height: calc(var(--str-chat__spacing-px) * 24);
+
+              path {
+                fill: var(--str-chat__message-input-tools-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .str-chat__message-textarea-angular-host {
+    @include utils.flex-row-center;
+    width: 100%;
+  }
+
+  .str-chat__message-textarea-react-host {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .str-chat__send-button {
+    @include utils.flex-row-center;
+    cursor: pointer;
+    padding: 0;
+    width: $send-button-size;
+    height: $send-button-size;
+    min-width: $send-button-size;
+
+    svg {
+      width: calc(var(--str-chat__spacing-px) * 32);
+      height: calc(var(--str-chat__spacing-px) * 32);
+    }
+  }
+
+  .str-chat__message-input-cooldown {
+    @include utils.flex-row-center;
+    margin-inline-start: var(--str-chat__spacing-2);
+    margin-block: calc(var(--str-chat__spacing-2) / 2);
+    min-width: calc(#{$send-button-size} - var(--str-chat__spacing-2));
+    min-height: calc(#{$send-button-size} - var(--str-chat__spacing-2));
+  }
+
+  .str-chat__message-input-not-allowed {
+    align-self: center;
+    padding: var(--str-chat__spacing-3);
+  }
+
+  .str-chat__quoted-message-preview {
+    padding: var(--str-chat__spacing-2);
+  }
+}
+
+.str-chat__message-input-angular-host {
+  max-height: 50%;
+}
+
+.str-chat-angular__message-input {
+  height: 100%;
+  max-height: 100%;
+}
+
+.str-chat-angular__message-input-inner {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  flex-grow: initial;
+}
+
+[dir='rtl'] .str-chat__send-button {
+  svg {
+    transform: scale(-1, 1);
+  }
+}
