@@ -29,10 +29,14 @@ $video-width: 300px;
   .str-chat__player-wrapper {
     padding-top: 0;
     position: static;
+    // CDN resize requires to have max-height/height and max-width set on this element - React
+    max-height: $max-height;
+    max-width: $video-width;
 
-    .str-chat__video-angular {
+    .str-chat__video-angular,
+    .react-player {
       position: static;
-      // CDN resize requires to have max-height/height and max-width set on this element
+      // CDN resize requires to have max-height/height and max-width set on this element - Angular
       max-height: $max-height;
       max-width: $video-width;
     }
