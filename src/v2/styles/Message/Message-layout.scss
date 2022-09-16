@@ -71,6 +71,7 @@
     grid-template-areas:
       'avatar message'
       '. replies'
+      '. translation-notice'
       '. metadata';
     column-gap: var(--str-chat__spacing-2);
     grid-template-columns: auto 1fr;
@@ -81,6 +82,7 @@
     grid-template-areas:
       'message'
       'replies'
+      'translation-notice'
       'metadata';
     justify-items: end;
 
@@ -163,6 +165,16 @@
 
     .str-chat__message-options {
       flex-direction: row;
+    }
+  }
+
+  .str-chat__translation-notice {
+    grid-area: translation-notice;
+
+    button {
+      cursor: pointer;
+      padding: var(--str-chat__spacing-1) 0;
+      margin: 0;
     }
   }
 
