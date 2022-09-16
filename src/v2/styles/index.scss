@@ -3,6 +3,7 @@
 @use 'global-theme-variables';
 
 @use 'vendor/emoji-mart.scss';
+@use 'vendor/react-image-gallery';
 
 @use 'common/CTAButton/CTAButton-theme';
 @use 'common/CircleFAButton/CircleFAButton-theme';
@@ -33,4 +34,3 @@
 @use 'Tooltip/Tooltip-theme';
 @use 'TypingIndicator/TypingIndicator-theme';
 
-@use '../../vendor/react-image-gallery';
