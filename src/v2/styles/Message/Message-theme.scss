@@ -165,6 +165,12 @@
 
   /* Box shadow applied to a date separator */
   --str-chat__date-separator-box-shadow: none;
+
+  /* The text color of the translation notice that is displayed if a message is translated with auto-translation */
+  --str-chat__translation-notice-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The hover color of the translation notice that is displayed if a message is translated with auto-translation */
+  --str-chat__translation-notice-active-background-color: var(--str-chat__tertiary-surface-color);
 }
 
 .str-chat__message--system {
@@ -233,6 +239,20 @@
     .str-chat__message-reactions-button:active {
       .str-chat__message-action-icon path {
         fill: var(--str-chat__message-options-active-color);
+      }
+    }
+  }
+
+  .str-chat__translation-notice {
+    button {
+      font: var(--str-chat__body2-text);
+      color: var(--str-chat__translation-notice-color);
+      border: none;
+      background: none;
+
+      &:active,
+      &:hover {
+        background: var(--str-chat__translation-notice-active-background-color);
       }
     }
   }
