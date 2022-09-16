@@ -4,7 +4,7 @@
   /* The margin applied to every attachment in the attachment list */
   --str-chat__attachment-margin: var(--str-chat__spacing-0_5);
 
-  /* The maximum allowed width and height of attachments, in case of gallery images this is the maximum size of the whole gallery (not just for a single image inside the gallery). In case of Angular, there are some [constraints](https://getstream.io/chat/docs/sdk/angular/components/AttachmentListComponent/#maximum-size) for the acceptable values you can provide for this variable. */
+  /* The maximum allowed width and height of attachments, in case of gallery images this is the maximum size of the whole gallery (not just for a single image inside the gallery). There are some constraints for the acceptable values you can provide for this variable, [Angular documentation](https://getstream.io/chat/docs/sdk/angular/components/AttachmentListComponent/#maximum-size), [React documentation](https://getstream.io/chat/docs/sdk/react/message-components/attachment/#image-and-video-sizing). */
   --str-chat__attachment-max-width: unset;
 
   /* The height of scraped images, the default value is optimized for 1.91:1 aspect ratio */
@@ -117,20 +117,23 @@
   // Video files: uploaded from files and scraped
   .str-chat__message-attachment--video:not(.str-chat__message-attachment--card),
   .str-chat__message-attachment-card--video .str-chat__message-attachment-card--header {
-    max-width: var(--str-chat__attachment-max-width);
+    $maxWidth: var(--str-chat__attachment-max-width);
+    max-width: $maxWidth;
     display: flex;
 
     .str-chat__player-wrapper {
       height: 100%;
       width: 100%;
       min-width: 0;
+      // CDN resize requires max-width to be present on this element - React
+      max-width: $maxWidth;
 
       .react-player,
       .str-chat__video-angular {
         height: 100%;
         width: 100%;
-        // CDN resize requires max-width to be present on this element
-        max-width: var(--str-chat__attachment-max-width);
+        // CDN resize requires max-width to be present on this element - Angular
+        max-width: $maxWidth;
       }
     }
   }
@@ -140,11 +143,17 @@
   }
 
   .str-chat__message-attachment--video.str-chat__message-attachment-dynamic-size:not(.str-chat__message-attachment--card) {
-    max-height: var(--str-chat__video-height);
+    $maxHeight: var(--str-chat__video-height);
+    max-height: $maxHeight;
+
+    .str-chat__player-wrapper {
+      // CDN resize requires max-height to be present on this element - React
+      max-height: $maxHeight;
+    }
 
     .str-chat__video-angular {
-      // CDN resize requires max-height to be present on this element
-      max-height: var(--str-chat__video-height);
+      // CDN resize requires max-height to be present on this element - Angular
+      max-height: $maxHeight;
     }
   }
 
