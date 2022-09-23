@@ -14,7 +14,7 @@
     var(--str-chat__message-max-width) - calc(2 * var(--str-chat__attachment-margin))
   );
 
-  /* The height of videos, the default value is the mase as `--str-chat__attachment-max-width`. In Angular SDK this is the maximum height, the video can be smaller based on the aspect ratio */
+  /* The maximum height of videos, the default value is the mase as `--str-chat__attachment-max-width`. The rendered video can be smaller based on the aspect ratio */
   --str-chat__video-height: var(--str-chat__attachment-max-width);
 
   /* The height of scraped images, the default value is optimized for 1.91:1 aspect ratio */
