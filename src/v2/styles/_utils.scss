@@ -186,3 +186,11 @@
 @mixin channel-preview-display-name-theme {
   font: var(--str-chat__subtitle-medium-text);
 }
+
+@mixin clamped-height-from-original-image-dimensions($max-height-css-var, $max-width-css-var) {
+  height: min(
+    var(#{$max-height-css-var}),
+    min(var(#{$max-width-css-var}, Infinity) / var(--original-width, Infinity), 1px) *
+      var(--original-height, Infinity)
+  );
+}
