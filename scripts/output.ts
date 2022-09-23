@@ -3,24 +3,39 @@ import prettier from 'prettier';
 import type { VariableGroup, VariableInfo } from './parser';
 import * as packagejson from '../package.json'
 
-type Column = {name: string, key: keyof VariableInfo | 'usedIn', type: 'code' | 'text'};
+type Column = {name: string, key: keyof VariableInfo | 'usedIn', type: 'code' | 'text' | 'values'};
 type Group = {name: string, regexp: RegExp, columns: Column[], definedIn?: Function};
 
 const row = (v: VariableInfo, group: Group) => {
   const usedIn = [...v.referencedIn].map(componentThemeLink).join(', ');
   const info = {...v, usedIn};
-  return dedent`${group.columns.map(c => `| ${c.type === 'code' ? '\`' : ''}${info[c.key] || ''}${c.type === 'code' ? '\`' : ''}`).join('')}|`;
+  return dedent`${group.columns.map(c => `| ${getColumn(c, info)}`).join('')}|`
 };
+
+const getColumn = (column: Column, info: VariableInfo & {usedIn?: string}) => {
+  if (column.type === 'values') {
+    return getValuesColumn(info);
+  } else {
+    return getTextOrCodeColumn(column, info);
+  }
+}
+
+const getValuesColumn = (info: VariableInfo & {usedIn?: string}) => {
+  return `<table>${info.values.map(v => `<tr><th>\`${v.scope}\`</th></tr><tr><td>\`${v.value}\`</td></tr>`).join('')}</table>`;
+}
+
+const getTextOrCodeColumn = (column: Column, info: VariableInfo & {usedIn?: string}) => {
+  return `${column.type === 'code' ? '\`' : ''}${info[column.key] || ''}${column.type === 'code' ? '\`' : ''}`
+}
 
 export const getGlobalVariablesOutput = (data: Map<string, VariableInfo>, type: 'theme' | 'layout') => {
   const nameColumn: Column = {name: 'Name', key: 'name', type: 'code'};
-  const valueColumn: Column = {name: 'Value', key: 'value', type: 'code'};
-  const valueDarkColumn: Column = {name: 'Value (dark mode)', key: 'valueDarkMode', type: 'code'};
+  const valueColumn: Column = {name: 'Value(s)', key: 'values', type: 'values'};
   const descriptionColumn: Column = {name: 'Description', key: 'description', type: 'text'};
   const usedInColumn: Column = {name: 'Used in', key: 'usedIn', type: 'text'}
   
   const groups = [
-    {name: 'Colors', regexp: /color/, columns: [nameColumn, valueColumn, valueDarkColumn, descriptionColumn, usedInColumn]},
+    {name: 'Colors', regexp: /color/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
     {name: 'Typography', regexp: /(__font|-text)/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
     {name: 'Spacing', regexp: /spacing/, columns: [nameColumn, valueColumn, descriptionColumn]},
     {name: 'Radius', regexp: /__border-radius/, columns: [nameColumn, valueColumn, descriptionColumn, usedInColumn]},
@@ -59,7 +74,7 @@ export const getGlobalVariablesOutput = (data: Map<string, VariableInfo>, type: 
 
 export const getComponentVariablesOutput = (data: Map<string, VariableInfo>) => {
   const nameColumn: Column = {name: 'Name', key: 'name', type: 'code'};
-  const valueColumn: Column = {name: 'Value', key: 'value', type: 'code'};
+  const valueColumn: Column = {name: 'Value(s)', key: 'values', type: 'values'};
   const descriptionColumn: Column = {name: 'Description', key: 'description', type: 'text'};
 
   const subgroupDefinitions = [
@@ -108,13 +123,13 @@ export const getComponentVariablesOutput = (data: Map<string, VariableInfo>) => 
 };
 
 export const getPaletteVariablesOutput = (data: Map<string, VariableInfo>) => {
-  const row = (v: VariableInfo) => {
-    return `| \`${v.name}\` | \`${v.value}\` |`;
+  const row = (variableInfo: VariableInfo) => {
+    return `| \`${variableInfo.name}\` | ${getValuesColumn(variableInfo)} |`;
   };
   const rows = Array.from(data.values()).map(row);
 
   let output = dedent`  
-  | Name | Value |
+  | Name | Value(s) |
   |------|-------|
   ${rows.join('\n')}`;
 

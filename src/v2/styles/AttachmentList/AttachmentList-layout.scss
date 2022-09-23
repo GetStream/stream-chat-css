@@ -4,31 +4,23 @@
   /* The margin applied to every attachment in the attachment list */
   --str-chat__attachment-margin: var(--str-chat__spacing-0_5);
 
-  /* The maximum allowed width and height of attachments, in case of gallery images this is the maximum size of the whole gallery (not just for a single image inside the gallery). There are some constraints for the acceptable values you can provide for this variable, [Angular documentation](https://getstream.io/chat/docs/sdk/angular/components/AttachmentListComponent/#maximum-size), [React documentation](https://getstream.io/chat/docs/sdk/react/message-components/attachment/#image-and-video-sizing). */
-  --str-chat__attachment-max-width: unset;
-
-  /* The height of scraped images, the default value is optimized for 1.91:1 aspect ratio */
-  --str-chat__scraped-image-height: unset;
-
-  /* The height of scraped videos, the default value is optimized for 16:9 aspect ratio */
-  --str-chat__scraped-video-height: unset;
-
   /* The height of GIFs */
   --str-chat__gif-height: calc(var(--str-chat__spacing-px) * 200);
-
-  /* The height of videos, the default value is the mase as `--str-chat__attachment-max-width`. In Angular SDK this is the maximum height, the video can be smaller based on the aspect ratio */
-  --str-chat__video-height: unset;
 }
 
 .str-chat__attachment-list {
+  /* The maximum allowed width and height of attachments, in case of gallery images this is the maximum size of the whole gallery (not just for a single image inside the gallery). There are some constraints for the acceptable values you can provide for this variable, [Angular documentation](https://getstream.io/chat/docs/sdk/angular/components/AttachmentListComponent/#maximum-size), [React documentation](https://getstream.io/chat/docs/sdk/react/message-components/attachment/#image-and-video-sizing). */
   --str-chat__attachment-max-width: calc(
     var(--str-chat__message-max-width) - calc(2 * var(--str-chat__attachment-margin))
   );
 
+  /* The height of videos, the default value is the mase as `--str-chat__attachment-max-width`. In Angular SDK this is the maximum height, the video can be smaller based on the aspect ratio */
   --str-chat__video-height: var(--str-chat__attachment-max-width);
 
+  /* The height of scraped images, the default value is optimized for 1.91:1 aspect ratio */
   --str-chat__scraped-image-height: calc(var(--str-chat__attachment-max-width) * calc(1 / 1.91));
 
+  /* The height of scraped videos, the default value is optimized for 16:9 aspect ratio */
   --str-chat__scraped-video-height: calc(var(--str-chat__attachment-max-width) * calc(9 / 16));
 
   display: flex;
