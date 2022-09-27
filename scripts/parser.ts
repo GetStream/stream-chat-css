@@ -15,8 +15,7 @@ export type VariableGroup = {
 
 export type VariableInfo = {
   name: string;
-  value: string;
-  valueDarkMode?: string;
+  values: {scope: string, value: string}[];
   theme?: string;
   description?: string;
   definedIn?: VariableGroup;
@@ -57,19 +56,13 @@ export const extractVariables = (fromGlob: string, dependencies?: Map<string, Va
       ruleSet.descendantsOfType('declaration').forEach(node => {
         const identifier = node.text;
         if (identifier.startsWith('--str-chat')) {
-          const currentVariable = extractVariableInfo(node, variableGroup);
+          const currentVariable = extractVariableInfo(node, variableGroup, ruleSet.firstChild?.text || '');
           const seenVariable = componentVariables.get(currentVariable.name);
           if (!seenVariable) {
             // we see this variable for a very first time, store it in the map
             componentVariables.set(currentVariable.name, currentVariable);
           } else {
-            // we see the variable declared again, most likely due to theming override
-            // update the values of the already stored variable accordingly: (dark -> light, light -> dark).
-            if (seenVariable.theme !== 'dark' && currentVariable.theme === 'dark') {
-              seenVariable.valueDarkMode = currentVariable.value;
-            } else if (seenVariable.theme !== 'light' && currentVariable.theme === 'light') {
-              seenVariable.value = currentVariable.value;
-            }
+            seenVariable.values.push(...currentVariable.values);
           }
         }
 
@@ -94,7 +87,7 @@ export const extractVariables = (fromGlob: string, dependencies?: Map<string, Va
   return componentVariables;
 };
 
-const extractVariableInfo = (node: SyntaxNode, variableGroup: VariableGroup): VariableInfo => {
+const extractVariableInfo = (node: SyntaxNode, variableGroup: VariableGroup, scope: string): VariableInfo => {
   // nodes in format: <name>: <value-1> <value-2> ... ;
   const [name, _, ...declValues] = node.children;
   const value = declValues
@@ -108,8 +101,7 @@ const extractVariableInfo = (node: SyntaxNode, variableGroup: VariableGroup): Va
   const theme = detectTheme(node);
   return {
     name: name.text.trim(),
-    value,
-    valueDarkMode: theme === 'dark' ? value : undefined,
+    values: [{scope: scope.replace(/\n/g, ''), value}],
     theme,
     description,
     definedIn: variableGroup,
