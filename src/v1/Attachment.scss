@@ -1,11 +1,21 @@
-.str-chat__attachment {
-  max-width: 450px;
+@mixin clamped-height-from-original-image-dimensions($max-height-css-var, $max-width-css-var) {
+  height: min(
+    var(#{$max-height-css-var}),
+    min(var(#{$max-width-css-var}, Infinity) / var(--original-width, Infinity), 1px) *
+      var(--original-height, Infinity)
+  );
 }
 
-$video-width: 300px;
+.str-chat__attachment,
+.str-chat__message-attachment {
+  --attachment-max-width: 450px;
+  --video-width: 300px;
+
+  max-width: var(--attachment-max-width);
+}
 
 .str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
-  width: $video-width;
+  width: var(--video-width);
 }
 
 .str-chat__player-wrapper {
@@ -22,23 +32,27 @@ $video-width: 300px;
 }
 
 .str-chat__message-attachment-dynamic-size {
-  $max-height: 300px;
+  --video-max-height: 300px;
 
-  max-height: $max-height;
+  max-height: var(--video-max-height);
 
   .str-chat__player-wrapper {
+    @include clamped-height-from-original-image-dimensions(
+      '--video-max-height',
+      '--attachment-max-width'
+    );
     padding-top: 0;
     position: static;
     // CDN resize requires to have max-height/height and max-width set on this element - React
-    max-height: $max-height;
-    max-width: $video-width;
+    max-height: var(--video-max-height);
+    max-width: var(--attachment-max-width);
 
     .str-chat__video-angular,
     .react-player {
       position: static;
       // CDN resize requires to have max-height/height and max-width set on this element - Angular
-      max-height: $max-height;
-      max-width: $video-width;
+      max-height: var(--video-max-height);
+      max-width: var(--attachment-max-width);
     }
   }
 }
@@ -56,8 +70,8 @@ $video-width: 300px;
 
 .str-chat__message {
   &-attachment {
+    --attachment-max-width: 375px;
     width: 100%;
-    max-width: 375px;
 
     border-radius: var(--border-radius);
     margin: var(--xs-m) auto var(--xs-m) 0;
@@ -79,7 +93,7 @@ $video-width: 300px;
 
 .str-chat__message-team.thread-list {
   .str-chat__message-attachment {
-    max-width: 200px;
+    --attachment-max-width: 200px;
   }
 }
 
@@ -187,9 +201,9 @@ $video-width: 300px;
   }
 
   &--image {
-    height: auto;
-    max-height: 300px;
-    max-width: 100%;
+    --image-max-height: 300px;
+    max-height: var(--image-max-height);
+    max-width: var(--attachment-max-width);
     border-radius: 0;
 
     &:hover {
@@ -197,7 +211,10 @@ $video-width: 300px;
     }
 
     img {
-      height: inherit;
+      @include clamped-height-from-original-image-dimensions(
+        '--image-max-height',
+        '--attachment-max-width'
+      );
       width: auto;
       max-height: inherit;
       display: block;
