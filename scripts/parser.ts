@@ -30,7 +30,6 @@ export const extractVariables = (fromGlob: string, dependencies?: Map<string, Va
 
   const componentVariables = new Map<string, VariableInfo>();
   const files = glob.sync(fromGlob);
-  console.log(files);
   files.forEach((file) => {
     const [, componentName] = file.split(/.*\/(.*)-(theme|layout|variables)\.scss$/);
     // sass fails to resolve the `../utils` file for some reason, therefore
