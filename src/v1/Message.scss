@@ -443,11 +443,11 @@
   }
 
   &-attachment {
+    --attachment-max-width: 480px;
+
     &--img {
       width: 100%;
-      max-width: 480px;
       display: block;
-      height: inherit;
       cursor: -moz-zoom-in;
       cursor: -webkit-zoom-in;
       cursor: zoom-in;
@@ -552,7 +552,6 @@
           // CDN resize requires max-width to be set on this element
           max-width: inherit;
           display: block;
-          height: inherit;
           object-fit: cover;
           border: none;
         }
@@ -862,8 +861,8 @@
         flex-direction: row-reverse;
       }
 
-      .str-chat__message-attachment--image {
-        max-width: 460px;
+      .str-chat__message-attachment {
+        --attachment-max-width: 460px;
       }
 
       &-text-inner {
@@ -1212,20 +1211,20 @@
 }
 
 @media screen and (max-width: 375px) {
-  .str-chat__message .str-chat__message-attachment--img {
-    max-width: 235px;
+  .str-chat__message .str-chat__message-attachment {
+    --attachment-max-width: 235px;
   }
 }
 
 @media screen and (max-width: 414px) {
-  .str-chat__message .str-chat__message-attachment--img {
-    max-width: 274px;
+  .str-chat__message .str-chat__message-attachment {
+    --attachment-max-width: 235px;
   }
 }
 
 @media only screen and (device-width: 375px) and (-webkit-device-pixel-ratio: 3) {
-  .str-chat__message .str-chat__message-attachment--img {
-    max-width: 240px;
+  .str-chat__message .str-chat__message-attachment {
+    --attachment-max-width: 235px;
   }
 }
 
