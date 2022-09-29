@@ -73,8 +73,8 @@ export const extractVariables = (fromGlob: string, dependencies?: Map<string, Va
           const matches = value.match(/var\(([\w\s,-]+)\)/g);
           if (matches) {
             matches.forEach((match) => {
-              // capture the variable name, e.g.: "var(--xl-p)" -> "--xl-p"
-              const [, variable] = match.match(/var\(([\w\s-]+)\)/)!;
+              // capture the variable name, e.g.: "var(--xl-p)" -> "--xl-p", "var(--xl-p, 8px)" -> "--xl-p"
+              const [, variable] = match.match(/var\(([\w\s-]+)(\)|,)/)!;
               const dependantVariable = dependencies.get(variable.trim());
               dependantVariable?.referencedIn.add(componentName);
             });
