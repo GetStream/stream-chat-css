@@ -56,8 +56,7 @@ $video-width: 300px;
     max-width: 375px;
 
     border-radius: var(--border-radius);
-    margin: var(--xs-m) auto var(--xs-m) 0;
-    padding: 0;
+    padding: var(--xs-m) auto var(--xs-m) 0;
   }
 
   /** Let giphies stretch their containers */
@@ -65,10 +64,13 @@ $video-width: 300px;
     max-width: unset;
   }
 
+  .str-chat__message-attachment {
+    margin: var(--xs-m) 0 var(--xs-m) auto;
+  }
+
   &--me {
     .str-chat__message-attachment {
       padding-left: 0;
-      margin: var(--xs-m) 0 var(--xs-m) auto;
     }
   }
 }

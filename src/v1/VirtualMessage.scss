@@ -3,12 +3,11 @@
   font-size: 0;
 
   .str-chat__virtual-list-message-wrapper {
-    padding: 1px var(--xl-p);
+    padding-left: var(--xl-p);
+    padding-right: var(--xl-p);
     width: 100%;
 
     .str-chat__message-simple {
-      padding-bottom: var(--sm-p);
-
       &.str-chat__virtual-message__wrapper--first {
         padding-bottom: 0;
         padding-left: var(--xl-p);
@@ -40,7 +39,6 @@
 
       &.str-chat__virtual-message__wrapper--group {
         align-items: center;
-        padding-bottom: 0;
         padding-left: var(--xl-p);
 
         &.str-chat__message-simple--me {
@@ -254,8 +252,6 @@
 }
 
 .str-chat__virtual-message__wrapper--group {
-  padding-top: 0;
-
   > .str-chat__avatar {
     display: none;
   }
