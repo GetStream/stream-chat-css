@@ -8,7 +8,6 @@
     width: 100%;
 
     .str-chat__message-simple {
-
       &.str-chat__virtual-message__wrapper--first {
         padding-bottom: 0;
         padding-left: var(--xl-p);
@@ -253,7 +252,6 @@
 }
 
 .str-chat__virtual-message__wrapper--group {
-
   > .str-chat__avatar {
     display: none;
   }
