@@ -32,7 +32,8 @@
       {
         "name": "theming2",
         "prerelease": true
-      }
+      },
+      {"name": "3.1.x", "channel": "3.1.x", "range": "3.1.x" }
     ],
     "dryRun": false,
     "plugins": [
