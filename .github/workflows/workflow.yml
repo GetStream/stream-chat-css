@@ -5,11 +5,13 @@ on:
     branches:
       - main
       - theming2
+      - 3.1.x
   pull_request:
     branches:
       - main
       - develop
       - theming2
+      - 3.1.x
 
 jobs:
   publish-release:
