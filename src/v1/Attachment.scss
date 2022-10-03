@@ -14,7 +14,8 @@
   max-width: var(--attachment-max-width);
 }
 
-.str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
+.str-chat__message-attachment.str-chat__message-attachment--video:not(.str-chat__message-attachment--card) {
+  --attachment-max-width: var(--video-width);
   width: var(--video-width);
 }
 
