@@ -123,6 +123,8 @@
       min-width: 0;
       // CDN resize requires max-width to be present on this element - React
       max-width: $maxWidth;
+      display: flex;
+      flex-direction: column;
 
       .react-player,
       .str-chat__video-angular {
@@ -130,6 +132,8 @@
         width: 100%;
         // CDN resize requires max-width to be present on this element - Angular
         max-width: $maxWidth;
+        max-height: 100%;
+        min-height: 0;
       }
     }
   }
