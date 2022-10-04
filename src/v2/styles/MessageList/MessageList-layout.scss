@@ -32,11 +32,8 @@
 
     .str-chat__thread-start {
       text-align: start;
+      padding-top: var(--str-chat__spacing-3);
     }
-  }
-
-  .str-chat__parent-message-li .str-chat__thread-start {
-    padding-top: var(--str-chat__spacing-3);
   }
 }
 
