@@ -29,4 +29,13 @@
 
 .str-chat__virtual-list {
   @include utils.component-layer-overrides('virtual-list');
+
+  .str-chat__parent-message-li {
+    border-block-end: 1px solid var(--str-chat__thread-head-start-border-block-end-color);
+
+    .str-chat__thread-start {
+      color: var(--str-chat__thread-head-start-color);
+      font: var(--str-chat__subtitle-text);
+    }
+  }
 }

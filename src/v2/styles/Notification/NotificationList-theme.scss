@@ -26,6 +26,6 @@
   --str-chat__notification-list-box-shadow: none;
 }
 
-.str-chat__list-notification-lists {
-  @include utils.component-layer-overrides('notification-list-list');
+.str-chat__list-notifications {
+  @include utils.component-layer-overrides('notification-list');
 }

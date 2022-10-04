@@ -14,6 +14,15 @@
     @include utils.message-list-spacing;
   }
 
+  .str-chat__parent-message-li {
+    padding-block-end: var(--str-chat__spacing-4);
+
+    .str-chat__thread-start {
+      text-align: start;
+      padding-top: var(--str-chat__spacing-3);
+    }
+  }
+
   // conditionally showing the header displaces items when prepending.
   // a simple workaround is to make the loading indicator an overlay.
   &__loading {
@@ -40,5 +49,17 @@
 
   .str-chat__virtual-list-message-wrapper {
     padding-block-end: var(--str-chat__spacing-0_5);
+  }
+}
+
+
+.str-chat__thread--virtualized {
+  .str-chat__main-panel-inner {
+    height: 100%;
+
+    // the first message in virtualized thread has to be separated from the top by padding, not margin
+    .str-chat__virtual-list-message-wrapper:first-of-type {
+      padding-block-start: var(--str-chat__spacing-4);
+    }
   }
 }
