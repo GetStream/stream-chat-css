@@ -89,6 +89,25 @@
     --str-chat__secondary-surface-color
   );
 
+  --str-chat__channel-search-result-list-color: var(--str-chat__text-color);
+
+  --str-chat__channel-search-result-list-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component  */
+  --str-chat__channel-search-result-list-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-result-list-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-search-result-list-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-search-result-list-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__channel-search-result-list-popup-box-shadow: 0 4px 4px var(--str-chat__box-shadow-color);
+
   /* The font color used in the search results header  */
   --str-chat__channel-search-results-header-color: var(--str-chat__text-low-emphasis-color);
 
@@ -107,6 +126,25 @@
 
   /* Right (left in RTL layout) border of the component */
   --str-chat__channel-search-results-header-border-inline-end: none;
+
+  /* The font color used in the search results loading indicator  */
+  --str-chat__channel-search-results-loading-indicator-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color used in the search results loading indicator  */
+  --str-chat__channel-search-results-loading-indicator-background-color: var(--str-chat__background-color);
+
+  /* Top border of the component  */
+  --str-chat__channel-search-results-loading-indicator-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__channel-search-results-loading-indicator-border-block-end: var(--str-chat__surface-color) 1px
+    solid;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__channel-search-results-loading-indicator-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__channel-search-results-loading-indicator-border-inline-end: none;
 
   /* The font color used in the empty search results indicator  */
   --str-chat__channel-search-results-empty-color: var(--str-chat__text-low-emphasis-color);
@@ -162,6 +200,16 @@
 }
 
 .str-chat__channel-search-result-list {
+  @include utils.component-layer-overrides('channel-search-result-list');
+
+  &.popup {
+    box-shadow: var(--str-chat__channel-search-result-list-popup-box-shadow);
+  }
+
+  .str-chat__channel-search-container-searching {
+    @include utils.component-layer-overrides('channel-search-results-loading-indicator');
+  }
+
   .str-chat__channel-search-container-empty {
     @include utils.component-layer-overrides('channel-search-results-empty');
     font: var(--str-chat__subtitle2-medium-text);
