@@ -125,3 +125,17 @@
     }
   }
 }
+
+.str-chat__channel-list.str-chat__channel-list-react {
+  overflow: hidden;
+
+  .str-chat__channel-list-messenger-react {
+    overflow: hidden;
+    padding-bottom: var(--sm-p);
+
+    .str-chat__channel-list-messenger-react__main {
+      overflow-y: auto;
+      height: 100%;
+    }
+  }
+}

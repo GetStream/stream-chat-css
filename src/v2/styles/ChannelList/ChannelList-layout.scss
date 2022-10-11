@@ -39,3 +39,17 @@
     display: none;
   }
 }
+
+
+.str-chat__channel-list-react {
+  overflow: hidden;
+
+  .str-chat__channel-list-messenger-react {
+    overflow: hidden;
+    padding-bottom: var(--str-chat__spacing-2_5);
+
+    .str-chat__channel-list-messenger-react__main {
+      overflow-y: auto;
+    }
+  }
+}
