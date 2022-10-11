@@ -4,6 +4,6 @@
   display: flex;
   padding: var(--str-chat__spacing-2);
   z-index: 1;
-  word-break: normal;
   max-width: calc(var(--str-chat__spacing-px) * 150);
+  width: max-content;
 }
