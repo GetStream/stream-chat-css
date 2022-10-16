@@ -70,6 +70,9 @@
   /* The background of the message bubble */
   --str-chat__message-bubble-background-color: var(--str-chat__secondary-surface-color);
 
+  /* The text/icon of the message bubble, if the message was sent by the user */
+  --str-chat__own-message-bubble-color: var(--str-chat__message-bubble-color);
+
   /* The background of the message bubble, if the message was sent by the user */
   --str-chat__own-message-bubble-background-color: var(--str-chat__primary-surface-color);
 
@@ -212,6 +215,7 @@
   }
 
   &.str-chat__message--me .str-chat__message-bubble {
+    color: var(--str-chat__own-message-bubble-color);
     background-color: var(--str-chat__own-message-bubble-background-color);
   }
 
