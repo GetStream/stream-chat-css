@@ -11,7 +11,7 @@
     display: flex;
 
     .str-chat__avatar {
-      margin-right: calc(var(--xs-m) * -1);
+      margin-right: calc(-1 * var(--xs-m));
 
       &:last-of-type {
         margin-right: var(--xs-m);
