@@ -24,6 +24,12 @@
 
   /* Box shadow applied to the component */
   --str-chat__avatar-box-shadow: none;
+
+  /* The color of the online indicator (only available in Angular SDK) */
+  --str-chat__avatar-online-indicator-color: var(--str-chat__info-color);
+
+  /* The border radius of the online indicator (only available in Angular SDK) */
+  --str-chat__avatar-online-indicator-border-radius: var(--str-chat__border-radius-circle);
 }
 
 .str-chat__avatar {
@@ -34,6 +40,11 @@
   .str-chat__avatar-fallback {
     @include utils.component-layer-overrides('avatar');
     text-transform: uppercase;
+  }
+
+  .str-chat__avatar--online-indicator {
+    background-color: var(--str-chat__avatar-online-indicator-color);
+    border-radius: var(--str-chat__avatar-online-indicator-border-radius);
   }
 }
 

@@ -134,6 +134,9 @@
 
   /* If a component has a box shadow applied to it, this will be the color used for the shadow */
   --str-chat__box-shadow-color: rgba(0, 0, 0, 0.18);
+
+  /* Used for online indicator and success messages */
+  --str-chat__info-color: var(--str-chat__green500);
 }
 
 .str-chat__theme-dark {
@@ -163,4 +166,5 @@
   --str-chat__opaque-surface-background-color: rgba(250, 250, 250, 0.85);
   --str-chat__opaque-surface-text-color: var(--str-chat__grey900);
   --str-chat__box-shadow-color: rgba(0, 0, 0, 0.8);
+  --str-chat__info-color: var(--str-chat__green500);
 }
