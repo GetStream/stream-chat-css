@@ -1,8 +1,18 @@
 .str-chat__avatar {
+  position: relative;
+
   .str-chat__avatar-fallback {
     text-align: center;
     height: inherit;
     width: inherit;
+  }
+
+  .str-chat__avatar--online-indicator {
+    position: absolute;
+    width: calc(var(--str-chat__spacing-px) * 12);
+    height: calc(var(--str-chat__spacing-px) * 12);
+    inset-inline-end: 3%;
+    inset-block-start: 2%;
   }
 }
 
