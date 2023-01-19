@@ -56,3 +56,11 @@
     height: auto;
   }
 }
+
+.str-chat__main-panel {
+  .str-chat__ul {
+    .str-chat__li:first-of-type {
+      padding-top: 4.5rem;
+    }
+  }
+}
