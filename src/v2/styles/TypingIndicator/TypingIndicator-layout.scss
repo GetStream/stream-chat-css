@@ -4,6 +4,10 @@
   position: static !important;
 }
 
+.str-chat__virtual-list .str-chat__typing-indicator {
+  position: static;
+}
+
 .str-chat__typing-indicator {
   padding: var(--str-chat__spacing-1_5);
   display: flex;
