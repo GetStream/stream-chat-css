@@ -251,7 +251,8 @@
 }
 
 // Message options display - default mode: they appear when .str-chat__li is hovered
-.str-chat__ul:not(.str-chat__message-options-in-bubble) {
+.str-chat__ul:not(.str-chat__message-options-in-bubble),
+.str-chat__virtual-list:not(.str-chat__message-options-in-bubble) {
   .str-chat__li {
     &:hover {
       .str-chat__message-options {
@@ -274,7 +275,8 @@
 }
 
 // Message options display - second mode: they appear when .str-chat__message-inner is hovered
-.str-chat__ul.str-chat__message-options-in-bubble {
+.str-chat__ul.str-chat__message-options-in-bubble,
+.str-chat__virtual-list.str-chat__message-options-in-bubble {
   .str-chat__message-inner {
     &:hover {
       .str-chat__message-options {
