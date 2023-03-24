@@ -340,6 +340,70 @@
     }
   }
 
+  .str-chat__message-attachment__audio-recording-widget {
+    display: grid;
+    grid-template-columns: 36px auto 55px;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--str-chat__spacing-px) * 14);
+    padding: var(--str-chat__spacing-2);
+    margin: var(--str-chat__attachment-margin);
+
+    .str-chat__message-attachment__audio-recording-widget__middle-section {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--str-chat__spacing-2);
+
+      .str-chat__message-attachment__audio-recording-widget__audio-state {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--str-chat__spacing-1_5);
+        height: 100%;
+      }
+    }
+
+    .str-chat__message-attachment__audio-recording-widget__right-section {
+      justify-self: center;
+    }
+
+    .str-chat__message-attachment__audio-recording-widget__timer {
+      width: calc(var(--str-chat__spacing-px) * 45);
+    }
+
+    .str-chat__wave-progress-bar__track {
+      position: relative;
+      flex: 1;
+      min-width: 100px;
+      max-width: 130px;
+      height: calc(var(--str-chat__spacing-px) * 25);
+      display: flex;
+      align-items: center;
+      gap: var(--str-chat__spacing-px);
+
+      $min_amplitude_height: 3px;
+
+      .str-chat__wave-progress-bar__amplitude-bar {
+        flex: 1;
+        height: calc(var(--str-cha__wave-progress-bar__amplitude-bar-height) + $min_amplitude_height); // variable set dynamically on element
+      }
+
+      .str-chat__wave-progress-bar__progress-indicator {
+        position: absolute;
+        height: calc(100% + $min_amplitude_height + 2px);
+        width: calc(var(--str-chat__spacing-px) * 6);
+      }
+    }
+  }
+
+  .str-chat__message_attachment__playback-rate-button {
+    @include utils.flex-row-center;
+    @include utils.button-reset;
+    padding: var(--str-chat__spacing-1_5) var(--str-chat__spacing-2_5);
+  }
+
   .str-chat__message-attachment-card {
     min-width: 0;
     max-width: var(--str-chat__attachment-max-width);
@@ -408,6 +472,19 @@
   .str-chat__message-attachment-card {
     .str-chat__message-attachment-card--source-link,
     .str-chat__message-attachment-card--content {
+      display: none;
+    }
+  }
+
+  .str-chat__message-attachment__audio-recording-widget {
+    display: flex;
+    justify-content: space-between;
+
+    .str-chat__wave-progress-bar__track {
+      display: none;
+    }
+
+    .str-chat__message-attachment-audio-widget--play-button {
       display: none;
     }
   }
