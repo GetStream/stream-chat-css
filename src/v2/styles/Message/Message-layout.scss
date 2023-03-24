@@ -11,7 +11,7 @@
   --str-chat__message-with-attachment-max-width: calc(var(--str-chat__spacing-px) * 300);
 
   /* The maximum allowed width of quoted messages inside the message component */
-  --str-chat__quoted-message-max-width: calc(var(--str-chat__spacing-px) * 180);
+  --str-chat__quoted-message-max-width: calc(var(--str-chat__spacing-px) * 250);
 
   /* The maximum allowed width of quoted messages inside the message input component */
   --str-chat__quoted-message-inside-message-input-max-width: calc(
