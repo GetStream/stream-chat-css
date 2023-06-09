@@ -42,6 +42,11 @@
   }
 }
 
+.str-chat__main-panel--hideOnThread + .str-chat__thread-container {
+  // occupy the whole space by previously occupied by the main message list container
+  flex: 1;
+}
+
 .str-chat__parent-message-li {
   padding: var(--str-chat__spacing-2);
 }
