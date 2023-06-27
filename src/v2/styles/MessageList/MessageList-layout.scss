@@ -62,5 +62,9 @@
     .str-chat__li:first-of-type {
       padding-top: 4.5rem;
     }
+
+    .str-chat__li:first-of-type + .str-chat__date-separator {
+      padding-top: inherit;
+    }
   }
 }
