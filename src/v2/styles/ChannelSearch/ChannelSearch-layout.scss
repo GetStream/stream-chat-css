@@ -1,11 +1,11 @@
 @use '../utils';
 
 .str-chat__channel-search {
+  $search-bar-height: 65px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  $search-bar-height: 65px;
 
   &.str-chat__channel-search--with-results.inline {
     height: 100%;
