@@ -165,8 +165,8 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     object-fit: contain;
   }
 
-  &.left,
-  &.right {
+  &.image-gallery-thumbnails-left,
+  &.image-gallery-thumbnails-right {
     .image-gallery-slide .image-gallery-image {
       max-height: 100vh;
     }
@@ -176,8 +176,8 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 .image-gallery-slide-wrapper {
   position: relative;
 
-  &.left,
-  &.right {
+  &.image-gallery-thumbnails-left,
+  &.image-gallery-thumbnails-right {
     display: inline-block;
     width: calc(100% - 110px); // 100px + 10px for margin
 
@@ -205,7 +205,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   top: 0;
   width: 100%;
 
-  &.center {
+  &.image-gallery-center {
     position: relative;
   }
 
