@@ -165,6 +165,8 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     object-fit: contain;
   }
 
+  &.left,
+  &.right,
   &.image-gallery-thumbnails-left,
   &.image-gallery-thumbnails-right {
     .image-gallery-slide .image-gallery-image {
@@ -176,6 +178,8 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 .image-gallery-slide-wrapper {
   position: relative;
 
+  &.left,
+  &.right,
   &.image-gallery-thumbnails-left,
   &.image-gallery-thumbnails-right {
     display: inline-block;
@@ -205,6 +209,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   top: 0;
   width: 100%;
 
+  &.center,
   &.image-gallery-center {
     position: relative;
   }
