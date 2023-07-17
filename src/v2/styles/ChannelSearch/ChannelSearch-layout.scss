@@ -7,11 +7,11 @@
   flex-direction: column;
   justify-content: center;
 
-  &.str-chat__channel-search--with-results.inline {
+  &.str-chat__channel-search--with-results.str-chat__channel-search--inline {
     height: 100%;
   }
 
-  &.inline {
+  &.str-chat__channel-search--inline {
     min-height: 0;
   }
 
