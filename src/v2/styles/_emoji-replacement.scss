@@ -1,5 +1,5 @@
 /* declare a font faces for our Emoji Replacement font, based on the default font used by Stream Chat React */
-$assetsPath: '../../assets';
+$assetsPath: '../../assets' !default;
 $emoji-flag-unicode-range: U+1F1E6-1F1FF;
 
 /* png based woff for most browsers */
