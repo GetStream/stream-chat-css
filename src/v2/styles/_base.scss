@@ -18,6 +18,23 @@
       display: none !important;
     }
   }
+
+  // Quick fix for: https://github.com/tonysamperi/ngx-popperjs/issues/52
+  .google-chrome {
+    popper-content {
+      .ngxp__container {
+        display: block !important;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+
+        &[aria-hidden="true"] {
+          visibility: hidden;
+        }
+      }
+    }
+  }
 }
 
 // Fixes icon sizing problem in Angular SDK
