@@ -19,10 +19,10 @@
   gap: 1rem;
 
   .str-chat__tooltip {
+    @include utils.ellipsis-text();
     display: block;
     max-width: calc(var(--str-chat__spacing-px) * 250);
     padding-inline: 0.5rem;
-    @include utils.ellipsis-text();
   }
 
   .str-chat__link-preview-card__icon-container {
