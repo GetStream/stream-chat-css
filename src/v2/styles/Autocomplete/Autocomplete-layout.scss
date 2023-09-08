@@ -20,6 +20,7 @@
   padding: var(--str-chat__spacing-2) 0;
 
   .str-chat__suggestion-list {
+    overflow-y: auto;
     max-height: calc(var(--str-chat__spacing-px) * 320);
 
     display: flex;
