@@ -30,11 +30,10 @@
     "branches": [
       "main",
       {
-        "name": "theming2",
+        "name": "rc",
         "prerelease": true
       }
     ],
-    "dryRun": false,
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
@@ -44,9 +43,7 @@
           "npmPublish": true
         }
       ],
-      [
-        "@semantic-release/github"
-      ],
+      "@semantic-release/github",
       [
         "@semantic-release/git",
         {
