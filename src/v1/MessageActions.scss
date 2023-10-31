@@ -144,3 +144,22 @@
     z-index: 2;
   }
 }
+
+.str-chat__modal.str-chat__message-actions-box--modal-overlay {
+  display: block;
+  position: absolute;
+  background: transparent;
+
+  .str-chat-react__modal__inner {
+    display: block;
+    width: unset;
+    padding: 0;
+    background: transparent;
+
+    .str-chat__message-actions-box {
+      overflow: hidden; // Avoids message action box item background overflow in hovered state
+      position: static;
+      display: block;
+    }
+  }
+}
