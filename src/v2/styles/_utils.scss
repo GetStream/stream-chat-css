@@ -34,6 +34,11 @@
   text-overflow: ellipsis;
 }
 
+@mixin prevent-glitch-text-overflow {
+  // Prevent glitch text from overflowing. See the generator: https://lingojam.com/GlitchTextGenerator
+  overflow-y: hidden;
+}
+
 @mixin scrollable {
   overflow-x: hidden;
   overflow-y: auto;
