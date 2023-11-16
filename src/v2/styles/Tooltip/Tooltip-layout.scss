@@ -1,6 +1,7 @@
 @use '../utils';
 
 .str-chat__tooltip {
+  @include utils.prevent-glitch-text-overflow;
   display: flex;
   padding: var(--str-chat__spacing-2);
   z-index: 1;

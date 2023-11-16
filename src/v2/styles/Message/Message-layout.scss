@@ -150,6 +150,10 @@
       .str-chat__message-text {
         @include chat-bubble-spacing;
 
+        .str-chat__message-text-inner {
+          @include utils.prevent-glitch-text-overflow;
+        }
+
         p {
           white-space: pre-line;
         }
@@ -184,6 +188,10 @@
     align-items: center;
     column-gap: var(--str-chat__spacing-1);
     margin-block-start: var(--str-chat__spacing-0_5);
+
+    .str-chat__message-simple-name {
+      @include utils.prevent-glitch-text-overflow;
+    }
   }
 
   .str-chat__message-status {

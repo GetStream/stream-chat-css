@@ -49,6 +49,7 @@
 
   .str-chat__user-item--name {
     @include utils.ellipsis-text;
+    @include utils.prevent-glitch-text-overflow;
     width: 100%;
   }
 }

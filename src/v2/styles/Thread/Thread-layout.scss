@@ -19,6 +19,10 @@
       .str-chat__thread-header-title {
         @include utils.ellipsis-text;
       }
+
+      .str-chat__thread-header-subtitle {
+        @include utils.prevent-glitch-text-overflow;
+      }
     }
 
     .str-chat__close-thread-button {
