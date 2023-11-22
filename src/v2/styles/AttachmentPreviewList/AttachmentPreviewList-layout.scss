@@ -26,9 +26,11 @@
   }
 
   .str-chat__attachment-preview-image {
+    @include utils.flex-row-center;
     position: relative;
     height: $preview-height;
     width: $preview-height;
+    overflow: hidden;
 
     .str-chat__attachment-preview-image-loading {
       @include overlay;
@@ -40,6 +42,15 @@
       width: $preview-height;
       word-break: break-all;
       overflow: hidden;
+    }
+
+    .str-chat__image-fallback {
+      height: 100%;
+      width: 100%;
+
+      svg {
+        width: 50%;
+      }
     }
   }
 

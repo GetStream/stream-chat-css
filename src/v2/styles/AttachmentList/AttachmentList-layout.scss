@@ -14,6 +14,14 @@
     var(--str-chat__message-max-width) - calc(2 * var(--str-chat__attachment-margin))
   );
 
+  /* The maximum allowed width for a image attachment fallback */
+  --str-chat__image-fallback-max-width: var(--str-chat__attachment-max-width);
+
+  /* The maximum allowed height for a image attachment fallback */
+  --str-chat__image-fallback-max-height: calc(
+    var(--str-chat__image-fallback-max-width) / 3 * 2
+  );
+
   /* The maximum height of videos, the default value is the mase as `--str-chat__attachment-max-width`. The rendered video can be smaller based on the aspect ratio */
   --str-chat__video-height: var(--str-chat__attachment-max-width);
 
@@ -50,6 +58,23 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+  }
+
+  .str-chat__message-attachment--image .str-chat__image-fallback {
+    @include utils.clamped-height-from-original-image-dimensions(
+                    '--str-chat__image-fallback-max-height',
+                    '--str-chat__image-fallback-max-width'
+    );
+    min-width: var(--str-chat__attachment-max-width);
+  }
+
+  .str-chat__gallery-image .str-chat__image-fallback {
+    height: 100%;
+    width: 100%;
+  }
+
+  .str-chat__image-fallback svg {
+    width: 80px;
   }
 
   // Scraped images
@@ -395,6 +420,10 @@
       }
     }
   }
+}
+
+.str-chat__image-fallback {
+  @include utils.flex-row-center;
 }
 
 .str-chat__quoted-message-preview {

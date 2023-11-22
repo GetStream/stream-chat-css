@@ -398,3 +398,11 @@
     border-end-end-radius: 0;
   }
 }
+
+.str-chat__image-fallback {
+  background-color: var(--str-chat__secondary-surface-color);
+
+  svg path {
+    fill: var(--str-chat__disabled-color);
+  }
+}
