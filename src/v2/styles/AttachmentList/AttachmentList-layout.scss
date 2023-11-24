@@ -60,11 +60,13 @@
     overflow: hidden;
   }
 
+  .str-chat__message-attachment-card--header .str-chat__image-fallback,
   .str-chat__message-attachment--image .str-chat__image-fallback {
     @include utils.clamped-height-from-original-image-dimensions(
                     '--str-chat__image-fallback-max-height',
                     '--str-chat__image-fallback-max-width'
     );
+    padding: 1rem;
     min-width: var(--str-chat__attachment-max-width);
   }
 
