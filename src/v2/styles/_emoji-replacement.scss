@@ -18,6 +18,7 @@ $emoji-flag-unicode-range: U+1F1E6-1F1FF;
 }
 
 .str-chat--windows-flags {
+  // TODO: consider adding the rule for reactions (list & selector) if we ever decide to make them use native emojis
   .str-chat__textarea__textarea,
   .str-chat__message-text-inner *,
   .str-chat__emoji-item--entity,
