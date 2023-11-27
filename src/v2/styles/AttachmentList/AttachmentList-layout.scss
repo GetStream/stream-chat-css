@@ -60,14 +60,26 @@
     overflow: hidden;
   }
 
-  .str-chat__message-attachment-card--header .str-chat__image-fallback,
-  .str-chat__message-attachment--image .str-chat__image-fallback {
-    @include utils.clamped-height-from-original-image-dimensions(
-                    '--str-chat__image-fallback-max-height',
-                    '--str-chat__image-fallback-max-width'
-    );
-    padding: 1rem;
-    min-width: var(--str-chat__attachment-max-width);
+  .str-chat__message-attachment-card--header,
+  .str-chat__message-attachment--image {
+    .str-chat__image-fallback {
+      @include utils.clamped-height-from-original-image-dimensions(
+                      '--str-chat__image-fallback-max-height',
+                      '--str-chat__image-fallback-max-width'
+      );
+      padding: 1rem;
+      min-width: var(--str-chat__attachment-max-width);
+    }
+  }
+
+  .str-chat__message-attachment-card--header,
+  .str-chat__gallery-image,
+  .str-chat__message-attachment--image {
+    .str-chat__image-fallback .str-chat__message-attachment-file--item-download {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+    }
   }
 
   .str-chat__gallery-image .str-chat__image-fallback {
@@ -75,7 +87,7 @@
     width: 100%;
   }
 
-  .str-chat__image-fallback svg {
+  .str-chat__image-fallback__icon {
     width: 80px;
   }
 
@@ -426,6 +438,7 @@
 
 .str-chat__image-fallback {
   @include utils.flex-row-center;
+  position: relative;
 }
 
 .str-chat__quoted-message-preview {
