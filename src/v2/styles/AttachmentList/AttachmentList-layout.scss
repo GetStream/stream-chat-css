@@ -79,6 +79,10 @@
       position: absolute;
       top: 0.5rem;
       right: 1rem;
+
+      .str-chat__message-attachment-download-icon path {
+        fill: var(--str-chat__text-color);
+      }
     }
   }
 
