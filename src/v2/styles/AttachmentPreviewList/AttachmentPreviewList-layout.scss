@@ -50,6 +50,10 @@
 
       .str-chat__image-fallback__icon {
         width: 50%;
+
+        svg {
+          width: 50%;
+        }
       }
 
       .str-chat__message-attachment-file--item-download {
