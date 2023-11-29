@@ -108,6 +108,7 @@
   .str-chat__attachment-preview-error {
     @include overlay;
     @include utils.unset-button(unset);
+    inset-inline-start: 0;
     cursor: pointer;
   }
 }
