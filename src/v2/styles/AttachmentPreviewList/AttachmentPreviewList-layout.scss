@@ -111,6 +111,7 @@
     @include overlay;
     @include utils.unset-button(unset);
     cursor: pointer;
+    z-index: 1;
   }
 }
 
