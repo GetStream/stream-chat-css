@@ -14,12 +14,6 @@
     var(--str-chat__message-max-width) - calc(2 * var(--str-chat__attachment-margin))
   );
 
-  /* The maximum allowed width for a image attachment fallback */
-  --str-chat__image-fallback-max-width: var(--str-chat__attachment-max-width);
-
-  /* The maximum allowed height for a image attachment fallback */
-  --str-chat__image-fallback-max-height: var(--str-chat__image-fallback-max-width);
-
   /* The maximum height of videos, the default value is the mase as `--str-chat__attachment-max-width`. The rendered video can be smaller based on the aspect ratio */
   --str-chat__video-height: var(--str-chat__attachment-max-width);
 
