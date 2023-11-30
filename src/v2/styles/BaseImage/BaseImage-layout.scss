@@ -1,9 +1,5 @@
 .str-chat__base-image {
-  &:not(.str-chat__base-image--load-failed) ~ .str-chat__message-attachment-file--item-download {
-    display: none;
-  }
-
-  &.str-chat__base-image--load-failed ~ .str-chat__message-attachment-file--item-download {
+  .str-chat__message-attachment-file--item-download {
     display: block;
   }
 }
@@ -19,7 +15,7 @@
 }
 
 .str-chat__attachment-preview-image {
-  .str-chat__base-image--load-failed  ~ .str-chat__message-attachment-file--item-download {
+  .str-chat__message-attachment-file--item-download {
       display: none;
     }
 }
