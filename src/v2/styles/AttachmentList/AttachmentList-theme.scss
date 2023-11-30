@@ -34,7 +34,7 @@
   --str-chat__image-attachment-color: var(--str-chat__text-color);
 
   /* The background color of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
-  --str-chat__image-attachment-background-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__image-attachment-background-color: var(--str-chat__secondary-surface-color);
 
   /* Top border of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
   --str-chat__image-attachment-border-block-start: none;
@@ -396,13 +396,5 @@
   .str-chat__message-attachment-card--header {
     border-end-start-radius: 0;
     border-end-end-radius: 0;
-  }
-}
-
-.str-chat__image-fallback {
-  background-color: var(--str-chat__secondary-surface-color);
-
-  svg path {
-    fill: var(--str-chat__disabled-color);
   }
 }
