@@ -1,10 +1,12 @@
 @use 'base';
 @use 'global-layout-variables';
+@use 'icons';
 
 @use 'Avatar/Avatar-layout';
 @use 'AttachmentList/AttachmentList-layout';
 @use 'AttachmentPreviewList/AttachmentPreviewList-layout';
 @use 'Autocomplete/Autocomplete-layout';
+@use 'BaseImage/BaseImage-layout';
 @use 'Channel/Channel-layout';
 @use 'ChannelHeader/ChannelHeader-layout';
 @use 'ChannelList/ChannelList-layout';

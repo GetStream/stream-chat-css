@@ -1,0 +1,21 @@
+.str-chat__base-image {
+  .str-chat__message-attachment-file--item-download {
+    display: block;
+  }
+}
+
+.str-chat__message-attachment-card--header,
+.str-chat__gallery-image,
+.str-chat__message-attachment--image {
+  .str-chat__message-attachment-file--item-download {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+  }
+}
+
+.str-chat__attachment-preview-image {
+  .str-chat__message-attachment-file--item-download {
+      display: none;
+    }
+}

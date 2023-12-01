@@ -26,9 +26,11 @@
   }
 
   .str-chat__attachment-preview-image {
+    @include utils.flex-row-center;
     position: relative;
     height: $preview-height;
     width: $preview-height;
+    overflow: hidden;
 
     .str-chat__attachment-preview-image-loading {
       @include overlay;
@@ -110,6 +112,7 @@
     @include utils.unset-button(unset);
     inset-inline-start: 0;
     cursor: pointer;
+    z-index: 1;
   }
 }
 
