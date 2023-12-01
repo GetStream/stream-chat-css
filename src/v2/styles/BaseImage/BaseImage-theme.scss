@@ -1,0 +1,35 @@
+@use '../utils';
+
+.str-chat__base-image {
+  color: transparent; // prevents the img alt text from being seen through the mask
+}
+
+.str-chat__base-image--load-failed {
+  @include utils.apply-mask-image(
+                  var(--str-chat__image-fallback-icon),
+                  var(--str-chat__disabled-color),
+                  5rem 5rem
+  );
+
+  ~ .str-chat__message-attachment-file--item-download {
+    .str-chat__message-attachment-download-icon path {
+      fill: var(--str-chat__text-color);
+    }
+  }
+}
+
+.str-chat__attachment-preview-image {
+  .str-chat__base-image--load-failed {
+    $fallbackSize: 1.5rem 1.5rem;
+    mask-size: $fallbackSize;
+    -webkit-mask-size: $fallbackSize;
+  }
+}
+
+.str-chat__attachment-preview-list .str-chat__attachment-preview-image--error {
+  background-color: var(--str-chat__secondary-surface-color);
+
+  .str-chat__attachment-preview-thumbnail.str-chat__base-image--load-failed {
+    background-color: var(--str-chat__disabled-color);
+  }
+}
