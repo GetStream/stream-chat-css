@@ -1,6 +1,6 @@
 {
   "name": "@stream-io/stream-chat-css",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "main": "dist/css/index.css",
   "description": "Bundled CSS for Stream Chat web SDKs",
   "repository": "git@github.com:GetStream/stream-chat-css.git",
