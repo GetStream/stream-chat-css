@@ -266,7 +266,7 @@
     @include utils.component-layer-overrides('image-gallery-attachment');
 
     .str-chat__gallery-image {
-      background-color: transparent;
+      background-color: var(--str-chat__image-attachment-background-color);
       border: 0;
     }
 
