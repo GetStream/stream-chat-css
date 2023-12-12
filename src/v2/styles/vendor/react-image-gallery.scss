@@ -151,6 +151,22 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   line-height: 0;
   top: 0;
 
+  .image-gallery-slide {
+    background-color: var(--str-chat__secondary-surface-color);
+
+    .str-chat__base-image--load-failed {
+      height: var(--str-chat__attachment-max-width);
+      width: var(--str-chat__attachment-max-width);
+      font-size: 0;
+    }
+
+    .str-chat__message-attachment-file--item-download {
+      position: absolute;
+      left: 0.375rem;
+      top: 0.375rem;
+    }
+  }
+
   &.fullscreen {
     background: $ig-black;
 
