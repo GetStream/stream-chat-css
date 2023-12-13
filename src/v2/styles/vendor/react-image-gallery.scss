@@ -127,6 +127,9 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   @include vendor-prefix('user-select', none);
   -webkit-tap-highlight-color: $ig-transparent;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &.fullscreen-modal {
     background: $ig-black;
