@@ -308,8 +308,16 @@
   background-color: var(--str-chat__message-highlighted-background-color);
 }
 
-.str-chat__li:hover {
+/* This rule won't be applied in browsers that don't support :has() */
+.str-chat__li:hover:not(:has(.str-chat__reaction-list:hover,.str-chat__modal--open)) {
   background-color: var(--str-chat__message-active-bacground-color);
+}
+
+/* Fallback for when :has() is unsupported */
+@supports not selector(:has(a, b)) {
+  .str-chat__li:hover {
+    background-color: var(--str-chat__message-active-bacground-color);
+  }
 }
 
 .str-chat__li--top,
