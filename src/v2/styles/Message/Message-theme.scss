@@ -375,3 +375,10 @@
     }
   }
 }
+
+.str-chat__unread-messages-separator {
+  background-color: var(--str-chat__secondary-surface-color);
+  color: var(--str-chat__text-low-emphasis-color);
+  text-transform: uppercase;
+  font: var(--str-chat__caption-strong-text);
+}
