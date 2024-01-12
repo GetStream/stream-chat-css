@@ -383,3 +383,26 @@
     }
   }
 }
+
+.str-chat__unread-messages-separator {
+  background-color: var(--str-chat__secondary-surface-color);
+  color: var(--str-chat__text-low-emphasis-color);
+  text-transform: uppercase;
+  font: var(--str-chat__caption-strong-text);
+}
+
+.str-chat__unread-messages-notification {
+  background-color: var(--str-chat__text-low-emphasis-color);
+  border-radius: 1.125rem;
+
+  button {
+    cursor: pointer;
+    color: var(--str-chat__on-primary-color);
+    border: none;
+    background-color: transparent;
+  }
+
+  button:first-of-type {
+    font: var(--str-chat__caption-text);
+  }
+}

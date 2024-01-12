@@ -30,6 +30,7 @@
     position: relative;
     height: $preview-height;
     width: $preview-height;
+    min-width: $preview-height;
     overflow: hidden;
 
     .str-chat__attachment-preview-image-loading {
