@@ -261,7 +261,8 @@
     }
   }
 
-  .str-chat__message-metadata {
+  .str-chat__message-metadata,
+  .str-chat__custom-message-metadata {
     color: var(--str-chat__message-secondary-color);
     font: var(--str-chat__caption-text);
 
@@ -309,7 +310,7 @@
 }
 
 /* This rule won't be applied in browsers that don't support :has() */
-.str-chat__li:hover:not(:has(.str-chat__reaction-list:hover,.str-chat__modal--open)) {
+.str-chat__li:hover:not(:has(.str-chat__reaction-list:hover, .str-chat__modal--open)) {
   background-color: var(--str-chat__message-active-bacground-color);
 }
 

@@ -65,7 +65,7 @@
       max-width: 90%;
       width: 90%;
       flex-basis: min-content;
-  
+
       @media only screen and (min-device-width: 768px) {
         min-width: 40%;
         max-width: 60%;
@@ -96,6 +96,9 @@
     flex-shrink: 0;
 
     .str-chat__message-reactions-details-reaction-type {
+      display: flex;
+      align-items: center;
+      padding: var(--str-chat__spacing-1) 0;
       flex-shrink: 0;
       cursor: pointer;
     }
