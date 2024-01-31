@@ -326,7 +326,8 @@
     display: none;
   }
 
-  .str-chat__message-edit-in-progress.str-chat__message-options {
+  .str-chat__message-edit-in-progress.str-chat__message-options,
+  .str-chat__message-actions-open.str-chat__message-options {
     display: flex;
   }
 }
