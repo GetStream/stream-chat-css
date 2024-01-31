@@ -22,6 +22,7 @@
 @use 'LoadingIndicator/LoadingIndicator-theme';
 @use 'Message/Message-theme';
 @use 'MessageActionsBox/MessageActionsBox-theme';
+@use 'MessageBounceOptions/MessageBounceOptions-theme';
 @use 'MessageInput/MessageInput-theme';
 @use 'MessageList/MessageList-theme';
 @use 'MessageList/VirtualizedMessageList-theme';
@@ -34,4 +35,3 @@
 @use 'Thread/Thread-theme';
 @use 'Tooltip/Tooltip-theme';
 @use 'TypingIndicator/TypingIndicator-theme';
-
