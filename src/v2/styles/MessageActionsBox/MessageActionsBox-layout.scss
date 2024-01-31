@@ -21,21 +21,10 @@
 
 .str-chat__message-actions-box:not(.str-chat__message-actions-box-angular) {
   display: none;
-  position: absolute;
   z-index: 1;
 
   &.str-chat__message-actions-box--open {
     display: block;
-  }
-
-  &.str-chat__message-actions-box--mine {
-    inset-block-end: 100%;
-    inset-inline-start: 100%;
-  }
-
-  &:not(.str-chat__message-actions-box--mine) {
-    inset-block-end: 100%;
-    inset-inline-end: 100%;
   }
 }
 
