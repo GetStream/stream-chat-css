@@ -4,6 +4,9 @@
   display: flex;
 
   .str-chat__message-reactions {
+    overflow-y: hidden;
+    overflow-x: auto;
+    scrollbar-width: none;
     list-style: none;
     display: flex;
     margin-block-start: var(--str-chat__spacing-0_5);
