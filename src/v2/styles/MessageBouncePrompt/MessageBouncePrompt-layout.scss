@@ -1,6 +1,7 @@
-.str-chat__message-bounce-options {
+.str-chat__message-bounce-prompt {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--str-chat__spacing-9);
 
   .str-chat__message-bounce-actions {
