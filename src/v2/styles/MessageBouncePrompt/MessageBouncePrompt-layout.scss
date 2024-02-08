@@ -16,10 +16,4 @@
     cursor: pointer;
     padding: var(--str-chat__spacing-2);
   }
-
-  .str-chat__quoted-message-preview {
-    .str-chat__quoted-message-bubble {
-      --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 480);
-    }
-  }
 }

@@ -48,10 +48,4 @@
   .str-chat__message-bounce-delete {
     color: var(--str-chat__message-bounce-delete-button-color);
   }
-
-  .str-chat__quoted-message-preview {
-    .str-chat__quoted-message-bubble {
-      background-color: var(--str-chat__message-bubble-background-color);
-    }
-  }
 }
