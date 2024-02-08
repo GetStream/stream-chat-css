@@ -1,6 +1,7 @@
 .str-chat__message-bounce-prompt {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--str-chat__spacing-9);
 
   .str-chat__message-bounce-actions {
@@ -14,5 +15,11 @@
   .str-chat__message-bounce-delete {
     cursor: pointer;
     padding: var(--str-chat__spacing-2);
+  }
+
+  .str-chat__quoted-message-preview {
+    .str-chat__quoted-message-bubble {
+      --str-chat__message-max-width: calc(var(--str-chat__spacing-px) * 480);
+    }
   }
 }
