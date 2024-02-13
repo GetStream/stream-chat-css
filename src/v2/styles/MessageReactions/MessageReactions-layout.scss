@@ -113,9 +113,9 @@
   }
 
   .str-chat__message-reaction-emoji-big {
+    --str-chat__stream-emoji-size: 1em;
     align-self: center;
     font-size: 2rem;
-    --str-chat__stream-emoji-size: 1em;
   }
 
   .str-chat__message-reaction-emoji-big.str-chat__message-reaction-emoji--with-fallback {
