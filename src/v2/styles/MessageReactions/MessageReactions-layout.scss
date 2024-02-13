@@ -104,12 +104,22 @@
       padding: var(--str-chat__spacing-1) 0;
       flex-shrink: 0;
       cursor: pointer;
+
+      .str-chat__message-reaction-emoji--with-fallback {
+        width: 18px;
+        line-height: 18px;
+      }
     }
   }
 
   .str-chat__message-reaction-emoji-big {
     align-self: center;
     font-size: 2rem;
+    --str-chat__stream-emoji-size: 1em;
+  }
+
+  .str-chat__message-reaction-emoji-big.str-chat__message-reaction-emoji--with-fallback {
+    line-height: 2rem;
   }
 
   .str-chat__message-reactions-details-reacting-users {
@@ -118,7 +128,11 @@
     gap: var(--str-chat__spacing-3);
     max-height: 100%;
     overflow-y: auto;
-    min-height: 0;
+    min-height: 30vh;
+
+    .str-chat__loading-indicator {
+      margin: auto;
+    }
 
     .str-chat__message-reactions-details-reacting-user {
       display: flex;
