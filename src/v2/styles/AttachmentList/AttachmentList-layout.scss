@@ -396,6 +396,12 @@
       }
     }
   }
+
+  /* Angular has different UI here, the download icon is too small to use on mobile */
+  .str-chat-angular__message-attachment-file-single {
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
 .str-chat__quoted-message-preview {
