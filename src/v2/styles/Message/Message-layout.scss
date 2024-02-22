@@ -464,3 +464,13 @@
     }
   }
 }
+
+.str-chat-angular__message-bubble {
+  /* transform: translate3d(0, 0, 0) fixes scrolling issues on iOS, see: https://stackoverflow.com/questions/50105780/elements-disappear-when-scrolling-in-safari-webkit-transform-fix-only-works-t/50144295#50144295 */
+  transform: translate3d(0, 0, 0);
+
+  &.str-chat-angular__message-bubble--attachment-modal-open {
+    /* transform: none is required when image carousel is open in order for the modal to be correctly positioned, see how the transform property changes the behavior of fixed positioned elements https://developer.mozilla.org/en-US/docs/Web/CSS/position  */
+    transform: none;
+  }
+}
