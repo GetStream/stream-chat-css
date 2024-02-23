@@ -31,11 +31,18 @@
         bottom: 0;
         opacity: 0;
 
-        &[aria-hidden="true"] {
+        &[aria-hidden='true'] {
           visibility: hidden;
         }
       }
     }
+  }
+
+  // New features are not implemented in theme-v1, corresponding HTML code is hidden
+  .str-chat__unread-messages-notification,
+  .str-chat__unread-messages-separator-wrapper,
+  .str-chat__message-bounce-prompt {
+    display: none;
   }
 }
 
