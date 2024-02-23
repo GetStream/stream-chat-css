@@ -27,11 +27,3 @@
     display: block;
   }
 }
-
-.str-chat__message-edit-in-progress {
-  .ngxp__container {
-    transform: initial !important;
-    will-change: initial !important;
-    z-index: initial;
-  }
-}

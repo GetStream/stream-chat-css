@@ -83,7 +83,7 @@
   /* group styling */
   &--top,
   &--single {
-    padding-top: calc(var(--md-p)/2);
+    padding-top: calc(var(--md-p) / 2);
 
     .str-chat__message {
       &-attachment--img,
@@ -176,7 +176,7 @@
   }
 
   &--bottom {
-    padding-bottom: calc(var(--md-p)/2);
+    padding-bottom: calc(var(--md-p) / 2);
 
     .str-chat__message {
       &-attachment--img,
@@ -217,7 +217,7 @@
   }
 
   &--single {
-    padding-bottom: calc(var(--md-m)/2);
+    padding-bottom: calc(var(--md-m) / 2);
   }
 
   &--top,
@@ -233,14 +233,16 @@
     .str-chat__message {
       &-text {
         &-inner {
-          border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+          border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
+            calc(var(--border-radius-sm) / 2);
         }
       }
 
       &--me {
         .str-chat__message-text {
           &-inner {
-            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
           }
         }
       }
@@ -251,10 +253,12 @@
     .str-chat__message {
       &-text {
         &-inner {
-          border-radius: var(--border-radius) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+          border-radius: var(--border-radius) var(--border-radius) var(--border-radius)
+            calc(var(--border-radius-sm) / 2);
 
           &--has-attachment {
-            border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+            border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius)
+              var(--border-radius) calc(var(--border-radius-sm) / 2);
           }
         }
       }
@@ -262,10 +266,12 @@
       &--me {
         .str-chat__message-text {
           &-inner {
-            border-radius: var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) var(--border-radius)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
 
             &--has-attachment {
-              border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
+              border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
+                calc(var(--border-radius-sm) / 2) var(--border-radius);
             }
           }
         }
@@ -278,14 +284,16 @@
     .str-chat__message {
       &-text {
         &-inner {
-          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius) calc(var(--border-radius-sm) / 2);
+          border-radius: calc(var(--border-radius-sm) / 2) var(--border-radius) var(--border-radius)
+            calc(var(--border-radius-sm) / 2);
         }
       }
 
       &--me {
         .str-chat__message-text {
           &-inner {
-            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
+            border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
+              calc(var(--border-radius-sm) / 2) var(--border-radius);
 
             &--has-attachment {
               margin: 0;
@@ -296,7 +304,8 @@
         .str-chat__message-attachment-card {
           margin: 0;
           padding: 0;
-          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2) calc(var(--border-radius-sm) / 2) var(--border-radius);
+          border-radius: var(--border-radius) calc(var(--border-radius-sm) / 2)
+            calc(var(--border-radius-sm) / 2) var(--border-radius);
         }
       }
     }
@@ -740,11 +749,6 @@
             border: none;
             padding: 3px 0;
           }
-        }
-
-        &--options.str-chat-angular__message-simple__actions__action--options--editing {
-          position: relative;
-          display: flex;
         }
       }
     }
