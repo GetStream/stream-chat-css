@@ -127,6 +127,9 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   @include vendor-prefix('user-select', none);
   -webkit-tap-highlight-color: $ig-transparent;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &.fullscreen-modal {
     background: $ig-black;
@@ -151,6 +154,22 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   line-height: 0;
   top: 0;
 
+  .image-gallery-slide {
+    background-color: var(--str-chat__secondary-surface-color);
+
+    .str-chat__base-image--load-failed {
+      height: var(--str-chat__attachment-max-width);
+      width: var(--str-chat__attachment-max-width);
+      font-size: 0;
+    }
+
+    .str-chat__message-attachment-file--item-download {
+      position: absolute;
+      left: 0.375rem;
+      top: 0.375rem;
+    }
+  }
+
   &.fullscreen {
     background: $ig-black;
 
@@ -166,7 +185,9 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   }
 
   &.left,
-  &.right {
+  &.right,
+  &.image-gallery-thumbnails-left,
+  &.image-gallery-thumbnails-right {
     .image-gallery-slide .image-gallery-image {
       max-height: 100vh;
     }
@@ -177,7 +198,9 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   position: relative;
 
   &.left,
-  &.right {
+  &.right,
+  &.image-gallery-thumbnails-left,
+  &.image-gallery-thumbnails-right {
     display: inline-block;
     width: calc(100% - 110px); // 100px + 10px for margin
 
@@ -205,7 +228,8 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   top: 0;
   width: 100%;
 
-  &.center {
+  &.center,
+  &.image-gallery-center {
     position: relative;
   }
 

@@ -24,7 +24,7 @@ $lighten-black: #808080;
 $lighten-grey: #858585;
 
 /* miscellaneous */
-$assetsPath: '../assets';
+$assetsPath: '../assets' !default;
 $border-radius: 16px;
 
 :root {

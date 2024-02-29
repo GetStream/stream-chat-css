@@ -9,13 +9,12 @@
   // Overriding styles of ngx-popperjs
   .ngxp__container {
     z-index: 1;
-    margin: -8px !important;
     padding: 0 !important;
     box-shadow: none !important;
-    border: none !important;
+    border-color: transparent !important;
 
     .ngxp__arrow {
-      display: none !important;
+      display: none;
     }
   }
 }

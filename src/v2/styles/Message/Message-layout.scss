@@ -72,6 +72,7 @@
       'avatar message'
       '. replies'
       '. translation-notice'
+      '. custom-metadata'
       '. metadata';
     column-gap: var(--str-chat__spacing-2);
     grid-template-columns: auto 1fr;
@@ -83,6 +84,7 @@
       'message'
       'replies'
       'translation-notice'
+      'custom-metadata'
       'metadata';
     justify-items: end;
 
@@ -150,6 +152,10 @@
       .str-chat__message-text {
         @include chat-bubble-spacing;
 
+        .str-chat__message-text-inner {
+          @include utils.prevent-glitch-text-overflow;
+        }
+
         p {
           white-space: pre-line;
         }
@@ -178,12 +184,21 @@
     }
   }
 
+  .str-chat__custom-message-metadata {
+    grid-area: custom-metadata;
+    margin-block-start: var(--str-chat__spacing-0_5);
+  }
+
   .str-chat__message-metadata {
     grid-area: metadata;
     display: flex;
     align-items: center;
     column-gap: var(--str-chat__spacing-1);
     margin-block-start: var(--str-chat__spacing-0_5);
+
+    .str-chat__message-simple-name {
+      @include utils.prevent-glitch-text-overflow;
+    }
   }
 
   .str-chat__message-status {
@@ -253,23 +268,37 @@
 // Message options display - default mode: they appear when .str-chat__li is hovered
 .str-chat__ul:not(.str-chat__message-options-in-bubble),
 .str-chat__virtual-list:not(.str-chat__message-options-in-bubble) {
-  .str-chat__li {
-    &:hover {
-      .str-chat__message-options {
-        display: flex;
-      }
+  /* This rule won't be applied in browsers that don't support :has() */
+  .str-chat__li:hover:not(:has(.str-chat__reaction-list:hover, .str-chat__modal--open)),
+  .str-chat__li:focus-within:not(:has(.str-chat__reaction-list:focus-within, .str-chat__modal--open)) {
+    .str-chat__message-options {
+      display: flex;
     }
-  }
 
-  .str-chat__li:hover {
     .str-chat__message--other .str-chat__message-inner {
       margin-inline-end: 0;
     }
-  }
 
-  .str-chat__li:hover {
     .str-chat__message--me .str-chat__message-inner {
       margin-inline-start: 0;
+    }
+  }
+
+  /* Fallback for when :has() is unsupported */
+  @supports not selector(:has(a, b)) {
+    .str-chat__li:hover,
+    .str-chat__li:focus-within {
+      .str-chat__message-options {
+        display: flex;
+      }
+
+      .str-chat__message--other .str-chat__message-inner {
+        margin-inline-end: 0;
+      }
+
+      .str-chat__message--me .str-chat__message-inner {
+        margin-inline-start: 0;
+      }
     }
   }
 }
@@ -299,7 +328,7 @@
     display: none;
   }
 
-  .str-chat__message-edit-in-progress.str-chat__message-options {
+  .str-chat__message-actions-open.str-chat__message-options {
     display: flex;
   }
 }
@@ -394,5 +423,53 @@
         }
       }
     }
+  }
+}
+
+.str-chat__unread-messages-separator-wrapper {
+  padding-block: 0.5rem;
+
+  .str-chat__unread-messages-separator {
+    @include utils.flex-row-center;
+    width: 100%;
+    padding: 0.5rem;
+  }
+}
+
+.str-chat__unread-messages-notification {
+  position: absolute;
+  top: 0.75rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  overflow: clip;
+
+  button {
+    padding-block: 0.5rem;
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  button:first-of-type {
+    padding-inline: 0.75rem 0.375rem;
+  }
+
+  button:last-of-type {
+    padding-inline: 0.375rem 0.75rem;
+
+    svg {
+      width: 0.875rem;
+    }
+  }
+}
+
+.str-chat-angular__message-bubble {
+  /* transform: translate3d(0, 0, 0) fixes scrolling issues on iOS, see: https://stackoverflow.com/questions/50105780/elements-disappear-when-scrolling-in-safari-webkit-transform-fix-only-works-t/50144295#50144295 */
+  transform: translate3d(0, 0, 0);
+
+  &.str-chat-angular__message-bubble--attachment-modal-open {
+    /* transform: none is required when image carousel is open in order for the modal to be correctly positioned, see how the transform property changes the behavior of fixed positioned elements https://developer.mozilla.org/en-US/docs/Web/CSS/position  */
+    transform: none;
   }
 }

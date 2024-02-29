@@ -35,6 +35,7 @@
 .str-chat__avatar {
   .str-chat__avatar-image {
     @include utils.component-layer-overrides('avatar');
+    display: block;
   }
 
   .str-chat__avatar-fallback {

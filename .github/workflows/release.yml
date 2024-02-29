@@ -1,0 +1,31 @@
+name: Release
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Run package release in "dry run" mode (does not publish)
+        default: false
+        type: boolean
+
+jobs:
+  package_release:
+    name: Release from "${{ github.ref_name }}" branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Build
+        run: >
+          yarn run build:ci
+      - name: Generate docs
+        run: >
+          yarn run generate-docs
+      - name: Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >
+          npx semantic-release
+          ${{ inputs.dry_run && '--dry-run' || '' }}

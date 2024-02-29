@@ -34,7 +34,7 @@
   --str-chat__image-attachment-color: var(--str-chat__text-color);
 
   /* The background color of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
-  --str-chat__image-attachment-background-color: var(--str-chat__text-low-emphasis-color);
+  --str-chat__image-attachment-background-color: var(--str-chat__secondary-surface-color);
 
   /* Top border of image/video attachments (images/videos uploaded from files, scraped media, GIFs) */
   --str-chat__image-attachment-border-block-start: none;
@@ -295,7 +295,7 @@
     @include utils.component-layer-overrides('image-gallery-attachment');
 
     .str-chat__gallery-image {
-      background-color: transparent;
+      background-color: var(--str-chat__image-attachment-background-color);
       border: 0;
     }
 

@@ -390,3 +390,9 @@
     top: 6px;
   }
 }
+
+.str-chat__message-textarea-angular-host--autocomplete-hidden {
+  mention-list  {
+    display: none;
+  }
+}

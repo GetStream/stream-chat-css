@@ -53,6 +53,7 @@
     .str-chat__channel-preview-messenger--name,
     .str-chat__channel-preview-messenger--last-message {
       @include utils.ellipsis-text;
+      @include utils.prevent-glitch-text-overflow;
       min-width: 0;
 
       p {

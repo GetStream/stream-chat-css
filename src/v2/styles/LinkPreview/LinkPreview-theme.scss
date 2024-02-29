@@ -1,0 +1,17 @@
+.str-chat__link-preview-card {
+  .str-chat__link-preview-card__content {
+    border-left: 2px solid var(--str-chat__primary-color);
+
+    .str-chat__link-preview-card__content-title {
+      font: var(--str-chat__body-medium-text);
+    }
+
+    .str-chat__link-preview-card__content-description {
+      font: var(--str-chat__caption-text);
+    }
+  }
+
+  .str-chat__link-preview-card__dismiss-button svg path {
+    fill: var(--str-chat__text-low-emphasis-color);
+  }
+}

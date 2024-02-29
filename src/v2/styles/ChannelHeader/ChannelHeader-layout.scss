@@ -19,5 +19,9 @@
     .str-chat__channel-header-info {
       @include utils.ellipsis-text;
     }
+
+    .str-chat__channel-header-title {
+      @include utils.prevent-glitch-text-overflow;
+    }
   }
 }

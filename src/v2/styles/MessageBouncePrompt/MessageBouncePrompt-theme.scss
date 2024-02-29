@@ -1,0 +1,51 @@
+@use '../utils';
+
+.str-chat {
+  /* The text color used for the edit button */
+  --str-chat__message-bounce-edit-button-color: var(--str-chat__primary-color);
+
+  /* The text color used for the send button */
+  --str-chat__message-bounce-send-button-color: var(--str-chat__primary-color);
+
+  /* The text color used for the delete button */
+  --str-chat__message-bounce-delete-button-color: var(--str-chat__primary-color);
+
+  /* The background color of the button */
+  --str-chat__message-bounce-button-background-color: transparent;
+
+  /* Top border of the button */
+  --str-chat__message-bounce-button-border-block-start: none;
+
+  /* Bottom border of the button */
+  --str-chat__message-bounce-button-border-block-end: none;
+
+  /* Left (right in RTL layout) button of the component */
+  --str-chat__message-bounce-button-border-inline-start: none;
+
+  /* Right (left in RTL layout) button of the component */
+  --str-chat__message-bounce-button-border-inline-end: none;
+
+  /* Box shadow applied to the button */
+  --str-chat__message-bounce-button-box-shadow: none;
+}
+
+.str-chat__message-bounce-prompt {
+  .str-chat__message-bounce-edit,
+  .str-chat__message-bounce-send,
+  .str-chat__message-bounce-delete {
+    @include utils.component-layer-overrides('message-bounce-button');
+    font: var(--str-chat__body-medium-text);
+  }
+
+  .str-chat__message-bounce-edit {
+    color: var(--str-chat__message-bounce-edit-button-color);
+  }
+
+  .str-chat__message-bounce-send {
+    color: var(--str-chat__message-bounce-send-button-color);
+  }
+
+  .str-chat__message-bounce-delete {
+    color: var(--str-chat__message-bounce-delete-button-color);
+  }
+}

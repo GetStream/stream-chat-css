@@ -1,11 +1,24 @@
 @use '../utils';
 
 .str-chat__channel-search {
+  $search-bar-height: 65px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &.str-chat__channel-search--with-results.str-chat__channel-search--inline {
+    height: 100%;
+  }
+
+  &.str-chat__channel-search--inline {
+    min-height: 0;
+  }
 
   .str-chat__channel-search-bar {
     @include utils.flex-row-center;
     padding: var(--str-chat__spacing-2_5);
+    height: $search-bar-height;
 
     .str-chat__channel-search-bar-button {
       @include utils.button-reset;
@@ -56,10 +69,24 @@
 
 
   .str-chat__channel-search-result-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &.inline {
+      flex: 1;
+    }
+
     &.popup {
       position: absolute;
       left: 0;
       right: 0;
+      top: $search-bar-height;
+      height: 400px;
+      // have to add z-index as since 1.2023 avatar has position relative
+      // and the ones from channel list would show above search results
+      z-index: 1;
     }
 
     .str-chat__channel-search-container-empty {
@@ -83,6 +110,11 @@
       width: 100%;
       column-gap: var(--str-chat__spacing-2);
       padding: var(--str-chat__spacing-3) var(--str-chat__spacing-2);
+
+      .channel-search__result-text,
+      .str-chat__channel-search-result--display-name {
+        @include utils.prevent-glitch-text-overflow;
+      }
     }
   }
 }

@@ -19,6 +19,10 @@
       .str-chat__thread-header-title {
         @include utils.ellipsis-text;
       }
+
+      .str-chat__thread-header-subtitle {
+        @include utils.prevent-glitch-text-overflow;
+      }
     }
 
     .str-chat__close-thread-button {
@@ -40,6 +44,11 @@
   .str-chat__thread-list {
     height: auto;
   }
+}
+
+.str-chat__main-panel--hideOnThread + .str-chat__thread-container {
+  // occupy the whole space by previously occupied by the main message list container
+  flex: 1;
 }
 
 .str-chat__parent-message-li {
