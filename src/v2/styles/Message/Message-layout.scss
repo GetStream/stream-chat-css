@@ -192,6 +192,7 @@
   .str-chat__message-metadata {
     grid-area: metadata;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     column-gap: var(--str-chat__spacing-1);
     margin-block-start: var(--str-chat__spacing-0_5);
@@ -199,6 +200,21 @@
     .str-chat__message-simple-name {
       @include utils.prevent-glitch-text-overflow;
     }
+
+    .str-chat__message-simple-time + .str-chat__mesage-simple-edited::before {
+      content: '•';
+      margin-right: var(--str-chat__spacing-1);
+    }
+
+    .str-chat__message-edited-timestamp {
+      --str-chat__message-edited-timestamp-height: 1rem;
+      flex-basis: 100%;
+    }
+  }
+
+  &.str-chat__message--me .str-chat__message-metadata {
+    justify-content: flex-end;
+    text-align: right;
   }
 
   .str-chat__message-status {
@@ -472,4 +488,21 @@
     /* transform: none is required when image carousel is open in order for the modal to be correctly positioned, see how the transform property changes the behavior of fixed positioned elements https://developer.mozilla.org/en-US/docs/Web/CSS/position  */
     transform: none;
   }
+}
+
+.str-chat__message-edited-timestamp {
+  overflow: hidden;
+  transition: height 0.1s;
+
+  &--open {
+    height: var(--str-chat__message-edited-timestamp-height, 1rem);
+  }
+
+  &--collapsed {
+    height: 0;
+  }
+}
+
+.str-chat__message-text--pointer-cursor {
+  cursor: pointer;
 }
