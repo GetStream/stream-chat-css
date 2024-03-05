@@ -341,7 +341,7 @@
     }
   }
 
-  .str-chat__message-attachment__audio-recording-widget {
+  .str-chat__message-attachment__voice-recording-widget {
     display: grid;
     grid-template-columns: 36px auto 55px;
     align-items: center;
@@ -350,14 +350,14 @@
     padding: var(--str-chat__spacing-2);
     margin: var(--str-chat__attachment-margin);
 
-    .str-chat__message-attachment__audio-recording-widget__middle-section {
+    .str-chat__message-attachment__voice-recording-widget__metadata {
       flex: 1;
       min-width: 0;
       display: flex;
       flex-direction: column;
       gap: var(--str-chat__spacing-2);
 
-      .str-chat__message-attachment__audio-recording-widget__audio-state {
+      .str-chat__message-attachment__voice-recording-widget__audio-state {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -366,33 +366,35 @@
       }
     }
 
-    .str-chat__message-attachment__audio-recording-widget__right-section {
+    .str-chat__message-attachment__voice-recording-widget__right-section {
       justify-self: center;
     }
 
-    .str-chat__message-attachment__audio-recording-widget__timer {
+    .str-chat__message-attachment__voice-recording-widget__timer {
+      min-width: calc(var(--str-chat__spacing-px) * 45);
       width: calc(var(--str-chat__spacing-px) * 45);
     }
 
     .str-chat__wave-progress-bar__track {
       position: relative;
       flex: 1;
-      min-width: 100px;
-      max-width: 130px;
+      width: 120px;
       height: calc(var(--str-chat__spacing-px) * 25);
       display: flex;
       align-items: center;
       gap: var(--str-chat__spacing-px);
 
-      $min_amplitude_height: 3px;
+      $min_amplitude_height: 2px;
 
       .str-chat__wave-progress-bar__amplitude-bar {
-        flex: 1;
+        width: 2px;
+        min-width: 2px;
         height: calc(var(--str-cha__wave-progress-bar__amplitude-bar-height) + $min_amplitude_height); // variable set dynamically on element
       }
 
       .str-chat__wave-progress-bar__progress-indicator {
         position: absolute;
+        left: 0;
         height: calc(100% + $min_amplitude_height + 2px);
         width: calc(var(--str-chat__spacing-px) * 6);
       }
@@ -483,7 +485,7 @@
     }
   }
 
-  .str-chat__message-attachment__audio-recording-widget {
+  .str-chat__message-attachment__voice-recording-widget {
     display: flex;
     justify-content: space-between;
 
