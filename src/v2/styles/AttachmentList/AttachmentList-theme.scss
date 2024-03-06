@@ -344,7 +344,11 @@
   }
 
   .str-chat__message-attachment-audio-widget--progress-track {
-    background-color: var(--str-chat__disabled-color);
+    background: linear-gradient(
+      to right,
+      var(--str-chat__primary-color)  var(--str-chat__message-attachment-audio-widget-progress),
+      var(--str-chat__disabled-color) var(--str-chat__message-attachment-audio-widget-progress)
+    );
     border-radius: calc(var(--str-chat__spacing-px) * 5);
 
     .str-chat__message-attachment-audio-widget--progress-indicator {
