@@ -201,7 +201,7 @@
       @include utils.prevent-glitch-text-overflow;
     }
 
-    .str-chat__message-simple-time + .str-chat__mesage-simple-edited::before {
+    .str-chat__message-simple-timestamp + .str-chat__mesage-simple-edited::before {
       content: '•';
       margin-right: var(--str-chat__spacing-1);
     }
