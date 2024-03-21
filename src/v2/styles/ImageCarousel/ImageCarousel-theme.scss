@@ -21,6 +21,7 @@
 .str-chat__image-carousel {
   .str-chat__image-carousel-stepper {
     cursor: pointer;
+
     svg path {
       fill: var(--str-chat__image-carousel-stepper-color);
     }
