@@ -363,12 +363,39 @@
       flex-direction: column;
       gap: var(--str-chat__spacing-2);
 
+      a {
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .str-chat__message-attachment-voice-recording-widget--first-row {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: var(--str-chat__spacing-1);
+      }
+
+      .str-chat__message-attachment-download-icon {
+        svg {
+          width: calc(var(--str-chat__spacing-px) * 24);
+          height: calc(var(--str-chat__spacing-px) * 16);
+        }
+      }
+
       .str-chat__message-attachment__voice-recording-widget__audio-state {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: var(--str-chat__spacing-1_5);
         height: 100%;
+      }
+
+      .str-chat__message-attachment__voice-recording-widget__error-message {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: var(--str-chat__spacing-1);
       }
     }
 
@@ -476,7 +503,8 @@
   }
 
   /* Angular has different UI here, the download icon is too small to use on mobile */
-  .str-chat-angular__message-attachment-file-single {
+  .str-chat-angular__message-attachment-file-single
+    .str-chat__message-attachment-file--item-first-row {
     cursor: pointer;
     text-decoration: none;
   }
