@@ -369,11 +369,18 @@
       }
 
       .str-chat__message-attachment-voice-recording-widget--first-row {
+        @include utils.ellipsis-text-parent;
+
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        column-gap: var(--str-chat__spacing-1);
+        gap: var(--str-chat__spacing-1);
+      }
+
+      .str-chat__message-attachment__voice-recording-widget__title {
+        @include utils.ellipsis-text;
+        min-width: 0;
       }
 
       .str-chat__message-attachment-download-icon {
