@@ -414,10 +414,6 @@
       width: calc(var(--str-chat__spacing-px) * 45);
     }
 
-    stream-voice-recording-wavebar {
-      flex: 1;
-    }
-
     .str-chat__wave-progress-bar__track {
       $min_amplitude_height: 2px;
       position: relative;
