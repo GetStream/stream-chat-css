@@ -72,6 +72,7 @@
         min-height: 0;
         max-height: 100%;
         display: flex;
+        align-items: center;
         padding: var(--str-chat__spacing-2) var(--str-chat__spacing-4);
         column-gap: var(--str-chat__spacing-2);
 
