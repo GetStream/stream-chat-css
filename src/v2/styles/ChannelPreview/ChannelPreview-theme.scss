@@ -56,6 +56,12 @@
 
   /* Right (left in RTL layout) border of the unread badge */
   --str-chat__channel-preview-unread-badge-border-inline-end: none;
+
+  /* The color of the message status indicator icon (only available in Angular) */
+  --str-chat__channel-preview-message-status-color: var(--str-chat__primary-color);
+
+  /* The color of the text that displays the message time (only available in Angular) */
+  --str-chat__channel-preview-message-time-color: var(--str-chat__message-secondary-color);
 }
 
 .str-chat__channel-preview {
@@ -89,6 +95,21 @@
         color: var(--str-chat__channel-preview-color);
       }
     }
+  }
+
+  .str-chat__channel-preview-messenger--status {
+    color: var(--str-chat__channel-preview-message-status-color);
+
+    svg {
+      path {
+        fill: var(--str-chat__channel-preview-message-status-color);
+      }
+    }
+  }
+
+  .str-chat__channel-preview-messenger--time {
+    color: var(--str-chat__channel-preview-message-time-color);
+    font: var(--str-chat__caption-text);
   }
 }
 
