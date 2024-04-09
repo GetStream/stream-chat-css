@@ -36,10 +36,9 @@
     .str-chat__channel-preview-end-first-row {
       display: flex;
       column-gap: var(--str-chat__spacing-1);
-      align-items: center;
+      align-items: stretch;
 
       .str-chat__channel-preview-unread-badge {
-        height: 100%;
         display: flex;
         align-items: center;
         padding: 0 var(--str-chat__spacing-2);
