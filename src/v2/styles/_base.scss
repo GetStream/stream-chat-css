@@ -6,8 +6,8 @@
     box-sizing: border-box;
   }
 
-  // Overriding styles of ngx-popperjs
-  .ngxp__container {
+  // Overriding styles of ngx-popperjs/ngx-float-ui
+  .ngxp__container, .float-ui-container {
     z-index: 1;
     padding: 0 !important;
     box-shadow: none !important;
