@@ -400,7 +400,7 @@
       .str-chat__message-attachment__voice-recording-widget__error-message {
         display: flex;
         align-items: center;
-        justify-content: start;
+        justify-content: flex-start;
         gap: var(--str-chat__spacing-1);
       }
     }

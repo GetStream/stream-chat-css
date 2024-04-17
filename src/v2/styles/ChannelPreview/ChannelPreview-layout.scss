@@ -36,10 +36,9 @@
     .str-chat__channel-preview-end-first-row {
       display: flex;
       column-gap: var(--str-chat__spacing-1);
-      align-items: center;
+      align-items: stretch;
 
       .str-chat__channel-preview-unread-badge {
-        height: 100%;
         display: flex;
         align-items: center;
         padding: 0 var(--str-chat__spacing-2);
@@ -47,6 +46,24 @@
 
       .str-chat__channel-preview-messenger--name {
         width: 100%;
+      }
+    }
+
+    .str-chat__channel-preview-end-second-row {
+      @include utils.ellipsis-text-parent;
+      display: flex;
+      column-gap: var(--str-chat__spacing-1);
+      align-items: center;
+
+      .str-chat__channel-preview-messenger--last-message {
+        flex: 1;
+      }
+
+      .str-chat__channel-preview-messenger--status {
+        svg {
+          width: calc(var(--str-chat__spacing-px) * 15);
+          height: calc(var(--str-chat__spacing-px) * 15);
+        }
       }
     }
 
