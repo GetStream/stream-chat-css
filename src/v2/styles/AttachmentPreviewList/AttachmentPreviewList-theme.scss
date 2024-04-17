@@ -107,6 +107,7 @@
     }
   }
 
+  .str-chat__attachment-preview-voice-recording,
   .str-chat__attachment-preview-file {
     @include utils.component-layer-overrides('attachment-preview-file');
 
@@ -118,6 +119,21 @@
       svg path {
         fill: var(--str-chat__attachment-preview-download-icon-color);
       }
+    }
+  }
+
+  .str-chat__attachment-preview-file {
+    .str-chat__attachment-preview-file-download {
+      svg path {
+        fill: var(--str-chat__attachment-preview-download-icon-color);
+      }
+    }
+  }
+
+  .str-chat__attachment-preview-voice-recording {
+    .str-chat__recording-timer {
+      color: var(--str-chat__text-low-emphasis-color);
+      font: var(--str-chat__caption-medium-text);
     }
   }
 

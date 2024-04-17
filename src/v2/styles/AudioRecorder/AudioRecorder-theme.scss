@@ -1,0 +1,51 @@
+@use '../utils';
+
+.str-chat__audio_recorder-container {
+  background-color: var(--str-chat__background-color);
+}
+
+.str-chat__audio_recorder {
+  //@include utils.component-layer-overrides('audio-recorder');
+
+  button {
+    @include utils.button-reset;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  .str-chat__audio_recorder__cancel-button {
+    color: var(--str-chat__text-low-emphasis-color);
+  }
+
+  .str-chat__audio_recorder__toggle-playback-button {
+    color: var(--str-chat__text-low-emphasis-color);
+  }
+
+  .str-chat__audio_recorder__pause-recording-button,
+  .str-chat__audio_recorder__resume-recording-button {
+    color: var(--str-chat__danger-color);
+  }
+
+  .str-chat__audio_recorder__pause-recording-button {
+    border: 3px solid var(--str-chat__danger-color);
+    border-radius: var(--str-chat__border-radius-circle);
+  }
+
+  .str-chat__audio_recorder__stop-button,
+  .str-chat__audio_recorder__complete-button {
+    border-radius: var(--str-chat__border-radius-circle);
+    color: var(--str-chat__on-primary-color);
+    background-color: var(--str-chat__primary-color);
+
+    .str-chat__loading-indicator svg {
+      linearGradient {
+        stop:last-child {
+          stop-color: var(--str-chat__background-color);
+        }
+      }
+    }
+  }
+}
