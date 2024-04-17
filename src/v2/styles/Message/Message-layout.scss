@@ -76,7 +76,7 @@
       '. metadata';
     column-gap: var(--str-chat__spacing-2);
     grid-template-columns: auto 1fr;
-    justify-items: start;
+    justify-items: flex-start;
   }
 
   &.str-chat__message--me {
@@ -120,7 +120,7 @@
 
     .str-chat__message-options {
       grid-area: options;
-      align-items: start;
+      align-items: flex-start;
       justify-content: flex-end;
       flex-direction: row-reverse;
       width: calc(3 * var(--str-chat__message-options-button-size));
@@ -201,7 +201,7 @@
       @include utils.prevent-glitch-text-overflow;
     }
 
-    .str-chat__message-simple-time + .str-chat__mesage-simple-edited::before {
+    .str-chat__message-simple-timestamp + .str-chat__mesage-simple-edited::before {
       content: '•';
       margin-right: var(--str-chat__spacing-1);
     }
