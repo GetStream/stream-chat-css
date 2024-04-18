@@ -329,6 +329,7 @@
     .str-chat__message-attachment-file--item-name,
     .str-chat__message-attachment-audio-widget--title {
       font: var(--str-chat__subtitle-medium-text);
+      word-break: keep-all;
     }
 
     .str-chat__message-attachment-file--item-size {
@@ -476,12 +477,55 @@
   }
 }
 
+.str-chat__message-attachment-audio-widget--play-button {
+  @include utils.component-layer-overrides('audio-attachment-controls-button');
+  @include utils.circle-fab-overrides('audio-attachment-controls-button');
+}
+
 .str-chat__message-attachment-card.str-chat__message-attachment-card--audio {
   .str-chat__message-attachment-card--header {
     border-end-start-radius: 0;
     border-end-end-radius: 0;
   }
 }
+
+.str-chat__message-attachment__voice-recording-widget {
+  @include utils.component-layer-overrides('voice-recording-attachment-widget');
+
+  .str-chat__message-attachment__voice-recording-widget__title {
+    @include utils.ellipsis-text;
+    word-break: keep-all;
+    font: var(--str-chat__subtitle-medium-text);
+  }
+
+  .str-chat__message-attachment__voice-recording-widget__timer {
+    font: var(--str-chat__body-text);
+    color: var(--str-chat__text-low-emphasis-color);
+    white-space: nowrap;
+  }
+}
+
+.str-chat__audio_recorder__waveform-box,
+.str-chat__wave-progress-bar__track {
+  cursor: pointer;
+
+  .str-chat__wave-progress-bar__amplitude-bar {
+    background: var(--str-chat__text-low-emphasis-color);
+    border-radius: var(--str-chat__border-radius-circle);
+  }
+
+  .str-chat__wave-progress-bar__amplitude-bar--active {
+    background: var(--str-chat__primary-color);
+  }
+
+  .str-chat__wave-progress-bar__progress-indicator {
+    background-color: #fff;
+    border-radius: var(--str-chat__border-radius-circle);
+    border: 1px solid var(--str-chat__secondary-overlay-color);
+    cursor: grab;
+  }
+}
+
 
 .str-chat-angular__message-attachment-file-single
   .str-chat__message-attachment-file--item-first-row {

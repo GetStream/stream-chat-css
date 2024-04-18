@@ -86,7 +86,37 @@
   --str-chat__message-send-disabled-color: var(--str-chat__disabled-color);
 
   /* The background color of the send button in disabled state */
-  --str-chat__message-send-disabled-background-color: transparent;
+  --str-chat__message-send-disabled-background-color: var(--str-chat__disabled-color);
+
+  /* The border radius used for the borders of the audio recording button */
+  --str-chat__start-recording-audio-button-border-radius: var(--str-chat__border-radius-circle);
+
+  /* The text/icon color of the audio recording button */
+  --str-chat__start-recording-audio-button-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color of the audio recording button */
+  --str-chat__start-recording-audio-button-background-color: transparent;
+
+  /* Top border of the audio recording button */
+  --str-chat__start-recording-audio-button-border-block-start: 0;
+
+  /* Bottom border of the audio recording button */
+  --str-chat__start-recording-audio-button-border-block-end: 0;
+
+  /* Left (right in RTL layout) border of the audio recording button */
+  --str-chat__start-recording-audio-button-border-inline-start: 0;
+
+  /* Right (left in RTL layout) border of the audio recording button */
+  --str-chat__start-recording-audio-button-border-inline-end: 0;
+
+  /* Box shadow applied to the audio recording button */
+  --str-chat__start-recording-audio-button-box-shadow: none;
+
+  /* The color of the audio recording button in disabled state */
+  --str-chat__start-recording-audio-button-disabled-color: var(--str-chat__disabled-color);
+
+  /* The background color of the audio recording button in disabled state */
+  --str-chat__start-recording-audio-button-disabled-background-color: transparent;
 
   /* The border radius used for the borders of the tool buttons of the message input (such as attachment upload button) */
   --str-chat__message-input-tools-border-radius: var(--str-chat__border-radius-circle);
@@ -186,11 +216,19 @@
     }
 
     &:disabled {
-      background-color: var(--str-chat__message-send-disabled-background-color);
+      background-color: transparent;
 
       svg path {
         fill: var(--str-chat__message-send-disabled-color);
       }
+    }
+  }
+
+  .str-chat__start-recording-audio-button {
+    @include utils.component-layer-overrides('start-recording-audio-button');
+
+    &:disabled {
+      background-color: var(--str-chat__message-send-disabled-background-color);
     }
   }
 
@@ -216,6 +254,28 @@
       svg path {
         fill: var(--str-chat__message-input-tools-color);
       }
+    }
+  }
+
+  .str-chat__recording-permission-denied-notification {
+    background-color: var(--str-chat__text-color);
+    border-radius: var(--str-chat__border-radius-md);
+    color: var(--str-chat__background-color);
+
+    .str-chat__recording-permission-denied-notification__heading,
+    .str-chat__recording-permission-denied-notification__dismiss-button {
+      font: var(--str-chat__subtitle2-medium-text);
+    }
+
+    .str-chat__recording-permission-denied-notification__message {
+      font: var(--str-chat__subtitle-text);
+    }
+
+    .str-chat__recording-permission-denied-notification__dismiss-button {
+      @include utils.button-reset;
+      color: var(--str-chat__background-color);
+      cursor: pointer;
+      text-transform: uppercase;
     }
   }
 }
