@@ -20,6 +20,7 @@
 
 .str-chat__image-carousel {
   .str-chat__image-carousel-stepper {
+    --str-chat-icon-color: var(--str-chat__image-carousel-stepper-color);
     cursor: pointer;
 
     svg path {

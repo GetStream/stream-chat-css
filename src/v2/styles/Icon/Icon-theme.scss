@@ -1,0 +1,13 @@
+/* Only available in Angular v5+ */
+.str-chat {
+  /* The color of the icon, only available in Angular v5+ */
+  --str-chat-icon-color: var(--str-chat__text-color);
+}
+
+.str-chat__icon {
+  color: var(--str-chat-icon-color);
+}
+
+.str-chat__icon--error {
+  --str-chat-icon-color: var(--str-chat__danger-color);
+}

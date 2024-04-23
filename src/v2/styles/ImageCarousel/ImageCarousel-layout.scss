@@ -10,6 +10,7 @@
   height: 100%;
 
   .str-chat__image-carousel-stepper {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 30);
     padding: var(--str-chat__spacing-2_5);
     border: none;
     cursor: pointer;

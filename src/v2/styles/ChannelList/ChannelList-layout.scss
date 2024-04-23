@@ -14,6 +14,7 @@
       height: 100%;
 
       .str-chat__channel-list-empty {
+        --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 136);
         @include utils.empty-layout;
       }
 
@@ -39,7 +40,6 @@
     display: none;
   }
 }
-
 
 .str-chat__channel-list-react {
   overflow: hidden;

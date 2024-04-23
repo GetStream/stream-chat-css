@@ -220,12 +220,15 @@
   }
 
   .str-chat__message-options {
+    --str-chat-icon-color: var(--str-chat__message-options-color);
+
     .str-chat__message-actions-box-button,
     .str-chat__message-reply-in-thread-button,
     .str-chat__message-reactions-button {
       // remove default button styles (React SDK uses button compared to div in Angular SDK)
       @include utils.button-reset;
       border-radius: var(--str-chat__message-options-border-radius);
+      color: var(--str-chat__message-options-color);
 
       .str-chat__message-action-icon path {
         fill: var(--str-chat__message-options-color);
@@ -272,6 +275,7 @@
   }
 
   .str-chat__message-status {
+    --str-chat-icon-color: var(--str-chat__message-status-color);
     color: var(--str-chat__message-status-color);
     font: var(--str-chat__body-text);
 
@@ -297,6 +301,7 @@
   }
 
   .str-chat__message-error-icon {
+    --str-chat-icon-color: var(--str-chat__message-error-message-color);
     /* stylelint-disable-next-line selector-max-id */
     svg #background {
       fill: var(--str-chat__message-error-message-color);
@@ -393,6 +398,7 @@
 }
 
 .str-chat__unread-messages-notification {
+  --str-chat-icon-color: var(--str-chat__on-primary-color);
   background-color: var(--str-chat__text-low-emphasis-color);
   border-radius: 1.125rem;
 

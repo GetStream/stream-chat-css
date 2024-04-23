@@ -60,6 +60,8 @@
       }
 
       .str-chat__channel-preview-messenger--status {
+        --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 15);
+
         svg {
           width: calc(var(--str-chat__spacing-px) * 15);
           height: calc(var(--str-chat__spacing-px) * 15);

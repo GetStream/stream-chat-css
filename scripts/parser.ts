@@ -9,13 +9,13 @@ import CSS from 'tree-sitter-css';
 type SDK = 'Angular' | 'React';
 type ComponentName = string;
 export type VariableGroup = {
-  componentName: ComponentName,
+  componentName: ComponentName;
   sdkRestriction?: SDK;
 };
 
 export type VariableInfo = {
   name: string;
-  values: {scope: string, value: string}[];
+  values: { scope: string; value: string }[];
   theme?: string;
   description?: string;
   definedIn?: VariableGroup;
@@ -52,16 +52,24 @@ export const extractVariables = (fromGlob: string, dependencies?: Map<string, Va
           sdkRestriction = matches[0] as SDK;
         }
       }
-      const variableGroup = {componentName, sdkRestriction};
-      ruleSet.descendantsOfType('declaration').forEach(node => {
+      const variableGroup = { componentName, sdkRestriction };
+      ruleSet.descendantsOfType('declaration').forEach((node) => {
         const identifier = node.text;
         if (identifier.startsWith('--str-chat')) {
-          const currentVariable = extractVariableInfo(node, variableGroup, ruleSet.firstChild?.text || '');
+          const currentVariable = extractVariableInfo(
+            node,
+            variableGroup,
+            ruleSet.firstChild?.text || '',
+          );
           const seenVariable = componentVariables.get(currentVariable.name);
           if (!seenVariable) {
             // we see this variable for a very first time, store it in the map
             componentVariables.set(currentVariable.name, currentVariable);
           } else {
+            if (!seenVariable.description && currentVariable.description) {
+              seenVariable.definedIn = currentVariable.definedIn;
+              seenVariable.description = currentVariable.description;
+            }
             seenVariable.values.push(...currentVariable.values);
           }
         }
@@ -87,7 +95,11 @@ export const extractVariables = (fromGlob: string, dependencies?: Map<string, Va
   return componentVariables;
 };
 
-const extractVariableInfo = (node: SyntaxNode, variableGroup: VariableGroup, scope: string): VariableInfo => {
+const extractVariableInfo = (
+  node: SyntaxNode,
+  variableGroup: VariableGroup,
+  scope: string,
+): VariableInfo => {
   // nodes in format: <name>: <value-1> <value-2> ... ;
   const [name, _, ...declValues] = node.children;
   const value = declValues
@@ -101,7 +113,7 @@ const extractVariableInfo = (node: SyntaxNode, variableGroup: VariableGroup, sco
   const theme = detectTheme(node);
   return {
     name: name.text.trim(),
-    values: [{scope: scope.replace(/\n/g, ''), value}],
+    values: [{ scope: scope.replace(/\n/g, ''), value }],
     theme,
     description,
     definedIn: variableGroup,
@@ -119,7 +131,7 @@ const extractComment = (node: SyntaxNode) => {
   } else {
     return undefined;
   }
-}
+};
 
 const detectTheme = (node: SyntaxNode) => {
   let theme = undefined;

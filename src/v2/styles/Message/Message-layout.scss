@@ -29,6 +29,10 @@
   .str-chat__message-bubble {
     max-width: var(--str-chat__message-max-width);
   }
+
+  .str-chat__message-options {
+    --str-chat-icon-height: calc(var(--str-chat__message-options-button-size) * 0.7);
+  }
 }
 
 .str-chat__message.str-chat__message--has-attachment {
@@ -218,6 +222,7 @@
   }
 
   .str-chat__message-status {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 15);
     @include utils.flex-row-center;
     column-gap: var(--str-chat__spacing-0_5);
     position: relative;
@@ -453,6 +458,7 @@
 }
 
 .str-chat__unread-messages-notification {
+  --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 16);
   position: absolute;
   top: 0.75rem;
   z-index: 2;
