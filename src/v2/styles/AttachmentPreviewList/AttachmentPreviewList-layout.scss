@@ -1,6 +1,7 @@
 @use '../utils';
 
 .str-chat__attachment-preview-list {
+  --str-chat__loading-indicator-size: calc(var(--str-chat__spacing-px) * 18);
   $preview-height: calc(var(--str-chat__spacing-px) * 72);
 
   @include utils.flex-row-center;
