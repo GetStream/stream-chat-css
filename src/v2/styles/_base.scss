@@ -1,13 +1,14 @@
 .str-chat {
   box-sizing: border-box;
+  font-family: var(--str-chat__font-family);
 
   * {
-    font-family: var(--str-chat__font-family);
     box-sizing: border-box;
   }
 
   // Overriding styles of ngx-popperjs/ngx-float-ui
-  .ngxp__container, .float-ui-container {
+  .ngxp__container,
+  .float-ui-container {
     z-index: 1;
     padding: 0 !important;
     box-shadow: none !important;
