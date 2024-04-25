@@ -68,8 +68,8 @@
   /* The text/icon color of the load more button in disabled state */
   --str-chat__channel-list-load-more-disabled-color: var(--str-chat__cta-button-disabled-color);
 
-  /* The icon color for the empty list state */
-  --str-chat__channel-list-empty-indicator-color: var(--str-chat__disabled-color);
+  /* The text/icon color for the empty list state */
+  --str-chat__channel-list-empty-indicator-color: var(--str-chat__text-low-emphasis-color);
 }
 
 .str-chat__channel-list {
@@ -82,6 +82,8 @@
   }
 
   .str-chat__channel-list-empty {
+    --str-chat-icon-color: var(--str-chat__channel-list-empty-indicator-color);
     @include utils.empty-theme('channel-list');
+    color: var(--str-chat__channel-list-empty-indicator-color);
   }
 }

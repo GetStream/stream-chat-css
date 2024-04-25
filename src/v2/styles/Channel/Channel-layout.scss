@@ -25,6 +25,7 @@
 }
 
 .str-chat__empty-channel {
+  --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 136);
   @include utils.empty-layout;
   position: relative;
 

@@ -1,9 +1,18 @@
-// todo: this is a copy of src/styles/LoadingIndicator.scss - find a shared folder for it
+.str-chat {
+  /* The size of the loading indicator, only available in Angular v5+ */
+  --str-chat__loading-indicator-size: calc(var(--str-chat__spacing-px) * 15);
+}
+
 .str-chat__loading-indicator {
   display: flex;
   align-items: center;
   justify-content: center;
   animation: rotate 1s linear infinite;
+
+  svg {
+    width: var(--str-chat__loading-indicator-size);
+    height: var(--str-chat__loading-indicator-size);
+  }
 
   @-webkit-keyframes rotate {
     from {

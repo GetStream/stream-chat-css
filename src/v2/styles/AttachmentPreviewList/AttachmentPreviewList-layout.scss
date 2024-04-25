@@ -1,6 +1,7 @@
 @use '../utils';
 
 .str-chat__attachment-preview-list {
+  --str-chat__loading-indicator-size: calc(var(--str-chat__spacing-px) * 18);
   $preview-height: calc(var(--str-chat__spacing-px) * 72);
 
   @include utils.flex-row-center;
@@ -59,7 +60,7 @@
     column-gap: var(--str-chat__spacing-2);
 
     .str-chat__attachment-preview-metadata,
-    .str-chat__attachment-preview-file-end{
+    .str-chat__attachment-preview-file-end {
       @include utils.ellipsis-text-parent;
       flex: 1;
       display: flex;
@@ -74,6 +75,8 @@
     }
 
     .str-chat__attachment-preview-file-icon {
+      --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 37);
+      --str-chat-icon-width: auto;
       @include utils.flex-row-center;
 
       svg {
@@ -86,6 +89,7 @@
   .str-chat__attachment-preview-file {
     .str-chat__attachment-preview-file-end {
       .str-chat__attachment-preview-file-download {
+        --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 16);
         line-height: calc(var(--str-chat__spacing-px) * 13);
 
         svg {
@@ -103,6 +107,7 @@
   }
 
   .str-chat__attachment-preview-delete {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 24);
     position: absolute;
     top: calc(var(--str-chat__spacing-px) * 2);
     inset-inline-end: calc(var(--str-chat__spacing-px) * 2);
@@ -116,6 +121,7 @@
   }
 
   .str-chat__attachment-preview-error {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 24);
     @include overlay;
     @include utils.unset-button(unset);
     inset-inline-start: 0;

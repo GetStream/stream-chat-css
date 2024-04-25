@@ -91,6 +91,7 @@
 }
 
 .str-chat__jump-to-latest-message {
+  --str-chat-icon-color: var(--str-chat__jump-to-latest-message-unread-count-background-color);
   .str-chat__circle-fab {
     @include utils.component-layer-overrides('jump-to-latest-message');
     @include utils.circle-fab-overrides('jump-to-latest-message');

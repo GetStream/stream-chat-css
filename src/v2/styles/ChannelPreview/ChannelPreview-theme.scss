@@ -98,6 +98,7 @@
   }
 
   .str-chat__channel-preview-messenger--status {
+    --str-chat-icon-color: var(--str-chat__channel-preview-message-status-color);
     color: var(--str-chat__channel-preview-message-status-color);
 
     svg {

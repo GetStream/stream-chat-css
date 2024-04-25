@@ -181,6 +181,7 @@
   }
 
   .str-chat__file-input-container {
+    --str-chat-icon-color: var(--str-chat__message-input-tools-color);
     @include utils.component-layer-overrides('message-input-tools');
 
     svg path {
@@ -209,6 +210,7 @@
   }
 
   .str-chat__send-button {
+    --str-chat-icon-color: var(--str-chat__message-send-color);
     @include utils.component-layer-overrides('message-send');
 
     svg path {
@@ -216,6 +218,7 @@
     }
 
     &:disabled {
+      --str-chat-icon-color: var(--str-chat__message-send-disabled-color);
       background-color: transparent;
 
       svg path {

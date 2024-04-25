@@ -47,6 +47,7 @@
     justify-content: center;
 
     .str-chat__file-input-container {
+      --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 24);
       @include utils.flex-row-center;
       width: calc(var(--str-chat__spacing-px) * 45);
       height: calc(var(--str-chat__spacing-px) * 45);
@@ -133,6 +134,7 @@
   }
 
   .str-chat__send-button {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 32);
     @include utils.flex-row-center;
     cursor: pointer;
     padding: 0;
@@ -208,7 +210,8 @@
   flex-grow: initial;
 }
 
-[dir='rtl'] .str-chat__send-button, [dir='rtl'] .str-chat__start-recording-audio-button {
+[dir='rtl'] .str-chat__send-button,
+[dir='rtl'] .str-chat__start-recording-audio-button {
   svg {
     transform: scale(-1, 1);
   }

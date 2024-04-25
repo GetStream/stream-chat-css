@@ -47,7 +47,13 @@
   }
 
   .str-chat__modal__close-button {
+    --str-chat-icon-color: var(--str-chat__modal-close-icon-color);
     @include utils.button-reset;
+
+    .str-chat__icon {
+      background-color: var(--str-chat__modal-close-icon-background);
+      border-radius: 999px;
+    }
 
     svg {
       path {
