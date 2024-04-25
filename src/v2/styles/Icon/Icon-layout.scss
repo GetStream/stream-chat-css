@@ -16,7 +16,7 @@
   height: var(--str-chat-icon-height);
   width: var(--str-chat-icon-width);
 
-  &:before {
+  &::before {
     line-height: var(--str-chat-icon-height);
   }
 }
@@ -31,57 +31,57 @@
 }
 
 // Copy icon mapping here
-.str-chat__icon--action:before {
+.str-chat__icon--action::before {
   content: '\e800';
 } /* '' */
-.str-chat__icon--arrow-down:before {
+.str-chat__icon--arrow-down::before {
   content: '\e801';
 } /* '' */
-.str-chat__icon--arrow-left:before {
+.str-chat__icon--arrow-left::before {
   content: '\e802';
 } /* '' */
-.str-chat__icon--arrow-right:before {
+.str-chat__icon--arrow-right::before {
   content: '\e803';
 } /* '' */
-.str-chat__icon--close:before {
+.str-chat__icon--close::before {
   content: '\e804';
 } /* '' */
-.str-chat__icon--arrow-up:before {
+.str-chat__icon--arrow-up::before {
   content: '\e805';
 } /* '' */
-.str-chat__icon--chat-bubble:before {
+.str-chat__icon--chat-bubble::before {
   content: '\e806';
 } /* '' */
-.str-chat__icon--pause:before {
+.str-chat__icon--pause::before {
   content: '\e807';
 } /* '' */
-.str-chat__icon--download:before {
+.str-chat__icon--download::before {
   content: '\e808';
 } /* '' */
-.str-chat__icon--delivered:before {
+.str-chat__icon--delivered::before {
   content: '\e809';
 } /* '' */
-.str-chat__icon--play:before {
+.str-chat__icon--play::before {
   content: '\e80a';
 } /* '' */
-.str-chat__icon--reaction:before {
+.str-chat__icon--reaction::before {
   content: '\e80b';
 } /* '' */
-.str-chat__icon--error:before {
+.str-chat__icon--error::before {
   content: '\e80c';
 } /* '' */
-.str-chat__icon--read:before {
+.str-chat__icon--read::before {
   content: '\e80d';
 } /* '' */
-.str-chat__icon--retry:before {
+.str-chat__icon--retry::before {
   content: '\e80e';
 } /* '' */
-.str-chat__icon--reply-in-thread:before {
+.str-chat__icon--reply-in-thread::before {
   content: '\e80f';
 } /* '' */
-.str-chat__icon--send:before {
+.str-chat__icon--send::before {
   content: '\e810';
 } /* '' */
-.str-chat__icon--attach:before {
+.str-chat__icon--attach::before {
   content: '\e811';
 } /* '' */
