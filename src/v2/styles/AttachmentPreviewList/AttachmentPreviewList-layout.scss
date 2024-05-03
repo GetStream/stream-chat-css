@@ -47,6 +47,7 @@
     }
   }
 
+  .str-chat__attachment-preview-unknown,
   .str-chat__attachment-preview-voice-recording,
   .str-chat__attachment-preview-file {
     display: flex;
@@ -68,6 +69,7 @@
       align-items: flex-start;
       justify-content: center;
 
+      .str-chat__attachment-preview-title,
       .str-chat__attachment-preview-file-name {
         @include utils.ellipsis-text;
         max-width: 100%;
