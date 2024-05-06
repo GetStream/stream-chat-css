@@ -107,7 +107,7 @@
     }
   }
 
-  .str-chat__attachment-preview-unknown,
+  .str-chat__attachment-preview-unsupported,
   .str-chat__attachment-preview-voice-recording,
   .str-chat__attachment-preview-file {
     @include utils.component-layer-overrides('attachment-preview-file');
