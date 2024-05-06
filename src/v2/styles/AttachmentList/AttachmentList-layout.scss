@@ -272,6 +272,7 @@
       justify-content: center;
 
     }
+
     .str-chat__message-attachment-unsupported__title {
       @include utils.ellipsis-text;
       max-width: 100%;
