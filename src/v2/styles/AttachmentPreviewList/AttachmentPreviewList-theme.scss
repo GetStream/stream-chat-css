@@ -107,10 +107,12 @@
     }
   }
 
+  .str-chat__attachment-preview-unsupported,
   .str-chat__attachment-preview-voice-recording,
   .str-chat__attachment-preview-file {
     @include utils.component-layer-overrides('attachment-preview-file');
 
+    .str-chat__attachment-preview-title,
     .str-chat__attachment-preview-file-name {
       font: var(--str-chat__subtitle-medium-text);
     }

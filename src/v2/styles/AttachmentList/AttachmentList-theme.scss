@@ -320,8 +320,16 @@
     background-size: 24px 24px;
   }
 
+  .str-chat__message-attachment-unsupported,
   .str-chat__message-attachment-file--item {
     @include utils.component-layer-overrides('file-attachment');
+  }
+
+  .str-chat__message-attachment-unsupported {
+    .str-chat__message-attachment-unsupported__title {
+      font: var(--str-chat__subtitle-medium-text);
+      word-break: keep-all;
+    }
   }
 
   .str-chat__message-attachment-file--item,
