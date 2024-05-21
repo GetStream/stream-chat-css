@@ -34,11 +34,6 @@
       @include utils.flex-row-center;
     }
   }
-
-  // This is displayed only in theme-v1
-  .str-chat__down-main {
-    display: none;
-  }
 }
 
 .str-chat__channel-list-react {
