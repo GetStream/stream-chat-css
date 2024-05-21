@@ -41,6 +41,7 @@
   .str-chat__avatar-fallback {
     @include utils.component-layer-overrides('avatar');
     text-transform: uppercase;
+    font-size: 20px;
   }
 
   .str-chat__avatar--online-indicator {

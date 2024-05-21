@@ -196,8 +196,14 @@
   @include utils.component-layer-overrides('suggestion-list-container');
 
   .str-chat__suggestion-list {
-    .str-chat__suggestion-list-item > a {
-      text-decoration: none;
+    .str-chat__suggestion-list-item {
+      & > a {
+        text-decoration: none;
+      }
+
+      .str-chat__avatar--autocomplete-item .str-chat__avatar-fallback {
+        font-size: 1rem;
+      }
     }
 
     .str-chat__suggestion-item--selected {
