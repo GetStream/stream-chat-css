@@ -113,6 +113,7 @@
 
       .channel-search__result-text,
       .str-chat__channel-search-result--display-name {
+        @include utils.ellipsis-text;
         @include utils.prevent-glitch-text-overflow;
       }
     }
