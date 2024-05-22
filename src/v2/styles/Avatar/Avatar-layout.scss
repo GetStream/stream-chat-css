@@ -1,5 +1,4 @@
 .str-chat {
-  /* The size of the avatar, only available in Angular v5+ */
   --str-chat__avatar-size: calc(var(--str-chat__spacing-px) * 32);
 
   .str-chat__avatar--autocomplete-item,
