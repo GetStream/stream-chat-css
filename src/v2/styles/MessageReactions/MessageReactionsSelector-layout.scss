@@ -6,6 +6,17 @@
   position: absolute;
   inset-block-end: 100%;
 
+  &.str-chat-angular-v5__reaction-selector {
+    position: static;
+
+    .str-chat__message-reactions-options {
+      max-width: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+    }
+  }
+
   .str-chat__message-reactions-options {
     list-style: none;
     display: flex;

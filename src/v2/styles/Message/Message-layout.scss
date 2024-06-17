@@ -1,7 +1,7 @@
 @use '../utils';
 
 .str-chat {
-  /* The width/height of the message options buttons */
+  /* The width/height of the message options button(s), for Angular SDK it's only used on desktop devices starting from version 5 */
   --str-chat__message-options-button-size: calc(var(--str-chat__spacing-px) * 26);
 
   /* The maximum allowed width of the message component */
@@ -26,6 +26,12 @@
 }
 
 .str-chat__message {
+  --str-chat-message-options-size: calc(3 * var(--str-chat__message-options-button-size));
+
+  &.str-chat__message-without-touch-support {
+    --str-chat-message-options-size: calc(1 * var(--str-chat__message-options-button-size));
+  }
+
   .str-chat__message-bubble {
     max-width: var(--str-chat__message-max-width);
   }
@@ -127,7 +133,7 @@
       align-items: flex-start;
       justify-content: flex-end;
       flex-direction: row-reverse;
-      width: calc(3 * var(--str-chat__message-options-button-size));
+      width: var(--str-chat-message-options-size);
 
       .str-chat__message-actions-box-button,
       .str-chat__message-reply-in-thread-button,
@@ -287,8 +293,8 @@
 }
 
 // Message options display - default mode: they appear when .str-chat__li is hovered
-.str-chat__ul:not(.str-chat__message-options-in-bubble),
-.str-chat__virtual-list:not(.str-chat__message-options-in-bubble) {
+.str-chat__ul:not(.str-chat__message-options-in-bubble, .str-chat__message-with-touch-support),
+.str-chat__virtual-list:not(.str-chat__message-options-in-bubble, .str-chat__message-with-touch-support) {
   /* This rule won't be applied in browsers that don't support :has() */
   .str-chat__li:hover:not(:has(.str-chat__reaction-list:hover, .str-chat__modal--open)),
   .str-chat__li:focus-within:not(:has(.str-chat__reaction-list:focus-within, .str-chat__modal--open)) {
@@ -355,11 +361,11 @@
 }
 
 .str-chat__message--other .str-chat__message-inner {
-  margin-inline-end: calc(var(--str-chat__message-options-button-size) * 3);
+  margin-inline-end: var(--str-chat-message-options-size);
 }
 
 .str-chat__message--me .str-chat__message-inner {
-  margin-inline-start: calc(var(--str-chat__message-options-button-size) * 3);
+  margin-inline-start: var(--str-chat-message-options-size);
 }
 
 .str-chat__li--middle,
@@ -511,4 +517,29 @@
 
 .str-chat__message-text--pointer-cursor {
   cursor: pointer;
+}
+
+.str-chat__message-with-touch-support {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  &.str-chat__message-menu-opened {
+    .str-chat__attachments-container,
+    .str-chat__message-text-inner {
+      pointer-events: none;
+    }
+  }
+
+  .str-chat__message-inner {
+    margin-inline: 0;
+  }
+
+  .str-chat__message-options {
+    display: none;
+  }
+
+  .stream-chat-angular__image-modal-host {
+    -webkit-touch-callout: default;
+  }
 }

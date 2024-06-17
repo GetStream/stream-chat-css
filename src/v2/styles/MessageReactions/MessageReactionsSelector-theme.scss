@@ -62,6 +62,11 @@
 
   /* Box shadow applied to the component */
   --str-chat__message-reactions-option-box-shadow: none;
+
+  .str-chat-angular-v5__reaction-selector {
+    --str-chat__message-reactions-options-box-shadow: none;
+    --str-chat__message-reactions-options-border-radius: 0;
+  }
 }
 
 .str-chat__reaction-selector {
