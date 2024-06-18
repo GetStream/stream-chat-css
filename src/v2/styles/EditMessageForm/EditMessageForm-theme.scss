@@ -1,31 +1,31 @@
 @use '../utils';
 
 .str-chat {
-  /* The border radius used for the borders of the component */
+  /* The border radius used for the borders of the component. Note for Angular SDK users: this variable isn't available starting from version 5 */
   --str-chat__edit-message-modal-button-border-radius: none;
 
-  /* The text color used for the send button */
+  /* The text color used for the send button. Note for Angular SDK users: this variable isn't available starting from version 5 */
   --str-chat__edit-message-modal-send-button-color: var(--str-chat__primary-color);
 
-  /* The text color used for the cancel button */
+  /* The text color used for the cancel button. Note for Angular SDK users: this variable isn't available starting from version 5 */
   --str-chat__edit-message-modal-cancel-button-color: var(--str-chat__text-low-emphasis-color);
 
-  /* The background color of the component */
+  /* The background color of the component. Note for Angular SDK users: this variable isn't available starting from version 5 */
   --str-chat__edit-message-modal-button-background-color: transparent;
 
-  /* Top border of the component */
+  /* Top border of the component. Note for Angular SDK users: this variable isn't available starting from version 5 */
   --str-chat__edit-message-modal-button-border-block-start: none;
 
-  /* Bottom border of the component */
+  /* Bottom border of the component. Note for Angular SDK users: this variable isn't available starting from version 5 */
   --str-chat__edit-message-modal-button-border-block-end: none;
 
-  /* Left (right in RTL layout) border of the component */
+  /* Left (right in RTL layout) border of the component. Note for Angular SDK users: this variable isn't available starting from version 5 */
   --str-chat__edit-message-modal-button-border-inline-start: none;
 
-  /* Right (left in RTL layout) border of the component */
+  /* Right (left in RTL layout) border of the component. Note for Angular SDK users: this variable isn't available starting from version 5 */
   --str-chat__edit-message-modal-button-border-inline-end: none;
 
-  /* Box shadow applied to the component */
+  /* Box shadow applied to the component. Note for Angular SDK users: this variable isn't available starting from version 5 */
   --str-chat__edit-message-modal-button-box-shadow: none;
 }
 
