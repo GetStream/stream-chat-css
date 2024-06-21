@@ -2,6 +2,7 @@
 
 .str-chat__message-input {
   $send-button-size: calc(var(--str-chat__spacing-px) * 45);
+  $start-audio-recording-button-size: calc(var(--str-chat__spacing-px) * 40);
 
   @include utils.flex-col-center;
   width: 100%;
@@ -46,6 +47,7 @@
     justify-content: center;
 
     .str-chat__file-input-container {
+      --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 24);
       @include utils.flex-row-center;
       width: calc(var(--str-chat__spacing-px) * 45);
       height: calc(var(--str-chat__spacing-px) * 45);
@@ -132,6 +134,7 @@
   }
 
   .str-chat__send-button {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 32);
     @include utils.flex-row-center;
     cursor: pointer;
     padding: 0;
@@ -142,6 +145,19 @@
     svg {
       width: calc(var(--str-chat__spacing-px) * 32);
       height: calc(var(--str-chat__spacing-px) * 32);
+    }
+  }
+
+  .str-chat__start-recording-audio-button {
+    @include utils.flex-row-center;
+    cursor: pointer;
+    padding: 0;
+    width: $start-audio-recording-button-size;
+    height: $start-audio-recording-button-size;
+    min-width: $start-audio-recording-button-size;
+
+    svg {
+      height: calc(var(--str-chat__spacing-px) * 25);
     }
   }
 
@@ -161,6 +177,21 @@
   .str-chat__quoted-message-preview {
     padding: var(--str-chat__spacing-2);
   }
+
+  .str-chat__recording-permission-denied-notification {
+    position: absolute;
+    left: 0.5rem;
+    max-width: 100%;
+    bottom: 100%;
+    padding: 1rem;
+    margin-inline: 0.5rem;
+    z-index: 2;
+
+    .str-chat__recording-permission-denied-notification__dismiss-button-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
 }
 
 .str-chat__message-input-angular-host {
@@ -179,7 +210,8 @@
   flex-grow: initial;
 }
 
-[dir='rtl'] .str-chat__send-button {
+[dir='rtl'] .str-chat__send-button,
+[dir='rtl'] .str-chat__start-recording-audio-button {
   svg {
     transform: scale(-1, 1);
   }

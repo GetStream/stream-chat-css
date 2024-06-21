@@ -40,6 +40,7 @@
 }
 
 .str-chat__empty-channel {
+  --str-chat-icon-color: var(--str-chat__channel-empty-color);
   @include utils.component-layer-overrides('channel');
   @include utils.empty-theme('channel');
 

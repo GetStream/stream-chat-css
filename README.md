@@ -31,3 +31,15 @@ We've recently closed a [$38 million Series B funding round](https://techcrunch.
 Our APIs are used by more than a billion end-users, and you'll have a chance to make a huge impact on the product within a team of the strongest engineers all over the world.
 
 Check out our current openings and apply via [Stream's website](https://getstream.io/team/#jobs).
+
+## Icons - for Stream Developers
+
+- The icons for the UI components can be exported from [Figma](https://www.figma.com/files/project/42134328/SDK-Teams-support-files?fuid=1038443988589634784)
+- Icons are used as fonts, the font files are located in `src/assets/icons`
+- If you need to change icons you have to regenerate the icon fonts:
+
+1. Go to [https://fontello.com/](https://fontello.com/)
+2. Upload the `svg` font from `src/assets/icons`
+3. Edit the font
+4. Set the font name to `stream-chat-icons` and the CSS prefix to `str-chat__icon--`
+5. Download the font, and copy the content of the `font` folder to `src/assets/icons`, and copy the mapping from `css/stream-chat-icons.css` to `src/v2/Icon/Icon-layout.scss`

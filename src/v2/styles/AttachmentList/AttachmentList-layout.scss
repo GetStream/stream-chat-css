@@ -6,6 +6,12 @@
 
   /* The height of GIFs */
   --str-chat__gif-height: calc(var(--str-chat__spacing-px) * 200);
+
+  /* The width of the amplitude bar of the voice recording wave data */
+  --str-chat__voice-recording-amplitude-bar-width: 2px;
+
+  /* The gap between amplitudes of the wave data of a voice recording */
+  --str-chat__voice-recording-amplitude-bar-gap-width: var(--str-chat__spacing-px);
 }
 
 .str-chat__attachment-list {
@@ -191,6 +197,7 @@
       .str-chat__gallery-image {
         padding: 0;
         margin: 0;
+        position: relative;
 
         img {
           width: 100%;
@@ -243,6 +250,32 @@
       // CDN resize requires max-width and height/max-height to be present on this element
       max-width: calc(var(--str-chat__attachment-max-width) - #{$padding});
       max-height: calc(var(--str-chat__attachment-max-width) - #{$padding});
+    }
+  }
+
+  .str-chat__message-attachment-unsupported {
+    @include utils.flex-row-center;
+    padding: var(--str-chat__spacing-2);
+    column-gap: var(--str-chat__spacing-4);
+    margin: var(--str-chat__attachment-margin);
+
+    .str-chat__file-icon {
+      width: calc(var(--str-chat__spacing-px)* 30);
+    }
+
+    .str-chat__message-attachment-unsupported__metadata {
+      min-width: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+    }
+
+    .str-chat__message-attachment-unsupported__title {
+      @include utils.ellipsis-text;
+      max-width: 100%;
     }
   }
 
@@ -328,16 +361,111 @@
     }
   }
 
-  .str-chat__message-attachment-audio-widget--play-button {
-    @include utils.flex-row-center();
-    height: calc(var(--str-chat__spacing-px) * 36);
-    width: calc(var(--str-chat__spacing-px) * 36);
-    cursor: pointer;
-    z-index: 1;
+  .str-chat__message-attachment__voice-recording-widget {
+    display: grid;
+    grid-template-columns: 36px auto 55px;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--str-chat__spacing-px) * 9);
+    padding: var(--str-chat__spacing-2);
+    margin: var(--str-chat__attachment-margin);
 
-    svg {
-      width: var(--str-chat__spacing-3);
+    .str-chat__message-attachment__voice-recording-widget__metadata {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--str-chat__spacing-2);
+
+      a {
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .str-chat__message-attachment-voice-recording-widget--first-row {
+        @include utils.ellipsis-text-parent;
+
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--str-chat__spacing-1);
+      }
+
+      .str-chat__message-attachment__voice-recording-widget__title {
+        @include utils.ellipsis-text;
+        min-width: 0;
+      }
+
+      .str-chat__message-attachment-download-icon {
+        svg {
+          width: calc(var(--str-chat__spacing-px) * 24);
+          height: calc(var(--str-chat__spacing-px) * 16);
+        }
+      }
+
+      .str-chat__message-attachment__voice-recording-widget__audio-state {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--str-chat__spacing-1_5);
+        height: 100%;
+      }
+
+      .str-chat__message-attachment__voice-recording-widget__error-message {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--str-chat__spacing-1);
+      }
     }
+
+    .str-chat__message-attachment__voice-recording-widget__right-section {
+      justify-self: center;
+    }
+
+    .str-chat__message-attachment__voice-recording-widget__timer {
+      min-width: calc(var(--str-chat__spacing-px) * 45);
+      width: calc(var(--str-chat__spacing-px) * 45);
+    }
+
+    // Angular SDK element, do not remove
+    stream-voice-recording-wavebar {
+      flex: 1;
+    }
+
+    .str-chat__wave-progress-bar__track {
+      $min_amplitude_height: 2px;
+      position: relative;
+      flex: 1;
+      width: 100%;
+      height: calc(var(--str-chat__spacing-px) * 25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--str-chat__voice-recording-amplitude-bar-gap-width);
+
+      .str-chat__wave-progress-bar__amplitude-bar {
+        width: var(--str-chat__voice-recording-amplitude-bar-width);
+        min-width: var(--str-chat__voice-recording-amplitude-bar-width);
+        height: calc(
+          var(--str-chat__wave-progress-bar__amplitude-bar-height) + #{$min_amplitude_height}
+        ); // variable set dynamically on element
+      }
+
+      .str-chat__wave-progress-bar__progress-indicator {
+        position: absolute;
+        left: 0;
+        height: calc(100% + #{$min_amplitude_height} + 2px);
+        width: calc(var(--str-chat__spacing-px) * 6);
+      }
+    }
+  }
+
+  .str-chat__message_attachment__playback-rate-button {
+    @include utils.flex-row-center;
+    @include utils.button-reset;
+    padding: var(--str-chat__spacing-1_5) var(--str-chat__spacing-2_5);
   }
 
   .str-chat__message-attachment-card {
@@ -395,6 +523,33 @@
       }
     }
   }
+
+  /* Angular has different UI here, the download icon is too small to use on mobile */
+  .str-chat-angular__message-attachment-file-single
+    .str-chat__message-attachment-file--item-first-row {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .str-chat__message-attachment-download-icon {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 16);
+  }
+
+  .str-chat__attachment-type-icon {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 37);
+  }
+}
+
+.str-chat__message-attachment-audio-widget--play-button {
+  --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 24);
+  @include utils.flex-row-center();
+  height: calc(var(--str-chat__spacing-px) * 36);
+  width: calc(var(--str-chat__spacing-px) * 36);
+  cursor: pointer;
+
+  svg {
+    width: var(--str-chat__spacing-3);
+  }
 }
 
 .str-chat__quoted-message-preview {
@@ -412,6 +567,19 @@
     }
   }
 
+  .str-chat__message-attachment__voice-recording-widget {
+    display: flex;
+    justify-content: space-between;
+
+    .str-chat__wave-progress-bar__track {
+      display: none;
+    }
+
+    .str-chat__message-attachment-audio-widget--play-button {
+      display: none;
+    }
+  }
+
   .str-chat__message-attachment-file--item-download {
     display: none;
   }
@@ -422,6 +590,33 @@
     .str-chat__message-attachment-file--item {
       padding: 0;
     }
+  }
+}
+
+.str-chat__audio_recorder__waveform-box,
+.str-chat__wave-progress-bar__track {
+  $min_amplitude_height: 2px;
+  position: relative;
+  flex: 1;
+  width: 120px;
+  height: calc(var(--str-chat__spacing-px) * 25);
+  display: flex;
+  align-items: center;
+  gap: var(--str-chat__spacing-px);
+
+  .str-chat__wave-progress-bar__amplitude-bar {
+    width: 2px;
+    min-width: 2px;
+    height: calc(
+      var(--str-chat__wave-progress-bar__amplitude-bar-height) + $min_amplitude_height
+    ); // variable set dynamically on element
+  }
+
+  .str-chat__wave-progress-bar__progress-indicator {
+    position: absolute;
+    left: 0;
+    height: calc(100% + $min_amplitude_height + 2px);
+    width: calc(var(--str-chat__spacing-px) * 6);
   }
 }
 

@@ -1,10 +1,13 @@
 @use 'base';
 @use 'global-layout-variables';
+@use 'icons';
 
 @use 'Avatar/Avatar-layout';
 @use 'AttachmentList/AttachmentList-layout';
 @use 'AttachmentPreviewList/AttachmentPreviewList-layout';
 @use 'Autocomplete/Autocomplete-layout';
+@use 'AudioRecorder/AudioRecorder-layout';
+@use 'BaseImage/BaseImage-layout';
 @use 'Channel/Channel-layout';
 @use 'ChannelHeader/ChannelHeader-layout';
 @use 'ChannelList/ChannelList-layout';
@@ -14,10 +17,12 @@
 @use 'common/CircleFAButton/CircleFAButton-layout';
 @use 'EditMessageForm/EditMessageForm-layout';
 @use 'ImageCarousel/ImageCarousel-layout';
+@use 'Icon/Icon-layout';
 @use 'LinkPreview/LinkPreview-layout';
 @use 'LoadingIndicator/LoadingIndicator-layout';
 @use 'Message/Message-layout';
 @use 'MessageActionsBox/MessageActionsBox-layout';
+@use 'MessageBouncePrompt/MessageBouncePrompt-layout';
 @use 'MessageInput/MessageInput-layout';
 @use 'MessageList/MessageList-layout';
 @use 'MessageList/VirtualizedMessageList-layout';

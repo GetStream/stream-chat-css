@@ -107,13 +107,27 @@
     }
   }
 
+  .str-chat__attachment-preview-unsupported,
+  .str-chat__attachment-preview-voice-recording,
   .str-chat__attachment-preview-file {
     @include utils.component-layer-overrides('attachment-preview-file');
 
+    .str-chat__attachment-preview-title,
     .str-chat__attachment-preview-file-name {
       font: var(--str-chat__subtitle-medium-text);
     }
 
+    .str-chat__attachment-preview-file-download {
+      --str-chat-icon-color: var(--str-chat__attachment-preview-download-icon-color);
+      text-decoration: none;
+
+      svg path {
+        fill: var(--str-chat__attachment-preview-download-icon-color);
+      }
+    }
+  }
+
+  .str-chat__attachment-preview-file {
     .str-chat__attachment-preview-file-download {
       svg path {
         fill: var(--str-chat__attachment-preview-download-icon-color);
@@ -121,7 +135,21 @@
     }
   }
 
+  .str-chat__attachment-preview-voice-recording {
+    .str-chat__recording-timer {
+      color: var(--str-chat__text-low-emphasis-color);
+      font: var(--str-chat__caption-medium-text);
+    }
+  }
+
   .str-chat__attachment-preview-delete {
+    --str-chat-icon-color: var(--str-chat__attachment-preview-close-icon-color);
+
+    .str-chat__icon {
+      background-color: var(--str-chat__attachment-preview-close-icon-background);
+      border-radius: 999px;
+    }
+
     svg {
       background-color: var(--str-chat__attachment-preview-close-icon-background);
       border-radius: 999px;
@@ -133,6 +161,7 @@
   }
 
   .str-chat__attachment-preview-error {
+    --str-chat-icon-color: var(--str-chat__attachment-preview-retry-icon-color);
     background-color: var(--str-chat__attachment-preview-overlay-color);
 
     svg path {

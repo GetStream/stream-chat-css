@@ -18,6 +18,7 @@
   }
 
   .str-chat__modal__close-button {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 28);
     @include utils.flex-row-center;
     padding: var(--str-chat__spacing-2);
     position: absolute;

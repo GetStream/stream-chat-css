@@ -1,38 +1,21 @@
 .str-chat {
   box-sizing: border-box;
+  font-family: var(--str-chat__font-family);
 
   * {
-    font-family: var(--str-chat__font-family);
     box-sizing: border-box;
   }
 
-  // Overriding styles of ngx-popperjs
-  .ngxp__container {
+  // Overriding styles of ngx-popperjs/ngx-float-ui
+  .ngxp__container,
+  .float-ui-container {
     z-index: 1;
-    margin: -8px !important;
     padding: 0 !important;
     box-shadow: none !important;
-    border: none !important;
+    border-color: transparent !important;
 
     .ngxp__arrow {
-      display: none !important;
-    }
-  }
-
-  // Quick fix for: https://github.com/tonysamperi/ngx-popperjs/issues/52
-  &.google-chrome {
-    popper-content {
-      .ngxp__container {
-        display: block !important;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-
-        &[aria-hidden="true"] {
-          visibility: hidden;
-        }
-      }
+      display: none;
     }
   }
 }

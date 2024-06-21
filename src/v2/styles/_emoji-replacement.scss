@@ -1,5 +1,7 @@
-/* declare a font faces for our Emoji Replacement font, based on the default font used by Stream Chat React */
-$assetsPath: '../../assets' !default;
+@use 'variables';
+
+$assetsPath: variables.$assetsPath !default;
+
 $emoji-flag-unicode-range: U+1F1E6-1F1FF;
 
 /* png based woff for most browsers */
@@ -19,7 +21,8 @@ $emoji-flag-unicode-range: U+1F1E6-1F1FF;
 
 .str-chat--windows-flags {
   // TODO: consider adding the rule for reactions (list & selector) if we ever decide to make them use native emojis
-  .str-chat__textarea__textarea,
+  .str-chat__textarea__textarea, // class name from theme v1
+  .str-chat__message-textarea,
   .str-chat__message-text-inner *,
   .str-chat__emoji-item--entity,
   .emoji-mart-emoji-native * {
@@ -30,7 +33,8 @@ $emoji-flag-unicode-range: U+1F1E6-1F1FF;
 
 @-moz-document url-prefix('') {
   .str-chat--windows-flags {
-    .str-chat__textarea__textarea,
+    .str-chat__textarea__textarea, // class name from theme v1
+    .str-chat__message-textarea,
     .str-chat__message-text-inner *,
     .str-chat__emoji-item--entity,
     .emoji-mart-emoji-native * {

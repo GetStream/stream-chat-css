@@ -1,6 +1,7 @@
 @use '../utils';
 
 .str-chat__attachment-preview-list {
+  --str-chat__loading-indicator-size: calc(var(--str-chat__spacing-px) * 18);
   $preview-height: calc(var(--str-chat__spacing-px) * 72);
 
   @include utils.flex-row-center;
@@ -26,9 +27,12 @@
   }
 
   .str-chat__attachment-preview-image {
+    @include utils.flex-row-center;
     position: relative;
     height: $preview-height;
     width: $preview-height;
+    min-width: $preview-height;
+    overflow: hidden;
 
     .str-chat__attachment-preview-image-loading {
       @include overlay;
@@ -43,6 +47,8 @@
     }
   }
 
+  .str-chat__attachment-preview-unsupported,
+  .str-chat__attachment-preview-voice-recording,
   .str-chat__attachment-preview-file {
     display: flex;
     justify-content: flex-start;
@@ -54,7 +60,25 @@
     padding: 0 var(--str-chat__spacing-4);
     column-gap: var(--str-chat__spacing-2);
 
+    .str-chat__attachment-preview-metadata,
+    .str-chat__attachment-preview-file-end {
+      @include utils.ellipsis-text-parent;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .str-chat__attachment-preview-title,
+      .str-chat__attachment-preview-file-name {
+        @include utils.ellipsis-text;
+        max-width: 100%;
+      }
+    }
+
     .str-chat__attachment-preview-file-icon {
+      --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 37);
+      --str-chat-icon-width: auto;
       @include utils.flex-row-center;
 
       svg {
@@ -62,20 +86,12 @@
         width: unset;
       }
     }
+  }
 
+  .str-chat__attachment-preview-file {
     .str-chat__attachment-preview-file-end {
-      @include utils.ellipsis-text-parent;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-
-      .str-chat__attachment-preview-file-name {
-        @include utils.ellipsis-text;
-        max-width: 100%;
-      }
-
       .str-chat__attachment-preview-file-download {
+        --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 16);
         line-height: calc(var(--str-chat__spacing-px) * 13);
 
         svg {
@@ -93,6 +109,7 @@
   }
 
   .str-chat__attachment-preview-delete {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 24);
     position: absolute;
     top: calc(var(--str-chat__spacing-px) * 2);
     inset-inline-end: calc(var(--str-chat__spacing-px) * 2);
@@ -106,9 +123,12 @@
   }
 
   .str-chat__attachment-preview-error {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 24);
     @include overlay;
     @include utils.unset-button(unset);
+    inset-inline-start: 0;
     cursor: pointer;
+    z-index: 1;
   }
 }
 

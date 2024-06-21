@@ -2,13 +2,21 @@
 
 // Class defined by Angular mentions
 // !important necessary to override library defined styles
-.mention-menu {
-  padding: var(--str-chat__spacing-2) 0 !important;
-  margin: 0 !important;
-  min-width: 50%;
+.str-chat__message-textarea-angular-host {
+  position: relative;
 
-  .mention-item {
-    padding: 0 !important;
+  mention-list {
+    width: 100%;
+  }
+
+  .mention-menu {
+    padding: var(--str-chat__spacing-2) 0 !important;
+    margin: 0 !important;
+    max-width: 100%;
+
+    .mention-item {
+      padding: 0 !important;
+    }
   }
 }
 
@@ -49,6 +57,7 @@
 
   .str-chat__user-item--name {
     @include utils.ellipsis-text;
+    @include utils.prevent-glitch-text-overflow;
     width: 100%;
   }
 }
@@ -65,7 +74,7 @@
 }
 
 .str-chat__message-textarea-angular-host--autocomplete-hidden {
-  mention-list  {
+  mention-list {
     display: none;
   }
 }

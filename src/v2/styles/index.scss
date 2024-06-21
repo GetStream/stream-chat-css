@@ -9,18 +9,22 @@
 @use 'Avatar/Avatar-theme';
 @use 'AttachmentList/AttachmentList-theme';
 @use 'AttachmentPreviewList/AttachmentPreviewList-theme';
+@use 'AudioRecorder/AudioRecorder-theme';
 @use 'Autocomplete/Autocomplete-theme';
+@use 'BaseImage/BaseImage-theme';
 @use 'Channel/Channel-theme.scss';
 @use 'ChannelHeader/ChannelHeader-theme';
 @use 'ChannelList/ChannelList-theme';
 @use 'ChannelPreview/ChannelPreview-theme';
 @use 'ChannelSearch/ChannelSearch-theme';
 @use 'EditMessageForm/EditMessageForm-theme';
+@use 'Icon/Icon-theme';
 @use 'ImageCarousel/ImageCarousel-theme';
 @use 'LinkPreview/LinkPreview-theme';
 @use 'LoadingIndicator/LoadingIndicator-theme';
 @use 'Message/Message-theme';
 @use 'MessageActionsBox/MessageActionsBox-theme';
+@use 'MessageBouncePrompt/MessageBouncePrompt-theme';
 @use 'MessageInput/MessageInput-theme';
 @use 'MessageList/MessageList-theme';
 @use 'MessageList/VirtualizedMessageList-theme';
@@ -33,4 +37,3 @@
 @use 'Thread/Thread-theme';
 @use 'Tooltip/Tooltip-theme';
 @use 'TypingIndicator/TypingIndicator-theme';
-

@@ -110,6 +110,12 @@
       width: 100%;
       column-gap: var(--str-chat__spacing-2);
       padding: var(--str-chat__spacing-3) var(--str-chat__spacing-2);
+
+      .channel-search__result-text,
+      .str-chat__channel-search-result--display-name {
+        @include utils.ellipsis-text;
+        @include utils.prevent-glitch-text-overflow;
+      }
     }
   }
 }

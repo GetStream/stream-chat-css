@@ -220,12 +220,15 @@
   }
 
   .str-chat__message-options {
+    --str-chat-icon-color: var(--str-chat__message-options-color);
+
     .str-chat__message-actions-box-button,
     .str-chat__message-reply-in-thread-button,
     .str-chat__message-reactions-button {
       // remove default button styles (React SDK uses button compared to div in Angular SDK)
       @include utils.button-reset;
       border-radius: var(--str-chat__message-options-border-radius);
+      color: var(--str-chat__message-options-color);
 
       .str-chat__message-action-icon path {
         fill: var(--str-chat__message-options-color);
@@ -261,7 +264,8 @@
     }
   }
 
-  .str-chat__message-metadata {
+  .str-chat__message-metadata,
+  .str-chat__custom-message-metadata {
     color: var(--str-chat__message-secondary-color);
     font: var(--str-chat__caption-text);
 
@@ -271,6 +275,7 @@
   }
 
   .str-chat__message-status {
+    --str-chat-icon-color: var(--str-chat__message-status-color);
     color: var(--str-chat__message-status-color);
     font: var(--str-chat__body-text);
 
@@ -296,6 +301,7 @@
   }
 
   .str-chat__message-error-icon {
+    --str-chat-icon-color: var(--str-chat__message-error-message-color);
     /* stylelint-disable-next-line selector-max-id */
     svg #background {
       fill: var(--str-chat__message-error-message-color);
@@ -308,8 +314,16 @@
   background-color: var(--str-chat__message-highlighted-background-color);
 }
 
-.str-chat__li:hover {
+/* This rule won't be applied in browsers that don't support :has() */
+.str-chat__li:hover:not(:has(.str-chat__reaction-list:hover, .str-chat__modal--open)) {
   background-color: var(--str-chat__message-active-bacground-color);
+}
+
+/* Fallback for when :has() is unsupported */
+@supports not selector(:has(a, b)) {
+  .str-chat__li:hover {
+    background-color: var(--str-chat__message-active-bacground-color);
+  }
 }
 
 .str-chat__li--top,
@@ -373,5 +387,29 @@
     .str-chat__quoted-message-bubble {
       background-color: var(--str-chat__message-bubble-background-color);
     }
+  }
+}
+
+.str-chat__unread-messages-separator {
+  background-color: var(--str-chat__secondary-surface-color);
+  color: var(--str-chat__text-low-emphasis-color);
+  text-transform: uppercase;
+  font: var(--str-chat__caption-strong-text);
+}
+
+.str-chat__unread-messages-notification {
+  --str-chat-icon-color: var(--str-chat__on-primary-color);
+  background-color: var(--str-chat__text-low-emphasis-color);
+  border-radius: 1.125rem;
+
+  button {
+    cursor: pointer;
+    color: var(--str-chat__on-primary-color);
+    border: none;
+    background-color: transparent;
+  }
+
+  button:first-of-type {
+    font: var(--str-chat__caption-text);
   }
 }

@@ -56,6 +56,8 @@
   --str-chat__own-message-reaction-background-color: var(
     --str-chat__primary-surface-color-low-emphasis
   );
+
+  --str-chat__messsage-reactions-details--selected-color: solid var(--str-chat__primary-color);
 }
 
 .str-chat__message-reactions-container {
@@ -71,5 +73,20 @@
         background-color: var(--str-chat__own-message-reaction-background-color);
       }
     }
+  }
+}
+
+.str-chat__message-reactions-details {
+  .str-chat__message-reactions-details-reaction-type {
+    border-block-end: solid transparent;
+  }
+
+  .str-chat__message-reactions-details-reaction-type--selected {
+    border-block-end: var(--str-chat__messsage-reactions-details--selected-color);
+  }
+
+
+  .str-chat__message-reactions-details-reacting-user {
+    font: var(--str-chat__subtitle-text);
   }
 }

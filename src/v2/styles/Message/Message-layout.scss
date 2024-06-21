@@ -11,7 +11,7 @@
   --str-chat__message-with-attachment-max-width: calc(var(--str-chat__spacing-px) * 300);
 
   /* The maximum allowed width of quoted messages inside the message component */
-  --str-chat__quoted-message-max-width: calc(var(--str-chat__spacing-px) * 180);
+  --str-chat__quoted-message-max-width: calc(var(--str-chat__spacing-px) * 250);
 
   /* The maximum allowed width of quoted messages inside the message input component */
   --str-chat__quoted-message-inside-message-input-max-width: calc(
@@ -28,6 +28,10 @@
 .str-chat__message {
   .str-chat__message-bubble {
     max-width: var(--str-chat__message-max-width);
+  }
+
+  .str-chat__message-options {
+    --str-chat-icon-height: calc(var(--str-chat__message-options-button-size) * 0.7);
   }
 }
 
@@ -72,10 +76,11 @@
       'avatar message'
       '. replies'
       '. translation-notice'
+      '. custom-metadata'
       '. metadata';
     column-gap: var(--str-chat__spacing-2);
     grid-template-columns: auto 1fr;
-    justify-items: start;
+    justify-items: flex-start;
   }
 
   &.str-chat__message--me {
@@ -83,6 +88,7 @@
       'message'
       'replies'
       'translation-notice'
+      'custom-metadata'
       'metadata';
     justify-items: end;
 
@@ -118,7 +124,7 @@
 
     .str-chat__message-options {
       grid-area: options;
-      align-items: start;
+      align-items: flex-start;
       justify-content: flex-end;
       flex-direction: row-reverse;
       width: calc(3 * var(--str-chat__message-options-button-size));
@@ -150,6 +156,10 @@
       .str-chat__message-text {
         @include chat-bubble-spacing;
 
+        .str-chat__message-text-inner {
+          @include utils.prevent-glitch-text-overflow;
+        }
+
         p {
           white-space: pre-line;
         }
@@ -178,15 +188,41 @@
     }
   }
 
-  .str-chat__message-metadata {
-    grid-area: metadata;
-    display: flex;
-    align-items: center;
-    column-gap: var(--str-chat__spacing-1);
+  .str-chat__custom-message-metadata {
+    grid-area: custom-metadata;
     margin-block-start: var(--str-chat__spacing-0_5);
   }
 
+  .str-chat__message-metadata {
+    grid-area: metadata;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: var(--str-chat__spacing-1);
+    margin-block-start: var(--str-chat__spacing-0_5);
+
+    .str-chat__message-simple-name {
+      @include utils.prevent-glitch-text-overflow;
+    }
+
+    .str-chat__message-simple-timestamp + .str-chat__mesage-simple-edited::before {
+      content: '•';
+      margin-right: var(--str-chat__spacing-1);
+    }
+
+    .str-chat__message-edited-timestamp {
+      --str-chat__message-edited-timestamp-height: 1rem;
+      flex-basis: 100%;
+    }
+  }
+
+  &.str-chat__message--me .str-chat__message-metadata {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
   .str-chat__message-status {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 15);
     @include utils.flex-row-center;
     column-gap: var(--str-chat__spacing-0_5);
     position: relative;
@@ -253,23 +289,37 @@
 // Message options display - default mode: they appear when .str-chat__li is hovered
 .str-chat__ul:not(.str-chat__message-options-in-bubble),
 .str-chat__virtual-list:not(.str-chat__message-options-in-bubble) {
-  .str-chat__li {
-    &:hover {
-      .str-chat__message-options {
-        display: flex;
-      }
+  /* This rule won't be applied in browsers that don't support :has() */
+  .str-chat__li:hover:not(:has(.str-chat__reaction-list:hover, .str-chat__modal--open)),
+  .str-chat__li:focus-within:not(:has(.str-chat__reaction-list:focus-within, .str-chat__modal--open)) {
+    .str-chat__message-options {
+      display: flex;
     }
-  }
 
-  .str-chat__li:hover {
     .str-chat__message--other .str-chat__message-inner {
       margin-inline-end: 0;
     }
-  }
 
-  .str-chat__li:hover {
     .str-chat__message--me .str-chat__message-inner {
       margin-inline-start: 0;
+    }
+  }
+
+  /* Fallback for when :has() is unsupported */
+  @supports not selector(:has(a, b)) {
+    .str-chat__li:hover,
+    .str-chat__li:focus-within {
+      .str-chat__message-options {
+        display: flex;
+      }
+
+      .str-chat__message--other .str-chat__message-inner {
+        margin-inline-end: 0;
+      }
+
+      .str-chat__message--me .str-chat__message-inner {
+        margin-inline-start: 0;
+      }
     }
   }
 }
@@ -299,7 +349,7 @@
     display: none;
   }
 
-  .str-chat__message-edit-in-progress.str-chat__message-options {
+  .str-chat__message-actions-open.str-chat__message-options {
     display: flex;
   }
 }
@@ -395,4 +445,70 @@
       }
     }
   }
+}
+
+.str-chat__unread-messages-separator-wrapper {
+  padding-block: 0.5rem;
+
+  .str-chat__unread-messages-separator {
+    @include utils.flex-row-center;
+    width: 100%;
+    padding: 0.5rem;
+  }
+}
+
+.str-chat__unread-messages-notification {
+  --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 16);
+  position: absolute;
+  top: 0.75rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  overflow: clip;
+
+  button {
+    padding-block: 0.5rem;
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  button:first-of-type {
+    padding-inline: 0.75rem 0.375rem;
+  }
+
+  button:last-of-type {
+    padding-inline: 0.375rem 0.75rem;
+
+    svg {
+      width: 0.875rem;
+    }
+  }
+}
+
+.str-chat-angular__message-bubble {
+  /* transform: translate3d(0, 0, 0) fixes scrolling issues on iOS, see: https://stackoverflow.com/questions/50105780/elements-disappear-when-scrolling-in-safari-webkit-transform-fix-only-works-t/50144295#50144295 */
+  transform: translate3d(0, 0, 0);
+
+  &.str-chat-angular__message-bubble--attachment-modal-open {
+    /* transform: none is required when image carousel is open in order for the modal to be correctly positioned, see how the transform property changes the behavior of fixed positioned elements https://developer.mozilla.org/en-US/docs/Web/CSS/position  */
+    transform: none;
+  }
+}
+
+.str-chat__message-edited-timestamp {
+  overflow: hidden;
+  transition: height 0.1s;
+
+  &--open {
+    height: var(--str-chat__message-edited-timestamp-height, 1rem);
+  }
+
+  &--collapsed {
+    height: 0;
+  }
+}
+
+.str-chat__message-text--pointer-cursor {
+  cursor: pointer;
 }
