@@ -23,7 +23,7 @@
 // React SDK's version of Angular SDK's .dropup (mention-list)
 .str-chat__suggestion-list-container {
   position: absolute;
-  bottom: var(--str-chat__spacing-7);
+  bottom: calc(100% + var(--str-chat__spacing-2_5));
   width: 100%;
   padding: var(--str-chat__spacing-2) 0;
 
