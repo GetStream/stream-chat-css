@@ -7,13 +7,19 @@
   inset-block-end: 100%;
 
   &.str-chat-angular-v5__reaction-selector {
+    margin: var(--str-chat__spacing-2);
     position: static;
 
     .str-chat__message-reactions-options {
       max-width: 100%;
-      overflow-y: auto;
-      overflow-x: hidden;
+      overflow-y: hidden;
+      overflow-x: auto;
       scrollbar-width: none;
+      padding: 0;
+
+      .str-chat__message-reactions-option {
+        flex-shrink: 0;
+      }
     }
   }
 
