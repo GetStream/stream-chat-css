@@ -9,6 +9,7 @@
   &.str-chat-angular-v5__reaction-selector {
     margin: var(--str-chat__spacing-2);
     position: static;
+    justify-content: flex-start;
 
     .str-chat__message-reactions-options {
       max-width: 100%;
