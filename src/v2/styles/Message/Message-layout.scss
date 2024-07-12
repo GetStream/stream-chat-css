@@ -520,9 +520,11 @@
 }
 
 .str-chat__message-with-touch-support {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
+  .str-chat__message-bubble {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
 
   &.str-chat__message-menu-opened {
     .str-chat__attachments-container,
