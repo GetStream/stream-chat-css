@@ -1,5 +1,6 @@
 @use '../utils';
 
+// FIXME: figure out why does this "container" exist when __thread is completely valid
 .str-chat__thread-container {
   height: 100%;
   display: flex;
@@ -40,9 +41,22 @@
       }
     }
   }
+}
 
-  .str-chat__thread-list {
+.str-chat__thread {
+  .str-chat__main-panel-inner {
     height: auto;
+  }
+}
+
+.str-chat__thread--virtualized {
+  .str-chat__main-panel-inner {
+    height: 100%;
+
+    // the first message in virtualized thread has to be separated from the top by padding, not margin
+    .str-chat__virtual-list-message-wrapper:first-of-type {
+      padding-block-start: var(--str-chat__spacing-4);
+    }
   }
 }
 

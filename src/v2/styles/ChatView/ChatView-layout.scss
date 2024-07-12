@@ -1,0 +1,86 @@
+.str-chat {
+  --str-chat-selector-background-color: var(--str-chat__secondary-background-color);
+  --str-chat-selector-border-color: var(--str-chat__surface-color);
+
+  --str-chat-selector-button-color-default: var(--str-chat__text-low-emphasis-color);
+  --str-chat-selector-button-color-selected: var(--str-chat__text-color);
+  --str-chat-selector-button-background-color-default: transparent;
+  --str-chat-selector-button-background-color-selected: var(--str-chat__surface-color);
+
+  --str-chat-unread-count-badge-color: var(--str-chat__on-unread-badge-color);
+  --str-chat-unread-count-badge-background-color: var(--str-chat__danger-color);
+}
+
+.str-chat__chat-view {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  &__selector {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 8px;
+    padding-block: 16px;
+    gap: 20px;
+    border-right: 1px solid var(--str-chat-selector-border-color);
+    background-color: var(--str-chat-selector-background-color);
+
+    &-button {
+      all: unset;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--str-chat-selector-button-background-color-default);
+      color: var(--str-chat-selector-button-color-default);
+      padding-inline: 10px;
+      padding-block: 10px;
+      border-radius: 8px;
+      gap: 4px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 1;
+      box-sizing: border-box;
+      cursor: pointer;
+      position: relative;
+
+      --str-chat-icon-color: var(--str-chat-selector-button-color-default);
+      --str-chat-icon-height: 20px;
+      --str-chat-icon-width: 20px;
+
+      &[aria-selected='true'] {
+        --str-chat-icon-color: var(--str-chat-selector-button-color-selected);
+        color: var(--str-chat-selector-button-color-selected);
+        background: var(--str-chat-selector-button-background-color-selected);
+      }
+    }
+
+    .str-chat__unread-count-badge {
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 700;
+      padding: 5px 7px;
+      background: var(--str-chat-unread-count-badge-background-color);
+      color: var(--str-chat-unread-count-badge-color);
+      border-radius: 9999px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-variant-numeric: tabular-nums;
+
+      position: absolute;
+      right: 10px;
+      top: 6px;
+    }
+  }
+
+  &__channels {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  &__threads {
+    display: flex;
+    flex-grow: 1;
+  }
+}
