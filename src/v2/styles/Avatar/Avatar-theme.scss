@@ -38,6 +38,11 @@
     display: block;
   }
 
+  &.str-chat__avatar--no-letters {
+    @include utils.component-layer-overrides('avatar');
+    --str-chat-icon-color: var(--str-chat__avatar-color);
+  }
+
   .str-chat__avatar-fallback {
     @include utils.component-layer-overrides('avatar');
     text-transform: uppercase;
