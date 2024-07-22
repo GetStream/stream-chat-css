@@ -46,3 +46,19 @@
     }
   }
 }
+
+stream-loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .str-chat__loading-indicator {
+    width: var(--str-chat__loading-indicator-size);
+    height: var(--str-chat__loading-indicator-size);
+  }
+}
+
+.str-chat__loading-indicator-placeholder {
+  width: var(--str-chat__loading-indicator-size);
+  height: var(--str-chat__loading-indicator-size);
+}
