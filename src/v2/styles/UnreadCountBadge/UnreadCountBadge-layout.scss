@@ -1,7 +1,4 @@
 .str-chat {
-  --str-chat-unread-count-badge-color: var(--str-chat__on-unread-badge-color);
-  --str-chat-unread-count-badge-background-color: var(--str-chat__danger-color);
-
   --str-chat-unread-count-badge-absolute-offset-vertical: 50%;
   --str-chat-unread-count-badge-absolute-offset-horizontal: 50%;
 }
@@ -19,9 +16,6 @@
   min-height: 22px;
   line-height: 8px;
   font-weight: 700;
-  background-color: var(--str-chat-unread-count-badge-background-color);
-  color: var(--str-chat-unread-count-badge-color);
-  border-radius: 9999px;
   padding: 7px;
   flex-shrink: 0;
   display: flex;

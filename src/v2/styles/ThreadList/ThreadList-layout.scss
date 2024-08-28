@@ -1,27 +1,7 @@
-.str-chat {
-  --str-chat-thread-list-border-color: var(--str-chat__surface-color);
-  --str-chat-thread-list-container-background-color: var(--str-chat__secondary-background-color);
-
-  --str-chat-unseen-threads-banner-background-color: var(--str-chat__text-color);
-  --str-chat-unseen-threads-banner-color: var(--str-chat__opaque-surface-text-color);
-
-  --str-chat-thread-list-item-background-color-default: var(--str-chat__secondary-background-color);
-  --str-chat-thread-list-item-background-color-selected: var(--str-chat__surface-color);
-
-  --str-chat-thread-list-item-text-color: var(--str-chat__text-color);
-  --str-chat-thread-list-item-text-low-emphasis-color: var(--str-chat__text-low-emphasis-color);
-
-  --str-chat-thread-list-empty-placeholder-background-color: var(
-    --str-chat__secondary-background-color
-  );
-  --str-chat-thread-list-empty-placeholder-color: var(--str-chat__text-low-emphasis-color);
-}
-
 .str-chat__thread-list-container {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: var(--str-chat-thread-list-container-background-color);
 }
 
 .str-chat__unseen-threads-banner {
@@ -29,10 +9,7 @@
   font-weight: 400;
 
   margin: 8px;
-  border-radius: 16px;
   padding: 16px;
-  background: var(--str-chat-unseen-threads-banner-background-color);
-  color: var(--str-chat-unseen-threads-banner-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,20 +23,13 @@
     width: 24px;
     height: 24px;
 
-    --str-chat-icon-color: var(--str-chat-unseen-threads-banner-color);
     --str-chat-icon-width: 16px;
     --str-chat-icon-heigh: 22px;
   }
 }
 
 .str-chat__thread-list {
-  --str-chat-icon-color: var(--str-chat-thread-list-item-text-color);
-
-  border-right: 1px solid var(--str-chat-thread-list-border-color);
-  color: var(--str-chat-thread-list-item-text-color);
-
   .str-chat__thread-list-item {
-    border: none;
     align-items: stretch;
     box-sizing: border-box;
     padding-block: 14px;
@@ -69,16 +39,6 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    background-color: var(--str-chat-thread-list-item-background-color-default);
-
-    &[aria-selected='true'] {
-      background-color: var(--str-chat-thread-list-item-background-color-selected);
-
-      .str-chat__thread-list-item__parent-message-text,
-      .str-chat__thread-list-item__latest-reply-text-and-timestamp {
-        color: inherit;
-      }
-    }
 
     .str-chat__thread-list-item__channel {
       --str-chat-icon-height: 14px;
@@ -121,7 +81,6 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      color: var(--str-chat-thread-list-item-text-low-emphasis-color);
     }
 
     .str-chat__thread-list-item__latest-reply {
@@ -130,8 +89,6 @@
       gap: 5px;
 
       --str-chat__avatar-size: 49px;
-      --str-chat__avatar-background-color: var(--str-chat__secondary-surface-color);
-      --str-chat__avatar-color: var(--str-chat__text-low-emphasis-color);
     }
 
     .str-chat__thread-list-item__latest-reply-details {
@@ -155,7 +112,6 @@
       justify-content: space-between;
       align-items: baseline;
       line-height: 16px;
-      color: var(--str-chat-thread-list-item-text-low-emphasis-color);
     }
 
     .str-chat__thread-list-item__latest-reply-text {
@@ -181,10 +137,7 @@
 .str-chat__thread-list-empty-placeholder {
   --str-chat-icon-height: 95px;
   --str-chat-icon-width: 95px;
-  --str-chat-icon-color: var(--str-chat-thread-list-empty-placeholder-color);
 
-  background-color: var(--str-chat-thread-list-empty-placeholder-background-color);
-  color: var(--str-chat-thread-list-empty-placeholder-color);
   font-size: 20px;
   font-weight: 500;
   display: flex;
