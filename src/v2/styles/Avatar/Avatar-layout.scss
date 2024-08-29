@@ -34,6 +34,9 @@
 
 .str-chat__avatar {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: var(--str-chat__avatar-size);
   line-height: var(--str-chat__avatar-size);
   width: var(--str-chat__avatar-size);
@@ -44,6 +47,11 @@
     font-size: calc(var(--str-chat__avatar-size) * 0.5);
   }
 
+  &.str-chat__avatar--no-letters {
+    --str-chat-icon-width: calc(var(--str-chat__avatar-size) * 0.33);
+    --str-chat-icon-height: calc(var(--str-chat__avatar-size) * 0.33);
+  }
+
   &.str-chat__avatar--multiple-letters,
   &.stream-chat__avatar--multiple-letters {
     font-size: calc(var(--str-chat__avatar-size) * 0.3);
@@ -52,7 +60,7 @@
   .str-chat__avatar-image {
     height: 100%;
     width: 100%;
-    object-fit: cover;;
+    object-fit: cover;
   }
 
   .str-chat__avatar-fallback {
