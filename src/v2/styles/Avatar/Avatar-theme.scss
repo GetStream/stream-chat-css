@@ -39,8 +39,8 @@
   }
 
   &.str-chat__avatar--no-letters {
-    @include utils.component-layer-overrides('avatar');
     --str-chat-icon-color: var(--str-chat__avatar-color);
+    @include utils.component-layer-overrides('avatar');
   }
 
   .str-chat__avatar-fallback {

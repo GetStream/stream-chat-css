@@ -15,6 +15,9 @@
   justify-content: space-between;
 
   &__button {
+    --str-chat-icon-width: 16px;
+    --str-chat-icon-heigh: 22px;
+
     all: unset;
     cursor: pointer;
     display: flex;
@@ -22,9 +25,6 @@
     justify-content: center;
     width: 24px;
     height: 24px;
-
-    --str-chat-icon-width: 16px;
-    --str-chat-icon-heigh: 22px;
   }
 }
 
@@ -84,11 +84,11 @@
     }
 
     .str-chat__thread-list-item__latest-reply {
+      --str-chat__avatar-size: 49px;
+
       display: flex;
       align-items: center;
       gap: 5px;
-
-      --str-chat__avatar-size: 49px;
     }
 
     .str-chat__thread-list-item__latest-reply-details {
