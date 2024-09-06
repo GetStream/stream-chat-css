@@ -32,14 +32,15 @@
 }
 
 .str-chat__thread-list {
-  --str-chat-icon-color: var(--str-chat-thread-list-item-text-color);
-
+  
   border-right: 1px solid var(--str-chat-thread-list-border-color);
-  color: var(--str-chat-thread-list-item-text-color);
-
+  
   .str-chat__thread-list-item {
+    --str-chat-icon-color: var(--str-chat-thread-list-item-text-color);
+    
     border: none;
     background-color: var(--str-chat-thread-list-item-background-color-default);
+    color: var(--str-chat-thread-list-item-text-color);
 
     &[aria-selected='true'] {
       background-color: var(--str-chat-thread-list-item-background-color-selected);
