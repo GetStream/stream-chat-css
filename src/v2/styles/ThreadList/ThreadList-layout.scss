@@ -100,9 +100,12 @@
     }
 
     .str-chat__thread-list-item__latest-reply-created-by {
-      display: flex;
       font-weight: 500;
       font-size: 16px;
+      text-align: left;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow-x: hidden;
     }
 
     .str-chat__thread-list-item__latest-reply-text-and-timestamp {
