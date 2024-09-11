@@ -68,3 +68,19 @@
     inset-inline-start: 0;
   }
 }
+
+// the React SDK positions the reaction selector with popperjs
+.str-chat-react__message-reaction-selector {
+  position: static;
+  inset-block-end: unset;
+
+  ul {
+    margin: 0;
+  }
+}
+
+.str-chat__message--me, .str-chat__message--other {
+  .str-chat-react__message-reaction-selector {
+    inset-inline-start: unset;
+  }
+}
