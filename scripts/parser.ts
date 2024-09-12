@@ -7,27 +7,18 @@ import Parser, { SyntaxNode } from 'tree-sitter';
 import CSS from 'tree-sitter-css';
 
 type SDK = 'Angular' | 'React';
-type ComponentName = string;
-export type VariableGroup = {
-  componentName: ComponentName;
+
+export type ComponentInfo = {
+  name: string;
+  variableTypes: ('theme' | 'layout')[];
   sdkRestriction?: SDK;
 };
 
-export type VariableInfo = {
-  name: string;
-  values: { scope: string; value: string }[];
-  theme?: string;
-  description?: string;
-  definedIn?: VariableGroup;
-  blockComment?: string;
-  referencedIn: Set<ComponentName>;
-};
-
-export const extractVariables = (fromGlob: string, dependencies?: Map<string, VariableInfo>) => {
+export const extractComponents = (fromGlob: string) => {
   const parser = new Parser();
   parser.setLanguage(CSS);
 
-  const componentVariables = new Map<string, VariableInfo>();
+  const componentInfos: ComponentInfo[] = [];
   const files = glob.sync(fromGlob);
   files.forEach((file) => {
     const [, componentName] = file.split(/.*\/(.*)-(theme|layout|variables)\.scss$/);
@@ -42,83 +33,44 @@ export const extractVariables = (fromGlob: string, dependencies?: Map<string, Va
       loadPaths: [path.resolve('./src/v2/styles')],
     });
 
+    let sdkRestriction: SDK | undefined = undefined;
+    let variableType: 'layout' | 'theme' | undefined = undefined;
     const ast = parser.parse(compilation.css);
     ast.rootNode.descendantsOfType('rule_set').forEach((ruleSet) => {
       const ruleSetComment = extractComment(ruleSet);
-      let sdkRestriction: SDK | undefined = undefined;
       if (ruleSetComment) {
         const matches = ruleSetComment.match(/Angular|React/g);
         if (matches) {
           sdkRestriction = matches[0] as SDK;
         }
       }
-      const variableGroup = { componentName, sdkRestriction };
-      ruleSet.descendantsOfType('declaration').forEach((node) => {
+      for (let i = 0; i < ruleSet.descendantsOfType('declaration').length; i++) {
+        const node = ruleSet.descendantsOfType('declaration')[i];
         const identifier = node.text;
         if (identifier.startsWith('--str-chat')) {
-          const currentVariable = extractVariableInfo(
-            node,
-            variableGroup,
-            ruleSet.firstChild?.text || '',
-          );
-          const seenVariable = componentVariables.get(currentVariable.name);
-          if (!seenVariable) {
-            // we see this variable for a very first time, store it in the map
-            componentVariables.set(currentVariable.name, currentVariable);
-          } else {
-            if (!seenVariable.description && currentVariable.description) {
-              seenVariable.definedIn = currentVariable.definedIn;
-              seenVariable.description = currentVariable.description;
-            }
-            seenVariable.values.push(...currentVariable.values);
-          }
+          variableType = file.includes('theme') ? 'theme' : 'layout';
+          break;
         }
-
-        if (dependencies) {
-          const value = node.text;
-          // matches against multiple var() invocations in the same rule
-          // e.g.: padding: var(--xs-p) var(--xl-p);
-          const matches = value.match(/var\(([\w\s,-]+)\)/g);
-          if (matches) {
-            matches.forEach((match) => {
-              // capture the variable name, e.g.: "var(--xl-p)" -> "--xl-p", "var(--xl-p, 8px)" -> "--xl-p"
-              const [, variable] = match.match(/var\(([\w\s-]+)(\)|,)/)!;
-              const dependantVariable = dependencies.get(variable.trim());
-              dependantVariable?.referencedIn.add(componentName);
-            });
-          }
-        }
-      });
+      }
     });
+
+    if (variableType) {
+      let componentInfo = componentInfos.find((c) => c.name === componentName);
+      if (!componentInfo) {
+        componentInfo = {
+          name: componentName,
+          variableTypes: [],
+        };
+        componentInfos.push(componentInfo);
+      }
+
+      componentInfo.variableTypes.push(variableType);
+      componentInfo.variableTypes.sort().reverse();
+      componentInfo.sdkRestriction = sdkRestriction;
+    }
   });
 
-  return componentVariables;
-};
-
-const extractVariableInfo = (
-  node: SyntaxNode,
-  variableGroup: VariableGroup,
-  scope: string,
-): VariableInfo => {
-  // nodes in format: <name>: <value-1> <value-2> ... ;
-  const [name, _, ...declValues] = node.children;
-  const value = declValues
-    .slice(0, -1) // omit ; terminator
-    .map((n) => n.text.replaceAll('\n', '').trim())
-    .join(' ')
-    .trim();
-
-  const description = extractComment(node);
-
-  const theme = detectTheme(node);
-  return {
-    name: name.text.trim(),
-    values: [{ scope: scope.replace(/\n/g, ''), value }],
-    theme,
-    description,
-    definedIn: variableGroup,
-    referencedIn: new Set<ComponentName>(),
-  };
+  return componentInfos;
 };
 
 const extractComment = (node: SyntaxNode) => {
@@ -131,21 +83,4 @@ const extractComment = (node: SyntaxNode) => {
   } else {
     return undefined;
   }
-};
-
-const detectTheme = (node: SyntaxNode) => {
-  let theme = undefined;
-  let n = node;
-  do {
-    if (n.type === 'rule_set' && n.firstChild) {
-      const selector = n.firstChild.text;
-      if (selector.includes('str-chat__theme-light')) {
-        theme = 'light';
-      } else if (selector.includes('str-chat__theme-dark')) {
-        theme = 'dark';
-      }
-    }
-    n = n.parent!;
-  } while (n != null && !theme);
-  return theme;
 };
