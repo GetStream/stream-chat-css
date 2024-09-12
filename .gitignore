@@ -110,6 +110,7 @@ dist
 # Generated docs
 docs/**/*.mdx
 !docs/theming/introduction.mdx
+!docs/theming/palette-variables.mdx
 
 # Mac
 .DS_Store
