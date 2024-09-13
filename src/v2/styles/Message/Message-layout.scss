@@ -350,6 +350,14 @@
   }
 }
 
+// Message options display - third mode: they appear, when explicitly marked as active
+.str-chat__message-inner {
+  .str-chat__message-options.str-chat__message-options--active {
+    display: flex;
+  }
+}
+
+
 .str-chat__message-inner {
   .str-chat__message-options {
     display: none;
