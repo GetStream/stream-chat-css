@@ -28,3 +28,34 @@ stream-icon-placeholder {
   justify-content: center;
   align-items: center;
 }
+
+.stream-chat__paginated-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 100%;
+  min-height: 0;
+  gap: var(--str-chat__spacing-2);
+
+  .str-chat__loading-indicator {
+    margin: auto;
+  }
+}
+
+stream-paginated-list {
+  height: 100%;
+  max-height: 100%;
+}
+
+stream-user-list {
+  height: 100%;
+  max-height: 100%;
+
+  .str-chat__user-list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--str-chat__spacing-2);
+  }
+}
