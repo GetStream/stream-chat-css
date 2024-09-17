@@ -84,5 +84,11 @@
         background-color: var(--str-chat__message-reactions-option-selected-background-color);
       }
     }
+
+    @media (hover: none) {
+      .str-chat__message-reactions-option:hover {
+        background-color: transparent;
+      }
+    }
   }
 }

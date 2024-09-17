@@ -67,3 +67,11 @@
     }
   }
 }
+
+@media (hover: none) {
+  .str-chat__message-actions-box {
+    .str-chat__message-actions-list-item-button:hover {
+      background-color: transparent;
+    }
+  }
+}
