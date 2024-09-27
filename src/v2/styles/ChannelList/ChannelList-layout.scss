@@ -34,6 +34,10 @@
       @include utils.flex-row-center;
     }
   }
+
+  .stream-chat__paginated-list {
+    gap: 0;
+  }
 }
 
 .str-chat__channel-list-react {
