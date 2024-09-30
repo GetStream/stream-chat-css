@@ -228,6 +228,7 @@
   }
 
   .str-chat__start-recording-audio-button {
+    --str-chat-icon-color: var(--str-chat__start-recording-audio-button-color);
     @include utils.component-layer-overrides('start-recording-audio-button');
 
     &:disabled {
