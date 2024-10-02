@@ -1,0 +1,30 @@
+.str-chat__dialog {
+  .str-chat__dialog__title {
+    font: var(--str-chat__subtitle-medium-text);
+  }
+
+  .str-chat__dialog__prompt {
+    font: var(--str-chat__subtitle-text);
+  }
+
+  input[type=text] {
+    font: var(--str-chat__subtitle-text);
+    border-radius: 20px;
+    border: 1px solid var(--str-chat__primary-color);
+  }
+
+  .str-chat__dialog__controls {
+    .str-chat__dialog__controls-button {
+      font: var(--str-chat__body-medium-text);
+      color: var(--str-chat__primary-color);
+    }
+
+    .str-chat__dialog__controls-button--submit {
+      text-transform: uppercase;
+
+      &:disabled {
+        color: var(--str-chat__disabled-color);
+      }
+    }
+  }
+}

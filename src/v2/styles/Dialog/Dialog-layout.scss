@@ -6,3 +6,35 @@
   width: 100%;
   z-index: 2;
 }
+
+.str-chat__dialog {
+  width: 100%;
+
+  .str-chat__dialog__body {
+    padding: 2rem 1rem;
+
+    .str-chat__dialog__title {
+      margin-bottom: 1rem;
+    }
+
+    .str-chat__dialog__prompt {
+
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 0.625rem 1rem;
+    }
+  }
+
+  .str-chat__dialog__controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.25rem;
+    padding: 1.25rem;
+
+    .str-chat__dialog__controls-button {
+
+    }
+  }
+}

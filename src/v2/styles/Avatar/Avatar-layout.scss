@@ -30,6 +30,10 @@
   .stream-chat__avatar--message-status {
     --str-chat__avatar-size: calc(var(--str-chat__spacing-px) * 15);
   }
+
+  .str-chat__avatar--poll-vote-author {
+    --str-chat__avatar-size: calc(var(--str-chat__spacing-px) * 20);
+  }
 }
 
 .str-chat__avatar {

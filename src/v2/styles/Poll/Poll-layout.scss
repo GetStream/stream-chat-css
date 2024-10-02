@@ -1,0 +1,285 @@
+@use '../utils';
+
+.str-chat__poll {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0.675rem;
+  min-width: 220px;
+  max-width: 270px;
+  font: var(--str-chat__body-text);
+
+  button {
+    @include utils.button-reset;
+    cursor: pointer;
+  }
+
+  $checkmark_size: 1rem;
+
+  .str-chat__checkmark {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    margin-right: 0.125rem;
+    height: $checkmark_size;
+    width: $checkmark_size;
+  }
+
+  .str-chat__checkmark--checked {
+    height: calc($checkmark_size + 1px);
+    width: calc($checkmark_size + 1px);
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Im00IDkuNC00LTRMMS40IDQgNCA2LjYgMTAuNiAwIDEyIDEuNGwtOCA4WiIvPjwvc3ZnPg==');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 11px 10px;
+  }
+
+  .str-chat__poll-header {
+    .str-chat__poll-title {
+      font: var(--str-chat__body-medium-text);
+    }
+
+    .str-chat__poll-subtitle {
+      font: var(--str-chat__caption-text);
+    }
+  }
+
+  .str-chat__poll-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .str-chat__poll-action {
+      padding: 0.675rem;
+      font: var(--str-chat__subtitle-text);
+      color: var(--str-chat__primary-color);
+    }
+  }
+}
+
+.str-chat__poll-option-list--full,
+.str-chat__modal__poll-results {
+  .str-chat__poll-option {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+
+    .str-chat__amount-bar {
+      display: none;
+    }
+  }
+}
+
+.str-chat__poll-option {
+  padding-block: 0.25rem;
+  cursor: pointer;
+
+  .str-chat__poll-option-data {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    font: var(--str-chat__body-text);
+    gap: 0.125rem;
+
+    p {
+      margin: 0;
+      flex: 1;
+    }
+
+    .str-chat__poll-option-voters {
+      display: flex;
+      --str-chat__avatar-size: 1.175rem;
+    }
+  }
+}
+
+.str-chat__poll-option-list--full {
+  .str-chat__poll-option {
+    display: flex;
+    flex-direction: row;
+    padding-block: 1rem;
+
+    &:nth-of-type(1) {
+      padding-top: 1.5rem;
+      border-top-left-radius: var(--str-chat__border-radius-sm);
+      border-top-right-radius: var(--str-chat__border-radius-sm);
+    }
+
+    &:last-child {
+      padding-bottom: 1.5rem;
+      border-bottom-left-radius: var(--str-chat__border-radius-sm);
+      border-bottom-right-radius: var(--str-chat__border-radius-sm);
+    }
+  }
+}
+
+.str-chat__poll-option-list:not(.str-chat__poll-option-list--full) {
+  .str-chat__poll-option {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-block: 0.25rem;
+    gap: 0.125rem;
+
+
+    .str-chat__poll-option-data {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    .str-chat__poll-option__votes-bar {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      height: 0.25rem;
+      width: 100%;
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+.str-chat__poll-actions .str-chat__modal {
+  .str-chat__modal__inner {
+    padding: 0;
+    overflow: hidden;
+    max-width: 400px;
+    $content-offset-inline: 1rem;
+
+    .str-chat__tooltip {
+      max-width: 300px;
+    }
+
+    .str-chat__poll-modal__header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 1.25rem $content-offset-inline;
+
+      button.str-chat__poll-modal__go-back-button,
+      .str-chat__poll-modal__close-button {
+        padding: 1rem;
+        background-size: 0.875rem;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      button.str-chat__poll-modal__go-back-button {
+        background-image: var(--str-chat__arrow-left-icon);
+      }
+
+      .str-chat__poll-modal__close-button {
+        background-image: var(--str-chat__close-icon);
+      }
+
+      .str-chat__poll-modal__title {
+        flex: 1;
+      }
+    }
+
+    .str-chat__modal__poll-answer-list,
+    .str-chat__modal__poll-option-list,
+    .str-chat__modal__poll-results {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    .str-chat__modal__poll-answer-list,
+    .str-chat__poll-option--full-vote-list {
+      .str-chat__loading-indicator-placeholder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+      }
+    }
+
+    .str-chat__modal__poll-option-list__title,
+    .str-chat__modal__poll-results__title {
+      margin-bottom: 1.5rem;
+      padding: 1.175rem 1rem;
+    }
+
+    .str-chat__modal__poll-option-list__body,
+    .str-chat__poll-answer-list,
+    .str-chat__modal__poll-results__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+      max-height: 100%;
+      overflow-y: auto;
+      padding: 0 $content-offset-inline 1.25rem;
+    }
+
+    .str-chat__modal__poll-option-list__body {
+      gap: 0;
+    }
+
+    .str-chat__poll-answer {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+
+      .str-chat__poll-answer__text {
+        margin: 0;
+      }
+    }
+
+    .str-chat__checkmark {
+      margin-right: 1rem;
+    }
+
+
+    .str-chat__poll-option {
+      .str-chat__poll-vote-listing {
+        margin-top: 1rem;
+      }
+    }
+
+    .str-chat__poll-option__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.25rem;
+      width: 100%;
+
+      .str-chat__poll-option__option-text {
+        flex: 1;
+      }
+    }
+
+    .str-chat__poll-vote {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      padding-block: 0.375rem;
+
+      .str-chat__poll-vote__author {
+        display: flex;
+        align-items: center;
+        gap: calc(var(--str-chat__spacing-px) * 5);
+      }
+    }
+
+    .str-chat__poll-result-option-vote-counter {
+      display: flex;
+      gap: 0.375rem;
+
+      .str-chat__poll-result-winning-option-icon {
+        height: 1.25rem;
+        width: 1.25rem;
+        background-image: var(--str-chat__winning-poll-option-icon);
+      }
+    }
+  }
+}
+
+.str-chat__modal__poll-results--option-detail {
+  .str-chat__poll-modal__title {
+    padding-inline: 1rem;
+    flex: 1;
+  }
+}
+
