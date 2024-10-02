@@ -1,6 +1,7 @@
 @use '../utils';
 
 .str-chat__poll {
+  $checkmark_size: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -13,8 +14,6 @@
     @include utils.button-reset;
     cursor: pointer;
   }
-
-  $checkmark_size: 1rem;
 
   .str-chat__checkmark {
     grid-column: 1 / 2;
@@ -102,8 +101,8 @@
     }
 
     .str-chat__poll-option-voters {
-      display: flex;
       --str-chat__avatar-size: 1.175rem;
+      display: flex;
     }
   }
 }
@@ -154,10 +153,10 @@
 
 .str-chat__poll-actions .str-chat__modal {
   .str-chat__modal__inner {
+    $content-offset-inline: 1rem;
     padding: 0;
     overflow: hidden;
     max-width: 400px;
-    $content-offset-inline: 1rem;
 
     .str-chat__tooltip {
       max-width: 300px;
@@ -176,6 +175,7 @@
         background-repeat: no-repeat;
         background-position: center;
       }
+
       button.str-chat__poll-modal__go-back-button {
         background-image: var(--str-chat__arrow-left-icon);
       }
