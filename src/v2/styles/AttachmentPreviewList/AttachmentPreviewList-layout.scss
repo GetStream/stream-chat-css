@@ -114,7 +114,7 @@
     top: calc(var(--str-chat__spacing-px) * 2);
     inset-inline-end: calc(var(--str-chat__spacing-px) * 2);
     cursor: pointer;
-    z-index: 1;
+    z-index: 0;
 
     svg {
       width: calc(var(--str-chat__spacing-px) * 24);
@@ -128,7 +128,7 @@
     @include utils.unset-button(unset);
     inset-inline-start: 0;
     cursor: pointer;
-    z-index: 1;
+    z-index: 0;
   }
 }
 
