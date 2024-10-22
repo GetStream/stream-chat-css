@@ -302,6 +302,7 @@
       -webkit-mask: var(--str-chat__add-attachment-icon) no-repeat center / contain;
       mask: var(--str-chat__add-attachment-icon) no-repeat center / contain;
     }
+
     &:hover {
       .str-chat__attachment-selector__menu-button__icon {
         background-color: var(--str-chat__attachment-selector-button-icon-color-hover);
@@ -320,6 +321,7 @@
 
     &:hover, &:focus {
       color: var(--str-chat__text-color);
+
       .str-chat__dialog-menu__button-icon {
         background-color: var(--str-chat__attachment-selector-actions-menu-button-icon-color-active);
       }
