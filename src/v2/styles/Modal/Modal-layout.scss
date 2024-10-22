@@ -11,6 +11,36 @@
   height: 100%;
   z-index: 100;
 
+  .str-chat__modal-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1.25rem 1rem;
+
+    button.str-chat__modal-header__go-back-button,
+    .str-chat__modal__close-button {
+      padding: 1rem;
+      background-size: 0.875rem;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    button.str-chat__modal-header__go-back-button {
+      background-image: var(--str-chat__arrow-left-icon);
+    }
+
+    .str-chat__modal-header__close-button {
+      background-image: var(--str-chat__close-icon);
+      background-repeat: no-repeat;
+      height: 0.875rem;
+      width: 0.875rem;
+    }
+
+    .str-chat__modal-header__title {
+      flex: 1;
+    }
+  }
+
   button.str-chat__modal__close-button {
     @include utils.unset-button;
     margin: var(--str-chat__spacing-2);
