@@ -6,10 +6,10 @@
   --str-chat__drag-and-drop-container-border-block-end: 2px solid transparent;
 
   /* Top border of the component on dragover */
-  --str-chat__drag-and-drop-container-on-dragover-border-block-start: var(--str-chat__on-primary-color);
+  --str-chat__drag-and-drop-container-on-dragover-border-block-start: 2px solid var(--str-chat__primary-color);
 
   /* Bottom border of the component on dragover */
-  --str-chat__drag-and-drop-container-on-dragover-border-block-end: var(--str-chat__on-primary-color);
+  --str-chat__drag-and-drop-container-on-dragover-border-block-end: 2px solid var(--str-chat__primary-color);
 
   /* Left (right in RTL layout) border of the component on dragover */
   --str-chat__drag-and-drop-container-on-dragover-border-inline-start: none;
@@ -35,12 +35,13 @@
 .str-chat__drag-and-drop-container__item {
   border-bottom: var(--str-chat__drag-and-drop-container-border-block-start);
   border-top: var(--str-chat__drag-and-drop-container-border-block-start);
+
+  &.str-chat__drag-and-drop-container__item--dragged-over-from-top {
+    border-bottom: var(--str-chat__drag-and-drop-container-on-dragover-border-block-end);
+  }
+
+  &.str-chat__drag-and-drop-container__item--dragged-over-from-bottom {
+    border-top: var(--str-chat__drag-and-drop-container-on-dragover-border-block-start);
+  }
 }
 
-.str-chat__drag-and-drop-container__item--dragged-over-from-top {
-  border-bottom: 2px solid var(--str-chat__drag-and-drop-container-on-dragover-border-block-end);
-}
-
-.str-chat__drag-and-drop-container__item--dragged-over-from-bottom {
-  border-top: 2px solid var(--str-chat__drag-and-drop-container-on-dragover-border-block-start);
-}
