@@ -1,3 +1,8 @@
+@mixin field-background {
+  background-color: var(--str-chat__tertiary-surface-color);
+  border-radius: 0.75rem;
+}
+
 .str-chat__poll {
   .str-chat__poll-header {
     .str-chat__poll-subtitle {
@@ -62,12 +67,6 @@
 }
 
 .str-chat__poll-actions .str-chat__modal {
-  .str-chat__poll-modal__header {
-    .str-chat__poll-modal__title {
-      font: var(--str-chat__subtitle2-medium-text);
-    }
-  }
-
   .str-chat__poll-answer__text,
   .str-chat__modal__poll-option-list__title,
   .str-chat__modal__poll-results__title {
@@ -118,4 +117,71 @@
 
 .str-chat__quoted-poll-preview {
   font: var(--str-chat__body-medium-text);
+}
+
+.str-chat__poll-creation-dialog {
+  .str-chat__form__input-fieldset {
+    border: none;
+  }
+
+  .str-chat__form__expandable-field,
+  .str-chat__form__input-field__value {
+    @include field-background;
+
+    .str-chat__form__input-field__error {
+      font-size: 0.75rem;
+      color: var(--str-chat__danger-color)
+    }
+
+    input {
+      border: none;
+      background: transparent;
+      outline: none;
+
+      &::placeholder {
+        font: var(--str-chat__subtitle-text);
+      }
+    }
+  }
+
+  .str-chat__form__input-field__value--draggable {
+    input {
+      pointer-events: auto;
+    }
+
+    .str-chat__drag-handle {
+      background-color: var(--str-chat__text-low-emphasis-color);
+      -webkit-mask: var(--str-chat__handle-icon) no-repeat center / contain;
+      mask: var(--str-chat__handle-icon) no-repeat center / contain;
+    }
+  }
+
+
+  .str-chat__form__switch-field {
+    @include field-background;
+
+    &, label {
+      cursor: pointer;
+    }
+
+    .str-chat__form__switch-field__switch {
+      cursor: pointer;
+      background-color: var(--str-chat__text-low-emphasis-color);
+      border-radius: 100px;
+
+      .str-chat__form__switch-field__switch-handle {
+        border-radius: var(--str-chat__border-radius-circle);
+        background-color: var(--str-chat__disabled-color);
+      }
+
+      &.str-chat__form__switch-field__switch--on {
+        background-color: var(--str-chat__green600);
+
+        .str-chat__form__switch-field__switch-handle {
+          background-color: var(--str-chat__background-color);
+          border-radius: var(--str-chat__border-radius-circle);
+        }
+      }
+    }
+  }
 }
