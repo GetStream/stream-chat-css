@@ -46,6 +46,12 @@
     @include utils.component-layer-overrides('modal');
   }
 
+  .str-chat__modal-header {
+    .str-chat__modal-header__title {
+      font: var(--str-chat__subtitle2-medium-text);
+    }
+  }
+
   .str-chat__modal__close-button {
     --str-chat-icon-color: var(--str-chat__modal-close-icon-color);
     @include utils.button-reset;

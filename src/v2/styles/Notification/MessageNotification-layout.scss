@@ -4,7 +4,7 @@
   align-self: center;
   padding: var(--str-chat__spacing-1) var(--str-chat__spacing-2);
   bottom: calc(var(--str-chat__spacing-px) * 10);
-  z-index: 101;
+  z-index: 100;
 }
 
 .str-chat__list-notifications {
