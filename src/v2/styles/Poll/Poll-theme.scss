@@ -82,6 +82,10 @@
   }
 
   .str-chat__poll-option-list--full {
+    .str-chat__poll-option-text {
+      font-weight: 500;
+    }
+
     .str-chat__poll-option--votable:hover {
       background-color: var(--str-chat__secondary-surface-color)
     }
