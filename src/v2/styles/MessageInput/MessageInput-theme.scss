@@ -168,6 +168,18 @@
 
   /* Box shadow applied to the cooldown timer */
   --str-chat__cooldown-box-shadow: none;
+  
+  /* Color applied to an icon in a button that opens attachment selector */
+  --str-chat__attachment-selector-button-icon-color: var(--str-chat__text-low-emphasis-color);
+  
+  /* Color applied to an icon in a button that opens attachment selector when hovered over */
+  --str-chat__attachment-selector-button-icon-color-hover: var(--str-chat__primary-color);
+
+  /* Color applied to an attachment selector menu item icon when hovered over */
+  --str-chat__attachment-selector-actions-menu-button-icon-color: var(--str-chat__primary-color);
+
+  /* Color applied to an attachment selector menu item icon when hovered over or focused */
+  --str-chat__attachment-selector-actions-menu-button-icon-color-active: var(--str-chat__primary-color);
 }
 
 .str-chat__message-input {
@@ -279,6 +291,52 @@
       color: var(--str-chat__background-color);
       cursor: pointer;
       text-transform: uppercase;
+    }
+  }
+}
+
+.str-chat__attachment-selector {
+  .str-chat__attachment-selector__menu-button {
+    .str-chat__attachment-selector__menu-button__icon {
+      background-color: var(--str-chat__attachment-selector-button-icon-color);
+      -webkit-mask: var(--str-chat__add-attachment-icon) no-repeat center / contain;
+      mask: var(--str-chat__add-attachment-icon) no-repeat center / contain;
+    }
+    &:hover {
+      .str-chat__attachment-selector__menu-button__icon {
+        background-color: var(--str-chat__attachment-selector-button-icon-color-hover);
+      }
+    }
+  }
+}
+
+.str-chat__attachment-selector-actions-menu {
+  .str-chat__attachment-selector-actions-menu__button {
+    color: var(--str-chat__text-low-emphasis-color);
+
+    .str-chat__dialog-menu__button-icon {
+      background-color: var(--str-chat__attachment-selector-actions-menu-button-icon-color);
+    }
+
+    &:hover, &:focus {
+      color: var(--str-chat__text-color);
+      .str-chat__dialog-menu__button-icon {
+        background-color: var(--str-chat__attachment-selector-actions-menu-button-icon-color-active);
+      }
+    }
+  }
+
+  .str-chat__attachment-selector-actions-menu__upload-file-button {
+    .str-chat__dialog-menu__button-icon {
+      -webkit-mask: var(--str-chat__folder-icon) no-repeat center / contain;
+      mask: var(--str-chat__folder-icon) no-repeat center / contain;
+    }
+  }
+
+  .str-chat__attachment-selector-actions-menu__create-poll-button {
+    .str-chat__dialog-menu__button-icon {
+      -webkit-mask: var(--str-chat__poll-icon) no-repeat center / contain;
+      mask: var(--str-chat__poll-icon) no-repeat center / contain;
     }
   }
 }
