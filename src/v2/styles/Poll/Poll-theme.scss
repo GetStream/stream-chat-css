@@ -132,11 +132,6 @@
   .str-chat__form__input-field__value {
     @include field-background;
 
-    .str-chat__form__input-field__error {
-      font-size: 0.75rem;
-      color: var(--str-chat__danger-color)
-    }
-
     input {
       border: none;
       background: transparent;
@@ -160,6 +155,9 @@
     }
   }
 
+  .str-chat__form__input-field__value--has-error {
+    border: 1px solid var(--str-chat__message-error-message-color);
+  }
 
   .str-chat__form__switch-field {
     @include field-background;
