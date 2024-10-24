@@ -125,6 +125,7 @@
     grid-template-rows: 1fr 1fr;
     padding-block: 0.25rem;
     gap: 0.125rem;
+    height: 40px;
 
 
     .str-chat__poll-option-data {
@@ -155,6 +156,12 @@
 
     .str-chat__tooltip {
       max-width: 300px;
+    }
+
+    .str-chat__modal__suggest-poll-option {
+      .str-chat__form-field-error {
+        height: 1rem;
+      }
     }
 
     .str-chat__modal__poll-answer-list,
@@ -356,19 +363,54 @@
     .str-chat__form__input-fieldset {
       margin: 0;
       padding: 0;
+
+      .str-chat__form__input-field {
+        width: 100%;
+        padding: 1rem;
+
+        .str-chat__form__input-field__value {
+          width: 100%;
+
+          .str-chat__form__input-field__error {
+            height: 1rem;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .str-chat__form__input-field--with-label {
+      .str-chat__form__input-field__value {
+        padding: 1rem;
+      }
+    }
+
+    .str-chat__form__input-field__value input {
+      width: 100%;
     }
 
     .str-chat__form__expandable-field {
       padding: 1rem;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 1rem;
 
       .str-chat__form__switch-field {
         padding: 0;
       }
-    }
 
+      .str-chat__form__input-field {
+          width: 100%;
+
+        .str-chat__form__input-field__value {
+          padding: 0;
+
+          .str-chat__form-field-error {
+            height: 1rem;
+          }
+        }
+      }
+    }
 
     .str-chat__form__input-fieldset__values {
       display: flex;
@@ -380,31 +422,11 @@
       margin-bottom: 0.5rem;
     }
 
-
-    .str-chat__form__input-field__value {
-      padding: 1rem;
-
-      &.str-chat__form__input-field__value--has-error {
-        padding-block: 0.5rem;
-      }
-
-      .str-chat__form__input-field__error {
-        height: 1rem;
-      }
-
-      .str-chat__form__input-field__error {
-        width: 100%;
-      }
-
-      input {
-        width: 100%;
-      }
-    }
-
-    .str-chat__form__input-field__value--draggable {
+    .str-chat__form__input-field--draggable {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 0.5rem;
 
       .str-chat__drag-handle {
         height: 1rem;

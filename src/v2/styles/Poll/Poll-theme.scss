@@ -129,7 +129,8 @@
   }
 
   .str-chat__form__expandable-field,
-  .str-chat__form__input-field__value {
+  .str-chat__form__input-field:not(.str-chat__form__input-field--with-label),
+  .str-chat__form__input-field--with-label .str-chat__form__input-field__value {
     @include field-background;
 
     input {
@@ -137,13 +138,13 @@
       background: transparent;
       outline: none;
 
-      &::placeholder {
+      &, & ::placeholder {
         font: var(--str-chat__subtitle-text);
       }
     }
   }
 
-  .str-chat__form__input-field__value--draggable {
+  .str-chat__form__input-field--draggable {
     input {
       pointer-events: auto;
     }
@@ -155,8 +156,24 @@
     }
   }
 
-  .str-chat__form__input-field__value--has-error {
+  .str-chat__form__input-field--has-error {
     border: 1px solid var(--str-chat__message-error-message-color);
+  }
+
+  .str-chat__form__expandable-field .str-chat__form__input-field--has-error, {
+    border: none;
+
+    .str-chat__form__input-field__value {
+      border: none;
+    }
+  }
+
+  .str-chat__form__input-field--with-label.str-chat__form__input-field--has-error {
+    border: none;
+
+    .str-chat__form__input-field__value {
+      border: 1px solid var(--str-chat__message-error-message-color);
+    }
   }
 
   .str-chat__form__switch-field {
