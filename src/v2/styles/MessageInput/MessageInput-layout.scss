@@ -145,6 +145,7 @@
   }
 
   .str-chat__start-recording-audio-button {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 25);
     @include utils.flex-row-center;
     cursor: pointer;
     padding: 0;

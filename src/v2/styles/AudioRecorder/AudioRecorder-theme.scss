@@ -17,15 +17,24 @@
   }
 
   .str-chat__audio_recorder__cancel-button {
+    --str-chat-icon-color: var(--str-chat__text-low-emphasis-color);
     color: var(--str-chat__text-low-emphasis-color);
   }
 
   .str-chat__audio_recorder__toggle-playback-button {
+    --str-chat-icon-color: var(--str-chat__text-low-emphasis-color);
     color: var(--str-chat__text-low-emphasis-color);
+  }
+
+  .str-chat__message-attachment-audio-widget--play-button {
+    --str-chat-icon-color: var(--str-chat__text-low-emphasis-color);
+    box-shadow: none;
+    border: none;
   }
 
   .str-chat__audio_recorder__pause-recording-button,
   .str-chat__audio_recorder__resume-recording-button {
+    --str-chat-icon-color: var(--str-chat__danger-color);
     color: var(--str-chat__danger-color);
   }
 
@@ -36,6 +45,7 @@
 
   .str-chat__audio_recorder__stop-button,
   .str-chat__audio_recorder__complete-button {
+    --str-chat-icon-color: var(--str-chat__on-primary-color);
     border-radius: var(--str-chat__border-radius-circle);
     color: var(--str-chat__on-primary-color);
     background-color: var(--str-chat__primary-color);

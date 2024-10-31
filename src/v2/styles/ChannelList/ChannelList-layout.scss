@@ -34,6 +34,10 @@
       @include utils.flex-row-center;
     }
   }
+
+  .stream-chat__paginated-list {
+    gap: 0;
+  }
 }
 
 .str-chat__channel-list-react {
@@ -45,6 +49,17 @@
 
     .str-chat__channel-list-messenger-react__main {
       overflow-y: auto;
+    }
+  }
+}
+
+.str-chat-angular__channel-list {
+  .str-chat__channel-list-messenger__main {
+    display: flex;
+    flex-direction: column;
+
+    stream-paginated-list {
+      min-height: 0;
     }
   }
 }
