@@ -1,0 +1,9 @@
+.str-chat__dialog__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .str-chat__form-field-error {
+    margin-left: 0.5rem;
+  }
+}

@@ -53,10 +53,6 @@
       height: calc(var(--str-chat__spacing-px) * 45);
       cursor: pointer;
 
-      .str-chat__file-input {
-        display: none;
-      }
-
       .str-chat__file-input-label {
         @include utils.flex-row-center;
         cursor: pointer;
@@ -216,4 +212,32 @@
   svg {
     transform: scale(-1, 1);
   }
+}
+
+.str-chat__attachment-selector-actions-menu,
+.str-chat__attachment-selector {
+  button {
+    @include utils.button-reset;
+  }
+}
+
+.str-chat__attachment-selector {
+  .str-chat__attachment-selector__menu-button {
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+
+    .str-chat__attachment-selector__menu-button__icon {
+      height: 26px;
+      width: 26px;
+    }
+  }
+}
+
+.str-chat__file-input {
+  display: none;
+}
+
+.str-chat__attachment-selector-actions-menu {
+  min-width: 300px;
+  padding-block: 0.5rem;
 }

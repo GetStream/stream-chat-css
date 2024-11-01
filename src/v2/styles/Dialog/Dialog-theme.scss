@@ -1,0 +1,103 @@
+@use '../utils';
+
+.str-chat {
+  /* The border radius used for the borders of the component */
+  --str-chat__dialog-menu-border-radius: var(--str-chat__border-radius-sm);
+
+  /* The text/icon color of the component */
+  --str-chat__dialog-menu-color: var(--str-chat__text-color);
+
+  /* The background color of the component */
+  --str-chat__dialog-menu-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the component */
+  --str-chat__dialog-menu-border-block-start: none;
+
+  /* Bottom border of the component */
+  --str-chat__dialog-menu-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the component */
+  --str-chat__dialog-menu-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the component */
+  --str-chat__dialog-menu-border-inline-end: none;
+
+  /* Box shadow applied to the component */
+  --str-chat__dialog-menu-box-shadow: 0 0 8px var(--str-chat__box-shadow-color);
+
+  /* The border radius used for the borders of an item in the message actions box */
+  --str-chat__dialog-menu-button-border-radius: 0;
+
+  /* The text/icon color of an item in the message actions box */
+  --str-chat__dialog-menu-button-color: var(--str-chat__text-color);
+
+  /* The background color of an item in the message actions box */
+  --str-chat__dialog-menu-button-background-color: transparent;
+
+  /* The background color of an item in the message actions box when hovered */
+  --str-chat__dialog-menu-button-hover-background-color: var(--str-chat__secondary-surface-color);
+
+  /* Top border of an item in the message actions box */
+  --str-chat__dialog-menu-button-border-block-start: none;
+
+  /* Bottom border of an item in the message actions box */
+  --str-chat__dialog-menu-button-border-block-end: none;
+
+  /* Left (right in RTL layout) border of an item in the message actions box */
+  --str-chat__dialog-menu-button-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of an item in the message actions box */
+  --str-chat__dialog-menu-button-border-inline-end: none;
+
+  /* Box shadow applied to an item in the message actions box */
+  --str-chat__dialog-menu-button-box-shadow: none;
+}
+
+.str-chat__dialog {
+  .str-chat__dialog__title {
+    font: var(--str-chat__subtitle-medium-text);
+  }
+
+  .str-chat__dialog__prompt {
+    font: var(--str-chat__subtitle-text);
+  }
+
+  .str-chat__dialog__controls {
+    .str-chat__dialog__controls-button {
+      cursor: pointer;
+      font: var(--str-chat__body-medium-text);
+      color: var(--str-chat__primary-color);
+    }
+
+    .str-chat__dialog__controls-button--submit {
+      text-transform: uppercase;
+
+      &:disabled {
+        color: var(--str-chat__disabled-color);
+      }
+    }
+  }
+}
+
+.str-chat__prompt-dialog {
+  input[type=text] {
+    font: var(--str-chat__subtitle-text);
+    border-radius: 20px;
+    border: 1px solid var(--str-chat__primary-color);
+  }
+}
+
+
+.str-chat__dialog-menu {
+  @include utils.component-layer-overrides('dialog-menu');
+
+  .str-chat__dialog-menu__button {
+    @include utils.component-layer-overrides('dialog-menu-button');
+    cursor: pointer;
+    font: var(--str-chat__subtitle-text);
+
+    &:hover, &:focus{
+      background-color: var(--str-chat__dialog-menu-button-hover-background-color);
+    }
+  }
+}

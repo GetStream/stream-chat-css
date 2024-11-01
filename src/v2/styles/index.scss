@@ -17,7 +17,10 @@
 @use 'ChannelList/ChannelList-theme';
 @use 'ChannelPreview/ChannelPreview-theme';
 @use 'ChannelSearch/ChannelSearch-theme';
+@use 'Dialog/Dialog-theme';
+@use 'DragAndDropContainer/DragAndDropContainer-theme';
 @use 'EditMessageForm/EditMessageForm-theme';
+@use 'Form/Form-theme';
 @use 'Icon/Icon-theme';
 @use 'ImageCarousel/ImageCarousel-theme';
 @use 'LinkPreview/LinkPreview-theme';
@@ -34,6 +37,7 @@
 @use 'Notification/MessageNotification-theme';
 @use 'Notification/NotificationList-theme';
 @use 'Notification/Notification-theme';
+@use 'Poll/Poll-theme';
 @use 'Thread/Thread-theme';
 @use 'Tooltip/Tooltip-theme';
 @use 'TypingIndicator/TypingIndicator-theme';

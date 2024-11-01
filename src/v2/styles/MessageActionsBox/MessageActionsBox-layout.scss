@@ -18,12 +18,3 @@
     }
   }
 }
-
-.str-chat__message-actions-box:not(.str-chat__message-actions-box-angular) {
-  display: none;
-  z-index: 1;
-
-  &.str-chat__message-actions-box--open {
-    display: block;
-  }
-}

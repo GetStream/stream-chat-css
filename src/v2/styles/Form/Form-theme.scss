@@ -1,0 +1,17 @@
+.str-chat__form-field-error {
+  font-size: 0.75rem;
+  color: var(--str-chat__danger-color)
+}
+
+// hide spin buttons form input of type number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

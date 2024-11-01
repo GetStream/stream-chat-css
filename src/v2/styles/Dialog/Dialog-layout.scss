@@ -1,3 +1,5 @@
+@use '../utils';
+
 .str-chat__dialog-overlay {
   inset: 0;
   overflow: hidden;
@@ -5,4 +7,56 @@
   height: var(--str-chat__dialog-overlay-height);
   width: 100%;
   z-index: 2;
+}
+
+.str-chat__dialog {
+  width: 100%;
+
+  .str-chat__dialog__body {
+    padding: 2rem 1rem;
+    overflow-y: auto;
+
+    .str-chat__dialog__title {
+      margin-bottom: 1rem;
+    }
+
+  }
+
+  .str-chat__dialog__controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.25rem;
+    padding: 1.25rem;
+
+    .str-chat__dialog__controls-button {
+      @include utils.button-reset;
+    }
+  }
+}
+
+.str-chat__prompt-dialog {
+  input[type=text] {
+    width: 100%;
+    padding: 0.625rem 1rem;
+  }
+}
+
+.str-chat__dialog-menu {
+  overflow: hidden;
+
+  .str-chat__dialog-menu__button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+
+    .str-chat__dialog-menu__button-icon {
+      height: 1rem;
+      width: 1rem;
+    }
+
+    .str-chat__dialog-menu__button-text {
+      padding-inline: 0.675rem;
+    }
+  }
 }
