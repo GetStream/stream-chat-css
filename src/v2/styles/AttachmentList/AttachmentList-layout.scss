@@ -260,7 +260,7 @@
     margin: var(--str-chat__attachment-margin);
 
     .str-chat__file-icon {
-      width: calc(var(--str-chat__spacing-px)* 30);
+      width: calc(var(--str-chat__spacing-px) * 30);
     }
 
     .str-chat__message-attachment-unsupported__metadata {
@@ -270,7 +270,6 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-
     }
 
     .str-chat__message-attachment-unsupported__title {
@@ -622,4 +621,31 @@
 
 .str-chat__attachment-list-angular-host {
   min-width: 0;
+
+  .str-chat__message-attachment-card--video {
+    width: 100%;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .str-chat__message-attachment-card--video-play,
+      stream-icon-placeholder {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: translateY(-50%);
+        width: calc(var(--str-chat__spacing-px) * 36);
+        height: calc(var(--str-chat__spacing-px) * 36);
+      }
+
+      img {
+        cursor: pointer;
+      }
+    }
+  }
 }
