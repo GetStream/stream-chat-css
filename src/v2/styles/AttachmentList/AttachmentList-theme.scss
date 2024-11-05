@@ -534,8 +534,16 @@
   }
 }
 
-
 .str-chat-angular__message-attachment-file-single
   .str-chat__message-attachment-file--item-first-row {
   color: var(--str-chat__attachment-list-color);
+}
+
+.str-chat__attachment-list-angular-host {
+  .str-chat__message-attachment-card--video-play {
+    --str-chat-icon-color: var(--str-chat__text-color);
+
+    background-color: var(--str-chat__secondary-background-color);
+    border-radius: var(--str-chat__border-radius-circle);
+  }
 }
