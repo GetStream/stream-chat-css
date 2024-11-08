@@ -87,3 +87,51 @@
   width: calc(var(--str-chat__spacing-px) * 49);
   height: calc(var(--str-chat__spacing-px) * 49);
 }
+
+
+.str-chat__avatar-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: var(--str-chat__avatar-size);
+  line-height: var(--str-chat__avatar-size);
+  width: var(--str-chat__avatar-size);
+  min-width: var(--str-chat__avatar-size);
+  overflow: hidden;
+
+  &.str-chat__avatar-group--three-part {
+    .str-chat__avatar:nth-child(1) {
+      grid-area: 1 / 1 / 3 / 2;
+    }
+
+    .str-chat__avatar:nth-child(2) {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+
+    .str-chat__avatar:nth-child(3) {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+  }
+
+  .str-chat__avatar {
+    height: 100%;
+    line-height: 100%;
+    width: 100%;
+    min-width: 100%;
+
+    .str-chat__avatar-fallback, img {
+      border-radius: 0;
+    }
+
+    &.str-chat__avatar--single .str-chat__avatar-fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(var(--str-chat__avatar-size) * 0.5);
+    }
+
+    .str-chat__avatar-fallback {
+      font-size: calc(var(--str-chat__avatar-size) * 0.33);
+    }
+  }
+}
