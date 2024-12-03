@@ -168,10 +168,10 @@
 
   /* Box shadow applied to the cooldown timer */
   --str-chat__cooldown-box-shadow: none;
-  
+
   /* Color applied to an icon in a button that opens attachment selector */
   --str-chat__attachment-selector-button-icon-color: var(--str-chat__text-low-emphasis-color);
-  
+
   /* Color applied to an icon in a button that opens attachment selector when hovered over */
   --str-chat__attachment-selector-button-icon-color-hover: var(--str-chat__primary-color);
 
@@ -219,6 +219,12 @@
       outline: none;
       font: var(--str-chat__subtitle-text);
     }
+  }
+
+  .str-chat__stop-generating-button {
+    background-image: var(--str-chat__circle-stop-icon);
+    background-color: transparent;
+    border-width: 0;
   }
 
   .str-chat__send-button {

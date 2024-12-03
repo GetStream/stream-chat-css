@@ -130,12 +130,9 @@
   }
 
   .str-chat__stop-generating-button {
-    background-image: var(--str-chat__circle-stop-icon);
     width: calc(var(--str-chat__spacing-px) * 30);
     height: calc(var(--str-chat__spacing-px) * 28);
     cursor: pointer;
-    background-color: transparent;
-    border-width: 0;
   }
 
   .str-chat__send-button {
