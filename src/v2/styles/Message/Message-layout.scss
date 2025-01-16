@@ -23,6 +23,9 @@
     var(--str-chat__quoted-message-inside-message-input-max-width) +
       calc(var(--str-chat__spacing-px) * 50)
   );
+
+  /* The maximum number of lines displayed for quoted messages, set to "none" to turn off clamping */
+  --str-chat__quoted-message-line-clamp: 5;
 }
 
 .str-chat__message {
@@ -59,12 +62,21 @@
   }
 }
 
+.str-chat__quoted-message-text-value {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: var(--str-chat__quoted-message-line-clamp);
+  line-clamp: var(--str-chat__quoted-message-line-clamp);
+  -webkit-box-orient: vertical;
+}
+
 .str-chat__message,
 .str-chat__quoted-message-preview {
   @mixin chat-bubble-spacing {
     padding: var(--str-chat__spacing-2) var(--str-chat__spacing-4);
 
     p {
+      white-space: pre-line;
       margin: 0;
     }
   }
@@ -164,10 +176,6 @@
 
         .str-chat__message-text-inner {
           @include utils.prevent-glitch-text-overflow;
-        }
-
-        p {
-          white-space: pre-line;
         }
       }
     }
@@ -356,7 +364,6 @@
     display: flex;
   }
 }
-
 
 .str-chat__message-inner {
   .str-chat__message-options {

@@ -129,6 +129,12 @@
     width: 100%;
   }
 
+  .str-chat__stop-ai-generation-button {
+    width: calc(var(--str-chat__spacing-px) * 30);
+    height: calc(var(--str-chat__spacing-px) * 28);
+    cursor: pointer;
+  }
+
   .str-chat__send-button {
     --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 32);
     @include utils.flex-row-center;

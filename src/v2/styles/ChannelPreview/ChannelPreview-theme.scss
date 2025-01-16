@@ -64,6 +64,24 @@
   --str-chat__channel-preview-message-time-color: var(--str-chat__message-secondary-color);
 }
 
+.str-chat__channel-preview-container {
+  .str-chat__channel-preview__action-buttons {
+    .str-chat__channel-preview__action-button {
+      --str-chat-icon-color: var(--str-chat__text-low-emphasis-color);
+      border: none;
+      background-color: transparent;
+    }
+
+    .str-chat__channel-preview__action-button--pin.str-chat__channel-preview__action-button--active {
+      --str-chat-icon-color: var(--str-chat__unread-badge-color);
+    }
+
+    .str-chat__channel-preview__action-button--archive.str-chat__channel-preview__action-button--active {
+      --str-chat-icon-color: var(--str-chat__text-color);
+    }
+  }
+}
+
 .str-chat__channel-preview {
   @include utils.component-layer-overrides('channel-preview');
 
