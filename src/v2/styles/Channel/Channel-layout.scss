@@ -65,8 +65,9 @@
   }
 
   .str-chat__loading-channel-message-list {
-    @include utils.message-list-spacing;
+    /* stylelint-disable */
     height: 100%;
+    @include utils.message-list-spacing;
 
     .str-chat__loading-channel-message {
       display: flex;

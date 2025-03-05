@@ -60,7 +60,7 @@
     "dedent": "^0.7.0",
     "glob": "^8.0.3",
     "prettier": "^2.7.1",
-    "sass": "^1.53.0",
+    "sass": "^1.85.1",
     "semantic-release": "^18.0.1",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^9.0.3",
@@ -75,5 +75,12 @@
     "docs",
     "package.json",
     "README.md"
-  ]
+  ],
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^16",
+      "onFail": "error"
+    }
+  }
 }
