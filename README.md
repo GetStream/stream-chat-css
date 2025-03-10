@@ -2,9 +2,9 @@
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/fb6b6686-ce5d-4c8f-87b7-9bb495b6ce66">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/19dd203e-c84a-4015-9c90-1a54212fc2e2">
-    <img src="https://github.com/user-attachments/assets/19dd203e-c84a-4015-9c90-1a54212fc2e2" width="120" alt="Stream logo">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/19dd203e-c84a-4015-9c90-1a54212fc2e2">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/fb6b6686-ce5d-4c8f-87b7-9bb495b6ce66">
+    <img src="https://github.com/user-attachments/assets/19dd203e-c84a-4015-9c90-1a54212fc2e2" width="360" alt="Stream logo">
   </picture>
   <h3>Beautiful, ready-to-use styling for Stream Chat SDKs</h3>
   
@@ -12,9 +12,6 @@
   [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/GetStream/stream-chat-css/blob/main/LICENSE)
   [![Build Status](https://img.shields.io/github/workflow/status/GetStream/stream-chat-css/CI/main)](https://github.com/GetStream/stream-chat-css/actions)
 </div>
-
-![stream-light](https://github.com/user-attachments/assets/19dd203e-c84a-4015-9c90-1a54212fc2e2)
-<!-- Removing duplicate dark mode logo since it's now used in the responsive header -->
 
 ## 📝 Overview
 
