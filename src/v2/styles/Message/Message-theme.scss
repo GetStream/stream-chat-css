@@ -118,6 +118,30 @@
   /* Box shadow applied to a deleted message */
   --str-chat__deleted-message-box-shadow: none;
 
+  /* The border radius used for the borders of a deleted message */
+  --str-chat__blocked-message-border-radius: var(--str-chat__border-radius-md);
+
+  /* The text/icon of a deleted message */
+  --str-chat__blocked-message-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background of a deleted message */
+  --str-chat__blocked-message-background-color: var(--str-chat__secondary-surface-color);
+
+  /* Top border of a deleted message */
+  --str-chat__blocked-message-border-block-start: none;
+
+  /* Bottom border of a deleted message */
+  --str-chat__blocked-message-border-block-end: none;
+
+  /* Left (right in RTL layout) border of a deleted message */
+  --str-chat__blocked-message-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of a deleted message */
+  --str-chat__blocked-message-border-inline-end: none;
+
+  /* Box shadow applied to a deleted message */
+  --str-chat__blocked-message-box-shadow: none;
+
   /* The border radius used for the borders of a system message */
   --str-chat__system-message-border-radius: 0;
 
@@ -211,6 +235,11 @@
 
   .str-chat__message--deleted-inner {
     @include utils.component-layer-overrides('deleted-message');
+    font: var(--str-chat__body2-text);
+  }
+
+  .str-chat__message--blocked-inner {
+    @include utils.component-layer-overrides('blocked-message');
     font: var(--str-chat__body2-text);
   }
 
