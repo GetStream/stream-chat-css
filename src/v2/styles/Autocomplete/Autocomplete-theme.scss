@@ -156,6 +156,8 @@
 
 .str-chat__slash-command {
   @include utils.component-layer-overrides('slash-command');
+  text-align: left;
+  font: var(--str-chat__subtitle-text);
 
   .str-chat__slash-command-header {
     .str-chat__slash-command-name {
@@ -204,6 +206,15 @@
 
     .str-chat__suggestion-item--selected {
       background-color: var(--str-chat__suggestion-list-item--selected-background-color);
+    }
+  }
+
+  .str-chat__suggestion-list--react {
+    .str-chat__suggestion-list-item {
+      > button {
+        @include utils.button-reset;
+        text-decoration: none;
+      }
     }
   }
 }
