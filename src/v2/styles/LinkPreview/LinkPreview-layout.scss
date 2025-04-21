@@ -47,3 +47,21 @@
     cursor: pointer;
   }
 }
+
+.str-chat__link-preview-card--loading {
+  .str-chat__link-preview-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    .str-chat__link-preview-card__content-title {
+      height: calc(var(--str-chat__spacing-px) * 16);
+      width: 100%
+    }
+
+    .str-chat__link-preview-card__content-description {
+      height: calc(var(--str-chat__spacing-px) * 12);
+      width: 100%;
+    }
+  }
+}

@@ -1,3 +1,9 @@
+@use '../utils';
+
+.str-chat {
+  --str-chat__link-preview-loading-state-color: var(--str-chat__disabled-color);
+}
+
 .str-chat__link-preview-card {
   .str-chat__link-preview-card__content {
     border-left: 2px solid var(--str-chat__primary-color);
@@ -13,5 +19,14 @@
 
   .str-chat__link-preview-card__dismiss-button svg path {
     fill: var(--str-chat__text-low-emphasis-color);
+  }
+}
+
+.str-chat__link-preview-card--loading {
+  .str-chat__link-preview-card__content-title,
+  .str-chat__link-preview-card__content-description {
+    @include utils.loading-item-background('link-preview');
+    @include utils.loading-animation;
+    border-radius: calc(var(--str-chat__spacing-px) * 3);
   }
 }
