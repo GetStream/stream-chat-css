@@ -26,19 +26,6 @@
     }
   }
 
-  .str-chat__dropzone-container {
-    @include utils.flex-row-center;
-
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 5;
-
-    p {
-      margin: unset;
-    }
-  }
-
   .str-chat__message-input-inner {
     flex-grow: 1;
     width: 100%;
