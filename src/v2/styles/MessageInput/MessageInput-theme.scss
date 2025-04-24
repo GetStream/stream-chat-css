@@ -25,15 +25,6 @@
   /* Box shadow applied to the component */
   --str-chat__message-input-box-shadow: none;
 
-  /* The text/icon color of the dropzone container */
-  --str-chat__dropzone-container-color: var(--str-chat__on-primary-color);
-
-  /* The background color of the dropzone container */
-  --str-chat__dropzone-container-background-color: var(--str-chat__primary-overlay-color);
-
-  /* The backdrop filter applied to the dropzone container */
-  --str-chat__dropzone-container-backdrop-filter: blur(3px);
-
   /* The border radius used for the borders of the textarea */
   --str-chat__message-textarea-border-radius: var(--str-chat__border-radius-md);
 
@@ -179,18 +170,13 @@
   --str-chat__attachment-selector-actions-menu-button-icon-color: var(--str-chat__primary-color);
 
   /* Color applied to an attachment selector menu item icon when hovered over or focused */
-  --str-chat__attachment-selector-actions-menu-button-icon-color-active: var(--str-chat__primary-color);
+  --str-chat__attachment-selector-actions-menu-button-icon-color-active: var(
+    --str-chat__primary-color
+  );
 }
 
 .str-chat__message-input {
   @include utils.component-layer-overrides('message-input');
-
-  .str-chat__dropzone-container {
-    background-color: var(--str-chat__dropzone-container-background-color);
-    color: var(--str-chat__dropzone-container-color);
-    backdrop-filter: var(--str-chat__dropzone-container-backdrop-filter);
-    font: var(--str-chat__subtitle-text);
-  }
 
   .str-chat__file-input-container {
     --str-chat-icon-color: var(--str-chat__message-input-tools-color);
@@ -326,11 +312,14 @@
       background-color: var(--str-chat__attachment-selector-actions-menu-button-icon-color);
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: var(--str-chat__text-color);
 
       .str-chat__dialog-menu__button-icon {
-        background-color: var(--str-chat__attachment-selector-actions-menu-button-icon-color-active);
+        background-color: var(
+          --str-chat__attachment-selector-actions-menu-button-icon-color-active
+        );
       }
     }
   }

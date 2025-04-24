@@ -1,0 +1,17 @@
+.str-chat {
+  /* The text/icon color of the dropzone container */
+  --str-chat__dropzone-container-color: var(--str-chat__on-primary-color);
+
+  /* The background color of the dropzone container */
+  --str-chat__dropzone-container-background-color: var(--str-chat__primary-overlay-color);
+
+  /* The backdrop filter applied to the dropzone container */
+  --str-chat__dropzone-container-backdrop-filter: blur(3px);
+}
+
+.str-chat__dropzone-container {
+  background-color: var(--str-chat__dropzone-container-background-color);
+  color: var(--str-chat__dropzone-container-color);
+  backdrop-filter: var(--str-chat__dropzone-container-backdrop-filter);
+  font: var(--str-chat__subtitle-text);
+}
