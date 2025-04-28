@@ -38,6 +38,16 @@
     padding: unset;
     margin: unset;
   }
+
+  .str-chat__suggestion-list--react {
+    overflow-y: unset;
+
+    .str-chat__suggestion-list-item {
+      > button {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .str-chat__slash-command {
@@ -58,6 +68,8 @@
   .str-chat__user-item--name {
     @include utils.ellipsis-text;
     @include utils.prevent-glitch-text-overflow;
+    display: flex;
+    align-items: center;
     width: 100%;
   }
 }
@@ -69,6 +81,8 @@
 
   .str-chat__emoji-item--name {
     @include utils.ellipsis-text;
+    display: flex;
+    align-items: center;
     width: 100%;
   }
 }
