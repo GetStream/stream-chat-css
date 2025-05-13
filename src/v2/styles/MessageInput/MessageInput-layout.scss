@@ -166,6 +166,11 @@
 
   .str-chat__quoted-message-preview {
     padding: var(--str-chat__spacing-2);
+
+    .str-chat__quoted-poll-preview__name {
+      @include utils.ellipsis-text();
+      overflow-x: hidden; // force ellipsis to show
+    }
   }
 
   .str-chat__recording-permission-denied-notification {
