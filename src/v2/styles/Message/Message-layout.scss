@@ -383,6 +383,12 @@
   }
 }
 
+.str-chat__message-inner:focus-within {
+  .str-chat__message-options {
+    display: flex;
+  }
+}
+
 .str-chat__message--other .str-chat__message-inner:not(:has(.str-chat__message-options--active)) {
   margin-inline-end: var(--str-chat-message-options-size);
 }
