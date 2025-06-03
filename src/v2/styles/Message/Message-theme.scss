@@ -198,6 +198,30 @@
 
   /* The hover color of the translation notice that is displayed if a message is translated with auto-translation */
   --str-chat__translation-notice-active-background-color: var(--str-chat__tertiary-surface-color);
+
+  /* The background of the message reminder, if it's a quoted message */
+  --str-chat__message-reminder-color: var(--str-chat__primary-color);
+
+  /* The background of the message reminder, if it's a quoted message */
+  --str-chat__message-reminder-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of the message reminder */
+  --str-chat__message-reminder-border-block-start: none;
+
+  /* Bottom border of the message reminder */
+  --str-chat__message-reminder-border-block-end: none;
+
+  /* Left (right in RTL layout) border of the message reminder */
+  --str-chat__message-reminder-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of the message reminder */
+  --str-chat__message-reminder-border-inline-end: none;
+
+  /* Box shadow applied to the message reminder */
+  --str-chat__message-reminder-box-shadow: none;
+
+  /* The border radius used for the borders of a message reminder */
+  --str-chat__message-reminder-border-radius: none;
 }
 
 .str-chat__message--system {
@@ -226,6 +250,11 @@
   a {
     text-decoration: none;
     color: var(--str-chat__message-link-color);
+  }
+
+  .str-chat__message-reminder {
+    @include utils.component-layer-overrides('message-reminder');
+    font: var(--str-chat__caption-medium-text);
   }
 
   .str-chat__message-bubble {
