@@ -66,6 +66,14 @@
       background-color: var(--str-chat__message-actions-box-item-hover-background-color);
     }
   }
+
+  .str_chat__button-with-submenu--submenu-open {
+    background-color: var(--str-chat__message-actions-box-item-hover-background-color);
+  }
+
+  .str-chat__message-actions-box__submenu {
+    @include utils.component-layer-overrides('message-actions-box');
+  }
 }
 
 @media (hover: none) {
