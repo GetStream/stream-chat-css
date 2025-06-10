@@ -199,7 +199,7 @@
   /* The hover color of the translation notice that is displayed if a message is translated with auto-translation */
   --str-chat__translation-notice-active-background-color: var(--str-chat__tertiary-surface-color);
 
-  /* The background of the message reminder, if it's a quoted message */
+  /* The text color of the message reminder, if it's a quoted message */
   --str-chat__message-reminder-color: var(--str-chat__primary-color);
 
   /* The background of the message reminder, if it's a quoted message */
@@ -221,7 +221,7 @@
   --str-chat__message-reminder-box-shadow: none;
 
   /* The border radius used for the borders of a message reminder */
-  --str-chat__message-reminder-border-radius: none;
+  --str-chat__message-reminder-border-radius: 0;
 }
 
 .str-chat__message--system {
