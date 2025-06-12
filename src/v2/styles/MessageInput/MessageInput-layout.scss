@@ -239,3 +239,22 @@
   min-width: 300px;
   padding-block: 0.5rem;
 }
+
+.str-chat__send-to-channel-checkbox__container {
+  width: 100%;
+  display: flex;
+  padding: 0.5rem 0.75rem;
+
+  .str-chat__send-to-channel-checkbox__field {
+    display: flex;
+    align-items: center;
+
+    label {
+      padding-inline: 0.5rem;
+    }
+
+    input {
+      margin: 0;
+    }
+  }
+}
