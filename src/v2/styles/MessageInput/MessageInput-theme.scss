@@ -338,3 +338,14 @@
     }
   }
 }
+
+.str-chat__send-to-channel-checkbox__field {
+  * {
+    cursor: pointer;
+  }
+
+  label {
+    color: var(--str-chat__text-low-emphasis-color);
+    font: var(--str-chat__body-text);
+  }
+}
