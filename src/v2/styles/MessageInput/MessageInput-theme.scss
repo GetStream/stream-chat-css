@@ -337,6 +337,13 @@
       mask: var(--str-chat__poll-icon) no-repeat center / contain;
     }
   }
+
+  .str-chat__attachment-selector-actions-menu__add-location-button {
+    .str-chat__dialog-menu__button-icon {
+      -webkit-mask: var(--str-chat__location-icon) no-repeat center / contain;
+      mask: var(--str-chat__location-icon) no-repeat center / contain;
+    }
+  }
 }
 
 .str-chat__send-to-channel-checkbox__field {

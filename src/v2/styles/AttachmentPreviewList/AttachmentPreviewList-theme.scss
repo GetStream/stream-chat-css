@@ -107,6 +107,7 @@
     }
   }
 
+  .str-chat__location-preview,
   .str-chat__attachment-preview-unsupported,
   .str-chat__attachment-preview-voice-recording,
   .str-chat__attachment-preview-file {
@@ -115,6 +116,10 @@
     .str-chat__attachment-preview-title,
     .str-chat__attachment-preview-file-name {
       font: var(--str-chat__subtitle-medium-text);
+    }
+
+    .str-chat__attachment-preview-subtitle {
+      font: var(--str-chat__caption-text);
     }
 
     .str-chat__attachment-preview-file-download {
@@ -139,6 +144,12 @@
     .str-chat__recording-timer {
       color: var(--str-chat__text-low-emphasis-color);
       font: var(--str-chat__caption-medium-text);
+    }
+  }
+
+  .str-chat__location-preview {
+    .str-chat__location-preview-image {
+      color: var(--str-chat__active-primary-color);
     }
   }
 

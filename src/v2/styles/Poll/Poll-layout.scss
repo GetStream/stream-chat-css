@@ -434,41 +434,6 @@
         width: 1rem;
       }
     }
-
-    .str-chat__form__switch-field {
-      width: 100%;
-      padding: 1rem;
-
-      input[type='checkbox'] {
-        display: none;
-      }
-
-      label {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-      }
-
-      .str-chat__form__switch-field__switch {
-        display: flex;
-        align-items: center;
-        width: calc(var(--str-chat__spacing-px) * 52);
-        height: calc(var(--str-chat__spacing-px) * 32);
-        padding: 0.25rem;
-
-        .str-chat__form__switch-field__switch-handle {
-          height: 1.5rem;
-          width: 1.5rem;
-        }
-
-        &.str-chat__form__switch-field__switch--on {
-          .str-chat__form__switch-field__switch-handle {
-            transform: translateX(1.25rem);
-          }
-        }
-      }
-    }
   }
 }
 

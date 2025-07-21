@@ -47,6 +47,7 @@
     }
   }
 
+  .str-chat__location-preview,
   .str-chat__attachment-preview-unsupported,
   .str-chat__attachment-preview-voice-recording,
   .str-chat__attachment-preview-file {
@@ -70,12 +71,14 @@
       justify-content: center;
 
       .str-chat__attachment-preview-title,
+      .str-chat__attachment-preview-subtitle,
       .str-chat__attachment-preview-file-name {
         @include utils.ellipsis-text;
         max-width: 100%;
       }
     }
 
+    .str-chat__location-preview-image,
     .str-chat__attachment-preview-file-icon {
       --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 37);
       --str-chat-icon-width: auto;
