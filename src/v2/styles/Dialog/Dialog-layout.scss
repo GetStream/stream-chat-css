@@ -25,7 +25,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 1.25rem;
-    padding: 2.25rem 1.25rem 0;
+    padding: 2.25rem 1.25rem;
 
     .str-chat__dialog__controls-button {
       @include utils.button-reset;

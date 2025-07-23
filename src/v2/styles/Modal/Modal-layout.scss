@@ -30,6 +30,8 @@
     }
 
     .str-chat__modal-header__close-button {
+      @include utils.button-reset;
+      cursor: pointer;
       background-image: var(--str-chat__close-icon);
       background-repeat: no-repeat;
       height: 0.875rem;

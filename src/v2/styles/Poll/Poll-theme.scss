@@ -175,32 +175,4 @@
       border: 1px solid var(--str-chat__message-error-message-color);
     }
   }
-
-  .str-chat__form__switch-field {
-    @include field-background;
-
-    &, label {
-      cursor: pointer;
-    }
-
-    .str-chat__form__switch-field__switch {
-      cursor: pointer;
-      background-color: var(--str-chat__text-low-emphasis-color);
-      border-radius: 100px;
-
-      .str-chat__form__switch-field__switch-handle {
-        border-radius: var(--str-chat__border-radius-circle);
-        background-color: var(--str-chat__disabled-color);
-      }
-
-      &.str-chat__form__switch-field__switch--on {
-        background-color: var(--str-chat__green600);
-
-        .str-chat__form__switch-field__switch-handle {
-          background-color: var(--str-chat__background-color);
-          border-radius: var(--str-chat__border-radius-circle);
-        }
-      }
-    }
-  }
 }

@@ -141,6 +141,35 @@
   /* Box shadow applied to file attachments */
   --str-chat__file-attachment-box-shadow: none;
 
+  /* The border radius used for the borders of file attachments */
+  --str-chat__geolocation-attachment-border-radius: calc(
+    var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
+  );
+
+  /* The text/icon color of geolocation attachments */
+  --str-chat__geolocation-attachment-color: var(--str-chat__text-color);
+
+  /* The text/icon color of geolocation attachments for low emphasis texts (for example file size) */
+  --str-chat__geolocation-attachment-secondary-color: var(--str-chat__text-low-emphasis-color);
+
+  /* The background color of geolocation attachments */
+  --str-chat__geolocation-attachment-background-color: var(--str-chat__secondary-background-color);
+
+  /* Top border of geolocation attachments */
+  --str-chat__geolocation-attachment-border-block-start: none;
+
+  /* Bottom border of geolocation attachments */
+  --str-chat__geolocation-attachment-border-block-end: none;
+
+  /* Left (right in RTL layout) border of geolocation attachments */
+  --str-chat__geolocation-attachment-border-inline-start: none;
+
+  /* Right (left in RTL layout) border of geolocation attachments */
+  --str-chat__geolocation-attachment-border-inline-end: none;
+
+  /* Box shadow applied to geolocation attachments */
+  --str-chat__geolocation-attachment-box-shadow: none;
+
   /* Border radius applied audio widget */
   --str-chat__audio-attachment-widget-border-radius: calc(
     var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin)
@@ -323,6 +352,33 @@
   .str-chat__message-attachment-unsupported,
   .str-chat__message-attachment-file--item {
     @include utils.component-layer-overrides('file-attachment');
+  }
+
+  .str-chat__message-attachment-geolocation {
+    @include utils.component-layer-overrides('geolocation-attachment');
+    overflow: hidden;
+
+    .str-chat__message-attachment-geolocation__placeholder {
+      .str-chat__message-attachment-geolocation__placeholder-link {
+        color: currentColor;
+      }
+    }
+
+    .str-chat__message-attachment-geolocation__status {
+      background-color: var(--str-chat__tertiary-surface-color);
+
+      .str-chat__message-attachment-geolocation__status--active {
+        .str-chat__message-attachment-geolocation__stop-sharing-button {
+          @include utils.button-reset;
+          font: var(--str-chat__subtitle-medium-text);
+          cursor: pointer;
+        }
+
+        .str-chat__message-attachment-geolocation__status--active-until {
+          font: var(--str-chat__caption-text);
+        }
+      }
+    }
   }
 
   .str-chat__message-attachment-unsupported {

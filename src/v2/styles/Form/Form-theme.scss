@@ -1,3 +1,5 @@
+@use '../utils';
+
 .str-chat {
   // hide spin buttons form input of type number
   /* Chrome, Safari, Edge, Opera */
@@ -17,4 +19,64 @@
 .str-chat__form-field-error {
   font-size: 0.75rem;
   color: var(--str-chat__danger-color);
+}
+
+// fixme: duplicate mixin in poll theme
+@mixin field-background {
+  background-color: var(--str-chat__tertiary-surface-color);
+  border-radius: 0.75rem;
+}
+
+
+
+.str-chat__form__switch-field {
+  @include field-background;
+
+  &, label {
+    cursor: pointer;
+  }
+
+  label {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .str-chat__form__switch-field__switch {
+    cursor: pointer;
+    background-color: var(--str-chat__text-low-emphasis-color);
+    border-radius: 100px;
+
+    .str-chat__form__switch-field__switch-handle {
+      border-radius: var(--str-chat__border-radius-circle);
+      background-color: var(--str-chat__disabled-color);
+    }
+
+    &.str-chat__form__switch-field__switch--on {
+      background-color: var(--str-chat__green600);
+
+      .str-chat__form__switch-field__switch-handle {
+        background-color: var(--str-chat__background-color);
+        border-radius: var(--str-chat__border-radius-circle);
+      }
+    }
+  }
+}
+
+.str-chat__form__switch-field--disabled {
+  .str-chat__form__switch-field--disabled,
+  .str-chat__form__switch-field--disabled .str-chat__form__switch-field__switch,
+  label {
+    cursor: not-allowed;
+  }
+}
+
+.str-chat__dropdown {
+  .str-chat__dropdown__open-button {
+    @include utils.button-reset;
+    cursor: pointer;
+  }
+
+  .str-chat__dropdown__items {
+    background-color: var(--str-chat__background-color);
+  }
 }

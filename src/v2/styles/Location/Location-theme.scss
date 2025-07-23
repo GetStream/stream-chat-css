@@ -1,0 +1,32 @@
+@use '../utils';
+
+.str-chat__share-location-dialog {
+  .str-chat__live-location-activation {
+    border-radius: var(--str-chat__border-radius-sm);
+    border: 1px solid var(--str-chat__secondary-overlay-color);;
+
+    .str-chat__form__switch-field {
+      background-color: var(--str-chat__background-color);
+    }
+
+    .str-chat__dropdown__open-button {
+      border-radius: var(--str-chat__border-radius-xs);
+      border: 1px solid var(--str-chat__secondary-overlay-color);
+      background-color: var(--str-chat__tertiary-surface-color);
+    }
+
+    .str-chat__dropdown__items {
+      box-shadow: 0 0 8px var(--str-chat__box-shadow-color);
+      border-radius: var(--str-chat__border-radius-xs);
+
+      .str-chat__live-location-sharing-duration-option {
+        @include utils.button-reset;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--str-chat__message-options-hover-background-color);
+        }
+      }
+    }
+  }
+}
