@@ -74,14 +74,11 @@
   }
 }
 
-// stream-chat-react image gallery does not show the modal inner container. It has to be reset to
-// width of its content in order the modal can be closed when clicked on overlay
-.str-chat__message-attachment--card,
-.str-chat__message-attachment--image,
-.str-chat__message-attachment--gallery {
-  .str-chat__modal--open .str-chat__modal__inner.str-chat-react__modal__inner {
+@mixin image-on-modal {
+  .str-chat__modal__inner.str-chat-react__modal__inner {
     background-color: transparent;
     width: unset;
+    max-width: unset;
     height: unset;
     padding: 0;
 
@@ -90,5 +87,23 @@
       max-height: calc(100vh - 80px);
       cursor: default;
     }
+  }
+}
+
+// stream-chat-react image gallery does not show the modal inner container. It has to be reset to
+// width of its content in order the modal can be closed when clicked on overlay
+// todo: remove this rule once only GlobalModal is used and old Modal is removed from stream-chat-react
+.str-chat__message-attachment--card,
+.str-chat__message-attachment--image,
+.str-chat__message-attachment--gallery {
+  .str-chat__modal--open {
+    @include image-on-modal;
+  }
+}
+
+.str-chat-react__modal.str-chat__modal--open {
+  &.str-chat__image-modal,
+  &.str-chat__gallery-modal {
+    @include image-on-modal;
   }
 }

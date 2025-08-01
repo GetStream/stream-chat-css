@@ -46,13 +46,27 @@
     flex-direction: column;
     align-items: center;
 
-    .str-chat__poll-action {
-      padding: 0.675rem;
-      font: var(--str-chat__subtitle-text);
-      color: var(--str-chat__primary-color);
-    }
   }
 }
+
+.str-chat__poll-action {
+  padding: 0.675rem;
+  font: var(--str-chat__subtitle-text);
+  color: var(--str-chat__primary-color);
+}
+
+.str-chat__poll-results-modal,
+.str-chat__poll-answer-list-modal,
+.str-chat__add-poll-answer-modal,
+.str-chat__suggest-poll-option-modal,
+.str-chat__poll-options-modal {
+  button {
+    @include utils.button-reset;
+    cursor: pointer;
+  }
+}
+
+
 
 .str-chat__poll-option-list--full,
 .str-chat__modal__poll-results {
@@ -145,7 +159,7 @@
   }
 }
 
-.str-chat__poll-actions .str-chat__modal {
+.str-chat-react__modal.str-chat__poll-action-modal, .str-chat__poll-actions .str-chat__modal {
   .str-chat__modal__close-button {
     display: none;
   }
