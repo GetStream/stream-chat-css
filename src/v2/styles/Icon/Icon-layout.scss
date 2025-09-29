@@ -31,9 +31,9 @@
 }
 
 .str-chat__icon--poll {
+  --str-chat-icon-width: var(--str-chat-icon-height);
   -webkit-mask: var(--str-chat__poll-icon) no-repeat center / contain;
   mask: var(--str-chat__poll-icon) no-repeat center / contain;
-  --str-chat-icon-width: var(--str-chat-icon-height);
 }
 
 .str-chat__icon--action::before {
