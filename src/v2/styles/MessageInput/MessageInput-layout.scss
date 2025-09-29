@@ -46,6 +46,14 @@
       }
     }
 
+    .str-chat-angular__create-poll {
+      --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 21);
+      @include utils.flex-row-center;
+      width: calc(var(--str-chat__spacing-px) * 45);
+      height: calc(var(--str-chat__spacing-px) * 45);
+      cursor: pointer;
+    }
+
     .str-chat__message-textarea-container {
       @include utils.flex-col-center;
       width: 100%;
