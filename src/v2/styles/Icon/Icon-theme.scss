@@ -11,3 +11,7 @@
 .str-chat__icon--error {
   --str-chat-icon-color: var(--str-chat__danger-color);
 }
+
+.str-chat__icon--poll {
+  background-color: var(--str-chat-icon-color);
+}

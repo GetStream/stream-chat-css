@@ -178,7 +178,8 @@
 .str-chat__message-input {
   @include utils.component-layer-overrides('message-input');
 
-  .str-chat__file-input-container {
+  .str-chat__file-input-container,
+  .str-chat-angular__create-poll {
     --str-chat-icon-color: var(--str-chat__message-input-tools-color);
     @include utils.component-layer-overrides('message-input-tools');
 
