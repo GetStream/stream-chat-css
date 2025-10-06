@@ -249,19 +249,10 @@
   }
 
   .str-chat__message-status {
-    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 15);
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 16);
     @include utils.flex-row-center;
     column-gap: var(--str-chat__spacing-0_5);
     position: relative;
-
-    svg {
-      width: calc(var(--str-chat__spacing-px) * 15);
-      height: calc(var(--str-chat__spacing-px) * 15);
-    }
-  }
-
-  .str-chat__message-status-sent {
-    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 12);
 
     svg {
       width: var(--str-chat-icon-height);
@@ -269,8 +260,8 @@
     }
   }
 
-  .str-chat__message-status-delivered {
-    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 15);
+  .str-chat__message-status.str-chat__message-status-sent {
+    --str-chat-icon-height: calc(var(--str-chat__spacing-px) * 12);
 
     svg {
       width: var(--str-chat-icon-height);
