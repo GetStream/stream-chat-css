@@ -1,6 +1,7 @@
 .str-chat__message-actions-box {
   overflow: hidden; // Avoids message action box item background overflow in hovered state
 
+  .str-chat__message-actions-box__submenu,
   .str-chat__message-actions-list {
     list-style: none;
     padding: 0;
