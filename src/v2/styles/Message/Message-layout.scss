@@ -295,6 +295,10 @@
       cursor: pointer;
       padding: 0;
     }
+
+    button:disabled {
+      cursor: auto;
+    }
   }
 
   .str-chat__message--deleted-inner {
