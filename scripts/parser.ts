@@ -2,9 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import glob from 'glob';
 import * as sass from 'sass';
-import Parser, { SyntaxNode } from 'tree-sitter';
-// @ts-ignore
-import CSS from 'tree-sitter-css';
+import postcss, { Root, Rule, Declaration, Comment, Container } from 'postcss';
 
 type SDK = 'Angular' | 'React';
 
@@ -15,11 +13,9 @@ export type ComponentInfo = {
 };
 
 export const extractComponents = (fromGlob: string) => {
-  const parser = new Parser();
-  parser.setLanguage(CSS);
-
   const componentInfos: ComponentInfo[] = [];
   const files = glob.sync(fromGlob);
+
   files.forEach((file) => {
     const [, componentName] = file.split(/.*\/(.*)-(theme|layout|variables)\.scss$/);
     // sass fails to resolve the `../utils` file for some reason, therefore
@@ -33,25 +29,27 @@ export const extractComponents = (fromGlob: string) => {
       loadPaths: [path.resolve('./src/v2/styles')],
     });
 
+    const css = compilation.css;
+    const root: Root = postcss.parse(css);
+
     let sdkRestriction: SDK | undefined = undefined;
     let variableType: 'layout' | 'theme' | undefined = undefined;
-    const ast = parser.parse(compilation.css);
-    ast.rootNode.descendantsOfType('rule_set').forEach((ruleSet) => {
-      const ruleSetComment = extractComment(ruleSet);
+
+    root.walkRules((rule: Rule) => {
+      const ruleSetComment = extractLeadingComment(rule);
       if (ruleSetComment) {
         const matches = ruleSetComment.match(/Angular|React/g);
         if (matches) {
           sdkRestriction = matches[0] as SDK;
         }
       }
-      for (let i = 0; i < ruleSet.descendantsOfType('declaration').length; i++) {
-        const node = ruleSet.descendantsOfType('declaration')[i];
-        const identifier = node.text;
-        if (identifier.startsWith('--str-chat')) {
+
+      rule.walkDecls((decl: Declaration) => {
+        // custom property name is in decl.prop
+        if (decl.prop.startsWith('--str-chat')) {
           variableType = file.includes('theme') ? 'theme' : 'layout';
-          break;
         }
-      }
+      });
     });
 
     if (variableType) {
@@ -73,14 +71,19 @@ export const extractComponents = (fromGlob: string) => {
   return componentInfos;
 };
 
-const extractComment = (node: SyntaxNode) => {
-  if (node.previousSibling?.type === 'comment') {
-    const match = node.previousSibling.text.match(/\*\s*(.+?)\*\//)!;
-    if (match) {
-      const [, comment] = match;
-      return comment.trim();
-    }
-  } else {
-    return undefined;
+const extractLeadingComment = (rule: Rule): string | undefined => {
+  const parent = rule.parent as Container | undefined;
+  if (!parent || !('nodes' in parent) || !parent.nodes) return;
+
+  const idx = parent.nodes.indexOf(rule);
+  if (idx <= 0) return;
+
+  const prev = parent.nodes[idx - 1];
+  if (prev.type === 'comment') {
+    // PostCSS comment text is everything inside /* ... */
+    const comment = (prev as Comment).text;
+    return comment.trim();
   }
+
+  return undefined;
 };
