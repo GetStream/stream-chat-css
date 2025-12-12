@@ -177,6 +177,10 @@
       .str-chat__form-field-error {
         height: 1rem;
       }
+
+      .str-chat__dialog__controls {
+        padding-bottom: 0;
+      }
     }
 
     .str-chat__modal__poll-answer-list,
