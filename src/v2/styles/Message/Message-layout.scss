@@ -513,6 +513,7 @@
       .str-chat__quoted-message-text {
         max-height: 100%;
         min-height: 0;
+        overflow: hidden;
 
         p {
           max-height: 100%;
