@@ -11,6 +11,8 @@ jobs:
   package_release:
     name: Release from "${{ github.ref_name }}" branch
     runs-on: ubuntu-latest
+    # Only main and release-v* may use this environment, and the npm trusted publisher requires it.
+    environment: npm-release
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
